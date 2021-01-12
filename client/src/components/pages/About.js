@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "../../../utilities.css";
+
 /*
  * What should it inherit?
  * states of the character(?)
