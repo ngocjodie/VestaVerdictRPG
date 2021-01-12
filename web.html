@@ -1,0 +1,71 @@
+web.html
+
+<html>
+
+    <script>
+        var toggle = true;
+
+        function noseyboop() {
+            if (toggle) {
+                document.body.style.backgroundColor = "green";
+                hobo = document.getElementById("cutie");
+                hobo.style.backgroundColor = "silver";
+                hobo.style.color = "white";
+                hobo.style.fontSize = "25";
+                toggle = false;
+                doggo = document.getElementById("Sammy");
+                doggo.style.display = "none";
+                kitto = document.getElementById("Kitty");
+                kitto.style.display = "block";
+                text = document.getElementById("please");
+                text.style.display = "none";
+
+
+            }
+            else {
+                document.body.style.backgroundColor = "maroon";
+                hobo = document.getElementById("cutie");
+                hobo.style.backgroundColor = "silver";
+                hobo.style.color = "white";
+                hobo.style.fontSize = "25";
+                toggle = true;
+                doggo = document.getElementById("Sammy");
+                doggo.style.display = "block";
+                kitto = document.getElementById("Kitty");
+                kitto.style.display = "none";
+            }
+        }
+    </script>
+
+    <style>
+        div {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color:slateblue;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+    </style>
+
+    <body>
+        <div>
+        <strong id="cutie"> boop the holiday nosies !!! </strong>
+        </div>
+
+        <br>
+        <img src="https://cattime.com/assets/uploads/2017/11/kitten-as-christmas-gift-2-e1545440401916.jpg"
+            alt="Sammy" class="center" id="Sammy" onclick="noseyboop()">
+        <img src="monker.jpg"
+            alt="Kitty" class="center" style="display:none" id = "Kitty" onclick="noseyboop()">
+    </body>
+    <div>
+        <strong id="please"> please boop by clicking on the nosie </strong>
+    </div>
+
+</html>
