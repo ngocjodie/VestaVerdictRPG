@@ -34,6 +34,8 @@ const socketManager = require("./server-socket");
 // Server configuration below
 // TODO change connection URL after setting up your team database
 const mongoConnectionURL = "FILL ME IN";
+//Bréjah's is mongodb+srv://<username>:<password>@cluster0.aniuo.mongodb.net/<dbname>?retryWrites=true&w=majority
+
 // TODO change database name to the name you chose
 const databaseName = "FILL ME IN";
 

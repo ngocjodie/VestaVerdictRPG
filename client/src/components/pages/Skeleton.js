@@ -53,6 +53,7 @@ class Skeleton extends Component {
           <li>Add a favicon to your website at the path client/dist/favicon.ico</li>
           <li>Update website title in client/dist/index.html</li>
         </ul>
+        <p>We could turn this into a legit to-do list now that I think about it....</p>
       </>
     );
   }
