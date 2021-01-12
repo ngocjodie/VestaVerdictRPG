@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <style>
@@ -44,14 +43,21 @@ p.gamename {
             width: 50%;
         }
 
-div.para {
+.u-flex{
+    display: flex;
+    justify-content: center;
+
+}
+.cabinet {
+    margin: 50px;
     text-align: center;
-    margin-left: 200px;
-    margin-right: 200px;
-    font-family: Georgia;
-    color: 546978;
-    
-    }
+}
+.subContainer{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 20px;
+
+}
 
 </style>
 </head>
@@ -64,16 +70,21 @@ div.para {
   <li><a href="#sign up">Account</a></li>
 </ul>
 
-<p class="gamename">  The Vesta Verdict  </p>
+<div class ="u-flex">
 
-<br>
-    <img src="pic_coming_soon.png"
-        alt="art" class="center" id="artsy">
-<br>
-<br>
-<div class="para">  Choose your role and prove your innocence. This will be more of a paragraph! 
-    Hopefully it will make people want to play our game :D Any suggestions about relative info to be
-included here? A little </div>
+    <section class="cabinet">
+        Awards
+        <br>
+        <img src="awards cabinet.png" class="subContainer">
+    </section>
+    <section class="cabinet">
+        Acheivements
+        <br>
+        <img src="awards cabinet.png" class ="subContainer">
+    </section>
+
+</div>
+
 
 
 </body>
