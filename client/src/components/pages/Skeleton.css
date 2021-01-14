@@ -5,6 +5,7 @@
   --red: #ff0000;
   --green: #39ad39;
   --blue: #0000ff;
+  --black: #000000;
 
   /* Mediterranean Color Palette */
   --brown: #9a6c63;
@@ -12,4 +13,25 @@
   --olive: #b4840d;
   --seagreen: #008989;
   --darkslate: #546978;
+
+  --s: 4px;
+  --m: 8px;
+  --l: 16px;
+  --xl: 32px;
+}
+
+.Skeleton-button-container {
+  background-color: var(--olive);
+  padding: var(--m);
+  margin-top: var(--m);
+  /* margin-left: var(--s); */
+}
+
+.Skeleton-practice-link {
+  color: var(--blue);
+  font-size: var(--l);
+}
+
+.Skeleton-practice-link:hover {
+  opacity: 0.5;
 }

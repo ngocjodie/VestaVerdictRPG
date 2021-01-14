@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
+import { Link } from "@reach/router";
 
 import "../../utilities.css";
 import "./Skeleton.css";
+import "./Game.js";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";
@@ -36,6 +38,13 @@ class Skeleton extends Component {
             onFailure={(err) => console.log(err)}
           />
         )}
+  
+        <div className="Skeleton-button-container" >
+          <Link to="/game/" className="Skeleton-practice-link"> 
+            Game Page 
+          </Link>
+        </div>
+
         <h1>Good luck on your project :)</h1>
         <h2> What we provide in this skeleton</h2>
         <ul>

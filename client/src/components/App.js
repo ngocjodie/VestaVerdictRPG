@@ -49,13 +49,8 @@ class App extends Component {
     return (
       <>
         <Router>
-          {/* <Game /> */}
-          <Skeleton
-            path="/"
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
+          <Skeleton path="/" handleLogin={this.handleLogin} handleLogout={this.handleLogout} userId={this.state.userId} />
+          <Game path="/game/" userId={this.state.userId} />
           <NotFound default />
         </Router>
       </>
