@@ -1,0 +1,44 @@
+
+:root {
+  --white: #fff;
+  --red: #ff0000;
+  --green: #39ad39;
+  --blue: #0000ff;
+  --black: #000000;
+
+  /* Mediterranean Color Palette */
+  --brown: #9a6c63;
+  --clay: #d05d47;
+  --olive: #b4840d;
+  --seagreen: #008989;
+  --darkslate: #546978;
+
+  --s: 4px;
+  --m: 8px;
+  --l: 16px;
+  --xl: 32px;
+}
+
+.About-title {
+  display: flex;
+  justify-content: center;
+  background-color: var(--brown);
+  color: var(--white);
+  font-size: 64px;
+  margin: 0;
+  border: var(--s);
+  padding: var(--l);
+}
+
+.About-summary-text {
+  display: flex;
+  justify-content: center;
+  margin: var(--xl);
+  font-size: 25px;
+}
+/* Was thinking about using this to do something for idnividual members but decided against it in the name of privacy and less work
+.About-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+} */
