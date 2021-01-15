@@ -1,4 +1,4 @@
-/**  ASSUMPTIONS / 
+/**  ASSUMPTIONS
  * 
  * there are boundaries that the character can't pass
  * if a character goes off screen, it takes them to the beginning of the next screen

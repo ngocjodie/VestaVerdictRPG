@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { drawCanvas } from "../../canvas";
+
 /**
  * path = "/game"
  * 
@@ -15,11 +17,26 @@ class Game extends Component {
 
   componentDidMount(){
     // for api calls
+    drawCanvas();
+
   }
 
+
   render() {
+    console.log("entered the render");
     return(
-      <div> What's up, GAMERS </div>
+      <div>
+        <div>
+          <h1>
+            What's up GAMERS
+          </h1>
+        </div>
+        
+        <div className="Game-body">
+          <canvas id="game-canvas" width="500" height="500" />
+        </div>
+
+      </div>
     );
   }
 }
