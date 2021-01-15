@@ -15,10 +15,8 @@ class Game extends Component {
     this.state = {}; //initialize state
   }
 
-  componentDidMount(){
-    // for api calls
+  componentDidMount(){     // for api calls
     drawCanvas();
-
   }
 
 

@@ -6,6 +6,8 @@ const drawChar = (context, x, y, color) => {
   context.fillRect(x, y, 50, 50);
 };
 
+//const moveChar = ()
+
 
 /** main draw */
 export const drawCanvas = () => {
