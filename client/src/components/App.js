@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Game from "./pages/Game.js";
+import About from "./pages/About.js";
 
 import "../utilities.css";
 
@@ -12,6 +13,8 @@ import { get, post } from "../utilities";
 
 /**
  * Define the "App" component as a class.
+ * path = "/about/"
+ * 
  */
 class App extends Component {
   // makes props available in this component
@@ -51,6 +54,7 @@ class App extends Component {
         <Router>
           <Skeleton path="/" handleLogin={this.handleLogin} handleLogout={this.handleLogout} userId={this.state.userId} />
           <Game path="/game/" userId={this.state.userId} />
+          <About path="/about/" />
           <NotFound default />
         </Router>
       </>

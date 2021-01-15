@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../../../utilities.css";
+//import "../../../utilities.css";
 
 /*
  * What should it inherit?

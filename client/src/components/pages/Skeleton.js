@@ -43,6 +43,9 @@ class Skeleton extends Component {
           <Link to="/game/" className="Skeleton-practice-link"> 
             Game Page 
           </Link>
+          <Link to="/about/" className="Skeleton-practice-link">
+            About Us
+          </Link>
         </div>
 
         <h1>Good luck on your project :)</h1>
