@@ -23,7 +23,7 @@
 .Skeleton-button-container {
   background-color: var(--olive);
   padding: var(--m);
-  margin-top: var(--m);
+  margin: var(--m);
   /* margin-left: var(--s); */
 }
 
@@ -33,5 +33,5 @@
 }
 
 .Skeleton-practice-link:hover {
-  opacity: 0.5;
+  opacity: 0.65;
 }
