@@ -4,9 +4,8 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Game from "./pages/Game.js";
 import About from "./pages/About.js";
-
 import "../utilities.css";
-
+import Frontpage from "./pages/Frontpage.js";
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
@@ -55,6 +54,7 @@ class App extends Component {
           <Skeleton path="/" handleLogin={this.handleLogin} handleLogout={this.handleLogout} userId={this.state.userId} />
           <Game path="/game/" userId={this.state.userId} />
           <About path="/about/" />
+          <Frontpage path="/frontpage/"/>
           <NotFound default />
         </Router>
       </>

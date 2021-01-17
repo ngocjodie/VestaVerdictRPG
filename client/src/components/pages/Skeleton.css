@@ -21,15 +21,22 @@
 }
 
 .Skeleton-button-container {
-  background-color: var(--olive);
-  padding: var(--m);
-  margin: var(--m);
+  background-color: #546978;
+  margin: 0;
+  padding: 0;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 80px;
+  border-radius: 4px;
   /* margin-left: var(--s); */
 }
 
 .Skeleton-practice-link {
-  color: var(--blue);
+  color: var(--white);
   font-size: var(--l);
+  font-family: Georgia;
+  padding: 100px;
 }
 
 .Skeleton-practice-link:hover {

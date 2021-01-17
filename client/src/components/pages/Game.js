@@ -19,10 +19,11 @@ class Game extends Component {
     drawCanvas();
   }
 
-
+  
   render() {
     console.log("entered the render");
     return(
+      
       <div>
         <div>
           <h1>
