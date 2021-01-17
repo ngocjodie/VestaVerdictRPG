@@ -18,66 +18,66 @@ var dialogueSystem = [
         // 2
         "question":"Lady: Keke, you cursed forever now.",
         "answers":[
-            {"title":":[","response":7},
+            {"title":"-> :[","response":7},
             ]
     },
     {
         // 3
         "question":"Lady: legitness. my throat be dry too though.",
         "answers":[
-            {"title":"yes, m'aam. fountain water coming right up","response":4},
-            {"title":"unfortunately not my problem.","response":6}
+            {"title":"-> yes, m'aam. fountain water coming right up","response":4},
+            {"title":"-> unfortunately not my problem.","response":6}
             ]
     },
     {
         // 4
         "question":"Lady: Thanks man. Your purse looks lit, can I buy it?",
         "answers":[
-            {"title":"ya.","response":5},
-            {"title":"nah, it's my mum's.","response":6}
+            {"title":"-> ya.","response":5},
+            {"title":"-> nah, it's my mum's.","response":6}
             ]
     },
     {
         // 5
         "question":"Lady: Aight here's your cash.",
         "answers":[
-            {"title":"im rich","response":7}
+            {"title":"-> im rich","response":7}
         ]
     },
     {
         // 6
         "question":"Lady: >:(",
         "answers":[
-            {"title":":o","response":2},
+            {"title":"-> :o","response":2},
             ]
     },
     {
         // 7
         "question":"Game Over",
         "answers":[
-            {"title":"Restart","response":0},
+            {"title":"-> Restart","response":0},
             ]
     },
     {
         // 8
         "question":"You found the fruit.",
         "answers":[
-            {"title": "Press to eat the fruit.","response":9},
-            {"title": "Press to return the fruit.","response":10}
+            {"title": "-> Press to eat the fruit.","response":9},
+            {"title": "-> Press to return the fruit.","response":10}
         ]
     },
     {
         // 9
         "question":"lady: Where my fruit at?",
         "answers":[
-            {"title": "i ate it omnomnom.","response": 6},
+            {"title": "->  ate it omnomnom.","response": 6},
         ]
     },
     {
         // 10
         "question":"lady: Where my fruit at?",
         "answers":[
-            {"title": "here you go.","response": 3},
+            {"title": "-> here you go.","response": 3},
         ]
     }
     ];
