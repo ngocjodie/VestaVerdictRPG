@@ -4,14 +4,14 @@ var dialogueSystem = [
     {   // 0
         "question":"Start",
         "answers":[
-            {"title":"oh wow. a dying lady!","response":1},
+            {"title":"-> oh wow. a dying lady!","response":1},
             ]
     },
     {
         // 1
         "question":"Lady:  help, i've fallen and i can't get my fruit!",
         "answers":[
-            {"title":"don't worry. i'll find it.","response":8}
+            {"title":"-> don't worry. i'll find it.","response":8}
             ]
     },
     {
@@ -90,7 +90,7 @@ window.printcurrentConvo = function(){
     var answers = "";
     for(var i=0,l=dialogueSystem[currentConvo].answers.length;i<l;i++){
         // CHANGE BUTTON STUFF HERE UWU
-        answers += "<p><button  class='unstyled-button' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
+        answers += "<p><button class='unstyled-button' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
     }
     document.getElementById("answers").innerHTML = answers;
 }
