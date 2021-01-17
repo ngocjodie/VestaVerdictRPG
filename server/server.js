@@ -33,7 +33,7 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = "mongodb+srv://jodie:e6O6uo1dhQFje5pf@cluster0.0loe4.mongodb.net/testing?retryWrites=true&w=majority";
+const mongoConnectionURL = "mongodb+srv://jodie:pw/testing?retryWrites=true&w=majority";
 
 //process.env.mongoURL;
 
