@@ -54,12 +54,12 @@ class Skeleton extends Component {
         )}
         </div>
 
-        <p class="gamename">  The Vesta Verdict  </p>
+        <p className="gamename">  The Vesta Verdict  </p>
 
         <div className="center">
           <img src={image_coming} alt="coming" />
         </div>
-        
+        {/*doesn't recognize par tag*/}
         <par className="para">
         Choose your role and prove your innocence. This will be more of a paragraph! Hopefully it will make people want to play our game :D Any suggestions about relative info to be
 included here?

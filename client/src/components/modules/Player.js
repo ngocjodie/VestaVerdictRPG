@@ -5,10 +5,6 @@ import "./Player.css";
 import { drawChar } from "../../canvas.js";
 
 /*
- * What should it inherit?
- * a location?
- * 
-*/
 class Player extends Component{
   constructor(props){
     super(props);
@@ -21,20 +17,6 @@ class Player extends Component{
     };
   }
 
-  /* Direction key state
-  directions = {
-    up: "up",
-    down: "down",
-    left: "left",
-    right: "right",
-  }
-  keys = {
-    38: directions.up,
-    37: directions.left,
-    39: directions.right,
-    40: directions.down,
-  }
-  */
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "ArrowUp") {
@@ -77,38 +59,41 @@ class Player extends Component{
 
 export default Player;
 
+*/
 
 
 
 
-/*
- * class Player extends Component{
+class Player extends Component{
   constructor(props){
     super(props);
 
     this.state = {
       char: null,
       x: 90,
-      y: 34,
+      y: 30,
       color: "orange",
-      speed = 1,
-      held_directions = [],
+      speed: 1,
+      held_directions: [],
     };
   }
 
-   Direction key state 
+//   Direction key state 
   directions = {
     up: "up",
     down: "down",
     left: "left",
     right: "right",
   }
+
   keys = {
-    38: directions.up,
-    37: directions.left,
-    39: directions.right,
-    40: directions.down,
+    38: "up",
+    37: "left",
+    39: "right",
+    40: "down",
   }
+ 
+
   window.addEventListener("keydown", (e) => {
     var dir = keys[e.which];
     if (dir && this.state.held_directions.indexOf(dir) === -1) {
@@ -117,7 +102,7 @@ export default Player;
       });
     }
   });
-
+   /* 
   window.addEventListener("keyup", (e) => {
     var dir = keys[e.which];
     var index = held_directions.indexOf(dir);
@@ -128,6 +113,7 @@ export default Player;
       });
     }
   });
+hi */
 
 
   componentDidMount() {
@@ -137,7 +123,7 @@ export default Player;
     });
   }
 
-  const placeCharacter = () => {
+  placeCharacter = () => {
    
     var pixelSize = parseInt(
        getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
@@ -147,22 +133,22 @@ export default Player;
     if (held_direction) {
        if (held_direction === directions.right) {
          this.setState({
-           x = this.state.x + this.state.speed,
+           x: this.state.x + this.state.speed,
         });
        }
        if (held_direction === directions.left) {
          this.setState({
-           x = this.state.x - this.state.speed,
+           x: this.state.x - this.state.speed,
          });
        }
        if (held_direction === directions.down) {
          this.setState({
-             y = this.state.y + this.state.speed,
+             y: this.state.y + this.state.speed,
          });
        }
        if (held_direction === directions.up) {
         this.setState({
-            y = this.state.y - this.state.speed,
+            y: this.state.y - this.state.speed,
         });
       }
     }
@@ -174,22 +160,22 @@ export default Player;
     var bottomLimit = (16 * 7);
     if (this.state.x < leftLimit) {
       this.setState({
-        x = leftLimit,
+        x: leftLimit,
      });
     }
     if (x > rightLimit) {
       this.setState({
-        x = rightLimit,
+        x: rightLimit,
      });
     }
     if (y < topLimit) {
       this.setState({
-        y = topLimit,
+        y: topLimit,
      });
     }
     if (y > bottomLimit) {
       this.setState({
-        y = bottomLimit,
+        y: bottomLimit,
      });
     }
     
@@ -198,7 +184,7 @@ export default Player;
   }
 
   //Set up the game loop
-  const step = () => {
+  step = () => {
     placeCharacter();
     window.requestAnimationFrame(() => {
       step(); //might cause some issues
@@ -209,11 +195,13 @@ export default Player;
 
   render() {
     //what to return / display
-    step(); //kick off the first step!
+    //step(); //kick off the first step
+    return(
+      <img src="checkerboard.png"></img>
+
+    );
 
   }
 }
 
 export default Player;
-
- */

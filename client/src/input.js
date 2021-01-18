@@ -7,6 +7,11 @@
  * 
  */
 
+
+
+//if not dialoguing
+window.addEventListener("keydown", handleInput);
+
 const handleInput = (e) => {
   if (e.key === "ArrowUp") {
     console.log("up");
@@ -18,6 +23,3 @@ const handleInput = (e) => {
     console.log("right");
   }
 };
-
-//if not dialoguing
-window.addEventListener("keydown", handleInput);
