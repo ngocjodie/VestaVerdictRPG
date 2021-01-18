@@ -13,6 +13,11 @@
      --pixel-size: 4px;
   }
 }
+/* @media( min-width: 1000px ) {
+  :root {
+     --pixel-size: 5px;
+  }
+} */
 
 html, body {
   height: 100%;
@@ -39,10 +44,8 @@ body {
 }
 
 .camera {
-  width: 960px;
-  height: 544px;
-  /* width: calc(var(--pixel-size) * 160);
-  height: calc(var(--pixel-size) * 144); */
+  width: calc(var(--pixel-size) * 160);
+  height: calc(var(--pixel-size) * 144);
   overflow: hidden;
   background: #61ddf7;
   position:relative;
@@ -59,10 +62,8 @@ body {
   image-rendering: pixelated;
   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
   background-size: 100%;
-  width: 480px;
-  height: 272px;
-  /* width: calc(13 * var(--grid-cell)); */
-  /* height: calc(10 * var(--grid-cell)); */
+  width: calc(13 * var(--grid-cell));
+  height: calc(10 * var(--grid-cell));
   position: relative;
 }
 
