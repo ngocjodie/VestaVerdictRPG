@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 import { drawCanvas } from "../../canvas";
 
+import NavBar from "./navbar.js";
+
+
 /**
  * path = "/game"
  * 
@@ -25,6 +28,7 @@ class Game extends Component {
     return(
       
       <div>
+
         <div>
           <h1>
             What's up GAMERS

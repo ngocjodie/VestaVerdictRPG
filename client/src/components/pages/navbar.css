@@ -1,0 +1,40 @@
+.NavBar-container {
+  background-color: #546978;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 4px;
+}
+
+.NavBar-title {
+  color: var(--white);
+  font-size: 20px;
+  font-family: Georgia;
+}
+
+.NavBar-linkContainer {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.NavBar-link,
+.NavBar-link:visited {
+  color: var(--white);
+  opacity: 0.6;
+  text-decoration: none;
+  font-family: Georgia;
+  padding: 50px;
+}
+
+.NavBar-link:hover {
+  opacity: 0.8;
+}
+
+.NavBar-link.NavBar-login {
+  opacity: 1;
+}
+
+.NavBar-link + .NavBar-link {
+  margin-left: 20px;
+}

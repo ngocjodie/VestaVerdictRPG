@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Frontpage.css"
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 import { Link } from "@reach/router";
+import NavBar from "./navbar.js";
 
 import "../../utilities.css";
 import "./Skeleton.css";
@@ -21,17 +22,6 @@ render() {
     return (
       <>
 
-        <div className="Skeleton-button-container" >
-          <Link to="/game/" className="Skeleton-practice-link"> 
-            Game Page 
-          </Link>
-          <Link to="/about/" className="Skeleton-practice-link">
-            About Us
-          </Link>
-          <Link to="/frontpage/" className="Skeleton-practice-link">
-            Profile
-          </Link>
-        </div>
 
     <p class="gamename">  The Vesta Verdict  </p>
     </>
