@@ -130,7 +130,7 @@ var clicky = 0;
 document.body.onkeyup = function(e) {
     if (e.repeat) { return }
 
-    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo) && document.getElementById('boxImage').hidden ) {
+    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo)) {
         // alert('immediate space');
         event.preventDefault();
         clicky = 1;
