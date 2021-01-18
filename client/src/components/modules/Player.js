@@ -6,8 +6,6 @@ import React, { Component } from "react";
 /**
  * PROPS FROM GAME.JS:
  * 
- * character object
- * map object
  * 
  */
 class Player extends Component{
@@ -17,9 +15,14 @@ class Player extends Component{
     this.state = {
       x: 90,
       y: 34,
-      held_dir: [],
+      //held_dir: [], //think about not doing array
+      last_dir: "down", 
+      /**
+       * vert: //1,0,-1
+       * horiz: //1,0,-1
+       */
       speed: 1, //or make it a prop
-      mounted: false,
+      fps: 20,
     };
   }
 
@@ -28,12 +31,6 @@ class Player extends Component{
     //only for api calls
     console.log("mounting Player.js");
 
-
-    // this.setState({
-    //   char: document.querySelector(".character"),
-    //   map: document.querySelector(".map"),
-    // });
-
     const directions = {
       "ArrowUp": "up",
       "ArrowDown": "down",
@@ -41,45 +38,36 @@ class Player extends Component{
       "ArrowRight": "right",
     }
    
+    // put these in divs and pass to Player Component
     window.addEventListener("keydown", (e) => {
-      console.log("registered");
       const dir = directions[e.key];
-      console.log("a key press:", dir);
-      if (dir && this.state.held_dir.indexOf(dir) === -1) {
-        this.setState({
-          held_dir: this.state.held_dir.unshift(dir),
-        });
-      }
+      this.setState({
+        held_dir: dir, //array.unshift(dir),
+        last_dir: dir,
+      });
     });
    
     window.addEventListener("keyup", (e) => {
       const dir = directions[e.key];
-      console.log("now it let up");
-      const index = this.state.held_dir.indexOf(dir);
-      if (index > -1) {
-        this.setState({
-          held_dir: this.state.held_dir.splice(index, 1),
-        });
-      }
+      this.setState({
+        held_dir: null, 
+      });
     });
+
+    setInterval(this.placeChar, this.state.fps); //for placeChar --> maybe put # in state
 
     console.log("finished the mount");
   }
 
+
+  // componentWillUnmount(){
+  //   //undo event listeners
+  // }
+
   placeChar = () => {
-    console.log("** VIBE CHECK **");
-    const pixelSize = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
-    );
-    const character = this.props.char;
-    const map = this.props.map;
+    const dir = this.state.held_dir;
 
-    console.log("pixel size =", pixelSize);
-    console.log("hi");
-    console.log("character:", character);
-    console.log("map:", map);
-
-    const dir = this.state.held_dir[0];
+    // do one massive set State at the end
     if (dir) {
       if (dir === "right") {
         this.setState({
@@ -98,9 +86,7 @@ class Player extends Component{
           y: this.state.y + this.state.speed,
         });
       }
-      character.setAttribute("facing", dir);
     }
-    character.setAttribute("walking", dir ? "true" : "false");
 
     const leftLimit = -8;
     const rightLimit = (16 * 11)+8;
@@ -125,39 +111,33 @@ class Player extends Component{
       });
     }
 
-    const camera_left = pixelSize * 66;
-    const camera_top = pixelSize * 42;
-    
-    map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
-    character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
   }
 
-
-  step = () => {
-    console.log("stepped");
-    this.placeChar();
-    window.requestAnimationFrame(() => {
-      step();
-    })
-  }
-
-
- 
 
   render() {
     //what to return / display
-    console.log("...now then, what did we inherit?");
-    console.log("char =", this.props.char);
-    console.log("map =", this.props.map);
 
-    if (!this.props.char || !this.props.map) {
-      console.log("they're null")
+    const pixelSize = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
+    );
+    const camera_left = pixelSize * 66;
+    const camera_top = pixelSize * 42;
+
+    const mapStyle = {
+      transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
     }
-
-    //this.step();
-
+    const charStyle ={
+      transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
+    }
+    
+//style={mapStyle}
     return(
-      <div>WHAT'S UP GAMERS</div>
+      <div className="map pixel-art" >
+        <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
+            <div className="shadow pixel-art"></div>
+            <div className="character_spritesheet pixel-art"></div>
+        </div>
+      </div>  
     );
 
   }

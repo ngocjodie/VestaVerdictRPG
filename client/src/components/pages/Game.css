@@ -39,8 +39,10 @@ body {
 }
 
 .camera {
-  width: calc(var(--pixel-size) * 160);
-  height: calc(var(--pixel-size) * 144);
+  width: 960px;
+  height: 544px;
+  /* width: calc(var(--pixel-size) * 160);
+  height: calc(var(--pixel-size) * 144); */
   overflow: hidden;
   background: #61ddf7;
   position:relative;
@@ -57,8 +59,10 @@ body {
   image-rendering: pixelated;
   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
   background-size: 100%;
-  width: calc(13 * var(--grid-cell));
-  height: calc(10 * var(--grid-cell));
+  width: 480px;
+  height: 272px;
+  /* width: calc(13 * var(--grid-cell)); */
+  /* height: calc(10 * var(--grid-cell)); */
   position: relative;
 }
 

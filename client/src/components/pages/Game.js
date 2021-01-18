@@ -39,14 +39,9 @@ class Game extends Component {
         <div className="corner_bottomright"></div>
 
         <div className="camera">
-          <div className="map pixel-art">
-              <div className="character" facing="down" walking="true">
-                <div className="shadow pixel-art"></div>
-                <div className="character_spritesheet pixel-art"></div>
-              </div>
-          </div>
+          <Player />
           
-          <svg className="headline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 14" shape-rendering="crispEdges">
+          <svg className="headline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 14" shapeRendering="crispEdges">
             <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
             <path stroke="rgba(128,191,255,0.01568627450980392)" d="M0 0h1M74 0h1M0 13h1M74 13h1" />
             <path stroke="#5f5f5f" d="M1 0h73M0 1h1M74 1h1M0 2h1M74 2h1M0 3h1M74 3h1M0 4h1M74 4h1M0 5h1M74 5h1M0 6h1M74 6h1M0 7h1M74 7h1M0 8h1M74 8h1M0 9h1M74 9h1M0 10h1M74 10h1M0 11h1M74 11h1" />
@@ -57,7 +52,6 @@ class Game extends Component {
           </svg>
         
         </div>
-        <Player char={document.querySelector(".character")} map={document.querySelector(".map")} />
 
       </div>
 
