@@ -1,23 +1,4 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #546978;
-  overflow: hidden;
-}
-li {
-  float: left;
-}
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 80px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: Georgia;
-  font-size: large;
-}
+
 html,
 body {
   margin: 0;

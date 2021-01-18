@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./Frontpage.css"
 import "../../utilities.css";
 import "./Skeleton.css";
-import "./Game.js";
-import "./Frontpage.js"
 
 class Frontpage extends Component{
     constructor(props){
