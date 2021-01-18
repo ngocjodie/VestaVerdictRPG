@@ -66,6 +66,33 @@ body {
   position: relative;
 }
 
+.checker {
+  image-rendering: pixelated;
+  background-image: url("../modules/checkerboard.png");
+  background-size: 100%;
+  width: 480px;
+  height: 272px;
+  position: relative;
+}
+
+.river {
+  image-rendering: pixelated;
+  background-image: url("../modules/desertriver.png");
+  background-size: 100%;
+  width: 480px;
+  height: 272px;
+  position: relative;
+}
+
+.dialogue {
+  image-rendering: pixelated;
+  background-image: url("../../../../testingRPG/mockupdialoguebox.png");
+  background-size: 100%;
+  width: 480px;
+  height: 272px;
+  position: relative;
+}
+
 .shadow {
   width: calc( var(--grid-cell)* 2 );
   height: calc( var(--grid-cell)* 2 );

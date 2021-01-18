@@ -11,6 +11,18 @@ import React, { Component } from "react";
 class Player extends Component{
   constructor(props){
     super(props);
+    /**
+     * this.props.maps = {
+     *   className: [ 
+     *     {topLim, rightLim, bottomLim, leftLim},
+     *     {linkto: , x: , y: }, 
+     *     {linkto: , x: , y: },
+     *   ]
+     *   "map": [ {} ]
+     *   "river":
+     *   "checker": 
+     * }
+     */
 
     this.state = {
       x: 90,
@@ -128,8 +140,8 @@ class Player extends Component{
     }
     
 //style={mapStyle} <-- put this in if you want camera to move with player
-    return(
-      <div className="map pixel-art" >
+    return(          //{this.props.map}
+      <div className="dialogue pixel-art" >
         <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
             <div className="shadow pixel-art"></div>
             <div className="character_spritesheet pixel-art"></div>
