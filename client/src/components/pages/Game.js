@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../modules/Player.js";
+import Player from "../modules/Player.js";
 
 import "./Game.css";
 
@@ -57,7 +57,7 @@ class Game extends Component {
           </svg>
         
         </div>
-        <script type="text/javascript" src="../modules/Player.js" ></script>
+        <Player char={document.querySelector(".character")} map={document.querySelector(".map")} />
 
       </div>
 
