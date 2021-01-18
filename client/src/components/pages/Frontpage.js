@@ -22,7 +22,6 @@ render() {
     return (
       <>
 
-
     <p class="gamename">  The Vesta Verdict  </p>
     </>
 

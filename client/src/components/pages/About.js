@@ -2,9 +2,6 @@ import React, { Component } from "react";
 
 import "./About.css";
 
-import NavBar from "./navbar.js";
-
-
 /*
  * What should it inherit (if anything at all)?
  * states of the character(?)
