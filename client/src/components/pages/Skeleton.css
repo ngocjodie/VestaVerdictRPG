@@ -57,3 +57,32 @@
   width: 50%;
 
 }
+
+
+html,
+body {
+  margin: 0;
+  padding: 0 0 4 0;
+  background-color: b2dbdb;
+  opacity: 1;
+}
+
+p.gamename {
+    border-style: groove;
+    text-align: center;
+    font-size: x-large;
+    font-family: Georgia;
+}
+
+
+.para {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-family: Georgia;
+  color: 546978;
+  display: flex;
+  position: relative;
+  text-align: center;
+  
+  }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Frontpage.css"
 import "../../utilities.css";
 import "./Skeleton.css";
 
