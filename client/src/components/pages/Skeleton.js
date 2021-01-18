@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import GoogleLogin, { GoogleLogout } from "react-google-login";
-import { Link } from "@reach/router";
-import NavBar from "./navbar.js";
-
 import "../../utilities.css";
 import "./Skeleton.css";
 import "./Game.js";
-import "./Frontpage.css";
 import image_coming from'./highcouncil.png';
 
 

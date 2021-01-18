@@ -8,7 +8,6 @@ import "../utilities.css";
 import Frontpage from "./pages/Frontpage.js";
 import { socket } from "../client-socket.js";
 import NavBar from "./pages/navbar.js";
-
 import { get, post } from "../utilities";
 
 

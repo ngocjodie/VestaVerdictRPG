@@ -4,8 +4,6 @@ import Player from "../modules/Player.js";
 
 import "./Game.css";
 
-import NavBar from "./navbar.js";
-
 
 /**
  * path = "/game"
@@ -30,7 +28,7 @@ class Game extends Component {
     console.log("entered the render");
 
     return(
-      <div className="frame">
+      <div className="Game-frame">
 
         <div>
           <link rel="stylesheet" type="text/css" href="Game.css" />

@@ -14,11 +14,11 @@
   }
 }
 
-html, body {
+.Game-frame html, .Game-frame body {
   height: 100%;
 }
 
-body {
+.Game-frame body {
   background: var(--bg);
   display: flex;
   align-items: center;
@@ -29,7 +29,7 @@ body {
   image-rendering: pixelated;
 }
 
-.frame {
+.Game-frame {
   /* This is just for Pen decoration */
   width: calc(var(--pixel-size) * 160);
   height: calc(var(--pixel-size) * 144);

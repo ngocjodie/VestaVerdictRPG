@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-
-
+import "../../utilities.css";
 import "./navbar.css";
 
 // This identifies your application to Google's authentication service
