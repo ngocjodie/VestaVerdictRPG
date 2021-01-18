@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-//import "../../input.js";
-//import "../pages/Game.css";
-
 /**
- * PROPS FROM GAME.JS:
- * 
- * 
+ * THINGS THAT COULD BE PROPS FOR LATER
+ *  - x + y for when entering new room
+ *  - last_dir to tell where it should face? (I'm leaning no but whatever)
+ *  - speed
+ *  - map or character classNames to tell what things should look like
+ *  - directionLimits + cameraCorners
  */
 class Player extends Component{
   constructor(props){
@@ -15,13 +15,8 @@ class Player extends Component{
     this.state = {
       x: 90,
       y: 34,
-      //held_dir: [], //think about not doing array
       last_dir: "down", 
-      /**
-       * vert: //1,0,-1
-       * horiz: //1,0,-1
-       */
-      speed: 1, //or make it a prop
+      speed: 1,
       fps: 20,
     };
   }
@@ -42,8 +37,8 @@ class Player extends Component{
     window.addEventListener("keydown", (e) => {
       const dir = directions[e.key];
       this.setState({
-        held_dir: dir, //array.unshift(dir),
         last_dir: dir,
+        held_dir: dir, //array.unshift(dir),
       });
     });
    
@@ -51,6 +46,7 @@ class Player extends Component{
       const dir = directions[e.key];
       this.setState({
         held_dir: null, 
+        last_dir: dir,
       });
     });
 
@@ -60,31 +56,22 @@ class Player extends Component{
   }
 
 
-  // componentWillUnmount(){
-  //   //undo event listeners
-  // }
 
   placeChar = () => {
     const dir = this.state.held_dir;
+    let newx = this.state.x;
+    let newy = this.state.y;
 
     // do one massive set State at the end
     if (dir) {
       if (dir === "right") {
-        this.setState({
-          x: this.state.x + this.state.speed,
-        });
+        newx += this.state.speed;
       } else if (dir === "left") {
-        this.setState({
-          x: this.state.x - this.state.speed,
-        });
+        newx -= this.state.speed;
       } else if (dir === "up") {
-        this.setState({
-          y: this.state.y - this.state.speed,
-        });
+        newy -= this.state.speed;
       } else if (dir === "down") {
-        this.setState({
-          y: this.state.y + this.state.speed,
-        });
+        newy += this.state.speed;
       }
     }
 
@@ -94,43 +81,53 @@ class Player extends Component{
     const bottomLimit = (16 * 7);
 
     if (this.state.x < leftLimit) {
-      this.setState({
-        x: leftLimit,
-      });
+      newx = leftLimit;
     } else if (this.state.x > rightLimit) {
-      this.setState({
-        x: rightLimit,
-      });
+      newx = rightLimit;
     } else if (this.state.y < topLimit) {
-      this.setState({
-        y: leftLimit,
-      });
+      newy = topLimit;
     } else if (this.state.y > bottomLimit) {
-      this.setState({
-        y: bottomLimit,
-      });
+      newy = bottomLimit;
     }
 
+    this.setState({
+      x: newx,
+      y: newy,
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        held_dir: dir, //array.unshift(dir),
+        last_dir: dir,
+      });
+    });
+   
+    window.removeEventListener("keyup", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        last_dir: dir,
+        held_dir: null, 
+      });
+    });
   }
 
 
   render() {
-    //what to return / display
-
-    const pixelSize = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
-    );
+    const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
     const camera_left = pixelSize * 66;
     const camera_top = pixelSize * 42;
 
-    const mapStyle = {
+    const mapStyle = { //disable if you don't want camera to move
       transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
     }
     const charStyle ={
       transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
     }
     
-//style={mapStyle}
+//style={mapStyle} <-- put this in if you want camera to move with player
     return(
       <div className="map pixel-art" >
         <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
@@ -139,7 +136,6 @@ class Player extends Component{
         </div>
       </div>  
     );
-
   }
 }
 
