@@ -127,10 +127,17 @@ var clicky = 0;
 // 1 = unhidden box, unhidden question, unhidden/faded in answers
 // 2 = none hidden, reset to 0
 
+var allHidden;
+
+if (document.getElementById('boxImage').classList.contains("hidden") && document.getElementById('question').classList.contains("hidden") & document.getElementById('answers').classList.contains("hidden")) {
+    allHidden = true;
+}
+
+
 document.body.onkeyup = function(e) {
     if (e.repeat) { return }
 
-    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo)) {
+    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo) && allHidden) {
         // alert('immediate space');
         event.preventDefault();
         clicky = 1;
