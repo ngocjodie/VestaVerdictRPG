@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 import "../../input.js";
 import "./Player.css";
-import { drawChar } from "../../canvas.js";
 
-/*
+
 class Player extends Component{
   constructor(props){
     super(props);
@@ -12,193 +11,125 @@ class Player extends Component{
     this.state = {
       x: 90,
       y: 34,
-      color: "orange",
-      speed: 10, //or make it a prop
-    };
-  }
-
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowUp") {
-      console.log("up");
-      this.setState({
-        y: this.state.y - this.state.speed,
-      });
-    } else if (e.key === "ArrowDown") {
-      console.log("down");
-      this.setState({
-        y: this.state.y + this.state.speed,
-      });
-    } else if (e.key === "ArrowLeft") {
-      console.log("left");
-      this.setState({
-        x: this.state.x - this.state.speed,
-      });
-    } else if (e.key === "ArrowRight") {
-      console.log("right");
-      this.setState({
-        x: this.state.x + this.state.speed,
-      });
-    }
-  });
-
-
-  componentDidMount() {
-    //only for api calls
-  }
-
-
- 
-
-  render() {
-    //what to return / display
-    drawChar(this.state.x, this.state.y, this.state.color);
-
-  }
-}
-
-export default Player;
-
-*/
-
-
-
-
-class Player extends Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
+      held_dir: [],
+      speed: 1, //or make it a prop
       char: null,
-      x: 90,
-      y: 30,
-      color: "orange",
-      speed: 1,
-      held_directions: [],
+      map: null,
     };
   }
 
-//   Direction key state 
   directions = {
-    up: "up",
-    down: "down",
-    left: "left",
-    right: "right",
-  }
-
-  keys = {
-    38: "up",
-    37: "left",
-    39: "right",
-    40: "down",
+    "ArrowUp": "up",
+    "ArrowDown": "down",
+    "ArrowLeft": "left",
+    "ArrowRight": "right",
   }
  
-
   window.addEventListener("keydown", (e) => {
-    var dir = keys[e.which];
-    if (dir && this.state.held_directions.indexOf(dir) === -1) {
+    const dir = directions[e.key];
+    console.log("registered a key press:", dir);
+    if (dir && this.state.held_dir.indexOf(dir) === -1) {
       this.setState({
-        held_directions: this.state.held_directions.unshift(dir),
+        held_dir: this.state.held_dir.unshift(dir),
       });
     }
   });
-   /* 
+ 
   window.addEventListener("keyup", (e) => {
-    var dir = keys[e.which];
-    var index = held_directions.indexOf(dir);
+    const dir = directions[e.key];
+    console.log("now it let up");
+    const index = this.state.held_dir.indexOf(dir);
     if (index > -1) {
       this.setState({
-        held_directions: this.state.held_directions.splice(index, 1),
-
+        held_dir: this.state.held_dir.splice(index, 1),
       });
     }
   });
-hi */
-
+ 
 
   componentDidMount() {
     //only for api calls
     this.setState({
       char: document.querySelector(".character"),
+      map: document.querySelector(".map"),
     });
   }
 
-  placeCharacter = () => {
-   
-    var pixelSize = parseInt(
-       getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
-    );
-    
-    const held_direction = held_directions[0];
-    if (held_direction) {
-       if (held_direction === directions.right) {
-         this.setState({
-           x: this.state.x + this.state.speed,
-        });
-       }
-       if (held_direction === directions.left) {
-         this.setState({
-           x: this.state.x - this.state.speed,
-         });
-       }
-       if (held_direction === directions.down) {
-         this.setState({
-             y: this.state.y + this.state.speed,
-         });
-       }
-       if (held_direction === directions.up) {
-        this.setState({
-            y: this.state.y - this.state.speed,
-        });
-      }
-    }
-    
-    //Limits (gives the illusion of walls)
-    var leftLimit = -8;
-    var rightLimit = (16 * 11)+8;
-    var topLimit = -8 + 32;
-    var bottomLimit = (16 * 7);
-    if (this.state.x < leftLimit) {
-      this.setState({
-        x: leftLimit,
-     });
-    }
-    if (x > rightLimit) {
-      this.setState({
-        x: rightLimit,
-     });
-    }
-    if (y < topLimit) {
-      this.setState({
-        y: topLimit,
-     });
-    }
-    if (y > bottomLimit) {
-      this.setState({
-        y: bottomLimit,
-     });
-    }
-    
-    
-    this.state.char.style.transform = `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`;  
-  }
+  // placeChar = () => {
+  //   const pixelSize = parseInt(
+  //     getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
+  //  );
 
-  //Set up the game loop
-  step = () => {
-    placeCharacter();
-    window.requestAnimationFrame(() => {
-      step(); //might cause some issues
-    })
-  }
+  //  const dir = this.state.held_dir[0];
+  //  if (dir) {
+  //    if (dir === "right") {
+  //      this.setState({
+  //        x: this.state.x + this.state.speed,
+  //      });
+  //    } else if (dir === "left") {
+  //     this.setState({
+  //       x: this.state.x - this.state.speed,
+  //     });
+  //   } else if (dir === "up") {
+  //     this.setState({
+  //       y: this.state.y - this.state.speed,
+  //     });
+  //   } else if (dir === "down") {
+  //     this.setState({
+  //       y: this.state.y + this.state.speed,
+  //     });
+  //   }
+  //   this.state.char.setAttribute("facing", dir);
+  //  }
+  //  this.state.char.setAttribute("walking", dir ? "true" : "false");
+
+  //  const leftLimit = -8;
+  //  const rightLimit = (16 * 11)+8;
+  //  const topLimit = -8 + 32;
+  //  const bottomLimit = (16 * 7);
+
+  //  if (this.state.x < leftLimit) {
+  //    this.setState({
+  //      x: leftLimit,
+  //    });
+  //  } else if (this.state.x > rightLimit) {
+  //   this.setState({
+  //     x: rightLimit,
+  //   });
+  // } else if (this.state.y < topLimit) {
+  //   this.setState({
+  //     y: leftLimit,
+  //   });
+  // } else if (this.state.y > bottomLimit) {
+  //   this.setState({
+  //     y: bottomLimit,
+  //   });
+  // }
+
+  // const camera_left = pixelSize * 66;
+  // const camera_top = pixelSize * 42;
+   
+  // map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
+  // character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
+
+  // }
+
+
+  // step = () => {
+  //   placeChar();
+  //   window.requestAnimationFrame(() => {
+  //     step();
+  //   })
+  // }
+
 
  
 
   render() {
     //what to return / display
-    //step(); //kick off the first step
+    //step();
     return(
-      <img src="checkerboard.png"></img>
-
+      <div>WHAT'S UP GAMERS</div>
     );
 
   }
