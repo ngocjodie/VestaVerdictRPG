@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import "../../input.js";
-import "./Player.css";
+//import "../../input.js";
+//import "../pages/Game.css";
 
 
 class Player extends Component{
@@ -18,34 +18,6 @@ class Player extends Component{
     };
   }
 
-  directions = {
-    "ArrowUp": "up",
-    "ArrowDown": "down",
-    "ArrowLeft": "left",
-    "ArrowRight": "right",
-  }
- 
-  window.addEventListener("keydown", (e) => {
-    const dir = directions[e.key];
-    console.log("registered a key press:", dir);
-    if (dir && this.state.held_dir.indexOf(dir) === -1) {
-      this.setState({
-        held_dir: this.state.held_dir.unshift(dir),
-      });
-    }
-  });
- 
-  window.addEventListener("keyup", (e) => {
-    const dir = directions[e.key];
-    console.log("now it let up");
-    const index = this.state.held_dir.indexOf(dir);
-    if (index > -1) {
-      this.setState({
-        held_dir: this.state.held_dir.splice(index, 1),
-      });
-    }
-  });
- 
 
   componentDidMount() {
     //only for api calls
@@ -53,81 +25,116 @@ class Player extends Component{
       char: document.querySelector(".character"),
       map: document.querySelector(".map"),
     });
+
+    directions = {
+      "ArrowUp": "up",
+      "ArrowDown": "down",
+      "ArrowLeft": "left",
+      "ArrowRight": "right",
+    }
+   
+    window.addEventListener("keydown", (e) => {
+      console.log("registered");
+      const dir = directions[e.key];
+      console.log("a key press:", dir);
+      if (dir && this.state.held_dir.indexOf(dir) === -1) {
+        this.setState({
+          held_dir: this.state.held_dir.unshift(dir),
+        });
+      }
+    });
+   
+    window.addEventListener("keyup", (e) => {
+      const dir = directions[e.key];
+      console.log("now it let up");
+      const index = this.state.held_dir.indexOf(dir);
+      if (index > -1) {
+        this.setState({
+          held_dir: this.state.held_dir.splice(index, 1),
+        });
+      }
+    });
   }
 
-  // placeChar = () => {
-  //   const pixelSize = parseInt(
-  //     getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
-  //  );
+  placeChar = () => {
+    const pixelSize = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
+   );
+   console.log("** VIBE CHECK **");
+   console.log("pixel size =", pixelSize);
+   console.log("hi");
+   console.log("state:", this.state);
 
-  //  const dir = this.state.held_dir[0];
-  //  if (dir) {
-  //    if (dir === "right") {
-  //      this.setState({
-  //        x: this.state.x + this.state.speed,
-  //      });
-  //    } else if (dir === "left") {
-  //     this.setState({
-  //       x: this.state.x - this.state.speed,
-  //     });
-  //   } else if (dir === "up") {
-  //     this.setState({
-  //       y: this.state.y - this.state.speed,
-  //     });
-  //   } else if (dir === "down") {
-  //     this.setState({
-  //       y: this.state.y + this.state.speed,
-  //     });
-  //   }
-  //   this.state.char.setAttribute("facing", dir);
-  //  }
-  //  this.state.char.setAttribute("walking", dir ? "true" : "false");
+   const dir = this.state.held_dir[0];
+   if (dir) {
+     if (dir === "right") {
+       this.setState({
+         x: this.state.x + this.state.speed,
+       });
+     } else if (dir === "left") {
+      this.setState({
+        x: this.state.x - this.state.speed,
+      });
+    } else if (dir === "up") {
+      this.setState({
+        y: this.state.y - this.state.speed,
+      });
+    } else if (dir === "down") {
+      this.setState({
+        y: this.state.y + this.state.speed,
+      });
+    }
+    this.state.char.setAttribute("facing", dir);
+   }
+   this.state.char.setAttribute("walking", dir ? "true" : "false");
 
-  //  const leftLimit = -8;
-  //  const rightLimit = (16 * 11)+8;
-  //  const topLimit = -8 + 32;
-  //  const bottomLimit = (16 * 7);
+   const leftLimit = -8;
+   const rightLimit = (16 * 11)+8;
+   const topLimit = -8 + 32;
+   const bottomLimit = (16 * 7);
 
-  //  if (this.state.x < leftLimit) {
-  //    this.setState({
-  //      x: leftLimit,
-  //    });
-  //  } else if (this.state.x > rightLimit) {
-  //   this.setState({
-  //     x: rightLimit,
-  //   });
-  // } else if (this.state.y < topLimit) {
-  //   this.setState({
-  //     y: leftLimit,
-  //   });
-  // } else if (this.state.y > bottomLimit) {
-  //   this.setState({
-  //     y: bottomLimit,
-  //   });
-  // }
+   if (this.state.x < leftLimit) {
+     this.setState({
+       x: leftLimit,
+     });
+   } else if (this.state.x > rightLimit) {
+    this.setState({
+      x: rightLimit,
+    });
+  } else if (this.state.y < topLimit) {
+    this.setState({
+      y: leftLimit,
+    });
+  } else if (this.state.y > bottomLimit) {
+    this.setState({
+      y: bottomLimit,
+    });
+  }
 
-  // const camera_left = pixelSize * 66;
-  // const camera_top = pixelSize * 42;
+  const camera_left = pixelSize * 66;
+  const camera_top = pixelSize * 42;
    
-  // map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
-  // character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
+  map.style.transform = `translate3d( ${-x*pixelSize+camera_left}px, ${-y*pixelSize+camera_top}px, 0 )`;
+  character.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
 
-  // }
+  }
 
 
-  // step = () => {
-  //   placeChar();
-  //   window.requestAnimationFrame(() => {
-  //     step();
-  //   })
-  // }
+  step = () => {
+    console.log("stepped");
+    placeChar();
+    window.requestAnimationFrame(() => {
+      step();
+    })
+  }
 
 
  
 
   render() {
     //what to return / display
-    //step();
+    console.log("lumber");
+    step();
     return(
       <div>WHAT'S UP GAMERS</div>
     );
