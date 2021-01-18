@@ -4,6 +4,9 @@ import Player from "../modules/Player.js";
 
 import "./Game.css";
 
+import NavBar from "./navbar.js";
+
+
 /**
  * path = "/game"
  * 

@@ -11,31 +11,23 @@ img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .text {
   font-family: pixelFont;  
   width: 825px;
-}
-
-#answers {
-  animation: fadein 1s;
-  -webkit-animation: fadein 1.25s; /* Safari and Chrome */
-}
-
-@keyframes fadein {
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
+  height: 16px;
+  z-index: 0;
 }
 
 .background {
   display: flex;
   position: absolute;
   justify-content: center;
+  pointer-events:none;
+  z-index: -2;
 }
 
 /* choices */
@@ -53,6 +45,17 @@ img {
   text-align: left;
   cursor: pointer;
   text-indent: 28px;
+  animation: fadein 1s;
+  -webkit-animation: fadein 1.25s; /* Safari and Chrome */
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
 }
 
 .choices:hover {
