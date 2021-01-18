@@ -104,7 +104,7 @@ var currentConvo = 0;
 window.printcurrentConvo = function(){
     var answers = "";
     for(var i=0,l=dialogueSystem[currentConvo].answers.length;i<l;i++){
-        answers += "<p><button id='butt' class='choices' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
+        answers += "<p><button class='choices butt' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
         // <p><button class='choices' onclick='setConvo(dialogueSystem[currentConvo].answers[i].response)'>dialogueSystem[currentConvo].answers[i].title</button></p>
     }
     document.getElementById("answers").innerHTML = answers;
@@ -119,18 +119,20 @@ window.setConvo = function(num) {
 
 window.printcurrentConvo();
 
-var continuing = [5, 6, 7, 8, 9, 10];
-var ending = [0, 1, 2, 3, 4];
+var continuing = [5, 6, 8, 9, 10];
+var ending = [0, 1, 2, 3, 4, 7];
 
 var clicky = 0;
 // 0 = all hidden
 // 1 = unhidden box, unhidden question, unhidden/faded in answers
 // 2 = none hidden, reset to 0
 
-document.body.onkeyup = function(e){
-    
-    if (e.keyCode == 32 & clicky == 0 & ending.includes(currentConvo)) {
+document.body.onkeyup = function(e) {
+    if (e.repeat) { return }
+
+    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo)) {
         // alert('immediate space');
+        event.preventDefault();
         clicky = 1;
         if (ending.includes(currentConvo)) {
             // alert(currentConvo);
@@ -148,7 +150,7 @@ document.body.onkeyup = function(e){
 
         if (qText.length < 10) {
             speed = slow;
-        } else if (qText.length > 10 & qText.length < 15) {
+        } else if (qText.length > 10 && qText.length < 15) {
             speed = medium;
         } else {
             speed = fast;
@@ -171,6 +173,7 @@ document.body.onkeyup = function(e){
     }
 
     document.getElementById("answers").onclick = function(event) {
+        if (e.repeat) { return }
         if (continuing.includes(currentConvo)) {
             // alert(currentConvo);
             // alert('continuing');
@@ -185,12 +188,11 @@ document.body.onkeyup = function(e){
     
             if (qText.length < 10) {
                 speed = slow;
-            } else if (qText.length > 10 & qText.length < 15) {
+            } else if (qText.length > 10 && qText.length < 15) {
                 speed = medium;
             } else {
                 speed = fast;
             }
- 
 
             setTimeout(function(){
                 document.getElementById('question').classList.toggle('hidden');
@@ -217,6 +219,7 @@ document.body.onkeyup = function(e){
                 document.getElementById('answers').classList.toggle('hidden');
         }
         else {
+            // HIDES
             setTimeout(function(){
                 document.getElementById('boxImage').classList.toggle('hidden');
                 document.getElementById('question').classList.toggle('hidden');

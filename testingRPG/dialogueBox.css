@@ -11,18 +11,23 @@ img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .text {
   font-family: pixelFont;  
   width: 825px;
+  height: 16px;
+  z-index: 0;
 }
 
 .background {
   display: flex;
   position: absolute;
   justify-content: center;
-  z-index: -1;
+  pointer-events:none;
+  z-index: -2;
 }
 
 /* choices */
