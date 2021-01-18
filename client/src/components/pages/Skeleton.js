@@ -6,8 +6,8 @@ import NavBar from "./navbar.js";
 import "../../utilities.css";
 import "./Skeleton.css";
 import "./Game.js";
-import "./Frontpage.js";
-import image_coming from'./pic_coming_soon.png';
+import "./Frontpage.css";
+import image_coming from'./highcouncil.png';
 
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
@@ -29,8 +29,8 @@ class Skeleton extends Component {
       <>
       <p class="gamename">  The Vesta Verdict  </p>
 
-      <div className="center">
-        <img src={image_coming} alt="coming" />
+      <div className="pic">
+        <img src={image_coming} alt="council" />
       </div>
       
       <par className="para">

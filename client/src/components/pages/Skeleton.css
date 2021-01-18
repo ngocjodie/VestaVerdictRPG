@@ -42,3 +42,16 @@
 .Skeleton-practice-link:hover {
   opacity: 0.65;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div.pic {
+  display:inline-block;
+  margin-left: 0%;
+
+}
