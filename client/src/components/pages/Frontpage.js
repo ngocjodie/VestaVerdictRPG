@@ -15,7 +15,7 @@ class Frontpage extends Component{
     }
   
     componentDidMount() {
-      //only for api calls
+      console.log(this.props.userId)
     }
 
 render() {

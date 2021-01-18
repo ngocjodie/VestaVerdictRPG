@@ -39,6 +39,7 @@ class App extends Component {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       this.setState({ userId: user._id });
+      console.log(user._id)
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -56,7 +57,7 @@ class App extends Component {
           <Skeleton path="/" handleLogin={this.handleLogin} handleLogout={this.handleLogout} userId={this.state.userId} />
           <Game path="/game/" userId={this.state.userId} />
           <About path="/about/" />
-          <Frontpage path="/frontpage/"/>
+          <Frontpage path="/frontpage/:userId"/>
           <NotFound default />
         </Router>
       </>

@@ -51,7 +51,9 @@
 }
 
 div.pic {
-  display:inline-block;
-  margin-left: 0%;
+  display: block;
+  margin-left: 280px;
+  margin-right: 350px;
+  width: 50%;
 
 }
