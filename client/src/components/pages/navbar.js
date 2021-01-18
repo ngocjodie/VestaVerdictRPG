@@ -14,22 +14,7 @@ const GOOGLE_CLIENT_ID = "929690839465-7el5elpd43lv4fgmh53vvcfegqbp961n.apps.goo
 class NavBar extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      loggedIn: false,
-    };
   }
-
-  handleLogin = (res) => {
-    // 'res' contains the response from Google's authentication servers
-    console.log(res);
-    this.setState({ loggedIn: true });
-  };
-
-  handleLogout = () => {
-    console.log("Logged out successfully!");
-    this.setState({ loggedIn: false });
-  };
 
   render() {
     return (
@@ -47,11 +32,11 @@ class NavBar extends Component {
           <Link to="/" className="NavBar-link">
             Home
           </Link>
-          {this.state.loggedIn ? (
+          {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Logout"
-              onLogoutSuccess={this.handleLogout}
+              onLogoutSuccess={this.props.handleLogout}
               onFailure={(err) => console.log(err)}
               className="NavBar-link NavBar-login"
             />
@@ -59,7 +44,7 @@ class NavBar extends Component {
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Login"
-              onSuccess={this.handleLogin}
+              onSuccess={this.props.handleLogin}
               onFailure={(err) => console.log(err)}
               className="NavBar-link NavBar-login"
             />
