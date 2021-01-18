@@ -20,6 +20,7 @@ img {
   width: 825px;
   height: 16px;
   z-index: 0;
+  display: inline;
 }
 
 .background {
