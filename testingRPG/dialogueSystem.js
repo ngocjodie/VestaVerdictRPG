@@ -127,17 +127,10 @@ var clicky = 0;
 // 1 = unhidden box, unhidden question, unhidden/faded in answers
 // 2 = none hidden, reset to 0
 
-var allHidden;
-
-if (document.getElementById('boxImage').classList.contains("hidden") && document.getElementById('question').classList.contains("hidden") & document.getElementById('answers').classList.contains("hidden")) {
-    allHidden = true;
-}
-
-
 document.body.onkeyup = function(e) {
     if (e.repeat) { return }
 
-    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo) && allHidden) {
+    if (e.keyCode == 32 && clicky == 0 && ending.includes(currentConvo)) {
         // alert('immediate space');
         event.preventDefault();
         clicky = 1;
@@ -237,3 +230,8 @@ document.body.onkeyup = function(e) {
             clicky = 0;
         }   
 }
+
+
+// doc. onkeyup is pass onKeyUp = {this.someFunctionName }
+// for toggling == this.state.hidden (bool), when rendering element, pass hidden or dont pass if state is true.
+// <div id="boxImage" [just for reference, not c] classList= \{"someClass" + (this.state.hidden ? " hidden" : "")} />
