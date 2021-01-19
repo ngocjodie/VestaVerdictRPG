@@ -3,6 +3,7 @@ import React, { Component } from "react";
 /**
  * PROPS:
  * @param number[] limits: [top, right, bottom, left]
+ * @param number[][] obstacles: [css-type, x, y]
  * 
  * THINGS THAT COULD BE PROPS FOR LATER
  *  - last_dir to tell where it should face? (I'm leaning no but whatever)
@@ -108,22 +109,20 @@ class Player extends Component{
     const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
     // const camera_left = pixelSize * 66;
     // const camera_top = pixelSize * 42;
-
     // const mapStyle = { //disable if you don't want camera to move
     //   transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
     // }
+    //style={mapStyle} <-- put this in if you want camera to move with player
+
     const charStyle ={
       transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
     }
     
-//style={mapStyle} <-- put this in if you want camera to move with player
-    return(          //{this.props.map}
-      // <div className="dialogue pixel-art" >
+    return(
       <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
           <div className="shadow pixel-art"></div>
           <div className="character_spritesheet pixel-art"></div>
       </div>
-      // </div>  
     );
   }
 }
