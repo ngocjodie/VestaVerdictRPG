@@ -79,8 +79,8 @@
 .river {
   image-rendering: pixelated;
 
-  /* background-image: url("../modules/desertriver.png"); */
-  background-image: url("./mockupRoom.png");
+  background-image: url("../modules/desertriver.png");
+  /* background-image: url("./mockupRoom.png"); */
   background-size: 100%;
   width: 960px;
   height: 544px;
