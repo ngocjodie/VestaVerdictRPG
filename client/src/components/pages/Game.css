@@ -66,8 +66,8 @@
   image-rendering: pixelated;
   background-image: url("../modules/checkerboard.png");
   background-size: 100%;
-  width: 480px;
-  height: 272px;
+  width: 80px;
+  height: 72px;
   position: relative;
 }
 
