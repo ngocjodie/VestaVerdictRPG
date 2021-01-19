@@ -15,7 +15,7 @@ render() {
     return (
       <>
 
-    <p class="gamename">  The Vesta Verdict  </p>
+    <p className="gamename">  The Vesta Verdict  </p>
     </>
 
     );

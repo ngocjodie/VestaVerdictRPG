@@ -89,6 +89,7 @@ class Player extends Component{
     });
   }
 
+  /*
   componentWillUnmount() {
     window.removeEventListener("keydown", (e) => {
       const dir = directions[e.key];
@@ -106,7 +107,7 @@ class Player extends Component{
       });
     });
   }
-
+*/
 
   render() {
     const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));

@@ -22,17 +22,17 @@ class Skeleton extends Component {
   render() {
     return (
       <>
-      <p class="gamename">  The Vesta Verdict  </p>
+      <p className="gamename">  The Vesta Verdict  </p>
 
       <div className="pic">
         <img src={image_coming} alt="council" />
       </div>
       
-      <par className="para">
+      <p className="para">
       Choose your role and prove your innocence. This will be more of a paragraph! Hopefully it will make people want to play our game :D Any suggestions about relative info to be
 included here?
 
-      </par>
+      </p>
       </>
     );
   }
