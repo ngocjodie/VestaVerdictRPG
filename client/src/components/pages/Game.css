@@ -118,8 +118,8 @@
 
 .character_spritesheet {
   position: absolute;
-  /* background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat; */
-  background: url("./DemoRpgCharacter.png") no-repeat no-repeat;
+  background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat;
+  /* background: url("./DemoRpgCharacter.png") no-repeat no-repeat; */
   background-size: 100%;
   /*  width: calc( var(--grid-cell)* 8 );
   height: calc( var(--grid-cell)* 8 ); */
