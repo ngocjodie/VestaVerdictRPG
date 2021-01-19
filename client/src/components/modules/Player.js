@@ -79,11 +79,35 @@ class Player extends Component{
       newy = this.props.limits[2];
     }
 
+    // let finalpos = this.checkCollision(newx, newy);
+    // console.log("finalpos =", finalpos, "vs.", newx, "+", newy);
+
     this.setState({
-      x: newx,
-      y: newy,
+      x: newx, //finalpos[0],
+      y: newy, // finalpos[1],
     });
+
   }
+
+
+  // checkCollision = (xpos, ypos) => {
+  //   const topLim = this.props.obstacles[0][1];
+  //   const bottomLim = topLim + 20;
+  //   const leftLim = this.props.obstacles[0][2];
+  //   const rightLim = leftLim + 20;
+  //   if (xpos < leftLim) {
+  //     xpos = leftLim;
+  //   } else if (xpos > rightLim) {
+  //     xpos = rightLim;
+  //   } 
+  //   if (ypos < topLim) {
+  //     ypos = topLim;
+  //   } else if (ypos > bottomLim) {
+  //     ypos = bottomLim;
+  //   }
+  //   return([xpos, ypos]);
+  // }
+
 
   /*
   componentWillUnmount() {
