@@ -18,9 +18,10 @@ class Map extends Component {
       name: "river", //or some default png to show
               //top right bottom left --> pass to Player
       bounds:   [0,  200,  100,   0], // where char can't go --> defaults to edges of screen
+      
+      //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: { //list of obstacles --> maybe turn this into a prop
         "crate": ["small-box", 150, 80], //key: [name, x,y]
-        "board": ["checker", 0, 20],
       },
     };
   }
@@ -34,17 +35,18 @@ class Map extends Component {
     let obstacles = [];
 
     for (const key in this.state.objects) {
-      objs.push(<Box name={this.state.objects[key][0]} key={key} x={this.state.objects[key][1]} y={this.state.objects[key][2]} />);
+      objs.push(<Box key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} />);
       obstacles.push(this.state.objects[key]);
     }
 
     let art = this.state.name + " pixel-art"
+    console.log("now obstacles are", obstacles);
 
     return (
       <div className={art} >
         {/* pass obstacle coords to both object and player*/}
         {objs}
-        <Player limits={this.state.bounds} /> {/* Player comes last so nothing's floating above it */}
+        <Player limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
       </div>  
 
     );
