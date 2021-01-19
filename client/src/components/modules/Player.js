@@ -68,11 +68,6 @@ class Player extends Component{
       }
     }
 
-    // const leftLimit = -8;
-    // const rightLimit = (16 * 11)+8; //184
-    // const topLimit = -8 + 32; //24
-    // const bottomLimit = (16 * 7); //112
-
     if (this.state.x < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
     } else if (this.state.x > this.props.limits[1]) { //this.props.limits[1] = right

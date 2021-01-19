@@ -80,6 +80,17 @@
   position: relative;
 }
 
+.small-box {
+  image-rendering: pixelated;
+  background-image: url("../modules/smallbox.png");
+  background-size: 100%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+
 .dialogue {
   image-rendering: pixelated;
   background-image: url("../pages/testingRPG/mockupdialoguebox.png");

@@ -14,9 +14,9 @@ class Map extends Component {
     super(props);
     // Initialize Default State
     this.state = {
-      name: "dialogue", //or some default png to show
+      name: "river", //or some default png to show
               //top right bottom left --> pass to Player
-      bounds:   [0,  100,  100,   0], // where char can't go --> defaults to edges of screen
+      bounds:   [0,  200,  100,   0], // where char can't go --> defaults to edges of screen
 
       // child: { // kinda like the node systems of 6.009/6.034
       //   //name: [doorx, doory, playerstartx, playerstary]
@@ -30,6 +30,10 @@ class Map extends Component {
     // remember -- api calls go here!
   }
 
+  // sceneSwitch = () => {
+
+  // }
+
   render() {
     // const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
     // const camera_left = pixelSize * 66;
@@ -38,9 +42,10 @@ class Map extends Component {
     // const mapStyle = { //disable if you don't want camera to move
     //   transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
     // }
+    let art = this.state.name + " pixel-art"
 
     return (         //{this.props.name}  //style=mapStyle if you want camera to move with character
-      <div className="river pixel-art" >
+      <div className={art} >
         <Player limits={this.state.bounds} />
       </div>  
 
