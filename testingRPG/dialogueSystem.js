@@ -3,7 +3,8 @@ var dialogueSystem = [
     {   // 0  : ends
         "question":"Start",
         "answers":[
-            {"title":" < oh wow. a dying lady!","response":1}
+            {"title":" < oh wow. a dying lady!","response":1},
+            {"title":"What is the word?","response":1}
         ]
     },
     {
@@ -81,30 +82,12 @@ var dialogueSystem = [
     }
 ];
 
-// var currentConvo = 0;
-
-// window.printcurrentConvo = function(){
-//     //sets innerhtml of question to the question part
-//     // document.getElementById("question").innerHTML = dialogueSystem[currentConvo].question;
-//     var answers = "";
-//     // for length of answer options for the question
-//     for(var i=0,l=dialogueSystem[currentConvo].answers.length;i<l;i++){
-//         // CHANGE BUTTON STUFF HERE UWU
-//         // basically formats html so each title is given its own <p> and <button>
-//         // and also setConvo on click, which prints things out and moves the convo location
-//         answers += "<p><button id='butt' class='choices' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
-//         // <p><button class='choices' onclick='setConvo(dialogueSystem[currentConvo].answers[i].response)'>dialogueSystem[currentConvo].answers[i].title</button></p>
-//     }
-//     // sets the div html id'd answers with the variable stuff above
-//     document.getElementById("answers").innerHTML = answers;
-// }
-
 var currentConvo = 0;
 
 window.printcurrentConvo = function(){
     var answers = "";
     for(var i=0,l=dialogueSystem[currentConvo].answers.length;i<l;i++){
-        answers += "<p><button class='choices butt' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
+        answers += "<p><button class='choices' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
         // <p><button class='choices' onclick='setConvo(dialogueSystem[currentConvo].answers[i].response)'>dialogueSystem[currentConvo].answers[i].title</button></p>
     }
     document.getElementById("answers").innerHTML = answers;
@@ -114,7 +97,7 @@ window.setConvo = function(num) {
     currentConvo = num;
     setTimeout(function(){
         window.printcurrentConvo();
-    }, 401);
+    }, 201);
 }
 
 window.printcurrentConvo();
@@ -231,7 +214,27 @@ document.body.onkeyup = function(e) {
         }   
 }
 
+// react component, different states, depends on what its showing
+// ex: states - 1) asking question 2) continue conversation.
+// button goes to each state
+// component keeps track of where the player is
+// define transition with keystroke
+// in react -->
+
+// 1) define states (e.g. typewrite question, fade in answers), 2) if in this state, render this otherwise. react renders html conditionally.
+// (e.g. if current showing answers --> do this, if answer clicked, transition to different state (e.g. hiding everything or moving onto next))
+// hack: lol just c/p into render
+
+// load all dialogue and pass as prop. easiest but not clean.
+// dont hardcode when npcs talk to each other. constants.js, import, and take stuff from there to 
+// avoid calling api stuff. way cleaner. 
+// no database for dialogue uwu. if looots of text, then get/post is better. 
 
 // doc. onkeyup is pass onKeyUp = {this.someFunctionName }
+// IF BUTTON (if you click this text, go to this point) [each button gets its own function]
 // for toggling == this.state.hidden (bool), when rendering element, pass hidden or dont pass if state is true.
 // <div id="boxImage" [just for reference, not c] classList= \{"someClass" + (this.state.hidden ? " hidden" : "")} />
+
+// mongodb compass for text (UI thing on website, get json file and copy stuff)
+
+//  Johan Cervantes.
