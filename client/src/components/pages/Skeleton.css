@@ -1,5 +1,6 @@
 /* Fill me in :) */
 
+
 :root {
   --white: #fff;
   --red: #ff0000;
@@ -43,46 +44,31 @@
   opacity: 0.65;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+.Skeleton-pic {
+  margin: auto;
   width: 50%;
 }
 
-.pic {
-  display: block;
-  margin-left: 280px;
-  margin-right: 350px;
-  width: 50%;
 
-}
-
-
-html,
-body {
-  margin: 0;
-  padding: 0 0 4 0;
-  background-color: b2dbdb;
-  opacity: 1;
-}
-
-p.gamename {
+.Skeleton-gamename {
     border-style: groove;
     text-align: center;
     font-size: x-large;
-    font-family: Georgia;
+    font-family: Cambria;
+    margin-top: 0;
 }
 
 
-.para {
+.Skeleton-paraheader {
   text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
-  font-family: Georgia;
-  color: 546978;
-  display: flex;
-  position: relative;
-  text-align: center;
+  font-size: x-large;
+  font-family: Cambria;
+  }
+
   
+.Skeleton-paragraph {
+  text-align: center;
+  font-size: medium;
+  font-family: Cambria;
   }
