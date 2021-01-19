@@ -1,29 +1,17 @@
 import React, { Component } from "react";
 
 /**
+ * PROPS:
+ * @param number[] limits: [top, right, bottom, left]
+ * 
  * THINGS THAT COULD BE PROPS FOR LATER
- *  - x + y for when entering new room
  *  - last_dir to tell where it should face? (I'm leaning no but whatever)
  *  - speed
- *  - map or character classNames to tell what things should look like
- *  - directionLimits + cameraCorners
  */
+
 class Player extends Component{
   constructor(props){
     super(props);
-    /**
-     * this.props.maps = {
-     *   className: [ 
-     *     {topLim, rightLim, bottomLim, leftLim},
-     *     {linkto: , x: , y: }, 
-     *     {linkto: , x: , y: },
-     *   ]
-     *   "map": [ {} ]
-     *   "river":
-     *   "checker": 
-     * }
-     */
-
     this.state = {
       x: 90,
       y: 34,
@@ -33,11 +21,7 @@ class Player extends Component{
     };
   }
 
-
   componentDidMount() {
-    //only for api calls
-    console.log("mounting Player.js");
-
     const directions = {
       "ArrowUp": "up",
       "ArrowDown": "down",
@@ -45,12 +29,12 @@ class Player extends Component{
       "ArrowRight": "right",
     }
    
-    // put these in divs and pass to Player Component
+    // put these in divs and pass to Player Component?
     window.addEventListener("keydown", (e) => {
       const dir = directions[e.key];
       this.setState({
         last_dir: dir,
-        held_dir: dir, //array.unshift(dir),
+        held_dir: dir,
       });
     });
    
@@ -62,9 +46,7 @@ class Player extends Component{
       });
     });
 
-    setInterval(this.placeChar, this.state.fps); //for placeChar --> maybe put # in state
-
-    console.log("finished the mount");
+    setInterval(this.placeChar, this.state.fps);
   }
 
 
@@ -74,7 +56,6 @@ class Player extends Component{
     let newx = this.state.x;
     let newy = this.state.y;
 
-    // do one massive set State at the end
     if (dir) {
       if (dir === "right") {
         newx += this.state.speed;
@@ -88,18 +69,18 @@ class Player extends Component{
     }
 
     const leftLimit = -8;
-    const rightLimit = (16 * 11)+8;
-    const topLimit = -8 + 32;
-    const bottomLimit = (16 * 7);
+    const rightLimit = (16 * 11)+8; //184
+    const topLimit = -8 + 32; //24
+    const bottomLimit = (16 * 7); //112
 
-    if (this.state.x < leftLimit) {
-      newx = leftLimit;
-    } else if (this.state.x > rightLimit) {
-      newx = rightLimit;
-    } else if (this.state.y < topLimit) {
-      newy = topLimit;
-    } else if (this.state.y > bottomLimit) {
-      newy = bottomLimit;
+    if (this.state.x < this.props.limits[3]) { //this.props.limits[3] = left
+      newx = this.props.limits[3];
+    } else if (this.state.x > this.props.limits[1]) { //this.props.limits[1] = right
+      newx = this.props.limits[1];
+    } else if (this.state.y < this.props.limits[0]) { //this.props.limits[0] = top
+      newy = this.props.limits[0];
+    } else if (this.state.y > this.props.limits[2]) { //this.props.limits[2] = bottom
+      newy = this.props.limits[2];
     }
 
     this.setState({
@@ -128,25 +109,25 @@ class Player extends Component{
 
 
   render() {
-    const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
-    const camera_left = pixelSize * 66;
-    const camera_top = pixelSize * 42;
+    // const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
+    // const camera_left = pixelSize * 66;
+    // const camera_top = pixelSize * 42;
 
-    const mapStyle = { //disable if you don't want camera to move
-      transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
-    }
+    // const mapStyle = { //disable if you don't want camera to move
+    //   transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
+    // }
     const charStyle ={
       transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
     }
     
 //style={mapStyle} <-- put this in if you want camera to move with player
     return(          //{this.props.map}
-      <div className="dialogue pixel-art" >
-        <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
-            <div className="shadow pixel-art"></div>
-            <div className="character_spritesheet pixel-art"></div>
-        </div>
-      </div>  
+      // <div className="dialogue pixel-art" >
+      <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
+          <div className="shadow pixel-art"></div>
+          <div className="character_spritesheet pixel-art"></div>
+      </div>
+      // </div>  
     );
   }
 }
