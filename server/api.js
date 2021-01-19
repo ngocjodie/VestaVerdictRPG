@@ -42,6 +42,7 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
+//gets the number of playthroughs a user has won
 router.get("/playthroughs", (req, res) => {
   User.findOne({_id: req.query.userId }).then(user => {
     if (!user) {
@@ -57,6 +58,24 @@ router.get("/playthroughs", (req, res) => {
   res.status(500).send({message: "unknown error"});
 });
 });
+
+//gets the names of the awards a player has won
+router.get("/awards", (req, res) => {
+  User.findOne({_id: req.query.userId }).then(user => {
+    if (!user) {
+      res.status(402).send({ message: "nope" });
+      return;
+    }
+    
+    res.send({
+    awards: user.awards
+  });
+}).catch(err => {
+  console.log(err);
+  res.status(500).send({message: "unknown error"});
+});
+});
+
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
