@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-//import Player from "../modules/Player.js";
+import Player from "./Player.js";
 
 /**
  * PROPS:
@@ -31,7 +31,7 @@ class Map extends Component {
   }
 
   render() {
-    const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
+    // const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
     // const camera_left = pixelSize * 66;
     // const camera_top = pixelSize * 42;
 
@@ -40,7 +40,7 @@ class Map extends Component {
     // }
 
     return (         //{this.props.name}  //style=mapStyle if you want camera to move with character
-      <div className="dialogue pixel-art" >
+      <div className="river pixel-art" >
         <Player limits={this.state.bounds} />
       </div>  
 

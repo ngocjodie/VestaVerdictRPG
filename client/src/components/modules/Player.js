@@ -68,10 +68,10 @@ class Player extends Component{
       }
     }
 
-    const leftLimit = -8;
-    const rightLimit = (16 * 11)+8; //184
-    const topLimit = -8 + 32; //24
-    const bottomLimit = (16 * 7); //112
+    // const leftLimit = -8;
+    // const rightLimit = (16 * 11)+8; //184
+    // const topLimit = -8 + 32; //24
+    // const bottomLimit = (16 * 7); //112
 
     if (this.state.x < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
@@ -109,7 +109,7 @@ class Player extends Component{
 
 
   render() {
-    // const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
+    const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
     // const camera_left = pixelSize * 66;
     // const camera_top = pixelSize * 42;
 
