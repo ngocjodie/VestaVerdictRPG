@@ -86,14 +86,11 @@
   background-size: 100%;
   width: 40px;
   height: 40px;
-  position: relative;
-  top: 50px;
-  left: 50px;
 }
 
 .dialogue {
   image-rendering: pixelated;
-  background-image: url("../pages/testingRPG/mockupdialoguebox.png");
+  background-image: url("../../../../testingRPG/mockupdialoguebox.png");
   background-size: 100%;
   width: 480px;
   height: 272px;
@@ -108,6 +105,7 @@
   top:0;
   background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
   background-size: 100%;
+  z-index: 1;
 }
 
 .character_spritesheet {
@@ -116,6 +114,7 @@
   background-size: 100%;
   width: calc( var(--grid-cell)* 8 );
   height: calc( var(--grid-cell)* 8 );
+  z-index: 2;
 }
 
 .character[facing="right"] .character_spritesheet {

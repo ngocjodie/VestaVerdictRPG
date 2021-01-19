@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Player from "./Player.js";
+import Box from "./Box.js";
 
 /**
  * PROPS:
@@ -17,6 +18,9 @@ class Map extends Component {
       name: "river", //or some default png to show
               //top right bottom left --> pass to Player
       bounds:   [0,  200,  100,   0], // where char can't go --> defaults to edges of screen
+      objects: [
+        // x:, y:, 
+      ],
 
       // child: { // kinda like the node systems of 6.009/6.034
       //   //name: [doorx, doory, playerstartx, playerstary]
@@ -46,11 +50,16 @@ class Map extends Component {
 
     return (         //{this.props.name}  //style=mapStyle if you want camera to move with character
       <div className={art} >
-        <Player limits={this.state.bounds} />
+        {/* pass obstacle coords to both object and player*/}
+        <Box />
+        <Player limits={this.state.bounds} /> {/* Player comes last so nothing's floating above it */}
       </div>  
 
     );
   }
 }
+
+//switch maps by making it hierarchical siblings of Player?
+//have the map component show ALL of the PNGs --> just that camera moves every so often
 
 export default Map;
