@@ -34,12 +34,14 @@
 
 .Game-frame {
   /* This is just for Pen decoration */
-  width: calc(var(--pixel-size) * 160);
-  height: calc(var(--pixel-size) * 144);
+  width: calc(var(--pixel-size) * 480);
+  height: calc(var(--pixel-size) * 272);
+  /* width: calc(var(--pixel-size) * 160);
+  height: calc(var(--pixel-size) * 144); */
   outline: var(--pixel-size) solid #fff;
   z-index:1; 
   position:relative;
-}
+} 
 
 .camera {
   width: 960px;
@@ -78,8 +80,8 @@
 .river {
   image-rendering: pixelated;
 
-  /* background-image: url("../modules/desertriver.png"); */
-  background-image: url("./mockupRoom.png");
+  background-image: url("../modules/desertriver.png");
+  /* background-image: url("./mockupRoom.png"); */
   background-size: 100%;
   width: 960px;
   height: 544px;
