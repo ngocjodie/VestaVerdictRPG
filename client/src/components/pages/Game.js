@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Player from "../modules/Player.js";
+// import Map from "../modules/Map.js";
 
 import "./Game.css";
 
@@ -15,15 +16,14 @@ import "./Game.css";
 class Game extends Component {
   constructor(props){
     super(props);
-
+    this.state = {
+      maps: [],
+    };
   }
 
   componentDidMount(){     // for api calls
   }
 
-
-
-  
   render() {
     console.log("entered the render");
 
@@ -41,6 +41,7 @@ class Game extends Component {
 
         <div className="camera">
           <Player />
+          {/* <Map /> */}
           
           <svg className="headline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 14" shapeRendering="crispEdges">
             <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
@@ -55,8 +56,6 @@ class Game extends Component {
         </div>
 
       </div>
-
-
     );
   }
 }
