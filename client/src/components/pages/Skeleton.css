@@ -1,6 +1,4 @@
 /* Fill me in :) */
-
-
 :root {
   --white: #fff;
   --red: #ff0000;
@@ -72,3 +70,7 @@
   font-size: medium;
   font-family: Cambria;
   }
+
+.Skeleton html, body {
+  background-color: #D7DEE6;
+}
