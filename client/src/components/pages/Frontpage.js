@@ -18,7 +18,7 @@ render() {
     return (
       <>
 
-    <p className="gamename">  The Vesta Verdict  </p>
+    <p className="Skeleton-gamename">  The Vesta Verdict </p>
 
     <Playthroughs userId={this.props.userId}/>
 
