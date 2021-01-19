@@ -221,7 +221,7 @@ document.body.onkeyup = function(e) {
 // define transition with keystroke
 // in react -->
 
-// 1) define states (e.g. typewrite question, fade in answers), 2) if in this state, render this otherwise. react renders html conditionally.
+// 1) define states (e.g. typewrite question, fade in answers), 2) if in this state, render this otherwise render that. react renders html conditionally.
 // (e.g. if current showing answers --> do this, if answer clicked, transition to different state (e.g. hiding everything or moving onto next))
 // hack: lol just c/p into render
 
