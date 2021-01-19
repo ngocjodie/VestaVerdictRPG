@@ -1,4 +1,6 @@
 :root {
+  /* --pixel-size: 2px;
+  --grid-cell: calc( var(--pixel-size) * 16); */
   --pixel-size: 2px;
   --grid-cell: calc( var(--pixel-size) * 16);
   --bg: #9fa7e4;
@@ -10,7 +12,8 @@
 }
 @media( min-width: 1000px ) {
   :root {
-     --pixel-size: 4px;
+    --pixel-size: 2px;
+    /* --pixel-size: 2px; */
   }
 }
 
@@ -47,7 +50,8 @@
 }
 
 .character {
-  width: calc( var(--grid-cell)* 2 );
+  /* width: calc( var(--grid-cell)* 2 ); */
+  width: calc( var(--grid-cell)* 1 );
   height: calc( var(--grid-cell)* 2 );
   position: absolute;
   overflow: hidden;
@@ -57,8 +61,8 @@
   image-rendering: pixelated;
   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
   background-size: 100%;
-  width: 480px;
-  height: 272px;
+  width: 960px;
+  height: 544px;
   position: relative;
 }
 
@@ -73,10 +77,12 @@
 
 .river {
   image-rendering: pixelated;
-  background-image: url("../modules/desertriver.png");
+
+  /* background-image: url("../modules/desertriver.png"); */
+  background-image: url("./mockupRoom.png");
   background-size: 100%;
-  width: 480px;
-  height: 272px;
+  width: 960px;
+  height: 544px;
   position: relative;
 }
 
@@ -84,8 +90,8 @@
   image-rendering: pixelated;
   background-image: url("../modules/smallbox.png");
   background-size: 100%;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 }
 
 .dialogue {
@@ -97,7 +103,7 @@
   position: relative;
 }
 
-.shadow {
+/* .shadow {
   width: calc( var(--grid-cell)* 2 );
   height: calc( var(--grid-cell)* 2 );
   position: absolute;
@@ -106,13 +112,16 @@
   background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
   background-size: 100%;
   z-index: 1;
-}
+} */
 
 .character_spritesheet {
   position: absolute;
-  background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat;
+  /* background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat; */
+  background: url("./DemoRpgCharacter.png") no-repeat no-repeat;
   background-size: 100%;
-  width: calc( var(--grid-cell)* 8 );
+  /*  width: calc( var(--grid-cell)* 8 );
+  height: calc( var(--grid-cell)* 8 ); */
+  width: calc( var(--grid-cell)* 4 );
   height: calc( var(--grid-cell)* 8 );
   z-index: 2;
 }
@@ -166,10 +175,10 @@
   bottom: calc(var(--pixel-size) * -1);
   right: calc(var(--pixel-size) * -1);
 }
-
+/* 
 .headline {
   position:absolute;
   top:calc(var(--pixel-size) * 2);
   right:calc(var(--pixel-size) * 2);
   width: calc(var(--pixel-size) * 75)
-}
+} */

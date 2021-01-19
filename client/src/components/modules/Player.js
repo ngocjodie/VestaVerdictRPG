@@ -16,7 +16,7 @@ class Player extends Component{
       x: 90,
       y: 34,
       last_dir: "down", 
-      speed: 1,
+      speed: 1.5,
       fps: 20,
     };
   }
