@@ -42,11 +42,31 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
+router.get("/playthroughs", (req, res) => {
+  User.findOne({_id: req.query.userId }).then(user => {
+    if (!user) {
+      res.status(402).send({ message: "nope" });
+      return;
+    }
+    
+    res.send({
+    playthroughs: user.playthroughs
+  });
+}).catch(err => {
+  console.log(err);
+  res.status(500).send({message: "unknown error"});
+});
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
 
+
 module.exports = router;
+
+
+
 
