@@ -1,14 +1,8 @@
-/*
-////////////////////////////////////////////////
-//////~~~~~~~~~DIALOGUE STUFF~~~~~~~~~~~////////
-////////////////////////////////////////////////
-*/
-
 import React, { Component } from "react";
 // import { useMachine } from "@xstate/react";
 // import { Machine } from "xstate";
 
-// import "./dialogueBox2.css";
+import "./About.css";
 
 /*
  * What should it inherit? If dialogue shows up later?
@@ -64,11 +58,6 @@ import React, { Component } from "react";
 class Dialogue extends Component{
   constructor(props){
     super(props);
-
-
-    onKeyUp = {
-      
-    }
 
   }
 
