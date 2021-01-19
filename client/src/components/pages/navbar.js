@@ -4,6 +4,7 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 import "../../utilities.css";
 import "./navbar.css";
 
+
 // This identifies your application to Google's authentication service
 const GOOGLE_CLIENT_ID = "929690839465-7el5elpd43lv4fgmh53vvcfegqbp961n.apps.googleusercontent.com";
 
@@ -28,9 +29,11 @@ class NavBar extends Component {
           <Link to="/game/" className="NavBar-link">
             Game
           </Link>
+          {this.props.userId && (
           <Link to={`/frontpage/${this.props.userId}`} className="NavBar-link">
             Player Profile
           </Link>
+          )}
           {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
