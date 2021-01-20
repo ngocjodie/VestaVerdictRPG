@@ -4,6 +4,8 @@ import React, { Component } from "react";
  * PROPS:
  * @param {number} x
  * @param {number} y
+ * @param {number} width
+ * @param {number} height
  * @param {string} name -- className for rendering the CSS
  * @param {string} key -- unique identifier for this specific object
  * 
@@ -24,6 +26,8 @@ class Box extends Component {
 
     const genericStyle ={
       transform: `translate3d( ${this.props.x*pixelSize}px, ${this.props.y*pixelSize}px, 0 )`,
+      width: `${this.props.width*pixelSize}px`,
+      height: `${this.props.height*pixelSize}px`,
     }
     const classname = this.props.name + " pixel-art";
     

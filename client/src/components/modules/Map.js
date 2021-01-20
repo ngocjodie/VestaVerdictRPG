@@ -36,7 +36,7 @@ class Map extends Component {
     let obstacles = [];
 
     for (const key in this.state.objects) {
-      objs.push(<Box key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} />);
+      objs.push(<Box key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} width={this.state.objects[key][3]} height={this.state.objects[key][4]} />);
       obstacles.push(this.state.objects[key]);
     }
 
