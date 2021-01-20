@@ -4,7 +4,7 @@ var dialogueSystem = [
         "question":"Start",
         "answers":[
             {"title":" < oh wow. a dying lady!","response":1},
-            {"title":"What is the word?","response":1}
+            {"title":"What is the word?","response":1},
         ]
     },
     {
@@ -156,7 +156,12 @@ document.body.onkeyup = function(e) {
     }
 
     document.getElementById("answers").onclick = function(event) {
+        
         if (e.repeat) { return }
+
+        if (currentConvo == 0 && answers.length == 3) {
+
+        }
         if (continuing.includes(currentConvo)) {
             // alert(currentConvo);
             // alert('continuing');
@@ -221,7 +226,7 @@ document.body.onkeyup = function(e) {
 // define transition with keystroke
 // in react -->
 
-// 1) define states (e.g. typewrite question, fade in answers), 2) if in this state, render this otherwise. react renders html conditionally.
+// 1) define states (e.g. typewrite question, fade in answers), 2) if in this state, render this otherwise render that. react renders html conditionally.
 // (e.g. if current showing answers --> do this, if answer clicked, transition to different state (e.g. hiding everything or moving onto next))
 // hack: lol just c/p into render
 

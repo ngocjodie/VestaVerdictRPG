@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { get } from "../../utilities";
 
 
+
 class Awards extends Component{
   constructor(props){
     super(props);
@@ -20,8 +21,8 @@ class Awards extends Component{
   render() {
     //what to return / display
     return(
-      <div>
-          {this.state.awards}
+      <div id="whichawards" className="Profile-info">
+          Your awards: {this.state.awards}
       </div>
     );
   }

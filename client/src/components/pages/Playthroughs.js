@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { get } from "../../utilities";
+import "./Profile.css";
+
 
 /*
  * What should it inherit (if anything at all)?
@@ -24,8 +26,8 @@ class Playthroughs extends Component{
   render() {
     //what to return / display
     return(
-      <div>
-          {this.state.playthroughs}
+      <div id="numplays" className="Profile-info">
+          Number of playthroughs: {this.state.playthroughs}
       </div>
     );
   }
