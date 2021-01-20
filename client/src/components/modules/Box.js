@@ -22,13 +22,13 @@ class Box extends Component {
   render() {
     const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
 
-    const someStyle ={
+    const genericStyle ={
       transform: `translate3d( ${this.props.x*pixelSize}px, ${this.props.y*pixelSize}px, 0 )`,
     }
     const classname = this.props.name + " pixel-art";
     
     return (
-      <div className={classname} style={someStyle} ></div>
+      <div className={classname} style={genericStyle} ></div>
     );
   }
 }

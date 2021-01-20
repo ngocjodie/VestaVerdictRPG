@@ -18,11 +18,11 @@ class Map extends Component {
       name: "river", //name of Game.css element for its png
               //top right bottom left --> pass to Player so it knows where the char can't go
       bounds:   [0,  480,  270,   0], 
-      playerstart: [50, 100], //where Player starts on the Map
+      playerstart: [0, 0], //where Player starts on the Map
       
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
-        "crate": ["small-box", 150, 80, 16, 16], //UNIQUEkey: [CSS className, x,y, width,height]
+        "crate": ["small-box", 50, 50, 32, 32], //UNIQUEkey: [CSS className, x,y, width,height]
       },
     };
   }
@@ -41,13 +41,12 @@ class Map extends Component {
     }
 
     let art = this.state.name + " pixel-art"
-    console.log("now obstacles are", obstacles); ///////////////////////////////////////////////////////////////
 
     return (
       <div className={art} >
         {/* pass obstacle coords to both object and player*/}
         {objs}
-        <Player  limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
+        <Player start={this.state.playerstart} limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
       </div>  
 //start={this.state.playerstart} --> when it's ready
     );

@@ -15,8 +15,8 @@ class Player extends Component{
   constructor(props){
     super(props);
     this.state = {
-      x: 90,
-      y: 34,
+      x: null,
+      y: null,
       last_dir: "down", 
       held_dir: null,
       speed: 1.5,
@@ -25,6 +25,11 @@ class Player extends Component{
   }
 
   componentDidMount() {
+    this.setState({
+      x: this.props.start[0],
+      y: this.props.start[1],
+    });
+
     const directions = {
       "ArrowUp": "up",
       "ArrowDown": "down",
