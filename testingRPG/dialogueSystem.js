@@ -4,7 +4,7 @@ var dialogueSystem = [
         "question":"Start",
         "answers":[
             {"title":" < oh wow. a dying lady!","response":1},
-            {"title":"What is the word?","response":1}
+            {"title":"What is the word?","response":1},
         ]
     },
     {
@@ -156,7 +156,12 @@ document.body.onkeyup = function(e) {
     }
 
     document.getElementById("answers").onclick = function(event) {
+        
         if (e.repeat) { return }
+
+        if (currentConvo == 0 && answers.length == 3) {
+
+        }
         if (continuing.includes(currentConvo)) {
             // alert(currentConvo);
             // alert('continuing');

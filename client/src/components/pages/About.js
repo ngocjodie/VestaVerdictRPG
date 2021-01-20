@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { useMachine } from "@xstate/react";
 // import { Machine } from "xstate";
 
-import "./About.css";
+import "./dialogueBox2.css";
 
 /*
  * What should it inherit? If dialogue shows up later?
@@ -70,10 +70,9 @@ class Dialogue extends Component{
     return (
       <div>
         
-      <h1 className="About-title"> ABOUT </h1>
-      <p className="About-summary-text">
-        We are Team Purple for the 6.148 WebLab class and competition.  All of us are interested in games and storytelling, so we made an RPG-style game to reflect that.  Hope you enjoy!
-      </p>
+      <h1 className="dBox-text"> ABOUT </h1>
+      <p>wow</p>
+      <div class="test-font">testing Cinzel Font</div>
     </div>
     );
   }
