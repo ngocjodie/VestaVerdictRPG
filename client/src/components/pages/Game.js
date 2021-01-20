@@ -40,7 +40,7 @@ class Game extends Component {
 
         <div className="camera">
           <Map />
-          
+{/*           
           <svg className="headline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 14" shapeRendering="crispEdges">
             <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
             <path stroke="rgba(128,191,255,0.01568627450980392)" d="M0 0h1M74 0h1M0 13h1M74 13h1" />
@@ -50,7 +50,7 @@ class Game extends Component {
             <path stroke="#434343" d="M0 12h1M74 12h1M1 13h73" />
             <path stroke="#cccccc" d="M1 12h73" />
           </svg>
-        
+         */}
         </div>
 
       </div>

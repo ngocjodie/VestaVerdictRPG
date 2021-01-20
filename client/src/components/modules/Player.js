@@ -81,17 +81,15 @@ class Player extends Component{
       newy = this.props.limits[2];
     }
 
-    const delta = [newx, newy];
-    //console.log("current coords", newx,",",newy); ////////////////////////////////////////////////////
+    const change = [newx, newy];
     for (const i in this.props.obstacles) {
-      let option = this.checkCollision(this.props.obstacles[i], newx, newy);
-      if (delta !== option) {
+      let delta = this.checkCollision(this.props.obstacles[i], newx, newy);
+      if (delta !== change) {
         newx = delta[0];
         newy = delta[1];
         break; // since it can only collide with one obstacle at a time
       }
     }
-    //console.log("and now new coords", newx,",",newy); ////////////////////////////////////////////////////
 
     this.setState({
       x: newx, //finalpos[0],
@@ -101,8 +99,7 @@ class Player extends Component{
   }
 
 
-  checkCollision = (thing, xpos, ypos) => {
-    //extract the values from thing[className, x, y, width, height]
+  checkCollision = (thing, xpos, ypos) => {//thing = [className, x, y, width, height]
     const topBorder = thing[2];             // y
     const bottomBorder = thing[2]+thing[4]; // y + h
     const leftBorder = thing[1];            // x
@@ -111,8 +108,7 @@ class Player extends Component{
 
     // if new (x,y) bad and old (x,y) fine, make it the limit btw them
     if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
-      console.log("** WE GOT A COLLISION **"); //////////////////////////////////////////////////////////////
-      if (this.state.last_dir === "right") { //going right pushed x into obstacles
+      if (this.state.last_dir === "right") { //as in, going right pushed x into obstacles
         final[0] = leftBorder;
       } else if (this.state.last_dir === "left") {
         final[0] = rightBorder;
@@ -120,13 +116,10 @@ class Player extends Component{
         final[1] = topBorder;
       } else if (this.state.last_dir === "up") {
         final[1] = bottomBorder;
-      }
-      //only deal with single directions because we don't move diagonal
+      } //only deal with single directions because we don't move diagonal
     }
     return final;
   }
-/*
-*/
 
   /*
   componentWillUnmount() {
@@ -150,12 +143,6 @@ class Player extends Component{
 
   render() {
     const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
-    // const camera_left = pixelSize * 66;
-    // const camera_top = pixelSize * 42;
-    // const mapStyle = { //disable if you don't want camera to move
-    //   transform: `translate3d( ${-this.state.x*pixelSize+camera_left}px, ${-this.state.y*pixelSize+camera_top}px, 0 )`,
-    // }
-    //style={mapStyle} <-- put this in if you want camera to move with player
 
     const charStyle ={
       transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
