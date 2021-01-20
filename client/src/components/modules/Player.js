@@ -4,6 +4,7 @@ import React, { Component } from "react";
  * PROPS:
  * @param number[] limits: [top, right, bottom, left]
  * @param number[][] obstacles: [css-type, x, y]
+ * @param number[] start: [x, y]
  * 
  * THINGS THAT COULD BE PROPS FOR LATER
  *  - last_dir to tell where it should face? (I'm leaning no but whatever)
@@ -17,6 +18,7 @@ class Player extends Component{
       x: 90,
       y: 34,
       last_dir: "down", 
+      held_dir: null,
       speed: 1.5,
       fps: 20,
     };
@@ -51,7 +53,6 @@ class Player extends Component{
   }
 
 
-
   placeChar = () => {
     const dir = this.state.held_dir;
     let newx = this.state.x;
@@ -69,6 +70,7 @@ class Player extends Component{
       }
     }
 
+    //creates cool bounce effect so you knwo you hit a boundary
     if (this.state.x < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
     } else if (this.state.x > this.props.limits[1]) { //this.props.limits[1] = right
@@ -79,8 +81,17 @@ class Player extends Component{
       newy = this.props.limits[2];
     }
 
-    // let finalpos = this.checkCollision(newx, newy);
-    // console.log("finalpos =", finalpos, "vs.", newx, "+", newy);
+    const delta = [newx, newy];
+    //console.log("current coords", newx,",",newy); ////////////////////////////////////////////////////
+    for (const i in this.props.obstacles) {
+      let option = this.checkCollision(this.props.obstacles[i], newx, newy);
+      if (delta !== option) {
+        newx = delta[0];
+        newy = delta[1];
+        break; // since it can only collide with one obstacle at a time
+      }
+    }
+    //console.log("and now new coords", newx,",",newy); ////////////////////////////////////////////////////
 
     this.setState({
       x: newx, //finalpos[0],
@@ -90,24 +101,32 @@ class Player extends Component{
   }
 
 
-  // checkCollision = (xpos, ypos) => {
-  //   const topLim = this.props.obstacles[0][1];
-  //   const bottomLim = topLim + 20;
-  //   const leftLim = this.props.obstacles[0][2];
-  //   const rightLim = leftLim + 20;
-  //   if (xpos < leftLim) {
-  //     xpos = leftLim;
-  //   } else if (xpos > rightLim) {
-  //     xpos = rightLim;
-  //   } 
-  //   if (ypos < topLim) {
-  //     ypos = topLim;
-  //   } else if (ypos > bottomLim) {
-  //     ypos = bottomLim;
-  //   }
-  //   return([xpos, ypos]);
-  // }
+  checkCollision = (thing, xpos, ypos) => {
+    //extract the values from thing[className, x, y, width, height]
+    const topBorder = thing[2];             // y
+    const bottomBorder = thing[2]+thing[4]; // y + h
+    const leftBorder = thing[1];            // x
+    const rightBorder = thing[1]+thing[3];  // x + w
+    let final = [xpos, ypos];
 
+    // if new (x,y) bad and old (x,y) fine, make it the limit btw them
+    if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
+      console.log("** WE GOT A COLLISION **"); //////////////////////////////////////////////////////////////
+      if (this.state.last_dir === "right") { //going right pushed x into obstacles
+        final[0] = leftBorder;
+      } else if (this.state.last_dir === "left") {
+        final[0] = rightBorder;
+      } else if (this.state.last_dir === "down") {
+        final[1] = topBorder;
+      } else if (this.state.last_dir === "up") {
+        final[1] = bottomBorder;
+      }
+      //only deal with single directions because we don't move diagonal
+    }
+    return final;
+  }
+/*
+*/
 
   /*
   componentWillUnmount() {

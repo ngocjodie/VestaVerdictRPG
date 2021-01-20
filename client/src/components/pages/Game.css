@@ -12,7 +12,7 @@
 }
 @media( min-width: 1000px ) {
   :root {
-    --pixel-size: 2px;
+    --pixel-size: 4px;
     /* --pixel-size: 2px; */
   }
 }

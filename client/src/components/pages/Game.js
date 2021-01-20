@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// import Player from "../modules/Player.js";
 import Map from "../modules/Map.js";
 
 import "./Game.css";
@@ -17,7 +16,7 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
-      maps: [],
+      maps: [], //might not actually use this
     };
   }
 
@@ -40,7 +39,6 @@ class Game extends Component {
         <div className="corner_bottomright"></div>
 
         <div className="camera">
-          {/* <Player /> */}
           <Map />
           
           <svg className="headline" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 75 14" shapeRendering="crispEdges">

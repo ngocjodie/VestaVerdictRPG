@@ -15,13 +15,14 @@ class Map extends Component {
     super(props);
     // Initialize Default State
     this.state = {
-      name: "river", //or some default png to show
-              //top right bottom left --> pass to Player
-      bounds:   [0,  200,  100,   0], // where char can't go --> defaults to edges of screen
+      name: "river", //name of Game.css element for its png
+              //top right bottom left --> pass to Player so it knows where the char can't go
+      bounds:   [0,  200,  100,   0], 
+      playerstart: [50, 100], //where Player starts on the Map
       
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
-      objects: { //list of obstacles --> maybe turn this into a prop
-        "crate": ["small-box", 150, 80], //key: [name, x,y]
+      objects: {
+        "crate": ["small-box", 150, 80, 32, 32], //UNIQUEkey: [CSS className, x,y, width,height]
       },
     };
   }
@@ -40,15 +41,15 @@ class Map extends Component {
     }
 
     let art = this.state.name + " pixel-art"
-    console.log("now obstacles are", obstacles);
+    console.log("now obstacles are", obstacles); ///////////////////////////////////////////////////////////////
 
     return (
       <div className={art} >
         {/* pass obstacle coords to both object and player*/}
         {objs}
-        <Player limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
+        <Player  limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
       </div>  
-
+//start={this.state.playerstart} --> when it's ready
     );
   }
 }
