@@ -19,7 +19,7 @@ class Player extends Component{
       y: null,
       last_dir: "down", 
       held_dir: null,
-      speed: 3,
+      speed: 5,
       fps: 60,
     };
   }
@@ -95,6 +95,10 @@ class Player extends Component{
         break; // since it can only collide with one obstacle at a time
       }
     }
+    //roof @ (70,60) (65,60)
+    //wall @ (60,75) (60,65)
+    //wall @ (84,70) (84,65)
+    //foot @ (65,84) (70,84) (80,84)
 
 
     this.setState({
@@ -111,16 +115,19 @@ class Player extends Component{
     const rightBorder = thing[1]+thing[3];  // x + w 
     let final = [xpos, ypos];
 
-    // if new (x,y) bad and old (x,y) fine, make it the limit btw them
-    if ((xpos >= leftBorder && xpos <= rightBorder) && (ypos >= topBorder && ypos <= bottomBorder)) {
+    // if new (x,y) bad and old (x,y) fine, kick them back 
+    if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
+      // console.log("** WE HAVE A COLLISION **"); /////////////////////////////////////////////////////////////////////
+      // console.log("for obstacle", thing[0], "it's at", leftBorder, topBorder); ////////////////////////////////////////
+      
       if (direction === "right") { //as in, going right pushed x into obstacles
-        final[0] = leftBorder - 1;
+        final[0] = leftBorder;
       } else if (direction === "left") {
-        final[0] = rightBorder + 1;
+        final[0] = rightBorder;
       } else if (direction === "down") {
-        final[1] = topBorder - 1;
+        final[1] = topBorder;
       } else if (direction === "up") {
-        final[1] = bottomBorder + 1;
+        final[1] = bottomBorder;
       } //only deal with single directions because we don't move diagonal
     }
     return final;
@@ -149,11 +156,10 @@ class Player extends Component{
 //NOTE: translate3d's (0,0) !== pixel/Player's (0,0) --> probably causing my issues
 
   render() {
-    const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
-
     const charStyle ={
-      transform: `translate3d( ${this.state.x*pixelSize}px, ${this.state.y*pixelSize}px, 0 )`,
+      transform: `translate( ${this.state.x}px, ${this.state.y}px )`,
     }
+    // console.log("current position:", this.state.x, this.state.y); /////////////////////////////////////////////////
     
     return(
       <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>

@@ -27,7 +27,6 @@ class Game extends Component {
     console.log("entered the render");
 
     return(
-      <div> {/* maybe an extra layer of wrapping/organization could help? */}
         <div className="Game-frame">
 
           {/* <div> not needed --> just import the css file above
@@ -55,7 +54,6 @@ class Game extends Component {
           </div>
 
         </div>
-      </div>
     );
   }
 }
