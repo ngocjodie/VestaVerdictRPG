@@ -53,7 +53,7 @@ class App extends Component {
   };
 
   render() {
-    return (
+    return ( //right div to do things in the empty tag
       <>
         <NavBar handleLogin={this.handleLogin} handleLogout={this.handleLogout} userId={this.state.userId}/>
         <Router>

@@ -19,6 +19,7 @@
 
 .Game-frame html, .Game-frame body {
   height: 100%;
+  /* width: 100%; vv ^^ get rid of the "html" & "body" because we're not looking for tags with those */
 }
 
 .Game-frame body {
@@ -26,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* margin: 0 auto; */
 }
 
 .pixel-art {
@@ -34,8 +36,8 @@
 
 .Game-frame {
   /* This is just for Pen decoration */
-  width: calc(var(--pixel-size) * 480);
-  height: calc(var(--pixel-size) * 272);
+  width: calc(var(--pixel-size) * 480/2);
+  height: calc(var(--pixel-size) * 272/2);
   /* width: calc(var(--pixel-size) * 160);
   height: calc(var(--pixel-size) * 144); */
   outline: var(--pixel-size) solid #fff;
@@ -44,7 +46,7 @@
 } 
 
 .camera {
-  box-sizing: border-box;
+  box-sizing: content-box;
 /*  width: 960px;
   height: 544px; */
   width: 100%;
@@ -53,6 +55,13 @@
   background: #61ddf7;
   position:relative;
 }
+
+/* 
+I think suspicious CSS things are from the fact that some things scale by grid-cell vs pixels 
+or are positioned as absolute vs relative.
+
+Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
+*/
 
 .character {
   /* width: calc( var(--grid-cell)* 2 ); */
@@ -94,9 +103,10 @@
   image-rendering: pixelated;
   background-image: url("../modules/smallbox.png");
   background-size: 100%;
+  background-repeat: no-repeat;
 /*  width: 32px;
   height: 32px; */
-  position: static; /* might've been here before */
+  position: relative; /* might've been here before */
 }
 
 .dialogue {

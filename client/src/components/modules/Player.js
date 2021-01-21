@@ -19,8 +19,8 @@ class Player extends Component{
       y: null,
       last_dir: "down", 
       held_dir: null,
-      speed: 1.5,
-      fps: 20,
+      speed: 3,
+      fps: 60,
     };
   }
 
@@ -75,20 +75,20 @@ class Player extends Component{
       }
     }
 
-    //creates cool bounce effect so you knwo you hit a boundary
-    if (this.state.x < this.props.limits[3]) { //this.props.limits[3] = left
+    //creates cool bounce effect so you know you hit a boundary
+    if (newx < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
-    } else if (this.state.x > this.props.limits[1]) { //this.props.limits[1] = right
+    } else if (newx > this.props.limits[1]) { //this.props.limits[1] = right
       newx = this.props.limits[1];
-    } else if (this.state.y < this.props.limits[0]) { //this.props.limits[0] = top
+    } else if (newy < this.props.limits[0]) { //this.props.limits[0] = top
       newy = this.props.limits[0];
-    } else if (this.state.y > this.props.limits[2]) { //this.props.limits[2] = bottom
+    } else if (newy > this.props.limits[2]) { //this.props.limits[2] = bottom
       newy = this.props.limits[2];
     }
 
     const change = [newx, newy];
     for (const i in this.props.obstacles) {
-      let delta = this.checkCollision(this.props.obstacles[i], newx, newy);
+      let delta = this.checkCollision(this.props.obstacles[i], newx, newy, dir);
       if (delta !== change) {
         newx = delta[0];
         newy = delta[1];
@@ -96,31 +96,31 @@ class Player extends Component{
       }
     }
 
-    this.setState({
-      x: newx, //finalpos[0],
-      y: newy, // finalpos[1],
-    });
 
+    this.setState({
+      x: newx,
+      y: newy,
+    });
   }
 
 
-  checkCollision = (thing, xpos, ypos) => {//thing = [className, x, y, width, height]
+  checkCollision = (thing, xpos, ypos, direction) => {//thing = [className, x, y, width, height]
     const topBorder = thing[2];             // y
     const bottomBorder = thing[2]+thing[4]; // y + h
     const leftBorder = thing[1];            // x
-    const rightBorder = thing[1]+thing[3];  // x + w
+    const rightBorder = thing[1]+thing[3];  // x + w 
     let final = [xpos, ypos];
 
     // if new (x,y) bad and old (x,y) fine, make it the limit btw them
-    if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
-      if (this.state.last_dir === "right") { //as in, going right pushed x into obstacles
-        final[0] = leftBorder;
-      } else if (this.state.last_dir === "left") {
-        final[0] = rightBorder;
-      } else if (this.state.last_dir === "down") {
-        final[1] = topBorder;
-      } else if (this.state.last_dir === "up") {
-        final[1] = bottomBorder;
+    if ((xpos >= leftBorder && xpos <= rightBorder) && (ypos >= topBorder && ypos <= bottomBorder)) {
+      if (direction === "right") { //as in, going right pushed x into obstacles
+        final[0] = leftBorder - 1;
+      } else if (direction === "left") {
+        final[0] = rightBorder + 1;
+      } else if (direction === "down") {
+        final[1] = topBorder - 1;
+      } else if (direction === "up") {
+        final[1] = bottomBorder + 1;
       } //only deal with single directions because we don't move diagonal
     }
     return final;
@@ -145,6 +145,8 @@ class Player extends Component{
     });
   }
 */
+
+//NOTE: translate3d's (0,0) !== pixel/Player's (0,0) --> probably causing my issues
 
   render() {
     const pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pixel-size'));
