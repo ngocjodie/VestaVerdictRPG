@@ -49,14 +49,6 @@
 }
 
 
-.Skeleton-gamename {
-    border-style: groove;
-    text-align: center;
-    font-size: x-large;
-    font-family: Cambria;
-    margin-top: 0;
-}
-
 
 .Skeleton-paraheader {
   text-align: center;
@@ -72,5 +64,5 @@
   }
 
 .Skeleton html, body {
-  background-color: #D7DEE6;
+  background-color: #474747;
 }

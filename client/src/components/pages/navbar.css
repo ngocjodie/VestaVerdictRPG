@@ -1,11 +1,13 @@
+@font-face {
+  font-family: pixelFont;
+  src: url(./fonts/font1.ttf) format('truetype');
+}
+
 .NavBar-container {
-  background-image: url("graynavbar.png");
   display: block;
   color: white;
-  text-align: center;
+  text-align: right;
   padding: 10px 10px;
-  border-radius: 4px;
-  position: sticky;
 }
 
 .NavBar-title {
@@ -16,7 +18,7 @@
 
 .NavBar-linkContainer {
   margin-left: 100px;
-  margin-right: 100px;
+  margin-right: 20px;
 }
 
 .NavBar-link,
@@ -24,8 +26,9 @@
   color: var(--white);
   opacity: 0.6;
   text-decoration: none;
-  font-family: Georgia;
-  padding: 50px;
+  font-family: pixelFont;
+  padding: 15px;
+  font-size: large;
 }
 
 .NavBar-link:hover {
@@ -37,5 +40,13 @@
 }
 
 .NavBar-link + .NavBar-link {
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+.NavBar-Plainbutton {
+    background: none;
+    border: none;
+    font-family: pixelFont;
+    cursor: pointer;
+    text-decoration: none;
 }

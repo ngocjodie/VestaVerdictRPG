@@ -6,6 +6,7 @@ import image_coming from'./highcouncil.png';
 
 
 
+
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "929690839465-7el5elpd43lv4fgmh53vvcfegqbp961n.apps.googleusercontent.com";
 
@@ -23,8 +24,6 @@ class Skeleton extends Component {
   render() {
     return (
       <>
-      <p className="Skeleton-gamename">  The Vesta Verdict  </p>
-
       <div className="Skeleton-pic">
         <img src={image_coming} alt="council" />
       </div>
