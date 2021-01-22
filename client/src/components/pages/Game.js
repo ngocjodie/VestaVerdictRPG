@@ -16,11 +16,24 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
-      maps: [], //might not actually use this
+      dimensions: [960, 544],  //same as .Game-frame
+      currentMap: "checker",
+      maps: {
+        // name: playerstartx, playerstarty, nextmap, exitx, exity, objects (oof)
+        "river":   [100, 100, "checker"],
+        "checker": [480, 272, "map"],
+        "map":     [ 50, 200, "river"],
+      },
     };
   }
 
   componentDidMount(){     // for api calls
+  }
+
+  switchScenes = () => {
+    //name={this.state.currentMap}
+    //playerstartx={this.state.maps[currentMap][0]}
+    //playerstarty={this.state.maps[currentMap][1]}
   }
 
   render() {
@@ -33,7 +46,7 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            <Map />
+            <Map name={this.state.currentMap} startx={this.state.maps[this.state.currentMap][0]} starty={this.state.maps[this.state.currentMap][1]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} /> {/* bouta get some props */}
           </div>
 
         </div>

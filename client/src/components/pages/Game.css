@@ -54,8 +54,6 @@
   image-rendering: pixelated;
   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
   background-size: 100%;
-  width: 960px;
-  height: 544px;
   position: relative;
 
 }
@@ -72,8 +70,6 @@
   background-image: url("../modules/desertriver.png");
   /* background-image: url("./mockupRoom.png"); */
   background-size: 100%;
-  width: 960px;
-  height: 544px;
   position: relative;
 
 }
