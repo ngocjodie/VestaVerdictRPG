@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-// import { useMachine } from "@xstate/react";
-// import { Machine } from "xstate";
+import React from 'react';
+import { Machine, interpret } from 'xstate';
+import { dialogueMachine } from './dialogueMachine.js';
 
-import "./dialogueBox2.css";
+import "./dialogueText.js"
+import "./dialogueBox2.css"
 
 /*
  * What should it inherit? If dialogue shows up later?
@@ -10,71 +11,89 @@ import "./dialogueBox2.css";
  * 
 */
 
-// STEPS:
-// 1. A set of states (e.g., idle, loading, success, error, etc.)
-// 2. A set of actions (e.g., SEARCH, CANCEL, SELECT_PHOTO, etc.)
-// 3. An initial state (e.g., idle)
-// 4. A transition function (e.g., transition('idle', 'SEARCH') == 'loading')
+class Dialogue extends React.Component {
+  state = {
+    current: dialogueMachine.initialState
+  };
 
 
-// DESCRIPTIONS OF STATES
-// noDialogue: box, question, answers all hidden
-// startDialogue: box unhidden, question writes, answers fadein
-// continuedDialogue: box unchanged, question writes, answers fade in
-// NOTE: on transition, all states should have question and answers hidden. unhidden is condiitonal
-
-// const stateMachine = new Machine({
-//   id: "toggleMachine",
-//   initial: "noDialogue",
-//   states: {
-//     "noDialogue": {
-//       on: {
-//         SPACEBAR: "startDialogue"
-//       }
-//     },
-//     "startDialogue": {
-//       on: {
-//         SPACEBAR: "noDialogue",
-//         CLICK: "noDialogue",
-//         CLICK: "continuedDialogue"
-//       }
-//     },
-//     "continuedDialogue": {
-//       on: {
-//         SPACEBAR: "noDialogue",
-//         CLICK: "noDialogue",
-//         CLICK: "continuedDialogue"
-//       }
-//     }
-//   }
-// });
-
-// function App() {
-//   const [current, send] = useMachine(toggleMachine);
-// }
-
-// console.log(current);
-
-class Dialogue extends Component{
-  constructor(props){
-    super(props);
-
-  }
+  service = interpret(dialogueMachine).onTransition(current =>
+    this.setState({ current })
+  );
 
   componentDidMount() {
-    //only for api calls
+    this.service.start();
+
   }
 
+  componentWillUnmount() {
+    this.service.stop();
+  }
+  
+
   render() {
-    //what to return / display
-    return (
-      <div>
-        
-      <h1 className="dBox-text"> ABOUT </h1>
-      <p>wow</p>
-      <div class="test-font">testing Cinzel Font</div>
-    </div>
+    console.log("check");
+    const { current } = this.state;
+    const { send } = this.service;
+    // TEST PURPOSES ONLY : MUST CHANGE WITH DIALOGUE
+    var continuing = false;
+
+    var boxHidden = current.matches('closed') || current.matches('closing') ? true : false;
+    var textHidden = current.matches('closed') || current.matches('closing') || current.matches('onlyTextClosing') ? true : false;
+    
+    if (this.state.current.matches("closed")) {
+      // alert("state:closed")
+      onkeyup = function (e) {
+        e.preventDefault;
+        if (e.keyCode === 32) {
+          // alert('state: closed, button pressed')
+          send("OPEN")
+        }
+      }
+    }
+
+    if (this.state.current.matches("opening")) {
+      // alert("state: opening")
+      setTimeout(() => {
+        send("DONE");
+      }, 300
+  );
+    }
+
+    if (this.state.current.matches("closing")) {
+      // alert("closing")
+      setTimeout(() => {
+          send("DONE");
+        }, 300
     );
+    }
+
+    if (this.state.current.matches("onlyTextClosing")) {
+      // alert("textclosing")
+      alert(textHidden)
+      setTimeout(() => {
+        send("DONE");
+      }, 300
+  );
+    }
+
+    if (this.state.current.matches("onlyTextOpening")) {
+      // alert("textOpening")
+      setTimeout(() => {
+        send("DONE");
+      }, 300
+  );
+    }
+
+
+    return (
+        <div className="dBox-flex-container">
+          <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
+            <div className={`dBox-textQ anim-typewriter ${boxHidden ? " dBox-hidden" : ""}`}> Question </div>
+            <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); console.log("continuingFunction")}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> Answer Options </div></button>
+          </div>
+        </div>
+  );
   }
 }
 
