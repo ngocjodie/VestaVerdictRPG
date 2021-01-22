@@ -21,7 +21,7 @@ class Map extends Component {
       
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
-        "crate": ["small-box", 560, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
+        "crate": ["small-box", 560, 60, 25, 25], //UNIQUEkey: [CSS className, x, y, width, height]
         "~grapes~": ["checker", 700, 430, 40, 40],
         "another": ["small-box", 300, 300, 90, 90],
         "board": ["checker", 150, 120, 70, 70],
@@ -37,16 +37,17 @@ class Map extends Component {
     // remember -- api calls go here!
   }
 
-  interaction = () => { // onClick function passed to Box
-    console.log("I touched a thing on the",this.state.name,"map"); // can access Map info for Box
-  }
+  // interaction = () => { // onClick function passed to Box
+  //   console.log("I touched a thing on the",this.state.name,"map"); // can access Map info for Box
+  // }
 
   render() {
     let objs = [];
     let obstacles = [];
 
-    for (const key in this.state.objects) {
-      objs.push(<Box onClick={this.interaction} key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} width={this.state.objects[key][3]} height={this.state.objects[key][4]} />);
+    for (const key in this.state.objects) {  // onClick={this.interaction}
+      console.log("from the for loop in Map:", key); //////////////////////////////////////////////////////////////
+      objs.push(<Box key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} width={this.state.objects[key][3]} height={this.state.objects[key][4]} />);
       obstacles.push(this.state.objects[key]);
     }
 

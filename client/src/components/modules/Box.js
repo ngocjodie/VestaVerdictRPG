@@ -20,6 +20,11 @@ class Box extends Component {
     // remember -- api calls go here!
   }
 
+  interaction = () => { // onClick function
+    console.log("I touched a thing on ",this.props); // can access its own info
+    // doesn't work as well          --> undefined --> nothing shows up for the invisibles either
+  }
+
   render() {
     const genericStyle = {
       position: "absolute",
@@ -30,8 +35,8 @@ class Box extends Component {
     }
     const classname = this.props.name + " pixel-art";
     
-    return (                                                            //invisible
-      <div className={classname} style={genericStyle} onClick={this.props.name==="invisible" ? null : this.props.onClick} ></div>
+    return (                                                            //invisible  onClick={this.props.name==="invisible" ? null : this.props.onClick}
+      <div className={classname} style={genericStyle} onClick={this.interaction} ></div>
     );
   }
 }

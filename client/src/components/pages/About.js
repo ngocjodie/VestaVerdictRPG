@@ -103,13 +103,14 @@ class Dialogue extends React.Component {
     super(props)
     this.state = {
       current: dialogueMachine.initialState,
-      currentDialogue: dialogueSystem[0]
+      currentDialogue: dialogueSystem[0],
+      //storyPath: [],
     }
   
   }
 
   service = interpret(dialogueMachine).onTransition(current =>
-    this.setState({ current })
+    this.setState({ current }) // semicolon?
   );
 
   componentDidMount() {
@@ -117,7 +118,7 @@ class Dialogue extends React.Component {
   }
 
 /*
-  forClick = () => { //practicing my passing-functions-into-html skills
+  forClick = () => { //practicing my pass-functions-into-html skills
     const { send } = this.service;
     const continuing = false;
     const ret = continuing ? send("CONTINUE") : send("CLOSE"); 
@@ -127,12 +128,14 @@ class Dialogue extends React.Component {
 */
 
   componentWillUnmount() {
+    // do something to send this.state.storyPath to a descendant of Game.js
     this.service.stop();
   }
   
   handleAnswer(answer) {
     this.setState({
-      currentDialogue: dialogueSystem[answer.response]
+      currentDialogue: dialogueSystem[answer.response],
+      //storyPath: this.state.storyPath.push(answer.response),
     })
 
   }
@@ -145,7 +148,7 @@ class Dialogue extends React.Component {
     // TEST PURPOSES ONLY : MUST CHANGE WITH DIALOGUE
     var continuing = false;
 
-    var boxHidden = current.matches('closed') || current.matches('closing') ? true : false;
+    var boxHidden = current.matches('closed') || current.matches('closing') ? true : false; 
     var textHidden = current.matches('closed') || current.matches('closing') || current.matches('onlyTextClosing') ? true : false;
     
     if (this.state.current.matches("closed")) {
@@ -203,7 +206,7 @@ class Dialogue extends React.Component {
             ))}
           </div>
         </div>
-  );
+    );
   }
 }
 
