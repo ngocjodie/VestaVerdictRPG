@@ -154,7 +154,7 @@ class Dialogue extends React.Component {
       // alert("state: opening")
       setTimeout(() => {
         send("DONE");
-      }, 300
+      }, 30
   );
     }
 
@@ -162,7 +162,7 @@ class Dialogue extends React.Component {
       // alert("closing")
       setTimeout(() => {
           send("DONE");
-        }, 300
+        }, 30
     );
     }
 
@@ -171,7 +171,7 @@ class Dialogue extends React.Component {
       alert(textHidden)
       setTimeout(() => {
         send("DONE");
-      }, 300
+      }, 30
   );
     }
 
@@ -179,7 +179,7 @@ class Dialogue extends React.Component {
       // alert("textOpening")
       setTimeout(() => {
         send("DONE");
-      }, 300
+      }, 30
   );
     }
 
