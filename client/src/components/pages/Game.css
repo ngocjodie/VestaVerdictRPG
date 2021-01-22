@@ -94,6 +94,10 @@
   position: relative;
 }
 
+.invisible {
+  z-index: -1;
+}
+
 /* .shadow {
   width: calc( var(--grid-cell)* 2 );
   height: calc( var(--grid-cell)* 2 );

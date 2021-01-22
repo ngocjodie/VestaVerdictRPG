@@ -27,7 +27,7 @@ class Game extends Component {
     return(
         <div className="Game-frame">
 
-          <div className="corner_topleft"></div>    {/* I, personally, could care less about these */}
+          <div className="corner_topleft"></div>    {/* I, personally, could care less about these 4 */}
           <div className="corner_topright"></div>
           <div className="corner_bottomleft"></div>
           <div className="corner_bottomright"></div>

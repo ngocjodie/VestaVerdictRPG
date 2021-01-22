@@ -30,8 +30,8 @@ class Box extends Component {
     }
     const classname = this.props.name + " pixel-art";
     
-    return (
-      <div className={classname} style={genericStyle} ></div>
+    return (                                                            //invisible
+      <div className={classname} style={genericStyle} onClick={this.props.name==="invisible" ? null : this.props.onClick} ></div>
     );
   }
 }
