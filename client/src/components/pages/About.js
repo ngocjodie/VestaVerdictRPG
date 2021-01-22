@@ -100,7 +100,7 @@ class Dialogue extends React.Component {
         <div className="dBox-flex-container">
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`dBox-textQ anim-typewriter ${boxHidden ? " dBox-hidden" : ""}`}> Question </div>
-            <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); console.log("continuingFunction")}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> Answer Options </div></button>
+            <div></div><button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); console.log("continuingFunction")}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> Answer Options </div></button>
           </div>
         </div>
   );
