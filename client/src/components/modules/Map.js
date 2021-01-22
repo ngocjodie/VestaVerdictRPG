@@ -19,11 +19,10 @@ class Map extends Component {
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
         "crate": ["small-box", 560, 60, 25, 25], //UNIQUEkey: [CSS className, x, y, width, height]
-        "~grapes~": ["checker", 700, 430, 40, 40],
-        "another": ["small-box", 300, 300, 90, 90],
+        "~grapes~": ["checker", 700, 430, 50, 80],
+        "another": ["small-box", 300, 300, 96, 54],
         "board": ["checker", 150, 120, 70, 70],
         "hidden": ["invisible", 200, 200, 30, 60], //if the className is invisible, then the onClick functions will work for pngs inside of them
-        "water": ["invisible", 380, -1, 220, 546], //will work for pngs inside of them
       },
 
       // a group of interactables that look just like objects except they have an onClick that depends on their key?
