@@ -89,7 +89,6 @@ window.printcurrentConvo = function(){
     for(var i=0,l=dialogueSystem[currentConvo].answers.length;i<l;i++){
         answers += "<p><button class='choices' onclick='setConvo("+dialogueSystem[currentConvo].answers[i].response+")'>"+dialogueSystem[currentConvo].answers[i].title+"</button></p>";
         // <p><button class='choices' onclick='setConvo(dialogueSystem[currentConvo].answers[i].response)'>dialogueSystem[currentConvo].answers[i].title</button></p>
-    }
     document.getElementById("answers").innerHTML = answers;
 }
 
