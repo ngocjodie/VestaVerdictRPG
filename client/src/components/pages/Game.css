@@ -71,7 +71,7 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   /* width: calc( var(--grid-cell)* 2 ); */
   width: 32px; /* calc( var(--grid-cell)* 1 ); */
   height: 64px; /* calc( var(--grid-cell)* 2 ); */
-  position: absolute;
+  /* position: absolute; */
   overflow: hidden;
 }
 
@@ -82,12 +82,14 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   width: 960px;
   height: 544px;
   position: relative;
+
 }
 
 .checker {
   image-rendering: pixelated;
   background-image: url("../modules/checkerboard.png");
   background-size: 100%;
+
   /* width: 80px;
   height: 72px; */
 }
@@ -101,6 +103,7 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   width: 960px;
   height: 544px;
   position: relative;
+
 }
 
 .small-box {
@@ -108,9 +111,14 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   background-image: url("../modules/smallbox.png");
   background-size: 100%;
   background-repeat: no-repeat;
+
 /*  width: 32px;
   height: 32px; */
 /*   position: relative; might've been here before */
+}
+
+.invisible {
+  image-rendering: pixelated;
 }
 
 .dialogue {
@@ -120,6 +128,7 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   width: 480px;
   height: 272px;
   position: relative;
+
 }
 
 /* .shadow {
@@ -134,7 +143,7 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
 } */
 
 .character_spritesheet {
-  position: relative/*absolute*/;
+  /* position: absolute; */
   /* background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat; */
   background: url("./DemoRpgCharacter.png") no-repeat no-repeat;
   background-size: 100%;
@@ -143,6 +152,7 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   width: 128px; /* calc( var(--grid-cell)* 4 ); */
   height: 256px; /* calc( var(--grid-cell)* 8 ); */
   z-index: 2;
+
 }
 
 .character[facing="right"] .character_spritesheet {

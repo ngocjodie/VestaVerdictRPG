@@ -86,10 +86,10 @@ class Player extends Component{
       newy = this.props.limits[2];
     }
 
-    const change = [newx, newy];
+    // const change = [newx, newy];
     for (const i in this.props.obstacles) {
       let delta = this.checkCollision(this.props.obstacles[i], newx, newy, dir);
-      if (delta !== change) {
+      if (delta[0] !== newx || delta[1] !== newy) {
         newx = delta[0];
         newy = delta[1];
         break; // since it can only collide with one obstacle at a time
@@ -157,7 +157,10 @@ class Player extends Component{
 
   render() {
     const charStyle ={
-      transform: `translate( ${this.state.x}px, ${this.state.y}px )`,
+      // transform: `translate( ${this.state.x}px, ${this.state.y}px )`,
+      position: "absolute",
+      left: `${this.state.x - 18}px`,  // bc it measures from the topleft corner of the sprite sheet
+      top: `${this.state.y - 60}px`,   // instead of @ the feet like I want
     }
     // console.log("current position:", this.state.x, this.state.y); /////////////////////////////////////////////////
     

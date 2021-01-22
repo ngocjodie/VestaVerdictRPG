@@ -17,15 +17,18 @@ class Map extends Component {
     this.state = {
       name: "river", //name of Game.css element for its png
               //top right bottom left --> pass to Player so it knows where the char can't go
-      bounds:   [-90,  935,  430,   -10], // camera bounds are apparently [-50, 225, 80, 0]
-      playerstart: [0, 0], //where Player starts on the Map
+      bounds: [0,  960,  544,  0], // same as size of map now (it really does work *single tear of joy*)
+      playerstart: [100, 100], //where Player starts on the Map
       
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
-        "crate": ["small-box", 60, 60, 24, 24], //UNIQUEkey: [CSS className, x,y, width,height]
+        "crate": ["small-box", 60, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
                              //45,-45
         "origin": ["checker", 0, 0, 40, 40],
                           //-10,-80
+        "another": ["small-box", 300, 300, 90, 90],
+        "board": ["checker", 150, 120, 70, 70],
+        "hidden": ["invisible", 200, 200, 30, 60],
       },
     };
   }
