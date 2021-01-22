@@ -30,12 +30,13 @@
 .dBox-textQ {
   font-family: pixelFont;  
   width: 825px;
-  height: 43px;
+  height: 32px;
   font-size: 30px;
   z-index: 0;
   padding-left: 3%;
   padding-top:  2.5%;
   /* below for anime */
+  white-space: nowrap;
   overflow: hidden;
 
 }
@@ -50,6 +51,7 @@
   background: none;
   outline: none;
   padding-left: 5%;
+  padding-top: 2%;
 }
 
 .dBox-background {
@@ -121,19 +123,22 @@
 }
 
 /* for the typing effect lol */
-
-
 /* Animation - help from Johan Cervantes */
 .anim-typewriter{
-  animation: typewriter 3s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
+  animation: typewriter 3s steps(80) 1s 1 normal both,
+             blinkTextCursor 500ms steps(80) infinite normal;
   overflow: hidden;
 }
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 24em;}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
-}
+
