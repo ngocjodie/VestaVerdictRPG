@@ -122,7 +122,7 @@ class Player extends Component{
   render() {
     const charStyle ={
       position: "absolute",
-      left: `${this.state.x - 18}px`,  // bc it measures from the topleft corner of the sprite sheet
+      left: `${this.state.x - 18}px`,  // bc it measures from the topleft corner of the spritesheet
       top: `${this.state.y - 60}px`,   // instead of @ the feet like I want
     }
     

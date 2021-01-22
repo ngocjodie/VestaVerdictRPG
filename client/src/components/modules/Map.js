@@ -16,17 +16,18 @@ class Map extends Component {
     // Initialize Default State
     this.state = {
       name: "river", //name of Game.css element for its png
-              //top right bottom left --> pass to Player so it knows where the char can't go
-      bounds: [0,  960,  544,  0], // same as size of map now (it really does work *single tear of joy*)
-      playerstart: [100, 100], //where Player starts on the Map
+            //top right bottom left --> pass to Player so it knows where the char can't go
+      bounds: [0,  960,  544,   0], // same as size of map now (it really does work *single tear of joy*)
+      playerstart: [800, 100], //where Player starts on the Map
       
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
-        "crate": ["small-box", 60, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
-        "origin": ["checker", 0, 0, 40, 40],
+        "crate": ["small-box", 560, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
+        "~grapes~": ["checker", 700, 430, 40, 40],
         "another": ["small-box", 300, 300, 90, 90],
         "board": ["checker", 150, 120, 70, 70],
-        "hidden": ["invisible", 200, 200, 30, 60],
+        "hidden": ["", 200, 200, 30, 60], //invisible things don't need a valid className
+        "water": ["", 380, -1, 220, 546],
       },
     };
   }

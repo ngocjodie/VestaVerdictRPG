@@ -24,8 +24,6 @@ class Game extends Component {
   }
 
   render() {
-    console.log("entered the render");
-
     return(
         <div className="Game-frame">
 
