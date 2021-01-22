@@ -13,7 +13,6 @@ import React, { Component } from "react";
 class Box extends Component {
   constructor(props) {
     super(props);
-    // Initialize Default State
     this.state = {};
   }
 
@@ -23,7 +22,6 @@ class Box extends Component {
 
   render() {
     const genericStyle = {
-      // transform: `translate( ${this.props.x}px, ${this.props.y}px )`,
       position: "absolute",
       left: `${this.props.x}px`,
       top: `${this.props.y}px`,

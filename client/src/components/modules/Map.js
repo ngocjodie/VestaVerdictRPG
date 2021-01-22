@@ -23,9 +23,7 @@ class Map extends Component {
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
         "crate": ["small-box", 60, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
-                             //45,-45
         "origin": ["checker", 0, 0, 40, 40],
-                          //-10,-80
         "another": ["small-box", 300, 300, 90, 90],
         "board": ["checker", 150, 120, 70, 70],
         "hidden": ["invisible", 200, 200, 30, 60],
