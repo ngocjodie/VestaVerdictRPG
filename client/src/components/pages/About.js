@@ -25,13 +25,15 @@ class Dialogue extends React.Component {
     this.service.start();
   }
 
-  // forClick = () => { //practicing my passing-functions-into-html skills
-  //   const { send } = this.service;
-  //   const continuing = false;
-  //   const ret = continuing ? send("CONTINUE") : send("CLOSE"); 
-  //   console.log("continuingFunction");
-  //   return ret;
-  // }
+/*
+  forClick = () => { //practicing my passing-functions-into-html skills
+    const { send } = this.service;
+    const continuing = false;
+    const ret = continuing ? send("CONTINUE") : send("CLOSE"); 
+    console.log("continuingFunction");
+    return ret;
+  }
+*/
 
   componentWillUnmount() {
     this.service.stop();
@@ -99,9 +101,6 @@ class Dialogue extends React.Component {
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`dBox-textQ anim-typewriter ${boxHidden ? " dBox-hidden" : ""}`}> Question </div>
             <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); console.log("continuingFunction")}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> Answer Options </div></button>
-            {/* <button onClick={this.forClick} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}>
-              <div className="dBox-choices"> Answer Options </div>
-            </button> */}
           </div>
         </div>
   );
