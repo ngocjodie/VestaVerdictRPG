@@ -1,213 +1,25 @@
-import React from 'react';
-import { Machine, interpret } from 'xstate';
-import { dialogueMachine } from './dialogueMachine.js';
 
-import "./dialogueText.js"
-import "./dialogueBox2.css"
+import React, { Component } from "react";
+import DialogueBox from "./DialogueBox.js";
+import Convos from "./Convos";
 
-const dialogueSystem = [
-
-  {   // 0  : ends
-      "question":"Start",
-      "answers":[
-          {"title":" < oh wow. a dying lady!","response":1},
-          {"title":"What is the word?","response":1},
-      ]
-  },
-  {
-      // 1 : end
-      "question":"LADY: help, i've fallen and i can't get my fruit!",
-      "answers":[
-          {"title":" < don't worry. i'll find it.","response":2}
-      ]
-  },
-  {
-      // 2 : end
-      "question":"You found the fruit.",
-      "answers":[
-          {"title": " < Press to eat the fruit.","response":3},
-          {"title": " < Press to return the fruit.","response":4}
-      ]
-  },
-  {
-      // 3 : end
-      "question":"LADY: Where my fruit at?",
-      "answers":[
-          {"title": " < i ate it omnomnom.","response": 5},
-      ]
-  },
-  {
-      // 4 : end
-      "question":"LADY: Where my fruit at?",
-      "answers":[
-          {"title": " < here you go.","response": 6},
-      ]
-  },
-  {
-      // 5 : cont
-      "question":"LADY: I curse you forever now.",
-      "answers":[
-          {"title":" < :[","response":10},
-      ]
-  },
-  {
-      // 6: cont
-      "question":"LADY: thx 4 fruit. my throat be dry too though.",
-      "answers":[
-          {"title":" < yes, m'aam. fountain water coming right up","response":7},
-          {"title":" < unfortunately not my problem.","response":9}
-      ]
-  },
-  {
-      // 7 : end
-      "question":"LADY: Thanks man. Your purse looks lit btw, can I buy it?",
-      "answers":[
-          {"title":" < ya.","response":8},
-          {"title":" < nah, it's my mum's.","response":9}
-      ]
-  },
-  {
-      // 8 : cont
-      "question":"LADY: Aight here's your cash.",
-      "answers":[
-          {"title":" < im rich","response":10}
-      ]
-  },
-  {
-      // 9 : cont
-      "question":"LADY: >:[ ",
-      "answers":[
-          {"title":" < :o","response":10},
-      ]
-  },
-  {
-      // 10 : cont
-      "question":"Game Over",
-      "answers":[
-          {"title":" < Restart","response":0},
-      ]
-  }
-];
-
-/*
- * What should it inherit? If dialogue shows up later?
- * states of the character(?)
- * 
-*/
-
-class Dialogue extends React.Component {
-
-  // once it starts taking in props: modify class to this.props.dialogue
-  // after creating dialogue component as <Dialogue dialogue = {dialogueChoice}/>
+class About extends Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      current: dialogueMachine.initialState,
-      currentDialogue: dialogueSystem[0],
-      //storyPath: [],
-    }
-  
-  }
+        dialogueOption:0 ,
+        hasClicked: true,
 
-  service = interpret(dialogueMachine).onTransition(current =>
-    this.setState({ current }) // semicolon?
-  );
-
-  componentDidMount() {
-    this.service.start();
-  }
-
-/*
-  forClick = () => { //practicing my pass-functions-into-html skills
-    const { send } = this.service;
-    const continuing = false;
-    const ret = continuing ? send("CONTINUE") : send("CLOSE"); 
-    console.log("continuingFunction");
-    return ret;
-  }
-*/
-
-  componentWillUnmount() {
-    // do something to send this.state.storyPath to a descendant of Game.js
-    this.service.stop();
-  }
-  
-  handleAnswer(answer) {
-    this.setState({
-      currentDialogue: dialogueSystem[answer.response],
-      //storyPath: this.state.storyPath.push(answer.response),
-    })
-
-  }
+    };
+}
 
 
   render() {
-    console.log("check");
-    const { current } = this.state;
-    const { send } = this.service;
-    // TEST PURPOSES ONLY : MUST CHANGE WITH DIALOGUE
-    var continuing = false;
-
-    var boxHidden = current.matches('closed') || current.matches('closing') ? true : false; 
-    var textHidden = current.matches('closed') || current.matches('closing') || current.matches('onlyTextClosing') ? true : false;
-    
-    if (this.state.current.matches("closed")) {
-      // alert("state:closed")
-      onkeyup = function (e) {
-        e.preventDefault;
-          //e.keyCode === 32 is deprecated terms that my computer hates, so I found the "modern" version and it works
-        if (e.key === " ") { //
-          // alert('state: closed, button pressed')
-          send("OPEN")
-        }
+    console.log(Convos[this.state.dialogueOption])
+      return ( <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
+        );
       }
     }
+    
 
-    if (this.state.current.matches("opening")) {
-      // alert("state: opening")
-      setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
-    }
-
-    if (this.state.current.matches("closing")) {
-      // alert("closing")
-      setTimeout(() => {
-          send("DONE");
-        }, 30
-    );
-    }
-
-    if (this.state.current.matches("onlyTextClosing")) {
-      // alert("textclosing")
-      alert(textHidden)
-      setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
-    }
-
-    if (this.state.current.matches("onlyTextOpening")) {
-      // alert("textOpening")
-      setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
-    }
-
-
-    return (
-        <div className="dBox-flex-container">
-          <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
-            <div className={`dBox-textQ anim-typewriter ${boxHidden ? " dBox-hidden" : ""}`}> {this.state.currentDialogue.question} </div>
-            {this.state.currentDialogue.answers.map((answer)=> (
-            <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); this.handleAnswer(answer)}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> {answer.title} </div></button>
-            ))}
-          </div>
-        </div>
-    );
-  }
-}
-
-export default Dialogue;
+export default About;
