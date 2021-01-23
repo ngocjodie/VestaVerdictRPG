@@ -15,7 +15,6 @@ class About extends Component{
 
 
   render() {
-    console.log(Convos[this.state.dialogueOption])
       return ( <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
         );
       }

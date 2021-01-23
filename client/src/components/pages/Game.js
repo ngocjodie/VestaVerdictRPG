@@ -4,9 +4,9 @@ import Map from "../modules/Map.js"; //separate js files for map info like obsta
 // import Box from "../modules/Box.js";
 // import Player from "../modules/Player.js";
 import { mapinfo } from "../modules/MapInfo.js";
-
-
 import "./Game.css";
+import DialogueBox from "./DialogueBox.js";
+import Convos from "./Convos";
 
 
 /** QUESTIONS FOR OFFICE HOURS
@@ -28,6 +28,7 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
+      dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
       currentMap: "room1", //or make a unique name instead of the CSS class
 
@@ -55,6 +56,7 @@ class Game extends Component {
     console.log("rendering Game.js?");///////////////////////////////////////////////////////////////////////////
 
     return(
+
         <div className="Game-frame">
 
           <div className="corner_topleft"></div>    {/* I, personally, could care less about these 4 */}
@@ -65,8 +67,10 @@ class Game extends Component {
           <div className="camera">
             <Map name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
+          <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
 
         </div>
+
     );
   }
 }
