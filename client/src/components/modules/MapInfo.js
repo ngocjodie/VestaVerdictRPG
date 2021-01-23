@@ -5,11 +5,12 @@
 
 export const mapinfo = {
   //might need to switch keys to names and make the pngs elements so we can reuse things
-  "river": {
-    "playerstart": [100, 100],
-    "nextmap": "checker", //which map it switched to when Player collides with exit object
+  "room1": {
+    thismap: "river",
+    playerstart: [100, 100],
+    nextmap: "room2", //which map it switched to when Player collides with exit object
 
-    "objects": { 
+    objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
       "exit"    : [   "door",     500, 400,   50,    80  ],
       "crate"   : ["small-box", 560, 60, 25, 25],
@@ -20,11 +21,12 @@ export const mapinfo = {
     },
   },
 
-  "checker": {
-    "playerstart": [480, 272],
-    "nextmap": "map",
+  "room2": {
+    thismap: "checker",
+    playerstart: [480, 272], // N/A at the moment
+    nextmap: "room3",
 
-    "objects": { 
+    objects: { 
     // UNIQUEkey : [CSS className,  x,   y,  width, height]
       "exit"     : [   "door",     600, 400,   50,    80  ],
       "checkers" : ["checker", 100, 100, 60, 60],
@@ -32,11 +34,12 @@ export const mapinfo = {
     },
   },
 
-  "map": {
-    "playerstart": [50, 200],
-    "nextmap": "river",
+  "room3": {
+    thismap: "map",
+    playerstart: [50, 200], // N/A at the moment
+    nextmap: "room1",
 
-    "objects": { 
+    objects: { 
     //UNIQUEkey: [CSS className,  x,   y,  width, height]
       "exit"   : [   "door",     700, 200,   50,    80  ],
       "seat1"  : ["small-box", 400, 300, 40, 40],
@@ -44,6 +47,8 @@ export const mapinfo = {
       "seat3"  : ["small-box", 500, 300, 40, 40],
       "seat4"  : ["small-box", 550, 300, 40, 40],
       "seat5"  : ["small-box", 600, 300, 40, 40],
+      "west"   : ["left-telescope", 20, 100, 60, 60],
+      "east"   : ["right-telescope", 820, 480, 60, 60],
     },
   },
 

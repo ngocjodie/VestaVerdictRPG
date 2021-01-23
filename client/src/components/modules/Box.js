@@ -20,10 +20,14 @@ class Box extends Component {
     // remember -- api calls go here!
   }
 
-  interaction = () => { // onClick function
-    console.log("I touched a thing:",this.props); // can access its own info
-    // doesn't work as well      --> undefined --> nothing shows up for the invisibles either
-                                //not last time I checked --> figure out later  
+  interaction = () => { // onClick function --doesn't work for invisibles
+    const item = this.props;
+    console.log("I touched a thing:", item); // can access its own info except for the key b/c that's unique and apparently private
+    if (item.name === "left-telescope") {
+      console.log("the west one");
+    } else if (item.name === "right-telescope") {
+      console.log("the east one");
+    }
   }
 
   render() {
@@ -36,7 +40,7 @@ class Box extends Component {
     }
     const classname = this.props.name + " pixel-art";
     
-    return (                                                            //invisible  onClick={this.props.name==="invisible" ? null : this.props.onClick}
+    return (
       <div className={classname} style={genericStyle} onClick={this.interaction} ></div>
     );
   }
