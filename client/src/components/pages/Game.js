@@ -34,19 +34,18 @@ class Game extends Component {
     super(props);
     this.state = {
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "map", //or make a unique name instead of the CSS class
+      currentMap: "river", //or make a unique name instead of the CSS class
     };
   }
 
   componentDidMount(){     // for api calls
-    console.log("rendering Game.js");
+    //
   }
 
   //create a Box component for the doors placed at currentMap's exit in here so that it won't be read as an obstacle by Player
-  // pass in goal into Map and create specialty case in collision to detect when to do the switch
+  //pass in goal into Map and create specialty case in collision to detect when to do the switch
   render() {
     const info = mapinfo[this.state.currentMap];
-    // console.log("this is what I extracted", info);
 
     return(
         <div className="Game-frame">
@@ -57,8 +56,7 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} /> {/* bouta get some props */}
-            <Box key={"exit"} name={"door"} x={info["exit"][0]} y={info["exit"][1]} width={50} height={80} />
+            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
 
         </div>

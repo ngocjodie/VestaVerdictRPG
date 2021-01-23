@@ -17,12 +17,12 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // playerx: null,
-      // playery: null,
-      // last_dir: "down", 
-      // held_dir: null,
-      // speed: 5,
-      // fps: 60,
+      playerx: null,
+      playery: null,
+      last_dir: "down", 
+      held_dir: null,
+      speed: 5,
+      fps: 60,
 
       // a group of interactables that look just like objects except they have an onClick that depends on their key?
     };
@@ -30,89 +30,124 @@ class Map extends Component {
 
   componentDidMount() {
     // remember -- api calls go here!
-    // this.setState({
-    //   playerx: this.props.startx,
-    //   playery: this.props.starty,
-    // });
+    this.setState({
+      playerx: this.props.start[0],
+      playery: this.props.start[1],
+    });
 
-    // const directions = {
-    //   "ArrowUp": "up",
-    //   "ArrowDown": "down",
-    //   "ArrowLeft": "left",
-    //   "ArrowRight": "right",
-    // }
+    const directions = {
+      "ArrowUp": "up",
+      "ArrowDown": "down",
+      "ArrowLeft": "left",
+      "ArrowRight": "right",
+    }
    
-    // // put these in divs and pass to Player Component?
-    // window.addEventListener("keydown", (e) => {
-    //   const dir = directions[e.key];
-    //   this.setState({
-    //     last_dir: dir,
-    //     held_dir: dir,
-    //   });
-    // });
+    // put these in divs and pass to Player Component?
+    window.addEventListener("keydown", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        last_dir: dir,
+        held_dir: dir,
+      });
+    });
    
-    // window.addEventListener("keyup", (e) => {
-    //   const dir = directions[e.key];
-    //   this.setState({
-    //     held_dir: null, 
-    //     last_dir: dir,
-    //   });
-    // });
+    window.addEventListener("keyup", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        held_dir: null, 
+        last_dir: dir,
+      });
+    });
 
-    // setInterval(this.placeChar, this.state.fps);
-
+    setInterval(this.placeChar, this.state.fps);
   }
 
-  // placeChar = () => {
-  //   const dir = this.state.held_dir;
-  //   let newx = this.state.playerx;
-  //   let newy = this.state.playery;
+  placeChar = () => {
+    const dir = this.state.held_dir;
+    let newx = this.state.playerx;
+    let newy = this.state.playery;
 
-  //   if (dir) {
-  //     if (dir === "right") {
-  //       newx += this.state.speed;
-  //     } else if (dir === "left") {
-  //       newx -= this.state.speed;
-  //     } else if (dir === "up") {
-  //       newy -= this.state.speed;
-  //     } else if (dir === "down") {
-  //       newy += this.state.speed;
-  //     }
-  //   }
+    if (dir) {
+      if (dir === "right") {
+        newx += this.state.speed;
+      } else if (dir === "left") {
+        newx -= this.state.speed;
+      } else if (dir === "up") {
+        newy -= this.state.speed;
+      } else if (dir === "down") {
+        newy += this.state.speed;
+      }
+    }
 
-  //   if (newx < 0) { //left
-  //     newx = 0;
-  //   } else if (newx > this.props.width) { //right
-  //     newx = this.props.width;
-  //   } else if (newy < 0) { //top
-  //     newy = 0;
-  //   } else if (newy > this.props.height) { //bottom
-  //     newy = this.props.height;
-  //   }
+    if (newx < 0) { //left
+      newx = 0;
+    } else if (newx > this.props.width) { //right
+      newx = this.props.width;
+    } else if (newy < 0) { //top
+      newy = 0;
+    } else if (newy > this.props.height) { //bottom
+      newy = this.props.height;
+    }
 
-  //   for (const i in this.props.obstacles) {
-  //     let delta = this.checkCollision(this.props.obstacles[i], newx, newy, dir);
-  //     if (delta[0] !== newx || delta[1] !== newy) {
-  //       if (i === "goal") {
-  //         //do the thing to switch scenes, which would probably involve a return or break
-  //       }
-  //       newx = delta[0];
-  //       newy = delta[1];
-  //       break; // since it can only collide with one obstacle at a time
-  //     }
-  //   }
+    for (const i in this.props.objects) {
+      let delta = this.checkCollision(this.props.objects[i], newx, newy, dir);
+      if (delta[0] !== newx || delta[1] !== newy) {
+        if (i === "exit") {
+          console.log("REACHED THE EXIT"); //it works :D
+          //do the thing to switch scenes, which would probably involve a return or break
+        }
+        newx = delta[0];
+        newy = delta[1];
+        break; // since it can only collide with one obstacle at a time
+      }
+    }
 
-  //   this.setState({
-  //     playerx: newx,
-  //     playery: newy,
-  //   });
-  // }
+    this.setState({
+      playerx: newx,
+      playery: newy,
+    });
+  }
+
+  checkCollision = (thing, xpos, ypos, direction) => {//thing = [className, x, y, width, height]
+    const topBorder = thing[2];             // y
+    const bottomBorder = thing[2]+thing[4]; // y + h
+    const leftBorder = thing[1];            // x
+    const rightBorder = thing[1]+thing[3];  // x + w 
+    let final = [xpos, ypos];
+
+    // if new (x,y) bad and old (x,y) fine, kick them back 
+    if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
+      if (direction === "right") { //as in, going right pushed x into obstacles
+        final[0] = leftBorder;
+      } else if (direction === "left") {
+        final[0] = rightBorder;
+      } else if (direction === "down") {
+        final[1] = topBorder;
+      } else if (direction === "up") {
+        final[1] = bottomBorder;
+      } //only deal with single directions because we don't move diagonal
+    }
+    return final;
+  }
 
 
-
-
-
-
+  componentWillUnmount(){
+    window.removeEventListener("keydown", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        last_dir: dir,
+        held_dir: dir,
+      });
+    });
+   
+    window.removeEventListener("keyup", (e) => {
+      const dir = directions[e.key];
+      this.setState({
+        held_dir: null, 
+        last_dir: dir,
+      });
+    });
+  }
 
 
 
@@ -124,11 +159,9 @@ class Map extends Component {
 
   render() {
     let objs = [];
-    let obstacles = [];
 
     for (const key in this.props.objects) {  // onClick={this.interaction}
       objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} />);
-      obstacles.push(this.props.objects[key]);
     }
 
   const mapStyle = {
@@ -141,7 +174,7 @@ class Map extends Component {
     return (
       <div className={art} style={mapStyle} >
         {objs}
-        <Player start={this.props.start} limits={[0, this.props.width, this.props.height, 0]} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
+        <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} /> {/* Player comes last so nothing's floating above it */}
       </div>  
     );
   }
