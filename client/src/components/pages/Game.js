@@ -42,10 +42,20 @@ class Game extends Component {
     //
   }
 
-  //create a Box component for the doors placed at currentMap's exit in here so that it won't be read as an obstacle by Player
-  //pass in goal into Map and create specialty case in collision to detect when to do the switch
+  switchScenes = () => {
+    //
+    console.log("reached the switch scene function");
+    const next = mapinfo[this.state.currentMap]["nextmap"];
+    console.log("this is the next one:", next);
+    this.setState({
+      currentMap: next,
+    });
+    console.log("state change complete");///////////////////////////////////////////////////////
+  } 
+
   render() {
     const info = mapinfo[this.state.currentMap];
+    console.log("rendering Game.js?");///////////////////////////////////////////////////////////////////////////
 
     return(
         <div className="Game-frame">
@@ -56,7 +66,7 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
+            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
 
         </div>

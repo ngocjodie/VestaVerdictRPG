@@ -10,6 +10,7 @@ import Box from "./Box.js";
  * @param {string} name for className in Game.css to render
  * @param {number[]} start --> where player starts on this map
  * @param {Object[]} objects player obstacles --> look for a special one labelled goal
+ * @param {() => ()} switch for switching to the next map
  * 
  */
 
@@ -30,6 +31,8 @@ class Map extends Component {
 
   componentDidMount() {
     // remember -- api calls go here!
+    console.log("calling the mount"); /////////////////////////////////////////////////////////
+
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
@@ -94,6 +97,7 @@ class Map extends Component {
       if (delta[0] !== newx || delta[1] !== newy) {
         if (i === "exit") {
           console.log("REACHED THE EXIT"); //it works :D
+          this.props.switch();
           //do the thing to switch scenes, which would probably involve a return or break
         }
         newx = delta[0];

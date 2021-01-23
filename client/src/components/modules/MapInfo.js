@@ -1,13 +1,13 @@
 
 //IF YOU WANT AN OBJECT ON A MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
-// ~ NOTE: one must be a "goal" with name "door" that's 50x80
+// ~ NOTE: one must be an "exit" with name "door" that's 50x80
 
 
 export const mapinfo = {
   //might need to switch keys to names and make the pngs elements so we can reuse things
   "river": {
     "playerstart": [100, 100],
-    "nextmap": "checker",
+    "nextmap": "checker", //which map it switched to when Player collides with exit object
 
     "objects": { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
