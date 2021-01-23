@@ -71,6 +71,7 @@ class Player extends Component{
       }
     }
 
+
     if (newx < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
     } else if (newx > this.props.limits[1]) { //this.props.limits[1] = right

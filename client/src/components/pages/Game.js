@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
-import Map from "../modules/Map.js";
+import Map from "../modules/Map.js"; //separate js files for map info like obstacles
 import Box from "../modules/Box.js";
-import Player from "../modules/Player.js";
+// import Player from "../modules/Player.js";
+import { mapinfo } from "../modules/MapInfo.js";
+
 
 import "./Game.css";
 
@@ -14,11 +16,9 @@ import "./Game.css";
  * ) how to share info about exits and player position to determine when to change scenes
  * 
  * ) where dialogue should be called and how we should extract the necessary info for awards from it
+ *   ----put in Game if they have to do with the overall function of it
+ *   --hardcoding is less complicated --> no set database structure off the top of the head
  */
-
-
-
-
 
 
 
@@ -34,26 +34,20 @@ class Game extends Component {
     super(props);
     this.state = {
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "river",
-      maps: {
-        // name: playerstartx, playerstarty, nextmap, exitx, exity, objects (oof)
-        "river":   [100, 100, "checker", 500, 400],
-        "checker": [480, 272, "map",     600, 400],
-        "map":     [ 50, 200, "river",   700, 400],
-      },
+      currentMap: "map", //or make a unique name instead of the CSS class
     };
   }
 
   componentDidMount(){     // for api calls
-  }
-
-  switchScenes = () => {
-    //pass down to player so that when it reaches an exit, this will set state to the currentMap's next map and things will go from there
+    console.log("rendering Game.js");
   }
 
   //create a Box component for the doors placed at currentMap's exit in here so that it won't be read as an obstacle by Player
-
+  // pass in goal into Map and create specialty case in collision to detect when to do the switch
   render() {
+    const info = mapinfo[this.state.currentMap];
+    // console.log("this is what I extracted", info);
+
     return(
         <div className="Game-frame">
 
@@ -63,11 +57,8 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            {/* startx={this.state.maps[this.state.currentMap][0]} starty={this.state.maps[this.state.currentMap][1]} */}
-            <Map name={this.state.currentMap} startx={this.state.maps[this.state.currentMap][0]} starty={this.state.maps[this.state.currentMap][1]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} /> {/* bouta get some props */}
-            {/* <Player start={[this.state.maps[this.state.currentMap][0],this.state.maps[this.state.currentMap][1]]} limits={[0, this.state.dimensions[0], this.state.dimensions[1], 0]} obstacles={} /> */}
-            <Box key={"exit"} name={"door"} x={this.state.maps[this.state.currentMap][3]} y={this.state.maps[this.state.currentMap][4]} width={50} height={80} />
-
+            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} /> {/* bouta get some props */}
+            <Box key={"exit"} name={"door"} x={info["exit"][0]} y={info["exit"][1]} width={50} height={80} />
           </div>
 
         </div>
