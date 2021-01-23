@@ -5,6 +5,8 @@ import Box from "../modules/Box.js";
 // import Player from "../modules/Player.js";
 import { mapinfo } from "../modules/MapInfo.js";
 import "./Game.css";
+import DialogueBox from "./DialogueBox.js";
+import Convos from "./Convos";
 
 
 /** QUESTIONS FOR OFFICE HOURS
