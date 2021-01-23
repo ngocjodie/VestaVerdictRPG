@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 
-import Map from "../modules/Map.js";
+import Map from "../modules/Map.js"; //separate js files for map info like obstacles
 import Box from "../modules/Box.js";
-import Player from "../modules/Player.js";
-import DialogueBox from "./DialogueBox.js";
-import Convos from "./Convos";
-
-
-
+// import Player from "../modules/Player.js";
+import { mapinfo } from "../modules/MapInfo.js";
 import "./Game.css";
 
 
@@ -18,11 +14,9 @@ import "./Game.css";
  * ) how to share info about exits and player position to determine when to change scenes
  * 
  * ) where dialogue should be called and how we should extract the necessary info for awards from it
+ *   ----put in Game if they have to do with the overall function of it
+ *   --hardcoding is less complicated --> no set database structure off the top of the head
  */
-
-
-
-
 
 
 
@@ -39,26 +33,29 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "river",
-      maps: {
-        // name: playerstartx, playerstarty, nextmap, exitx, exity, objects (oof)
-        "river":   [100, 100, "checker", 500, 400],
-        "checker": [480, 272, "map",     600, 400],
-        "map":     [ 50, 200, "river",   700, 400],
-      },
+      currentMap: "river", //or make a unique name instead of the CSS class
     };
   }
 
   componentDidMount(){     // for api calls
+    //
   }
 
   switchScenes = () => {
-    //pass down to player so that when it reaches an exit, this will set state to the currentMap's next map and things will go from there
-  }
-
-  //create a Box component for the doors placed at currentMap's exit in here so that it won't be read as an obstacle by Player
+    //
+    console.log("reached the switch scene function");
+    const next = mapinfo[this.state.currentMap]["nextmap"];
+    console.log("this is the next one:", next);
+    this.setState({
+      currentMap: next,
+    });
+    console.log("state change complete");///////////////////////////////////////////////////////
+  } 
 
   render() {
+    const info = mapinfo[this.state.currentMap];
+    console.log("rendering Game.js?");///////////////////////////////////////////////////////////////////////////
+
     return(
 
         <div className="Game-frame">
@@ -69,11 +66,7 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            {/* startx={this.state.maps[this.state.currentMap][0]} starty={this.state.maps[this.state.currentMap][1]} */}
-            <Map name={this.state.currentMap} startx={this.state.maps[this.state.currentMap][0]} starty={this.state.maps[this.state.currentMap][1]} width={this.state.dimensions[0]} height={this.state.dimensions[1]} /> {/* bouta get some props */}
-            {/* <Player start={[this.state.maps[this.state.currentMap][0],this.state.maps[this.state.currentMap][1]]} limits={[0, this.state.dimensions[0], this.state.dimensions[1], 0]} obstacles={} /> */}
-            <Box key={"exit"} name={"door"} x={this.state.maps[this.state.currentMap][3]} y={this.state.maps[this.state.currentMap][4]} width={50} height={80} />
-
+            <Map name={this.state.currentMap} start={info["playerstart"]} objects={info["objects"]} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
           <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
 

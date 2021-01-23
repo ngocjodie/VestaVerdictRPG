@@ -21,8 +21,9 @@ class Box extends Component {
   }
 
   interaction = () => { // onClick function
-    console.log("I touched a thing on ",this.props); // can access its own info
-    // doesn't work as well          --> undefined --> nothing shows up for the invisibles either
+    console.log("I touched a thing:",this.props); // can access its own info
+    // doesn't work as well      --> undefined --> nothing shows up for the invisibles either
+                                //not last time I checked --> figure out later  
   }
 
   render() {
