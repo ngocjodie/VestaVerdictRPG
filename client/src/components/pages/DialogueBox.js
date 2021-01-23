@@ -1,6 +1,9 @@
 import React from 'react';
 import { Machine, interpret } from 'xstate';
 import { dialogueMachine } from './dialogueMachine.js';
+import { get, post } from "../../utilities";
+
+
 
 import "./dialogueText.js"
 import "./dialogueBox2.css"
@@ -122,10 +125,10 @@ class DialogueBox extends React.Component {
   }
 
   handleAnswer(answer) {
-      console.log(this.state.currentDialogue)
-    console.log(answer.response)
-    this.setState({
+    post("/api/choice", {choice: answer.id} ).then(()=>{
+          this.setState({
       currentDialogue: this.props.dialogue[answer.response]
+    })
     })
 
   }
@@ -170,7 +173,6 @@ class DialogueBox extends React.Component {
 
     if (this.state.current.matches("onlyTextClosing")) {
       // alert("textclosing")
-      alert(textHidden)
       setTimeout(() => {
         send("DONE");
       }, 30

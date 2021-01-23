@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import Map from "../modules/Map.js";
 import Box from "../modules/Box.js";
 import Player from "../modules/Player.js";
+import DialogueBox from "./DialogueBox.js";
+import Convos from "./Convos";
+
+
 
 import "./Game.css";
 
@@ -33,6 +37,7 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
+      dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
       currentMap: "river",
       maps: {
@@ -55,6 +60,7 @@ class Game extends Component {
 
   render() {
     return(
+
         <div className="Game-frame">
 
           <div className="corner_topleft"></div>    {/* I, personally, could care less about these 4 */}
@@ -69,8 +75,10 @@ class Game extends Component {
             <Box key={"exit"} name={"door"} x={this.state.maps[this.state.currentMap][3]} y={this.state.maps[this.state.currentMap][4]} width={50} height={80} />
 
           </div>
+          <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
 
         </div>
+
     );
   }
 }

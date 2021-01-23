@@ -76,6 +76,25 @@ router.get("/awards", (req, res) => {
 });
 });
 
+router.post("/choice", auth.ensureLoggedIn, (req, res) => {
+  User.findOne({_id: req.user._id }).then(user => {
+    if (!user) {
+      res.status(402).send({ message: "nope" });
+      return;
+    }
+    if (user.choices) {
+      user.choices = user.choices.concat([req.body.choice])
+    }
+      else {
+        user.choices = [req.body.choice]
+      }
+user.save().then((u) => res.send(u))
+}).catch(err => {
+  console.log(err);
+  res.status(500).send({message: "unknown error"});
+});
+});
+
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
