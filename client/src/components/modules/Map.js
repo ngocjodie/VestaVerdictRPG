@@ -4,7 +4,9 @@ import Player from "./Player.js";
 import Box from "./Box.js";
 
 /**
- * PROPS? :
+ * PROPS:
+ * @param {number} width
+ * @param {number} height
  * @param {string} name for className in Game.css to render
  * @param {number} startx --> where player starts on this map
  * @param {number} starty
@@ -13,23 +15,17 @@ import Box from "./Box.js";
 class Map extends Component {
   constructor(props) {
     super(props);
-    // Initialize Default State
     this.state = {
-      name: "river", //name of Game.css element for its png
-              //top right bottom left --> pass to Player so it knows where the char can't go
-      bounds: [0,  960,  544,  0], // same as size of map now (it really does work *single tear of joy*)
-      playerstart: [100, 100], //where Player starts on the Map
-      
       //IF YOU WANT AN OBJECT ON THE MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
       objects: {
-        "crate": ["small-box", 60, 60, 25, 25], //UNIQUEkey: [CSS className, x,y, width,height]
-                             //45,-45
-        "origin": ["checker", 0, 0, 40, 40],
-                          //-10,-80
-        "another": ["small-box", 300, 300, 90, 90],
+        "crate": ["small-box", 560, 60, 25, 25], //UNIQUEkey: [CSS className, x, y, width, height]
+        "~grapes~": ["checker", 700, 430, 50, 80],
+        "another": ["small-box", 300, 300, 96, 54],
         "board": ["checker", 150, 120, 70, 70],
-        "hidden": ["invisible", 200, 200, 30, 60],
+        "hidden": ["invisible", 200, 200, 30, 60], //if the className is invisible, then the onClick functions will work for pngs inside of them
       },
+
+      // a group of interactables that look just like objects except they have an onClick that depends on their key?
     };
   }
 
@@ -37,21 +33,31 @@ class Map extends Component {
     // remember -- api calls go here!
   }
 
+  // interaction = () => { // onClick function passed to Box
+  //   console.log("I touched a thing on the",this.state.name,"map"); // can access Map info for Box
+  // }
+
   render() {
     let objs = [];
     let obstacles = [];
 
-    for (const key in this.state.objects) {
+    for (const key in this.state.objects) {  // onClick={this.interaction}
+      console.log("from the for loop in Map:", key); //////////////////////////////////////////////////////////////
       objs.push(<Box key={key} name={this.state.objects[key][0]} x={this.state.objects[key][1]} y={this.state.objects[key][2]} width={this.state.objects[key][3]} height={this.state.objects[key][4]} />);
       obstacles.push(this.state.objects[key]);
     }
 
-    let art = this.state.name + " pixel-art"
+  const mapStyle = {
+    width: `${this.props.width}px`,
+    height: `${this.props.height}px`,
+  }
+
+    let art = this.props.name + " pixel-art"
 
     return (
-      <div className={art} >
+      <div className={art} style={mapStyle} >
         {objs}
-        <Player start={this.state.playerstart} limits={this.state.bounds} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
+        <Player start={[this.props.startx, this.props.starty]} limits={[0, this.props.width, this.props.height, 0]} obstacles={obstacles} /> {/* Player comes last so nothing's floating above it */}
       </div>  
     );
   }

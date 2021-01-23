@@ -13,7 +13,6 @@ import React, { Component } from "react";
 class Box extends Component {
   constructor(props) {
     super(props);
-    // Initialize Default State
     this.state = {};
   }
 
@@ -21,9 +20,13 @@ class Box extends Component {
     // remember -- api calls go here!
   }
 
+  interaction = () => { // onClick function
+    console.log("I touched a thing on ",this.props); // can access its own info
+    // doesn't work as well          --> undefined --> nothing shows up for the invisibles either
+  }
+
   render() {
     const genericStyle = {
-      // transform: `translate( ${this.props.x}px, ${this.props.y}px )`,
       position: "absolute",
       left: `${this.props.x}px`,
       top: `${this.props.y}px`,
@@ -32,8 +35,8 @@ class Box extends Component {
     }
     const classname = this.props.name + " pixel-art";
     
-    return (
-      <div className={classname} style={genericStyle} ></div>
+    return (                                                            //invisible  onClick={this.props.name==="invisible" ? null : this.props.onClick}
+      <div className={classname} style={genericStyle} onClick={this.interaction} ></div>
     );
   }
 }

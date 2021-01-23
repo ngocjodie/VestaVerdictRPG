@@ -1,8 +1,4 @@
 :root {
-  /* --pixel-size: 2px;
-  --grid-cell: calc( var(--pixel-size) * 16);
-  --pixel-size: 2px;
-  --grid-cell: calc( var(--pixel-size) * 16); a.k.a. 32 px */
   --bg: #9fa7e4;
 }
 @media( min-width: 700px ) {
@@ -13,21 +9,15 @@
 @media( min-width: 1000px ) {
   :root {
     --pixel-size: 4px;
-    /* --pixel-size: 2px; */
   }
 }
 
-.Game-frame html, .Game-frame body {
+.Game-frame  {
   height: 100%;
-  /* width: 100%; vv ^^ get rid of the "html" & "body" because we're not looking for tags with those */
-}
-
-.Game-frame body {
   background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin: 0 auto; */
 }
 
 .pixel-art {
@@ -36,23 +26,16 @@
 
 .Game-frame {
   /* This is just for Pen decoration */
-  width: 960px; /* calc(var(--pixel-size) * 480/2); */
-  height: 544px; /* calc(var(--pixel-size) * 272/2); */
-  /* width: calc(var(--pixel-size) * 160);
-  height: calc(var(--pixel-size) * 144); */
-  outline: 2px /* var(--pixel-size) */ solid #fff;
+  width: 960px;
+  height: 544px;
+  outline: 2px solid #fff;
   z-index:1; 
   position:relative;
-
-  /* margin: 0;
-  background-color:  #d05d47;
-  padding: 8px; */
 } 
 
 .camera {
   box-sizing: content-box;
-/*  width: 960px;
-  height: 544px; */
+
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -60,18 +43,10 @@
   position:relative;
 }
 
-/* 
-I think suspicious CSS things are from the fact that some things scale by grid-cell vs pixels 
-or are positioned as absolute vs relative.
-
-Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
-*/
 
 .character {
-  /* width: calc( var(--grid-cell)* 2 ); */
-  width: 32px; /* calc( var(--grid-cell)* 1 ); */
-  height: 64px; /* calc( var(--grid-cell)* 2 ); */
-  /* position: absolute; */
+  width: 32px;
+  height: 64px;
   overflow: hidden;
 }
 
@@ -79,8 +54,6 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   image-rendering: pixelated;
   background-image: url("https://assets.codepen.io/21542/CameraDemoMap.png");
   background-size: 100%;
-  width: 960px;
-  height: 544px;
   position: relative;
 
 }
@@ -89,19 +62,13 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   image-rendering: pixelated;
   background-image: url("../modules/checkerboard.png");
   background-size: 100%;
-
-  /* width: 80px;
-  height: 72px; */
 }
 
 .river {
   image-rendering: pixelated;
-
   background-image: url("../modules/desertriver.png");
   /* background-image: url("./mockupRoom.png"); */
   background-size: 100%;
-  width: 960px;
-  height: 544px;
   position: relative;
 
 }
@@ -111,14 +78,13 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   background-image: url("../modules/smallbox.png");
   background-size: 100%;
   background-repeat: no-repeat;
-
-/*  width: 32px;
-  height: 32px; */
-/*   position: relative; might've been here before */
 }
 
-.invisible {
+.door {
   image-rendering: pixelated;
+  background-image: url("../modules/archdoor.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .dialogue {
@@ -128,7 +94,10 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
   width: 480px;
   height: 272px;
   position: relative;
+}
 
+.invisible {
+  z-index: -1;
 }
 
 /* .shadow {
@@ -143,26 +112,23 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
 } */
 
 .character_spritesheet {
-  /* position: absolute; */
   /* background: url("https://assets.codepen.io/21542/DemoRpgCharacter.png") no-repeat no-repeat; */
   background: url("./DemoRpgCharacter.png") no-repeat no-repeat;
   background-size: 100%;
-  /*  width: calc( var(--grid-cell)* 8 );
-  height: calc( var(--grid-cell)* 8 ); */
-  width: 128px; /* calc( var(--grid-cell)* 4 ); */
-  height: 256px; /* calc( var(--grid-cell)* 8 ); */
+  width: 128px;
+  height: 256px;
   z-index: 2;
 
 }
 
 .character[facing="right"] .character_spritesheet {
-  background-position-y: -64px; /* calc( var(--pixel-size) * -32 ); */
+  background-position-y: -64px;
 }
 .character[facing="up"] .character_spritesheet {
-  background-position-y: -128px; /* calc( var(--pixel-size) * -64 ); */
+  background-position-y: -128px;
 }
 .character[facing="left"] .character_spritesheet {
-  background-position-y: -192px; /* calc( var(--pixel-size) * -96 ); */
+  background-position-y: -192px;
 }
 .character[walking="true"] .character_spritesheet {
   animation: walkAnimation 0.6s steps(4) infinite; 
@@ -182,28 +148,29 @@ Also, camera dimensions vs. Game-frame dimensions vs. image dimensions
 .corner_bottomleft,
 .corner_bottomright {
   position: absolute;
-  width: 2px; /* var(--pixel-size); */
-  height: 2px; /* var(--pixel-size); */
+  width: 2px;
+  height: 2px;
   background: var(--bg);
   z-index:2;
 }
 
 .corner_topleft {
-  top: -2px; /* calc(var(--pixel-size) * -1); */
-  left: -2px; /* calc(var(--pixel-size) * -1); */
+  top: -2px;
+  left: -2px;
 }
 .corner_topright {
-  top: -2px; /* calc(var(--pixel-size) * -1); */
-  right: -2px; /* calc(var(--pixel-size) * -1); */
+  top: -2px;
+  right: -2px;
 }
 .corner_bottomleft {
-  bottom: -2px; /* calc(var(--pixel-size) * -1); */
-  left: -2px; /* calc(var(--pixel-size) * -1); */
+  bottom: -2px;
+  left: -2px;
 }
 .corner_bottomright {
-  bottom: -2px; /* calc(var(--pixel-size) * -1); */
-  right: -2px; /* calc(var(--pixel-size) * -1); */
+  bottom: -2px;
+  right: -2px;
 }
+
 /* 
 .headline {
   position:absolute;

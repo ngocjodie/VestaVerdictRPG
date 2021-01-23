@@ -5,10 +5,6 @@ import React, { Component } from "react";
  * @param number[] limits: [top, right, bottom, left]
  * @param number[][] obstacles: [css-type, x, y]
  * @param number[] start: [x, y]
- * 
- * THINGS THAT COULD BE PROPS FOR LATER
- *  - last_dir to tell where it should face? (I'm leaning no but whatever)
- *  - speed
  */
 
 class Player extends Component{
@@ -75,7 +71,6 @@ class Player extends Component{
       }
     }
 
-    //creates cool bounce effect so you know you hit a boundary
     if (newx < this.props.limits[3]) { //this.props.limits[3] = left
       newx = this.props.limits[3];
     } else if (newx > this.props.limits[1]) { //this.props.limits[1] = right
@@ -86,7 +81,6 @@ class Player extends Component{
       newy = this.props.limits[2];
     }
 
-    // const change = [newx, newy];
     for (const i in this.props.obstacles) {
       let delta = this.checkCollision(this.props.obstacles[i], newx, newy, dir);
       if (delta[0] !== newx || delta[1] !== newy) {
@@ -95,11 +89,6 @@ class Player extends Component{
         break; // since it can only collide with one obstacle at a time
       }
     }
-    //roof @ (70,60) (65,60)
-    //wall @ (60,75) (60,65)
-    //wall @ (84,70) (84,65)
-    //foot @ (65,84) (70,84) (80,84)
-
 
     this.setState({
       x: newx,
@@ -117,9 +106,6 @@ class Player extends Component{
 
     // if new (x,y) bad and old (x,y) fine, kick them back 
     if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
-      // console.log("** WE HAVE A COLLISION **"); /////////////////////////////////////////////////////////////////////
-      // console.log("for obstacle", thing[0], "it's at", leftBorder, topBorder); ////////////////////////////////////////
-      
       if (direction === "right") { //as in, going right pushed x into obstacles
         final[0] = leftBorder;
       } else if (direction === "left") {
@@ -133,36 +119,12 @@ class Player extends Component{
     return final;
   }
 
-  /*
-  componentWillUnmount() {
-    window.removeEventListener("keydown", (e) => {
-      const dir = directions[e.key];
-      this.setState({
-        held_dir: dir, //array.unshift(dir),
-        last_dir: dir,
-      });
-    });
-   
-    window.removeEventListener("keyup", (e) => {
-      const dir = directions[e.key];
-      this.setState({
-        last_dir: dir,
-        held_dir: null, 
-      });
-    });
-  }
-*/
-
-//NOTE: translate3d's (0,0) !== pixel/Player's (0,0) --> probably causing my issues
-
   render() {
     const charStyle ={
-      // transform: `translate( ${this.state.x}px, ${this.state.y}px )`,
       position: "absolute",
-      left: `${this.state.x - 18}px`,  // bc it measures from the topleft corner of the sprite sheet
+      left: `${this.state.x - 18}px`,  // bc it measures from the topleft corner of the spritesheet
       top: `${this.state.y - 60}px`,   // instead of @ the feet like I want
     }
-    // console.log("current position:", this.state.x, this.state.y); /////////////////////////////////////////////////
     
     return(
       <div className="character" facing={this.state.last_dir} walking={this.state.held_dir ? "true" : "false"} style={charStyle}>
@@ -174,4 +136,3 @@ class Player extends Component{
 }
 
 export default Player;
-
