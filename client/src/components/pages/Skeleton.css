@@ -1,4 +1,8 @@
-/* Fill me in :) */
+@font-face {
+  font-family: pixelFont;
+  src: url(./fonts/font1.ttf) format('truetype');
+}
+
 :root {
   --white: #fff;
   --red: #ff0000;
@@ -30,19 +34,6 @@
   border-radius: 4px;
   /* margin-left: var(--s); */
 }
-
-.Skeleton-practice-link {
-  color: var(--white);
-  font-size: var(--l);
-  font-family: Georgia;
-  padding: 100px;
-}
-
-.Skeleton-practice-link:hover {
-  opacity: 0.65;
-}
-
-
 .Skeleton-pic {
   margin: auto;
   width: 50%;
@@ -52,17 +43,40 @@
 
 .Skeleton-paraheader {
   text-align: center;
-  font-size: x-large;
-  font-family: Cambria;
+  font-size: xx-large;
+  font-family: pixelFont;
+  color: white;
   }
 
   
 .Skeleton-paragraph {
   text-align: center;
   font-size: medium;
-  font-family: Cambria;
+  font-family: pixelFont;
+  color: white;
+
   }
 
 .Skeleton html, body {
   background-color: #474747;
+}
+
+.Skeleton-bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  z-index: -1;
+}
+.Skeleton-img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  z-index: -1;
 }
