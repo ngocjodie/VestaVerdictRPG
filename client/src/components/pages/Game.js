@@ -30,7 +30,7 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "room1", //or make a unique name instead of the CSS class
+      currentMap: "room1", //or a unique name
 
       //phase: #, to determine which flashback and Court Scene we're in at the moment
     };
@@ -42,9 +42,9 @@ class Game extends Component {
 
   switchScenes = () => {
     //
-    console.log("reached the switch scene function");
+    console.log("reached the switch scene function"); ///////////////////////////////////////////////////////
     const next = mapinfo[this.state.currentMap].nextmap;
-    console.log("this is the next one:", next);
+    console.log("this is the next one:", next); ///////////////////////////////////////////////////////////////
     this.setState({
       currentMap: next,
     });

@@ -25,10 +25,11 @@ class Map extends Component {
       speed: 5,
       fps: 60,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
+      overlay: null, //there can only be one overlay
 
       //"moving"      = only time when playerx/y can be changed and Player re-rendered
-      //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them somewhere immediately after
-      //"interacting" = when Box's onClick things are happening
+      //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them to server(?) immediately after
+      //"interacting" = when Box's onClick things are happening --> can't do anything else til it's clicked again
 
     };
   }
@@ -106,7 +107,6 @@ class Map extends Component {
         if (i === "exit") {
           console.log("REACHED THE EXIT"); //it works :D
           this.props.switch();
-          //do the thing to switch scenes, which would probably involve a return or break
         }
         newx = delta[0];
         newy = delta[1];
@@ -127,9 +127,9 @@ class Map extends Component {
     const rightBorder = thing[1]+thing[3];  // x + w 
     let final = [xpos, ypos];
 
-    // if new (x,y) bad and old (x,y) fine, kick them back 
+    // if new (x,y) bad and old (x,y) fine, kick them back out
     if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
-      if (direction === "right") { //as in, going right pushed x into obstacles
+      if (direction === "right") { //as in, going right pushed x into the obstacle
         final[0] = leftBorder;
       } else if (direction === "left") {
         final[0] = rightBorder;
@@ -143,12 +143,19 @@ class Map extends Component {
   }
 
 
+
+
 /* 
-  showNewThing = () => { //mostly for telescope but maybe for others, you never know ...
+  showNewThing = (name) => { //mostly for telescope but maybe for others, you never know ...
     // callback function that'll render another box based on what the caller Box says
+    // assume it's a square that's supposed to cover the page
+    
+    let noobs = this.state.overlays.push( );
     this.setState({
       situation: "interacting",
+      overlay:  <Box name={name} x={230} y={22} width={500} height={500} key={"newthing"} onClick={this.hideNewThing} />,
     });
+
     // should I add it to this map's collection of objects? ...
     // or should hidden objects be @ zindex: -1 until summoned?
   }
@@ -157,6 +164,7 @@ class Map extends Component {
     // callback function that'll get back to Player movement and normal game play 
     this.setState({
       situation: "moving",
+      overlay: null,
     });
   }
 
@@ -166,6 +174,24 @@ class Map extends Component {
     });
   }
 */
+
+
+  // interaction = (type) => { // onClick function --doesn't work for invisible CSS class
+  //   console.log("I touched a thing on the", this.props.name, "map"); // can access its own info except for the key b/c that's unique and apparently private
+  //   console.log("this got passed in:", type);
+  //   if (this.props.name === "left-telescope") {
+  //     console.log("the west one");
+  //     //this.showNewThing("redcircle");
+  //   } else if (this.props.name === "right-telescope") {
+  //     console.log("the east one");
+  //   } else if (this.props.name === "redcircle") {
+  //     console.log("  the circle of promise  ");
+  //     //this.hideNewThing();
+  //   } else {
+  //     console.log("Hello there");
+  //   }
+  // }
+
 
 
   componentWillUnmount(){
@@ -198,7 +224,7 @@ class Map extends Component {
     let objs = [];
 
     for (const key in this.props.objects) {  // onClick={this.interaction}
-      objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} />);
+      objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} interact={this.interaction} />);
     }
 
     const mapStyle = {
@@ -206,12 +232,14 @@ class Map extends Component {
       height: `${this.props.height}px`,
     }
 
+
     let art = this.props.name + " pixel-art"
 
     return (
       <div className={art} style={mapStyle} >
         {objs}
-        <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} /> {/* Player comes last so nothing's floating above it */}
+        <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} />
+        {this.state.overlay}
       </div>  
     );
   }
