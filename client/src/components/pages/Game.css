@@ -87,6 +87,28 @@
   background-repeat: no-repeat;
 }
 
+.right-telescope {
+  image-rendering: pixelated;
+  background-image: url("../modules/telescope.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.left-telescope {
+  image-rendering: pixelated;
+  background-image: url("../modules/telescope.png");
+  transform: scaleX(-1);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.redcircle {
+  image-rendering: pixelated;
+  background-image: url("../modules/redcircle.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .dialogue {
   image-rendering: pixelated;
   background-image: url("../../../../testingRPG/mockupdialoguebox.png");

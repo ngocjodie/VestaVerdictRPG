@@ -24,8 +24,12 @@ class Map extends Component {
       held_dir: null,
       speed: 5,
       fps: 60,
+      situation: "moving",  //can be "moving", "dialoguing", or "interacting"
 
-      // a group of interactables that look just like objects except they have an onClick that depends on their key?
+      //"moving"      = only time when playerx/y can be changed and Player re-rendered
+      //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them somewhere immediately after
+      //"interacting" = when Box's onClick things are happening
+
     };
   }
 
@@ -66,6 +70,10 @@ class Map extends Component {
   }
 
   placeChar = () => {
+    if (this.state.situation !== "moving") {
+      return;
+    }
+
     const dir = this.state.held_dir;
     let newx = this.state.playerx;
     let newy = this.state.playery;
@@ -135,6 +143,31 @@ class Map extends Component {
   }
 
 
+/* 
+  showNewThing = () => { //mostly for telescope but maybe for others, you never know ...
+    // callback function that'll render another box based on what the caller Box says
+    this.setState({
+      situation: "interacting",
+    });
+    // should I add it to this map's collection of objects? ...
+    // or should hidden objects be @ zindex: -1 until summoned?
+  }
+
+  hideNewThing = () => {
+    // callback function that'll get back to Player movement and normal game play 
+    this.setState({
+      situation: "moving",
+    });
+  }
+
+  conversing = () => { //is this system with this.state.situation even necessary?
+    this.setState({
+      situation: "dialoguing",
+    });
+  }
+*/
+
+
   componentWillUnmount(){
     window.removeEventListener("keydown", (e) => {
       const dir = directions[e.key];
@@ -168,10 +201,10 @@ class Map extends Component {
       objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} />);
     }
 
-  const mapStyle = {
-    width: `${this.props.width}px`,
-    height: `${this.props.height}px`,
-  }
+    const mapStyle = {
+      width: `${this.props.width}px`,
+      height: `${this.props.height}px`,
+    }
 
     let art = this.props.name + " pixel-art"
 
