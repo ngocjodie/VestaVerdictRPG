@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../utilities.css";
 import "./Skeleton.css";
 import "./Game.js";
-import image_coming from'./highcouncil.png';
+import bg from "./background_frontpage.jpg";
 
 
 
@@ -24,10 +24,9 @@ class Skeleton extends Component {
   render() {
     return (
       <>
-      <div className="Skeleton-pic">
-        <img src={image_coming} alt="council" />
-      </div>
-      
+      <div className="Skeleton-bg">
+  <img src={bg} className="Skeleton-img"/>
+    </div>
       <p className="Skeleton-paraheader">
       Choose your role and prove your innocence.
       </p>

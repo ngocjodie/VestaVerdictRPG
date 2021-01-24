@@ -19,26 +19,26 @@
   --xl: 32px;
 }
 
-.About-title {
-  display: flex;
-  justify-content: center;
-  background-color: var(--brown);
-  color: var(--white);
-  font-size: 64px;
-  margin: 0;
-  border: var(--s);
-  padding: var(--l);
+.About html, body {
+  height: 100%;
 }
 
-.About-summary-text {
-  display: flex;
-  justify-content: center;
-  margin: var(--xl);
-  font-size: 25px;
+.About-bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  z-index: -1;
 }
-/* Was thinking about using this to do something for idnividual members but decided against it in the name of privacy and less work
-.About-members {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-} */
+.About-img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  z-index: -1;
+}
