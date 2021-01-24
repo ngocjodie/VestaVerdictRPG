@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../../utilities.css";
-import "./Skeleton.css";
 import Playthroughs from "./Playthroughs.js";
 import Awards from "./Awards.js";
+import "./Profile.css"
+import Rhea from "./Rheas.png"
 
 
 class Frontpage extends Component{
@@ -17,15 +17,12 @@ class Frontpage extends Component{
 render() {
     return (
       <>
+    <img src={Rhea} className="Profile-pic"/>
 
-    <p className="Skeleton-gamename">  The Vesta Verdict </p>
 
     <Playthroughs userId={this.props.userId}/>
 
     <Awards userId={this.props.userId}/>
-
-
-
     </>
 
     );

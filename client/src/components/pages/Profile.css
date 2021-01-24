@@ -2,3 +2,15 @@
     font-size: medium;
     font-family: Cambria;
     }
+
+.Profile-pic {
+  /* make it responsive */
+  border-radius: 50%;
+  background-color:rgb(177, 174, 170);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+
+}
