@@ -25,18 +25,16 @@ class Map extends Component {
       speed: 5,
       fps: 60,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
+      overlay: null, //there can only be one overlay -- or change to interactable so that it won't even try to process 2 interactions at once
 
       //"moving"      = only time when playerx/y can be changed and Player re-rendered
-      //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them somewhere immediately after
-      //"interacting" = when Box's onClick things are happening
+      //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them to server(?) immediately after
+      //"interacting" = when Box's onClick things are happening --> can't do anything else til it's clicked again
 
     };
   }
 
   componentDidMount() {
-    // remember -- api calls go here!
-    console.log("calling the mount"); /////////////////////////////////////////////////////////
-
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
@@ -49,7 +47,6 @@ class Map extends Component {
       "ArrowRight": "right",
     }
    
-    // put these in divs and pass to Player Component?
     window.addEventListener("keydown", (e) => {
       const dir = directions[e.key];
       this.setState({
@@ -106,7 +103,6 @@ class Map extends Component {
         if (i === "exit") {
           console.log("REACHED THE EXIT"); //it works :D
           this.props.switch();
-          //do the thing to switch scenes, which would probably involve a return or break
         }
         newx = delta[0];
         newy = delta[1];
@@ -127,9 +123,9 @@ class Map extends Component {
     const rightBorder = thing[1]+thing[3];  // x + w 
     let final = [xpos, ypos];
 
-    // if new (x,y) bad and old (x,y) fine, kick them back 
+    // if new (x,y) bad and old (x,y) fine, kick them back out
     if ((xpos > leftBorder && xpos < rightBorder) && (ypos > topBorder && ypos < bottomBorder)) {
-      if (direction === "right") { //as in, going right pushed x into obstacles
+      if (direction === "right") { //as in, going right pushed x into the obstacle
         final[0] = leftBorder;
       } else if (direction === "left") {
         final[0] = rightBorder;
@@ -143,29 +139,81 @@ class Map extends Component {
   }
 
 
-/* 
-  showNewThing = () => { //mostly for telescope but maybe for others, you never know ...
-    // callback function that'll render another box based on what the caller Box says
-    this.setState({
-      situation: "interacting",
-    });
-    // should I add it to this map's collection of objects? ...
-    // or should hidden objects be @ zindex: -1 until summoned?
+  distancetest = (x1, y1, x2, y2, w2, h2, limit) => {
+    let a = ( (x2 - x1)**2 + (y2 - y1)**2 )**0.5;      //corner distances
+    let b = ( (x2+w2 - x1)**2 + (y2 - y1)**2 )**0.5;
+    let c = ( (x2 - x1)**2 + (y2+h2 - y1)**2 )**0.5;
+    let d = ( (x2+w2 - x1)**2 + (y2+h2 - y1)**2 )**0.5;
+    if ( a<limit || b<limit || c<limit || d<limit ) {
+      return true;
+    }
+    return false;
   }
 
-  hideNewThing = () => {
-    // callback function that'll get back to Player movement and normal game play 
+
+
+  interaction = (properties) => { // onClick function --doesn't work for invisible CSS class
+    const type = properties.name;
+
+    const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
+    
+    if (!close) { //some #
+      console.log("too far from the thing it clicked on");
+      return;
+    }
+
+    if (type === "left-telescope") {
+      this.showNewThing("redcircle");
+
+    } else if (type === "redcircle") {
+      this.hideNewThing();
+
+    } else {
+      console.log("Hello there"); //////////////////////////////////////////////////////////////////
+    }
+  }
+
+
+
+
+
+  showNewThing = (name) => { //mostly for telescope but maybe for others, you never know ...
+    // callback function that'll render another box based on what the caller Box says
+    // assume it's a square that's supposed to cover the page: x=230, y=22, w=500, h=500
+    if (this.state.overlay !== null) {
+      console.log("full already"); ///////////////////////////////////////////////////////////////////////
+      return;
+    }
+    
+    console.log("reached showNewThing for", name); /////////////////////////////////////////////////
+    this.setState({
+      situation: "interacting",                                                          //maybe not do this since interact already diverts redcircle to hide
+      overlay:  <Box name={name} x={230} y={22} width={500} height={500} key={"newthing"} interact={this.hideNewThing} />,
+    });
+  }
+
+  hideNewThing = (name) => {
+    // callback function that'll get back to Player movement and normal game play
+    console.log("reached the hide function for", name); 
     this.setState({
       situation: "moving",
+      overlay: null,
     });
   }
 
-  conversing = () => { //is this system with this.state.situation even necessary?
+
+/* 
+  conversing = () => {
     this.setState({
       situation: "dialoguing",
     });
   }
 */
+
+
+
+
+
 
 
   componentWillUnmount(){
@@ -188,17 +236,11 @@ class Map extends Component {
 
 
 
-
-
-  // interaction = () => { // onClick function passed to Box
-  //   console.log("I touched a thing on the",this.state.name,"map"); // can access Map info for Box
-  // }
-
   render() {
     let objs = [];
 
-    for (const key in this.props.objects) {  // onClick={this.interaction}
-      objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} />);
+    for (const key in this.props.objects) {
+      objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} interact={this.interaction} />);
     }
 
     const mapStyle = {
@@ -206,22 +248,19 @@ class Map extends Component {
       height: `${this.props.height}px`,
     }
 
+
     let art = this.props.name + " pixel-art"
 
     return (
       <div className={art} style={mapStyle} >
         {objs}
-        <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} /> {/* Player comes last so nothing's floating above it */}
+        <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} />
+        {this.state.overlay}
       </div>  
     );
   }
 }
 
-//shift limits and obstacle out of Player and deal with movement/collisions in here
-// send goal here --> it can then detect that overlap to switch scenes
-
-
-//switch maps by making it hierarchical siblings of Player?
 //have the map component show ALL of the PNGs --> just that camera moves every so often
 
 export default Map;

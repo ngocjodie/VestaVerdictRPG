@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 import Map from "../modules/Map.js"; //separate js files for map info like obstacles
-// import Box from "../modules/Box.js";
-// import Player from "../modules/Player.js";
 import { mapinfo } from "../modules/MapInfo.js";
 import "./Game.css";
 import DialogueBox from "./DialogueBox.js";
@@ -30,9 +28,9 @@ class Game extends Component {
     this.state = {
       dialogueOption: 1,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "room1", //or make a unique name instead of the CSS class
+      currentMap: "room1", //or a unique name
 
-      //phase: #, to determine which flashback and Court Scene we're in at the moment
+      //phase: #, to determine which flashback and Court Scene we're in at the moment?
     };
   }
 
@@ -41,19 +39,14 @@ class Game extends Component {
   }
 
   switchScenes = () => {
-    //
-    console.log("reached the switch scene function");
     const next = mapinfo[this.state.currentMap].nextmap;
-    console.log("this is the next one:", next);
     this.setState({
       currentMap: next,
     });
-    console.log("state change complete");///////////////////////////////////////////////////////
   } 
 
   render() {
     const info = mapinfo[this.state.currentMap];
-    console.log("rendering Game.js?");///////////////////////////////////////////////////////////////////////////
 
     return(
 
