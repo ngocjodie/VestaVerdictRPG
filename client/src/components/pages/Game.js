@@ -28,7 +28,7 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dialogueOption: 0,
+      dialogueOption: 1,
       dimensions: [960, 544],  //same as .Game-frame
       currentMap: "room1", //or make a unique name instead of the CSS class
 
