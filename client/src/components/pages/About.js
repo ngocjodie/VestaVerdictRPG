@@ -16,12 +16,11 @@ class About extends Component{
 
   render() {
     return(
-<div className="About-bg">
-  <img src={bg} className="About-img"/>
-</div>
-
-      );
-}
+      <div className="About-bg">
+        <img src={bg} className="About-img"/>
+      </div>
+    );
+  }
 }
     
 

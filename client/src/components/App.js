@@ -9,6 +9,8 @@ import Frontpage from "./pages/Frontpage.js";
 import { socket } from "../client-socket.js";
 import NavBar from "./pages/navbar.js";
 import { get, post } from "../utilities";
+// import HowToPlay from "./pages/HowToPlay.js";
+
 // for fonts:
 import '../style.scss';
 
@@ -62,6 +64,7 @@ class App extends Component {
           <About path="/about/" />
           <Frontpage path="/frontpage/:userId"/>
           <NotFound default />
+          {/* <HowToPlay path="/howtoplay/" /> */}
         </Router>
       </>
     );

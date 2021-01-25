@@ -92,11 +92,12 @@ import "./dialogueBox2.css"
 //   }
 // ];
 
-/*
+ /**
  * What should it inherit? If dialogue shows up later?
  * states of the character(?)
- * 
-*/
+ * @param {[Convo Object]} dialogue sequence list of Q&A
+ * @param {() => ()} ending function to exit dialogue and get it off the map
+ */
 
 class DialogueBox extends React.Component {
 
@@ -126,11 +127,20 @@ class DialogueBox extends React.Component {
 
   handleAnswer(answer) {
     post("/api/choice", {choice: answer.id} ).then(()=>{
-          this.setState({
-      currentDialogue: this.props.dialogue[answer.response]
+      /**
+       * if (answer.response === null) {
+       *   console.log("time to go"); /////////////////////////////////////////////////////////////////
+       *   this.props.ending();
+       *   return;
+       * }
+       * 
+       * exit the Box by sending signal to Map
+       * and ignore setState
+       */
+      this.setState({
+        currentDialogue: this.props.dialogue[answer.response],
+      })
     })
-    })
-
   }
 
 
@@ -146,45 +156,52 @@ class DialogueBox extends React.Component {
     
     if (this.state.current.matches("closed")) {
       // alert("state:closed")
-      onkeyup = function (e) {
+      // onkeyup = function (e) { //switch to automatically opening once it's clicked on
+      //   e.preventDefault;
+      //   if (e.keyCode === 32) {
+      //     // alert('state: closed, button pressed')
+      //     send("OPEN")
+      //   }
+      // }
+
+      onclick = function (e) {
         e.preventDefault;
-        if (e.keyCode === 32) {
-          // alert('state: closed, button pressed')
-          send("OPEN")
-        }
+        send("OPEN");
       }
     }
 
     if (this.state.current.matches("opening")) {
       // alert("state: opening")
       setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
+          send("DONE");
+        }, 30
+      );
     }
 
-    if (this.state.current.matches("closing")) {
+    if (this.state.current.matches("closing")) {  //where it ends
       // alert("closing")
       setTimeout(() => {
           send("DONE");
         }, 30
-    );
+      );
+      console.log("time to go"); /////////////////////////////////////////////////////////////////
+      this.props.ending();
     }
 
     if (this.state.current.matches("onlyTextClosing")) {
       // alert("textclosing")
       setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
+          send("DONE");
+        }, 30
+      );
     }
 
     if (this.state.current.matches("onlyTextOpening")) {
       // alert("textOpening")
       setTimeout(() => {
-        send("DONE");
-      }, 30
-  );
+          send("DONE");
+        }, 30
+      );
     }
 
 
@@ -192,7 +209,8 @@ class DialogueBox extends React.Component {
         <div className="dBox-flex-container">
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`anim-typewriter dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
-            {this.state.currentDialogue.question} </div>
+              {this.state.currentDialogue.question} 
+            </div>
             {this.state.currentDialogue.answers.map((answer)=> (
             <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); this.handleAnswer(answer)}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> {answer.title} </div></button>
             ))}

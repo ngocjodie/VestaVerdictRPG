@@ -27,6 +27,13 @@ class NavBar extends Component {
           <Link to="/about/" className="NavBar-link">
             ABOUT
           </Link>
+          
+          {/*
+          <Link to="/howtoplay/" className="NavBar-link">
+            HOW TO PLAY
+          </Link>
+          */}
+
           <Link to="/game/" className="NavBar-link">
             GAME
           </Link>
