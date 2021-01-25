@@ -31,7 +31,7 @@
   font-family: pixelFont;  
   width: 825px;
   height: 32px;
-  font-size: 30px;
+  font-size: 23px;
   z-index: 0;
   padding-left: 3%;
   padding-top:  2.5%;
@@ -46,7 +46,7 @@
   align-items: center;
   width: 825px;
   height: 32px;
-  font-size: 30px;
+  font-size: 23px;
   z-index: 0;
   background: none;
   outline: none;
@@ -67,7 +67,7 @@
   /*display: block; */
   border: none;
   background: none;
-  font-size: 30px;
+  font-size: 23px;
   width: 816px;
   height: 30px;
   font-family: pixelFont;
@@ -119,7 +119,7 @@
   text-align: left;
   position: absolute;
   top: 63%;
-  font-size: 30px;
+  font-size: 23px;
 }
 
 /* for the typing effect lol */
