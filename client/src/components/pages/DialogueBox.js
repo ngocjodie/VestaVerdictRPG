@@ -92,11 +92,12 @@ import "./dialogueBox2.css"
 //   }
 // ];
 
-/*
+ /**
  * What should it inherit? If dialogue shows up later?
  * states of the character(?)
- * 
-*/
+ * @param {[Convo Object]} dialogue sequence list of Q&A
+ * @param {() => ()} ending function to exit dialogue and get it off the map
+ */
 
 class DialogueBox extends React.Component {
 
@@ -126,11 +127,16 @@ class DialogueBox extends React.Component {
 
   handleAnswer(answer) {
     post("/api/choice", {choice: answer.id} ).then(()=>{
-          this.setState({
-      currentDialogue: this.props.dialogue[answer.response]
+      /**
+       * if (!continuing) {
+       *   exit the Box by sending signal to Map
+       *   and ignore setState
+       * }
+       */
+      this.setState({
+        currentDialogue: this.props.dialogue[answer.response],
+      })
     })
-    })
-
   }
 
 
@@ -146,12 +152,17 @@ class DialogueBox extends React.Component {
     
     if (this.state.current.matches("closed")) {
       // alert("state:closed")
-      onkeyup = function (e) {
+      // onkeyup = function (e) { //switch to automatically opening once it's clicked on
+      //   e.preventDefault;
+      //   if (e.keyCode === 32) {
+      //     // alert('state: closed, button pressed')
+      //     send("OPEN")
+      //   }
+      // }
+
+      onclick = function (e) {
         e.preventDefault;
-        if (e.keyCode === 32) {
-          // alert('state: closed, button pressed')
-          send("OPEN")
-        }
+        send("OPEN");
       }
     }
 
@@ -163,12 +174,14 @@ class DialogueBox extends React.Component {
   );
     }
 
-    if (this.state.current.matches("closing")) {
+    if (this.state.current.matches("closing")) {  //where it ends
       // alert("closing")
       setTimeout(() => {
           send("DONE");
         }, 30
-    );
+      );
+      console.log("time to go"); /////////////////////////////////////////////////////////////////
+      this.props.ending();
     }
 
     if (this.state.current.matches("onlyTextClosing")) {

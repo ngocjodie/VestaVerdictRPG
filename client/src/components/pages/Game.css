@@ -3,7 +3,7 @@
   To add an object to a room or make a new room, follow the pattern in MapInfo.js
 
   If you change Game-frame's dimensions, you have to change it in Game.js too
-  If you want an invisible wall you can click, make its className an empty string
+  If you want an invisible wall you can click on, make its className an empty string
 */
 
 

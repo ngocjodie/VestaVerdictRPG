@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import DialogueBox from "../pages/DialogueBox.js";
+import Convos from "../pages/Convos";
 import Player from "./Player.js";
 import Box from "./Box.js";
 
@@ -7,10 +9,14 @@ import Box from "./Box.js";
  * PROPS:
  * @param {number} width
  * @param {number} height
+ * @param {string} key for us to tell exactly what piece is rendering (many pieces could share a CSS class)
  * @param {string} name for className in Game.css to render
  * @param {number[]} start --> where player starts on this map
  * @param {Object[]} objects player obstacles --> look for a special one labelled goal
  * @param {() => ()} switch for switching to the next map
+ * 
+ * @param {() => ()} conversing for letting Game control the process of conversation
+ * @param {number} dialogueOption for which convo to do next
  * 
  */
 
@@ -31,7 +37,7 @@ class Map extends Component {
       //"moving"      = only time when playerx/y can be changed and Player re-rendered
       //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them to server(?) immediately after
       //"interacting" = when Box's onClick things are happening --> can't do anything else til it's clicked again
-
+      //maybe dialoguing is the same as interacting ...
     };
   }
 
@@ -64,8 +70,6 @@ class Map extends Component {
         last_dir: dir,
       });
     });
-
-    // const intervalvar = setInterval(this.placeChar, this.state.fps);
   }
 
   placeChar = () => {
@@ -156,11 +160,11 @@ class Map extends Component {
 
   interaction = (properties) => { // onClick function --doesn't work for invisible CSS class
     const type = properties.id;
-
+    // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
     
     if (!close) { //some #
-      console.log("too far from the thing it clicked on");
+      console.log("too far from the thing it clicked on"); ////////////////////////////////////////////////
       return;
     }
 
@@ -172,8 +176,9 @@ class Map extends Component {
     } else if (type === "east") {
       this.showNewThing("river");
 
-    } else if (type === "newthing") {
-      this.hideNewThing();
+    } else if (type === "fake exit") {
+      console.log("talking to the", type); //////////////////////////////////////////////////////////////////
+      this.startConversation();
 
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
@@ -194,7 +199,7 @@ class Map extends Component {
     
     console.log("reached showNewThing for", name); /////////////////////////////////////////////////
     this.setState({
-      situation: "interacting",                                                          //maybe not do this since interact already diverts redcircle to hide
+      situation: "interacting",                                       //because there can only be 1 at a time
       overlay:  <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
     });
   }
@@ -209,12 +214,27 @@ class Map extends Component {
   }
 
 
-/* 
-  conversing = () => {
+  startConversation = () => { //different function because IT tells Player when to continue gameplay
+    if (this.state.overlay !== null) {
+      console.log("I'm busy"); ///////////////////////////////////////////////////////////////////////
+      return;
+    }
+    
     this.setState({
       situation: "dialoguing",
+      overlay: <DialogueBox key={"convo"} dialogue={Convos[this.props.dialogueOption]} ending={this.endConversation} />,
     });
+    console.log("I think I'm talking"); ///////////////////////////////////////////////////
   }
+
+  endConversation = () => {
+    this.props.conversing();
+    this.setState({
+      situation: "moving",
+      overlay: null,
+    });    
+  }
+/* 
 */
 
 
@@ -243,8 +263,6 @@ class Map extends Component {
     });
   }
 
-
-
   render() {
     let objs = [];
 
@@ -257,7 +275,6 @@ class Map extends Component {
       height: `${this.props.height}px`,
     }
 
-
     let art = this.props.name + " pixel-art"
 
     return (
@@ -269,7 +286,5 @@ class Map extends Component {
     );
   }
 }
-
-//have the map component show ALL of the PNGs --> just that camera moves every so often
 
 export default Map;
