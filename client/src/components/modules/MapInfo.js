@@ -1,6 +1,6 @@
 
 //IF YOU WANT AN OBJECT ON A MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
-// ~ NOTE: one must be an "exit" with name "door" that's 50x80
+// ~ NOTE: one must be an "exit" with name "door" that's 50x80 --> or we could make them invisible for cool puzzle rooms
 
 
 export const mapinfo = {
@@ -8,7 +8,7 @@ export const mapinfo = {
   "room1": {
     thismap: "river",
     playerstart: [100, 100],
-    nextmap: "room2", //which map it switched to when Player collides with exit object
+    nextmap: "room2", //which map it switches to when Player collides with exit object
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -47,7 +47,7 @@ export const mapinfo = {
       "seat3"  : ["small-box", 500, 300, 40, 40],
       "seat4"  : ["small-box", 550, 300, 40, 40],
       "seat5"  : ["small-box", 600, 300, 40, 40],
-      "west"   : ["left-telescope", 20, 100, 60, 60],
+      "west"   : ["left-telescope", 20, 85, 60, 60],
       "east"   : ["right-telescope", 820, 480, 60, 60],
     },
   },

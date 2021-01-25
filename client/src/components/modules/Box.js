@@ -8,7 +8,7 @@ import React, { Component } from "react";
  * @param {number} height
  * @param {string} name -- className for rendering the CSS
  * @param {string} key -- unique identifier for this specific object
- * @param {(string) => void} interact -- onClick controls what happens
+ * @param {(BoxObject) => void} interact -- onClick controls what happens
  * 
  */
 class Box extends Component {
@@ -21,24 +21,7 @@ class Box extends Component {
     // remember -- api calls go here!
   }
 
-  interaction = () => { // onClick function --doesn't work for invisible CSS class
-    const item = this.props;
-    console.log("I touched a thing:", item); // can access its own info except for the key b/c that's unique and apparently private
-    if (item.name === "left-telescope") {
-      console.log("the west one");
-      //showNewThing("redcircle");
-    } else if (item.name === "right-telescope") {
-      console.log("the east one");
-    } else if (item.name === "redcircle") {
-      console.log("  the circle of promise  ");
-      //hideNewThing();
-    } else {
-      console.log("Hello there");
-    }
-  }
-
   render() {
-    // const type = this.props.name;
 
     const genericStyle = {
       position: "absolute",
@@ -49,8 +32,8 @@ class Box extends Component {
     }
     const classname = this.props.name + " pixel-art";
     
-    return (                                        //onClick={this.props.interact(this.props.name)} or {this.interaction}
-      <div className={classname} style={genericStyle} onClick={this.interaction} ></div>
+    return (
+      <div className={classname} style={genericStyle} onClick={() => { this.props.interact(this.props); }} ></div>
     );
   }
 }
