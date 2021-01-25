@@ -1,6 +1,7 @@
 /*
   IF YOU WANT AN OBJECT ON A MAP, GIVE IT A NAME THEN PUT ITS OTHER INFO IN AN ARRAY
   ~ NOTE: one must be an "exit" with name "door" that's 50x57 --> or we could make them invisible for puzzle shenanigans
+  ~ make sure playerstart isn't inside an object
 */
 
 export const mapinfo = {
@@ -52,5 +53,6 @@ export const mapinfo = {
     },
   },
 
+  //next rooms down here
 
 }

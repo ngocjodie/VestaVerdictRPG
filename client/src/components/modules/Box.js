@@ -8,7 +8,7 @@ import React, { Component } from "react";
  * @param {number} height
  * @param {string} name -- className for rendering the CSS
  * @param {string} id -- unique identifier for this specific object - same as key
- * @param {(BoxObject) => ()} interact -- onClick controls what happens
+ * @param {(BoxObject) => ()} interact -- onClick function controls what happens
  * 
  */
 class Box extends Component {

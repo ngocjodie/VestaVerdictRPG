@@ -8,9 +8,24 @@ import "./Game.css";
 
 
 /** QUESTIONS FOR OFFICE HOURS
- * ) where dialogue should be called and how we should extract the necessary info for awards from it
- *   ----put in Game if they have to do with the overall function of it
- *   --hardcoding is less complicated --> no set database structure off the top of the head
+ * 
+ * FUNCTIONS TO TAKE CARE OF
+ * - exit function in handleAnswer or closing state in DialogueBox.js
+ * - how to modify dialogueOptions in conversing function in Game.js
+ * - sending, extracting, and using action IDs that change the story in Map, DialogueBox, Awards, Playthroughs, and Profile.js 
+ *  
+ * Things and Places We Need to Hardcode
+ * - every kind of png in Game.css
+ * - every path/scene in MapInfo.js
+ * - every possible object interaction in the interaction function in Map.js ... wait, should I generalize that? --> considering all the this.doThings functions, I'd say no...?
+ * - every potential conversation in Convos.js
+ * 
+ * low priority tasks
+ * - if showNewThing dimensions should be altered or variable in Map.js
+ * - desired radius for interaction function in Map.js
+ * - desired speed and fps in state in Map.js
+ * - the currentMap the game starts at in Game.js
+ * - eliminating unnecessary files, comments, and code everywhere
  */
 
 
@@ -28,10 +43,7 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "room1", //or a unique name
-      // talking: true,
-
-      //phase: #, to determine which flashback and Court Scene we're in at the moment?
+      currentMap: "room1",
     };
   }
 
@@ -49,7 +61,7 @@ class Game extends Component {
   conversing = () => { 
     console.log("now we're talkin"); ////////////////////// tee hee //////////////////////////////////
     this.setState({
-      dialogueOption: this.state.dialogueOption + 1,
+      dialogueOption: this.state.dialogueOption + 1, //if there's another way/system, we'll do that
     });
     //
   }
