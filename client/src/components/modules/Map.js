@@ -24,6 +24,7 @@ class Map extends Component {
       held_dir: null,
       speed: 5,
       fps: 60,
+      intervalid: null,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
       overlay: null, //there can only be one overlay -- or change to interactable so that it won't even try to process 2 interactions at once
 
@@ -38,6 +39,7 @@ class Map extends Component {
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
+      intervalid: setInterval(this.placeChar, this.state.fps)
     });
 
     const directions = {
@@ -63,7 +65,7 @@ class Map extends Component {
       });
     });
 
-    setInterval(this.placeChar, this.state.fps);
+    // const intervalvar = setInterval(this.placeChar, this.state.fps);
   }
 
   placeChar = () => {
@@ -153,7 +155,7 @@ class Map extends Component {
 
 
   interaction = (properties) => { // onClick function --doesn't work for invisible CSS class
-    const type = properties.name;
+    const type = properties.id;
 
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
     
@@ -162,10 +164,15 @@ class Map extends Component {
       return;
     }
 
-    if (type === "left-telescope") {
+    //specific cases may/will require hardcoding
+
+    if (type === "west") {
       this.showNewThing("redcircle");
 
-    } else if (type === "redcircle") {
+    } else if (type === "east") {
+      this.showNewThing("river");
+
+    } else if (type === "newthing") {
       this.hideNewThing();
 
     } else {
@@ -188,13 +195,13 @@ class Map extends Component {
     console.log("reached showNewThing for", name); /////////////////////////////////////////////////
     this.setState({
       situation: "interacting",                                                          //maybe not do this since interact already diverts redcircle to hide
-      overlay:  <Box name={name} x={230} y={22} width={500} height={500} key={"newthing"} interact={this.hideNewThing} />,
+      overlay:  <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
     });
   }
 
   hideNewThing = (name) => {
     // callback function that'll get back to Player movement and normal game play
-    console.log("reached the hide function for", name); 
+    console.log("reached the hide function for", name);  ////////////////////////////////////////////////////
     this.setState({
       situation: "moving",
       overlay: null,
@@ -217,6 +224,8 @@ class Map extends Component {
 
 
   componentWillUnmount(){
+    clearInterval(this.state.intervalid);
+
     window.removeEventListener("keydown", (e) => {
       const dir = directions[e.key];
       this.setState({
@@ -240,7 +249,7 @@ class Map extends Component {
     let objs = [];
 
     for (const key in this.props.objects) {
-      objs.push(<Box key={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} interact={this.interaction} />);
+      objs.push(<Box key={key} id={key} name={this.props.objects[key][0]} x={this.props.objects[key][1]} y={this.props.objects[key][2]} width={this.props.objects[key][3]} height={this.props.objects[key][4]} interact={this.interaction} />);
     }
 
     const mapStyle = {

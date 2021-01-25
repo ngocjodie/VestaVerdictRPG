@@ -1,3 +1,13 @@
+/*
+  To make an object for a room, copy the pattern from lines 59-116: just change the name and url
+  To add an object to a room or make a new room, follow the pattern in MapInfo.js
+
+  If you change Game-frame's dimensions, you have to change it in Game.js too
+  If you want an invisible wall you can click, make its className an empty string
+*/
+
+
+
 :root {
   --bg: #9fa7e4;
 }

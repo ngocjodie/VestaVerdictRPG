@@ -58,7 +58,9 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            <Map name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
+            {/* Adding a key and doing the intervalid things are what make playerstart work. It's pretty easy to undo if we prefer the other way. */}
+
+            <Map key={this.state.currentMap} name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
           <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>
 
