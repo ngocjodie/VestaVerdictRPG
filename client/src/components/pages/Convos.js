@@ -1,5 +1,5 @@
 
-   const Convos = [[
+   const Convos = [[  //often relied on id=99 for first Convos
        {   // LAIA CONVO - index 0
         "question":"LAIA: Burn it all! Rhea, are you here?",
         "answers":[
@@ -209,7 +209,7 @@
      // 1 : END ALL
      "question":"LAIA: Thank you so much! And good luck!",
      "answers":[
-         {"title":"[You've remembered all you can]","response":2},
+         {"title":"[You've remembered all you can]","response":2}, //also make it 4?
      ]
  },
  {
@@ -264,7 +264,7 @@
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":2},
+         {"title": "Thank you","response":2}, //should be > 3
          
      ]
  },
@@ -289,10 +289,10 @@
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":2},
+         {"title": "Thank you","response":2}, //should be > 4
      ]
     },
- {
+ { //   3
      // 2 : END ALL
      "question":"CASSANDRA: I don't know what you could mean.",
      "answers":[
@@ -318,7 +318,7 @@
             ]
      },
      {
-         // 2 : END ALL
+         // 2 : END ALL 
          "question":"[The toys sit on the table in front of you.]",
          "answers":[
              {"title": "[Choose the teddy bear]","response":3},
@@ -351,7 +351,7 @@
         // 5 : END ALL
         "question":"JUNO: Thank you, sister.",
         "answers":[
-           {"title": "[Step away]","response":4},
+           {"title": "[Step away]","response":4}, //should be > 6
         ]
     },
     ],
@@ -390,13 +390,13 @@
         "answers":[
             {"title": "[Drop the marble into the box]","response": 5},
             {"title": "[Open the wooden game box]","response": 6, "id":800},
-            {"title": "[Stare at the marble confidently]","response": 6, "id":800},
+            {"title": "[Stare at the marble confidently]","response": 6, "id":800},  //this is hilarious
 
 
         ]
     },
     {
-        // 5 : cont
+        // 5 : cont                           make intuitions in brackets too
         "question":"Which path do you choose? You feel a pull toward the middle.",
         "answers":[
             {"title":"Right","response":7, "id":122},
@@ -415,7 +415,7 @@
         // 7 : ALL END
         "question":"LIVIA: Ah, sometimes our Sight can fail us.",
         "answers":[
-            {"title":"I'll do better next time","response":1},
+            {"title":"I'll do better next time","response":1}, //want to start over, right?
             {"title": "My bad","response":1},
             {"title":"Thank you","response":1 }
         ]
@@ -454,12 +454,13 @@
             {"title":"Thank you","response":12},
         ]
     },
+    //maybe another option to close the scene even if Rhea fails
   ],
   [
     {   // After LAIA  - index 11 END
         "question":"LAIA: Thank you! Hurry Back!",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0}, //should be a large #
         ]
     },
 ],
@@ -467,7 +468,7 @@
     {   // After PROMISING FRUIT  - index 12 END
         "question":"OLD WOMAN: Thank you for offering to get my fruit!",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0}, //should be > 0
         ]
     },
 ],
@@ -475,7 +476,7 @@
     {   // After PROMISING Water  - index 13 END
         "question":"OLD WOMAN: Thank you for getting me water, Dear! Come back soon.",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0},  //should be > 0
         ]
     },
 ],
@@ -483,7 +484,7 @@
     {   // After JUNO  - index 14 END
         "question":"JUNO: Go on.",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0},  //should be > 0
         ]
     },
 ],
@@ -491,7 +492,7 @@
     {   // After LIVIA if good  - index 15 END
         "question":"LIVIA: I can feel the Sight in you. Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0}, //should be > 0
         ]
     },
 ],
@@ -499,7 +500,7 @@
     {   // After LIVIA if NOT good  - index 16 END
         "question":"LIVIA: Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0}, //should be > 0
         ]
     },
 ],
@@ -507,12 +508,12 @@
     {   // After Fortunata   - index 17 END
         "question":"FORTUNATA: Those were all my riddles.",
         "answers":[
-            {"title":"[Continue]","response":0},
+            {"title":"[Continue]","response":0}, //should be > 0
         ]
     },
 ],
 [
-    {   // COUNCIL SCENE 1 - index 18
+    {   // COUNCIL SCENE 1 - index 18                                                                         // the + her
      "question":"LIVIA: We now call on the defendant, who is charged with destroying the sacred fire and breaking the her holy oath. Rhea, please come forward.",
      "answers":[
          {"title":"[Walk to the stand]","response":1},
@@ -566,7 +567,7 @@
      // 7 : end
      "question":"LIVIA: Now, tell us--what happened the day you first came to the temple?",
      "answers":[
-         {"title":"I'll try my best to remember...","response":0},
+         {"title":"I'll try my best to remember...","response":0}, //both should be > 10
          {"title": "It all started with my sister","response":4},
      ]
  },
@@ -585,7 +586,7 @@
     {   // Turtle  - index 19 END
         "question":"TURTLE: *turtle turtle*",
         "answers":[
-            {"title":"[Good turtle]","response":0},
+            {"title":"[Good turtle]","response":0},  //should be > 0
         ]
     },
 ],
@@ -594,7 +595,7 @@
     {   // Parrot  - index 20 END
         "question":"PARROT: Meep meep!",
         "answers":[
-            {"title":"[Good bird]","response":0},
+            {"title":"[Good bird]","response":0},  //should be > 0
         ]
     },
 ],
