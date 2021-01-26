@@ -81,23 +81,65 @@
   padding-top: 100%;
 }
 .h1 {
-  background-image: url("./smiley_2.png");
+  background-image: url("./award_fruity.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
   box-shadow: 0px 0px 0px 2px whitesmoke;
 }
 .h2 {
-  background: rgb(107, 110, 116);
+  background-image: url("./award_flameo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
   box-shadow: 0px 0px 0px 2px whitesmoke;
 }
 .h3 {
-  background: rgb(107, 110, 116);
+  background-image: url("./award_omen.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
   box-shadow: 0px 0px 0px 2px whitesmoke;
 }
 .h4 {
+  background-image: url("./award_eye.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h5 {
+  background-image: url("./award_roll.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h6 {
+  background-image: url("./award_sly.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h7 {
+  background-image: url("./award_innocent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h8 {
+  background-image: url("./award_liar.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+
+.h9 {
   background: rgb(107, 110, 116);
-    box-shadow: 0px 0px 0px 2px whitesmoke;
+  box-shadow: 0px 0px 0px 2px whitesmoke;
 }
 
 .hr { width: 60%}
