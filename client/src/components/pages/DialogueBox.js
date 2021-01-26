@@ -208,6 +208,8 @@ class DialogueBox extends React.Component {
 
     return (
         <div className="dBox-flex-container">
+          <div className="portrait-Rhea"></div>
+          <div className="portrait-oldlady"></div> {/* generalize to the person Rhea's talking to */}
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
               {this.state.currentDialogue.question} 
@@ -223,6 +225,7 @@ class DialogueBox extends React.Component {
             ))}
           </div>
         </div>
+        
   );
   }
 }
