@@ -173,15 +173,20 @@ class Map extends Component {
 
     //specific cases may/will require hardcoding
 
-    if (type === "west") {
-      this.showNewThing("redcircle");
-
+    if (type === "") { //template
+      //action
+    } else if (type === "west") {
+      this.showNewThing("redcircle"); //how telescopes work
     } else if (type === "east") {
       this.showNewThing("river");
-
     } else if (type === "fake exit") {
-      this.startConversation(); //@ an index
-
+      this.startConversation(this.props.dialogueOption);
+    } else if (type === "another") {
+      this.startConversation(0);
+    } else if (type === "seat1") {
+      this.startConversation(19);
+    } else if (type === "seat2") {
+      this.startConversation(18);
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
     }
@@ -213,7 +218,7 @@ class Map extends Component {
   }
 
 
-  startConversation = () => { //different function because IT tells Player when to continue gameplay
+  startConversation = (index) => { //different function because IT tells Player when to continue gameplay
                       /*index*/
     if (this.state.overlay !== null) {
       return;
@@ -221,7 +226,7 @@ class Map extends Component {
     
     this.setState({
       situation: "dialoguing",                              //index
-      overlay: <DialogueBox key={"convo"} dialogue={Convos[this.props.dialogueOption]} ending={this.endConversation} />,
+      overlay: <DialogueBox key={"convo"} dialogue={Convos[index]} ending={this.endConversation} />,
     });
   }
 

@@ -23,23 +23,23 @@ render() {
     <img src={Rhea} className="Profile-pic"/>
     <div className="Profile-name"> RHEA</div>
     <br></br>
-    <div class="fading_line"></div>
+    <div className="fading_line"></div>
     <div className="Profile-info"> AWARDS CABINET </div>
-    <div class="container">
-  <div class="holder h1">
-  <div class="tooltip"> 
-  <span class="tooltiptext">Tooltip text</span>
+    <div className="container">
+  <div className="holder h1">
+  <div className="tooltip"> 
+  <span className="tooltiptext">Tooltip text</span>
 </div>
   </div>
   <div className={this.state.hasWon ? "holder h2":"holder h9"}></div>
-  <div class="holder h3"></div>
-  <div class="holder h4"></div>
+  <div className="holder h3"></div>
+  <div className="holder h4"></div>
 </div>
-<div class="container">
-  <div class="holder h5"></div>
-  <div class="holder h6"></div>
-  <div class="holder h7"></div>
-  <div class="holder h8"></div>
+<div className="container">
+  <div className="holder h5"></div>
+  <div className="holder h6"></div>
+  <div className="holder h7"></div>
+  <div className="holder h8"></div>
 </div>
 
 
