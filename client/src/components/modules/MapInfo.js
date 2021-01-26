@@ -5,6 +5,16 @@
 */
 
 export const mapinfo = {
+  "tempstart":{
+    thismap: "temporary-cover",
+    playerstart: [null,null],
+    nextmap: "room1",
+    objects: {
+      "START": ["temporary-start", 380, 400, 200, 100],
+
+    },
+  },
+
   "room1": {
     thismap: "river",
     playerstart: [100, 100],

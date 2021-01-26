@@ -1,6 +1,7 @@
 
    const Convos = [[  // using response: 111 to end a conversation
        {   // LAIA CONVO - index 0
+        //"person":"portrait-Laia"  === person field mapping to the CSS className
         "question":"LAIA: Burn it all! Rhea, are you here?",
         "answers":[
             {"title":"Yes","response":1, "id":0},
@@ -584,6 +585,7 @@
 ],
 [
     {   // Turtle  - index 19 END
+        "person": "practice-smiley",
         "question":"TURTLE: *turtle turtle*",
         "answers":[
             {"title":"[Good turtle]","response":111},  //should be > 0
@@ -593,6 +595,7 @@
 
 [
     {   // Parrot  - index 20 END
+        "person": "practice-smiley",
         "question":"PARROT: Meep meep!",
         "answers":[
             {"title":"[Good bird]","response":111},  //should be > 0
