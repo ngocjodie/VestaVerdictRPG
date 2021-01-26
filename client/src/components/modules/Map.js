@@ -28,6 +28,7 @@ class Map extends Component {
       playery: null,
       last_dir: "down", 
       held_dir: null,
+      // speed: 5,
       speed: 5,
       fps: 60,
       intervalid: null,
