@@ -10,7 +10,6 @@ import "./Game.css";
 /** QUESTIONS FOR OFFICE HOURS
  * 
  * FUNCTIONS TO TAKE CARE OF
- * - exit function in handleAnswer or closing state in DialogueBox.js
  * - how to modify dialogueOptions in conversing function in Game.js
  * - sending, extracting, and using action IDs that change the story in Map, DialogueBox, Awards, Playthroughs, and Profile.js 
  *  
@@ -26,6 +25,9 @@ import "./Game.css";
  * - desired speed and fps in state in Map.js
  * - the currentMap the game starts at in Game.js
  * - eliminating unnecessary files, comments, and code everywhere
+ * 
+ * ACCOMPLISHED
+ * - exit function in handleAnswer or closing state in DialogueBox.js
  */
 
 
@@ -59,11 +61,9 @@ class Game extends Component {
   }
   
   conversing = () => { 
-    console.log("now we're talkin"); ////////////////////// tee hee //////////////////////////////////
     this.setState({
       dialogueOption: this.state.dialogueOption + 1, //if there's another way/system, we'll do that
     });
-    //
   }
 
   render() {

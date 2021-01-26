@@ -130,21 +130,14 @@ class DialogueBox extends React.Component {
     post("/api/choice", {choice: answer.id} ).then(()=>{
       // console.log("the array:",this.props.dialogue); ////////////////////////////////////////////////////////
       // console.log("the choice/index:",answer.response); /////////////////////////////////////////////////////
-      if (answer.response >= this.props.dialogue.length || answer.id == "99") {
+      
+      if (answer.response > this.props.dialogue.length) {
         console.log("We have reached the end"); /////////////////////////////////////////////////////////
         this.props.ending(); 
         //maybe return a parameter that'll help Map/Game figure out
         return;
       }
-      /**
-       * if (answer.response === null) {
-       *   console.log("time to go"); /////////////////////////////////////////////////////////////////
-       *   this.props.ending();
-       *   return;
-       * }
-       * exit the Box by sending signal to Map
-       * and ignore setState
-       */
+
       this.setState({
         currentDialogue: this.props.dialogue[answer.response],
       })

@@ -1,5 +1,5 @@
 
-   const Convos = [[  //often relied on id=99 for first Convos
+   const Convos = [[  // using response: 111 to end a conversation
        {   // LAIA CONVO - index 0
         "question":"LAIA: Burn it all! Rhea, are you here?",
         "answers":[
@@ -36,7 +36,7 @@
         // 4 : end
         "question":"LAIA: Ah, thank you! Take the west path to get there quickly.",
         "answers":[
-            {"title": "[End]","response": 6, "id": 99},
+            {"title": "[End]","response": 111},
         ]
     },
     {
@@ -66,7 +66,7 @@
         // 8 : cont
         "question":"LAIA: Take the west path, and you'll reach the vista at the top.",
         "answers":[
-            {"title":"[END]","response":8, "id":99}
+            {"title":"[END]","response":111}
         ]
     },
   ],
@@ -74,7 +74,7 @@
     {   // OLD WOMAN 1ST CONVO - 1ST ANSWER [END]
      "question":"The old woman groans. 'Hello? Is someone there? I've fallen, and I can't get my fruit.'",
      "answers":[ 
-         {"title":" [Walk away] ","response":10, "id":3},
+         {"title":" [Walk away] ","response":111, "id":3},
          {"title":"Do you need help?","response":1},
          {"title":"Are you okay?","response":2}
      ]
@@ -83,8 +83,8 @@
      // 1 : end 2nd ANSWER [END] - ALSO WHAT HAPPENS WHEN THEY WALK AWAY HERE?
      "question":"OLD WOMAN: I need my fruit. Bring it to me, will you Dear?",
      "answers":[
-         {"title":"Of course","response":10, "id":99},
-         {"title":"No, bye","response":10, "id": 99}
+         {"title":"Of course","response":111},
+         {"title":"No, bye","response":111}
 
      ]
  },
@@ -100,8 +100,8 @@
      // 3 : end BOTH ANSWERS [END] #DIDNT_HELP
      "question":"OLD WOMAN: Thank you for pointing that out, Dear. Now, could you help me pick up my fruit?",
      "answers":[
-        {"title":"Of course","response":10, "id":99},
-        {"title":"No, bye","response":10, "id": 99}
+        {"title":"Of course","response":111},
+        {"title":"No, bye","response":111}
      ]
  },
 ],
@@ -117,9 +117,9 @@
      // 1 : end [END] ANSWERS 1 AND 3
      "question":"FRUIT: You sure?",
      "answers":[
-         {"title":"Yup.","response":5, "id":99},
+         {"title":"Yup.","response":111},
          {"title":"Now that you mention it, I could use a little snack.", "response":2},
-         {"title":"Say nothing (why are you talking to a grape anyway?)", "response":5, "id":99}
+         {"title":"Say nothing (why are you talking to a grape anyway?)", "response":111}
      ]
  },
  {
@@ -135,7 +135,7 @@
      // 3 : end [END]
      "question":"Tasty!",
      "answers":[
-         {"title": "[You pick up the remaining grapes]","response": 4},
+         {"title": "[You pick up the remaining grapes]","response": 111},
      ]
  },
 ],
@@ -151,16 +151,16 @@
      // 1 : end [END] ANSWERS 1
      "question":"The old woman gobbles down the fruit. 'Thank you! But before I move on, I could use some water.'",
      "answers":[
-         {"title":"Sorry, I gotta go.","response":4, "id":11},
-         {"title":"I can get some for you", "response":3, "id":12},
+         {"title":"Sorry, I gotta go.","response":111, "id":11},
+         {"title":"I can get some for you", "response":2, "id":12},
      ]
  },
  {
      // 2 : END ALL
      "question":"OLD WOMAN: Thank you, Dear. There's a fountain at the temple courtyard right down the path.",
      "answers":[
-         {"title": "Cool, I didn't know there was a path here","response":3, "id":5},
-         {"title": "I'll be right back.","response":3,"id":6},
+         {"title": "Cool, I didn't know there was a path here","response":111, "id":5},
+         {"title": "I'll be right back.","response":111,"id":6},
      ]
  },
 ],
@@ -184,7 +184,7 @@
      // 2 : END ALL
      "question":"OLD WOMAN: Okay, you best be on your way.",
      "answers":[
-         {"title": "[Better head home]","response":4,},
+         {"title": "[Better head home]","response":111},
          
      ]
  },
@@ -192,7 +192,7 @@
     // 3 : END ALL
     "question":"OLD WOMAN: Ahh, thank you! Here is one gold piece.",
     "answers":[
-        {"title": "[Better head home]","response":4,},
+        {"title": "[Better head home]","response":111},
         
     ]
 },
@@ -209,14 +209,14 @@
      // 1 : END ALL
      "question":"LAIA: Thank you so much! And good luck!",
      "answers":[
-         {"title":"[You've remembered all you can]","response":2}, //also make it 4?
+         {"title":"[You've remembered all you can]","response":111}, 
      ]
  },
  {
      // 2 : END ALL
      "question":"LAIA: Thank you, course! This was a huge help. And good luck later!",
      "answers":[
-         {"title": "[You've remembered all you can]","response":4},
+         {"title": "[You've remembered all you can]","response":111},
          
      ]
  },
@@ -233,14 +233,14 @@
      // 1 : END ALL
      "question":"LAIA: Oh no! Thank you for trying.",
      "answers":[
-         {"title":"[You've remembered all you can]","response":3},
+         {"title":"[You've remembered all you can]","response":111},
      ]
  },
  {
      // 2 : END ALL
      "question":"LAIA: What? Why?",
      "answers":[
-         {"title": "[You've remembered all you can]","response":4},
+         {"title": "[You've remembered all you can]","response":111},
          
      ]
  },
@@ -264,7 +264,7 @@
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":2}, //should be > 3
+         {"title": "Thank you","response":111}, //should be > 3
          
      ]
  },
@@ -289,7 +289,7 @@
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":2}, //should be > 4
+         {"title": "Thank you","response":111}, //should be > 4
      ]
     },
  { //   3
@@ -351,7 +351,7 @@
         // 5 : END ALL
         "question":"JUNO: Thank you, sister.",
         "answers":[
-           {"title": "[Step away]","response":4}, //should be > 6
+           {"title": "[Step away]","response":111}, //should be > 6
         ]
     },
     ],
@@ -442,16 +442,16 @@
         // 10 : cont
         "question":"Which path do you choose? You don't feel an intuition.",
         "answers":[
-            {"title":"Right","response":12, "id":124},
+            {"title":"Right","response":111, "id":124}, //end
             {"title":"Middle","response":11,"id":300},
-            {"title":"Left","response":12, "id":124},
+            {"title":"Left","response":111, "id":124},  //end
         ]
     },
     {
         // 11 : cont
         "question":"LIVIA: Ah, well done. That path was correct.",
         "answers":[
-            {"title":"Thank you","response":12},
+            {"title":"Thank you","response":111},
         ]
     },
     //maybe another option to close the scene even if Rhea fails
@@ -460,7 +460,7 @@
     {   // After LAIA  - index 11 END
         "question":"LAIA: Thank you! Hurry Back!",
         "answers":[
-            {"title":"[Continue]","response":0}, //should be a large #
+            {"title":"[Continue]","response":111}, //should be a large #
         ]
     },
 ],
@@ -468,7 +468,7 @@
     {   // After PROMISING FRUIT  - index 12 END
         "question":"OLD WOMAN: Thank you for offering to get my fruit!",
         "answers":[
-            {"title":"[Continue]","response":0}, //should be > 0
+            {"title":"[Continue]","response":111}, //should be > 0
         ]
     },
 ],
@@ -476,7 +476,7 @@
     {   // After PROMISING Water  - index 13 END
         "question":"OLD WOMAN: Thank you for getting me water, Dear! Come back soon.",
         "answers":[
-            {"title":"[Continue]","response":0},  //should be > 0
+            {"title":"[Continue]","response":111},  //should be > 0
         ]
     },
 ],
@@ -484,7 +484,7 @@
     {   // After JUNO  - index 14 END
         "question":"JUNO: Go on.",
         "answers":[
-            {"title":"[Continue]","response":0},  //should be > 0
+            {"title":"[Continue]","response":111},  //should be > 0
         ]
     },
 ],
@@ -492,7 +492,7 @@
     {   // After LIVIA if good  - index 15 END
         "question":"LIVIA: I can feel the Sight in you. Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":0}, //should be > 0
+            {"title":"[Continue]","response":111}, //should be > 0
         ]
     },
 ],
@@ -500,7 +500,7 @@
     {   // After LIVIA if NOT good  - index 16 END
         "question":"LIVIA: Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":0}, //should be > 0
+            {"title":"[Continue]","response":111}, //should be > 0
         ]
     },
 ],
@@ -508,7 +508,7 @@
     {   // After Fortunata   - index 17 END
         "question":"FORTUNATA: Those were all my riddles.",
         "answers":[
-            {"title":"[Continue]","response":0}, //should be > 0
+            {"title":"[Continue]","response":111}, //should be > 0
         ]
     },
 ],
@@ -567,8 +567,8 @@
      // 7 : end
      "question":"LIVIA: Now, tell us--what happened the day you first came to the temple?",
      "answers":[
-         {"title":"I'll try my best to remember...","response":0}, //both should be > 10
-         {"title": "It all started with my sister","response":4},
+         {"title":"I'll try my best to remember...","response":111}, //both should be > 10
+         {"title": "It all started with my sister","response":111},
      ]
  },
  {
@@ -586,7 +586,7 @@
     {   // Turtle  - index 19 END
         "question":"TURTLE: *turtle turtle*",
         "answers":[
-            {"title":"[Good turtle]","response":0},  //should be > 0
+            {"title":"[Good turtle]","response":111},  //should be > 0
         ]
     },
 ],
@@ -595,7 +595,7 @@
     {   // Parrot  - index 20 END
         "question":"PARROT: Meep meep!",
         "answers":[
-            {"title":"[Good bird]","response":0},  //should be > 0
+            {"title":"[Good bird]","response":111},  //should be > 0
         ]
     },
 ],

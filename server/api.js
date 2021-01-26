@@ -100,6 +100,10 @@ router.post("/choice", auth.ensureLoggedIn, (req, res) => {
  *       res.status(402).send({ message:"nope" });
  *       return;
  *     }
+ *     res.send({choices: user.choices});
+ *   }).catch(err => {
+ *     console.log(err);
+ *     res.status(500).send({message: "unknown error"});
  *   });
  * });
  */

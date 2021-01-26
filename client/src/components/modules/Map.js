@@ -16,7 +16,7 @@ import Box from "./Box.js";
  * @param {() => ()} switch for switching to the next map
  * 
  * @param {() => ()} conversing for letting Game control the process of conversation
- * @param {number} dialogueOption for which convo to do next
+ * @param {number} dialogueOption for which convo to do next --> maybe eliminate this when we get the GET request up and running
  * 
  */
 
@@ -53,6 +53,10 @@ class Map extends Component {
       "ArrowDown": "down",
       "ArrowLeft": "left",
       "ArrowRight": "right",
+      "w": "up",
+      "s": "down",
+      "a": "left",
+      "d": "right",
     }
    
     window.addEventListener("keydown", (e) => {
@@ -107,8 +111,7 @@ class Map extends Component {
       let delta = this.checkCollision(this.props.objects[i], newx, newy, dir);
       if (delta[0] !== newx || delta[1] !== newy) {
         if (i === "exit") {
-          console.log("REACHED THE EXIT"); //it works :D
-          this.props.switch();
+          this.props.switch(); //moves to the next map
         }
         newx = delta[0];
         newy = delta[1];
@@ -163,7 +166,7 @@ class Map extends Component {
     // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
     
-    if (!close) { //some #
+    if (!close) {
       console.log("too far from the thing it clicked on"); ////////////////////////////////////////////////
       return;
     }
@@ -177,8 +180,7 @@ class Map extends Component {
       this.showNewThing("river");
 
     } else if (type === "fake exit") {
-      console.log("talking to the", type); //////////////////////////////////////////////////////////////////
-      this.startConversation();
+      this.startConversation(); //@ an index
 
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
@@ -193,11 +195,9 @@ class Map extends Component {
     // callback function that'll render another box based on what the caller Box says
     // assume it's a square that's supposed to cover the page: x=230, y=22, w=500, h=500
     if (this.state.overlay !== null) {
-      console.log("full already"); ///////////////////////////////////////////////////////////////////////
       return;
     }
     
-    console.log("reached showNewThing for", name); /////////////////////////////////////////////////
     this.setState({
       situation: "interacting",                                       //because there can only be 1 at a time
       overlay:  <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
@@ -206,7 +206,6 @@ class Map extends Component {
 
   hideNewThing = (name) => {
     // callback function that'll get back to Player movement and normal game play
-    console.log("reached the hide function for", name);  ////////////////////////////////////////////////////
     this.setState({
       situation: "moving",
       overlay: null,
@@ -215,16 +214,15 @@ class Map extends Component {
 
 
   startConversation = () => { //different function because IT tells Player when to continue gameplay
+                      /*index*/
     if (this.state.overlay !== null) {
-      console.log("I'm busy"); ///////////////////////////////////////////////////////////////////////
       return;
     }
     
     this.setState({
-      situation: "dialoguing",
+      situation: "dialoguing",                              //index
       overlay: <DialogueBox key={"convo"} dialogue={Convos[this.props.dialogueOption]} ending={this.endConversation} />,
     });
-    console.log("I think I'm talking"); ///////////////////////////////////////////////////
   }
 
   endConversation = () => {
@@ -234,8 +232,7 @@ class Map extends Component {
       overlay: null,
     });    
   }
-/* 
-*/
+
 
 
 
@@ -261,6 +258,8 @@ class Map extends Component {
         last_dir: dir,
       });
     });
+
+    //send dialogue things so Game can tell what's next
   }
 
   render() {
