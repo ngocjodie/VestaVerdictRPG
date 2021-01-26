@@ -117,7 +117,7 @@
      // 1 : end [END] ANSWERS 1 AND 3
      "question":"FRUIT: You sure?",
      "answers":[
-         {"title":"Yup.","response":111},
+         {"title":"Yup.","response":111, "id":532},
          {"title":"Now that you mention it, I could use a little snack.", "response":2},
          {"title":"Say nothing (why are you talking to a grape anyway?)", "response":111}
      ]
@@ -293,7 +293,7 @@
      ]
     },
  { //   3
-     // 2 : END ALL
+     // 3 : END ALL
      "question":"CASSANDRA: I don't know what you could mean.",
      "answers":[
         {"title": "How do the trials work?","response":1,},
@@ -442,9 +442,9 @@
         // 10 : cont
         "question":"Which path do you choose? You don't feel an intuition.",
         "answers":[
-            {"title":"Right","response":111, "id":124}, //end
+            {"title":"Right","response":7, "id":124},
             {"title":"Middle","response":11,"id":300},
-            {"title":"Left","response":111, "id":124},  //end
+            {"title":"Left","response":7, "id":124}, 
         ]
     },
     {
@@ -513,8 +513,8 @@
     },
 ],
 [
-    {   // COUNCIL SCENE 1 - index 18                                                                         // the + her
-     "question":"LIVIA: We now call on the defendant, who is charged with destroying the sacred fire and breaking the her holy oath. Rhea, please come forward.",
+    {   // COUNCIL SCENE 1 - index 18                                                                        
+     "question":"LIVIA: We now call on the defendant, who is charged with destroying the sacred fire and breaking her holy oath. Rhea, please come forward.",
      "answers":[
          {"title":"[Walk to the stand]","response":1},
      ]
@@ -599,7 +599,6 @@
         ]
     },
 ],
-
 
 ];
 
