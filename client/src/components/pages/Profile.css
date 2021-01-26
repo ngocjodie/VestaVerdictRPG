@@ -82,6 +82,7 @@
 }
 .h1 {
   background-image: url("./award_fruity.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -89,6 +90,7 @@
 }
 .h2 {
   background-image: url("./award_flameo.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -96,6 +98,7 @@
 }
 .h3 {
   background-image: url("./award_omen.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -103,6 +106,7 @@
 }
 .h4 {
   background-image: url("./award_eye.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -110,6 +114,7 @@
 }
 .h5 {
   background-image: url("./award_roll.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -117,6 +122,7 @@
 }
 .h6 {
   background-image: url("./award_sly.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -124,6 +130,7 @@
 }
 .h7 {
   background-image: url("./award_innocent.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);
@@ -131,6 +138,7 @@
 }
 .h8 {
   background-image: url("./award_liar.png");
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgb(107, 110, 116);

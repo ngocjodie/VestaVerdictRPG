@@ -9,7 +9,7 @@ class Frontpage extends Component{
     constructor(props){
       super(props);
       this.state = {
-        hasWon: false,
+        hasWon: true,
     };
 }
     componentDidMount() {
