@@ -22,23 +22,38 @@
 .About html, body {
   height: 100%;
 }
-
-.About-bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
-  z-index: -1;
+.About-center {
+  margin-left: auto;
+  margin-right: auto;
 }
-.About-img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
-  z-index: -1;
+.container {
+  display: flex;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+.holder {
+  flex: 1;
+  margin: 5%;
+  border-radius: 50%;
+}
+.holder:before {
+  content: "";
+  display: inline-block;
+  padding-top: 100%;
+}
+.h1 {
+  background-image: url("./smiley_2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(177, 174, 170);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h2 {
+  background: grey;
+}
+.h3 {
+  background: grey;
+}
+.h4 {
+  background: grey;
 }
