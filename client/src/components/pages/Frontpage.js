@@ -9,7 +9,7 @@ class Frontpage extends Component{
     constructor(props){
       super(props);
       this.state = {
-        hasWon: false,
+        hasWon: true,
     };
 }
     componentDidMount() {
@@ -31,15 +31,15 @@ render() {
   <span class="tooltiptext">Tooltip text</span>
 </div>
   </div>
-  <div className={this.state.hasWon ? "holder h1":"holder h3"}></div>
+  <div className={this.state.hasWon ? "holder h2":"holder h9"}></div>
   <div class="holder h3"></div>
   <div class="holder h4"></div>
 </div>
 <div class="container">
-  <div class="holder h1"></div>
-  <div class="holder h2"></div>
-  <div class="holder h3"></div>
-  <div class="holder h4"></div>
+  <div class="holder h5"></div>
+  <div class="holder h6"></div>
+  <div class="holder h7"></div>
+  <div class="holder h8"></div>
 </div>
 
 
