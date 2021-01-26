@@ -80,10 +80,11 @@ router.post("/choice", auth.ensureLoggedIn, (req, res) => {
       res.status(402).send({ message: "nope" });
       return;
     }
-    if (user.choices) {
+    if (req.body.choice === "WIPE") { //the unique signal to wipe the choices
+      user.choices = []
+    } else if (user.choices) {
       user.choices = user.choices.concat([req.body.choice])
-    }
-    else {
+    } else {
       user.choices = [req.body.choice]
     }
     user.save().then((u) => res.send(u))
@@ -93,21 +94,20 @@ router.post("/choice", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
-/**
- * router.get("/choice", (req, res) => {
- *   User.findOne({_id: req.user._id}).then(user => {
- *     if (!user) {
- *       res.status(402).send({ message:"nope" });
- *       return;
- *     }
- *     res.send({choices: user.choices});
- *   }).catch(err => {
- *     console.log(err);
- *     res.status(500).send({message: "unknown error"});
- *   });
- * });
- */
-
+// I made a new choice GET request
+router.get("/choice", (req, res) => {
+  User.findOne({_id: req.user._id}).then(user => {
+    if (!user) {
+      res.status(402).send({ message:"nope" });
+      return;
+    }
+    res.send({choices: user.choices});
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send({message: "unknown error"});
+  });
+});
+ 
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

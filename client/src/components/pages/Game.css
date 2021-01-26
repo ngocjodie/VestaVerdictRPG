@@ -133,6 +133,21 @@
   z-index: -1;
 }
 
+
+.temporary-cover {
+  image-rendering: pixelated;
+  background-image: url("../modules/grecoromantemple.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.temporary-start {
+  image-rendering: pixelated;
+  background-image: url("../modules/sTaRtBuTtOn.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 /* .shadow {
   width: calc( var(--grid-cell)* 2 );
   height: calc( var(--grid-cell)* 2 );

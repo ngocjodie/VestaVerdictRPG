@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { get, post } from "../../utilities";
 
 import DialogueBox from "../pages/DialogueBox.js";
 import Convos from "../pages/Convos";
@@ -167,6 +168,14 @@ class Map extends Component {
     // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
     
+    if (type === "START") { //tester
+      post("/api/choice", {choice: "WIPE"}).then((what) => {
+        console.log("from the POST", what); ///////////////////////////////////////////////
+        this.props.switch();
+      })
+      //api call to wipe the player's previous choices
+    } 
+
     if (!close) {
       console.log("too far from the thing it clicked on"); ////////////////////////////////////////////////
       return;
@@ -176,6 +185,8 @@ class Map extends Component {
 
     if (type === "") { //template
       //action
+    } else if (type === "button") { //tester
+      this.props.switch(); 
     } else if (type === "west") {
       this.showNewThing("redcircle"); //how telescopes work
     } else if (type === "east") {
@@ -185,9 +196,9 @@ class Map extends Component {
     } else if (type === "another") {
       this.startConversation(0);
     } else if (type === "seat1") {
-      this.startConversation(19);
+      this.startConversation(19); //turtle
     } else if (type === "seat2") {
-      this.startConversation(18);
+      this.startConversation(20); //parrot
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
     }

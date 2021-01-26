@@ -271,7 +271,7 @@ animation-delay: 2s;
   transform: scaleX(-1);
   top: 15%;
   right: 10%;
-  width: 30vh;         /* bigger and do percentages */
+  width: 30vh;
   height: 30vh;
 }
 
@@ -284,4 +284,22 @@ animation-delay: 2s;
   left: 10%;
   width: 30vh;
   height: 30vh;
+}
+
+.practice-smiley {
+  image-rendering: pixelated;
+  background-image: url("./smiley3x.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+.sprites {
+  image-rendering: pixelated;
+  background-image: url("./potraitsOfPeople.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { get } from "../../utilities";
+
 
 import Map from "../modules/Map.js"; //separate js files for map info like obstacles
 import { mapinfo } from "../modules/MapInfo.js";
@@ -45,12 +47,15 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "room1",
+      currentMap: "tempstart",
     };
   }
 
   componentDidMount(){     // for api calls
     //
+    get("/api/choice", { userId: this.props.userId}).then((ret) => {
+      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
+  });
   }
 
   switchScenes = () => {

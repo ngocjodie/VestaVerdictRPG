@@ -107,7 +107,8 @@ class DialogueBox extends React.Component {
     super(props)
     this.state = {
       current: dialogueMachine.initialState,
-      currentDialogue: this.props.dialogue[0]
+      currentDialogue: this.props.dialogue[0],
+      speaker: this.props.dialogue[0].person,
     }
   
   }
@@ -205,11 +206,15 @@ class DialogueBox extends React.Component {
       );
     }
 
+    // let portrait = "portrait-oldlady"; //a default in case we forget the field anywhere --> could just be an empty png
+    // if (this.state.speaker) {
+    //   portrait = this.state.speaker;
+    // }
 
     return (
         <div className="dBox-flex-container">
           <div className="portrait-Rhea"></div>
-          <div className="portrait-oldlady"></div> {/* generalize to the person Rhea's talking to */}
+          <div className={this.state.speaker}></div> {/* generalize to the person Rhea's talking to */}
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
               {this.state.currentDialogue.question} 
