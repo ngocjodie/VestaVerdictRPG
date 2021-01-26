@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import "./About.css"
-import bg from "./background_frontpage.jpg"
+import bg from "./smiley.png"
 
 
 
@@ -16,9 +16,14 @@ class About extends Component{
 
   render() {
     return(
-      <div className="About-bg">
-        <img src={bg} className="About-img"/>
-      </div>
+
+<div class="container">
+  <div class="holder h1"></div>
+  <div class="holder h2"></div>
+  <div class="holder h3"></div>
+  <div class="holder h4"></div>
+</div>
+
     );
   }
 }

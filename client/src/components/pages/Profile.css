@@ -1,16 +1,153 @@
+@font-face {
+  font-family: pixelFont;
+  src: url(./fonts/font1.ttf) format('truetype');
+}
+
 .Profile-info {
-    font-size: medium;
-    font-family: Cambria;
+    font-size: 2vw;
+    font-family: pixelFont;
+    color: white;
+    text-align: center;
+    padding-top: 25px;
+    }
+
+    .Profile-name {
+      font-size: 4vw;
+      font-family: pixelFont;
+      color: white;
+      text-align: center;
+      padding-top: 25px;
+      }
+
+      .fading_line { 
+        margin: 25px 0;
+        height: 1px;
+        background: black;
+        background: -webkit-gradient(linear, 0 0, 100% 0, from(black), to(black), color-stop(50%, white));
     }
 
 .Profile-pic {
   /* make it responsive */
   border-radius: 50%;
-  background-color:rgb(177, 174, 170);
+  background-color:rgb(107, 110, 116);
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 20%;
   box-shadow: 0px 0px 0px 2px whitesmoke;
+}
 
-} 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  font-family: pixelFont;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.Profile-container {
+  display: flex;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+.holder {
+  flex: 1;
+  margin: 5%;
+  border-radius: 50%;
+}
+.holder:before {
+  content: "";
+  display: inline-block;
+  padding-top: 100%;
+}
+.h1 {
+  background-image: url("./award_fruity.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h2 {
+  background-image: url("./award_flameo.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h3 {
+  background-image: url("./award_omen.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h4 {
+  background-image: url("./award_eye.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h5 {
+  background-image: url("./award_roll.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h6 {
+  background-image: url("./award_sly.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h7 {
+  background-image: url("./award_innocent.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+.h8 {
+  background-image: url("./award_liar.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+
+.h9 {
+  background: rgb(107, 110, 116);
+  box-shadow: 0px 0px 0px 2px whitesmoke;
+}
+
+.hr { width: 60%}

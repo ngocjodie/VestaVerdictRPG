@@ -8,8 +8,10 @@ import Rhea from "./Rheas.png"
 class Frontpage extends Component{
     constructor(props){
       super(props);
-    }
-  
+      this.state = {
+        hasWon: true,
+    };
+}
     componentDidMount() {
       console.log(this.props.userId)
     }
@@ -17,10 +19,33 @@ class Frontpage extends Component{
 render() {
     return (
       <>
+      
     <img src={Rhea} className="Profile-pic"/>
+    <div className="Profile-name"> RHEA</div>
+    <br></br>
+    <div class="fading_line"></div>
+    <div className="Profile-info"> AWARDS CABINET </div>
+    <div class="container">
+  <div class="holder h1">
+  <div class="tooltip"> 
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+  </div>
+  <div className={this.state.hasWon ? "holder h2":"holder h9"}></div>
+  <div class="holder h3"></div>
+  <div class="holder h4"></div>
+</div>
+<div class="container">
+  <div class="holder h5"></div>
+  <div class="holder h6"></div>
+  <div class="holder h7"></div>
+  <div class="holder h8"></div>
+</div>
 
 
-    <Playthroughs userId={this.props.userId}/>
+
+  
+<Playthroughs userId={this.props.userId}/>
 
     <Awards userId={this.props.userId}/>
     </>
