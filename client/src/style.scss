@@ -14,3 +14,11 @@
       font-family: 'Cinzel';
       src: url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap');
   }
+
+  @font-face {
+    font-family: 'm3x6';
+    src: url('m3x6.ttf') format('truetype'),
+         url('m3x6.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -209,8 +209,14 @@ class DialogueBox extends React.Component {
     return (
         <div className="dBox-flex-container">
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
-            <div className={`anim-typewriter dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
+            <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
               {this.state.currentDialogue.question} 
+
+            <div class="dBox-textQ hiders">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+            
             </div>
             {this.state.currentDialogue.answers.map((answer)=> (
             <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); this.handleAnswer(answer)}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> {answer.title} </div></button>

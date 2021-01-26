@@ -125,34 +125,47 @@ document.body.onkeyup = function(e) {
         var i = 0;
         var qText = dialogueSystem[currentConvo].question;
 
-        var speed;
-        var fast = 25;
-        var medium = 50;
-        var slow = 100;
+                // var consoleTyper = setInterval(function () {
+        //     if (i != qText.length) {
+        //         i += 1;
+        //         document.getElementById("question").innerHTML = qText.substr(0, i);
+        //     }
+        //     else
+        //     {
+        //         clearInterval(consoleTyper);   
+        //         document.getElementById('answers').classList.toggle('hidden');
+        //     }}, speed);
+        // }
+        // var consoleTyper = setInterval(function () {
+        //     if (i != qText.length) {
+        //         i += 1;
+        //         document.getElementById("question").innerHTML = qText.substr(0, i);
+        //     }
+        //     else
+        //     {
+        //         clearInterval(consoleTyper);   
+        //         document.getElementById('answers').classList.toggle('hidden');
+        //     }}, speed);
+        // }
 
-        if (qText.length < 10) {
-            speed = slow;
-        } else if (qText.length > 10 && qText.length < 15) {
-            speed = medium;
-        } else {
-            speed = fast;
-        }
+        // var speed;
+        // var fast = 25;
+        // var medium = 50;
+        // var slow = 100;
+
+        // if (qText.length < 10) {
+        //     speed = slow;
+        // } else if (qText.length > 10 && qText.length < 15) {
+        //     speed = medium;
+        // } else {
+        //     speed = fast;
+        // }
 
         setTimeout(function(){
             document.getElementById('question').classList.toggle('hidden');
         }, speed);
 
-        var consoleTyper = setInterval(function () {
-            if (i != qText.length) {
-                i += 1;
-                document.getElementById("question").innerHTML = qText.substr(0, i);
-            }
-            else
-            {
-                clearInterval(consoleTyper);   
-                document.getElementById('answers').classList.toggle('hidden');
-            }}, speed);
-    }
+
 
     document.getElementById("answers").onclick = function(event) {
         
@@ -216,6 +229,7 @@ document.body.onkeyup = function(e) {
             }
             clicky = 0;
         }   
+}
 }
 
 // react component, different states, depends on what its showing
