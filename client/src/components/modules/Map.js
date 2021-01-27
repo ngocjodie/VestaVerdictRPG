@@ -48,17 +48,17 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    // let ids = post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
-    //     console.log("from the POST", what); ///////////////////////////////////////////////
-    //     this.startConversation(18); // make first map after start the Council background
-    //     this.props.switch(); //home w/ Laia
-    // });
-    this.setState({
-      playerx: this.props.start[0],
-      playery: this.props.start[1],
-      intervalid: setInterval(this.placeChar, this.state.fps)
+    get("/api/choice", { userId: this.props.userId}).then((what) => { //api call to wipe the player's previous choices
+        console.log("from the mount GET", what); ///////////////////////////////////////////////
+        this.setState({
+          playerx: this.props.start[0],
+          playery: this.props.start[1],
+          intervalid: setInterval(this.placeChar, this.state.fps),
+          ids: what["choices"],
+        });
     });
 
+    
     const directions = {
       "ArrowUp": "up",
       "ArrowDown": "down",
@@ -177,7 +177,6 @@ class Map extends Component {
 
     if (type === "START") { //tester
       post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
-        console.log("from the POST", what); ///////////////////////////////////////////////
         this.startConversation(18); // make first map after start the Council background
         this.props.switch(); //home w/ Laia
       });
@@ -282,11 +281,12 @@ class Map extends Component {
 
     } else if (type === "youngCassandra") {
       if (this.batchofIDs(["902"])) { //finished 2nd Council Scene
-        if (this.batchofIDs(["42","505","600"])) { //finished all tests
+        /*if (this.batchofIDs(["42","505","600"])) { //finished all tests
           // Convo doesn't exist yet? --> or next Council Scene
         } else if (this.batchofIDs(["42"]) || this.batchofIDs(["505"]) || this.batchofIDs(["600"])) {   //between tests
           //Convo doesn't exist yet?
-        } else if (this.batchofIDs(["444"])) { //saw young Cassandra
+        } else ... */ 
+        if (this.batchofIDs(["444"])) { //saw young Cassandra
           this.startConversation(8);
         } else { //enter temple normally
           this.startConversation(7);
@@ -309,7 +309,7 @@ class Map extends Component {
         this.startConversation(15);
       } else if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //start chellah after eating 1 or many grapes
         console.log("chellah with advantage"); //////////////////////////////////////////////////////////////
-        // this.startConversation(22);
+        this.startConversation(22);
       } else { //start chellah with no fruit
         console.log("starting chellah"); //////////////////
         this.startConversation(10);
@@ -325,7 +325,6 @@ class Map extends Component {
         this.startConversation(9);
       }
 
-
     } else if (type === "riddlesGirl") { //Fortunata
       console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
       if (this.batchofIDs(["42"])) { //finished riddles
@@ -333,10 +332,9 @@ class Map extends Component {
         this.startConversation(17);
       } else {
         console.log("start riddles test"); ///////////////////////////////////////////////////////////////////
-        // this.startConversation(34);
+        this.startConversation(34);
       }
 
- //NEED TO SWITCH CHRONO ORDER or else they'll all fall under 1st flashback
     } else if (type === "council") { // where eveything has a default just in case
       if (this.batchofIDs(["903"])) { //final verdict (after 3rd flashback)
         if (this.batchofIDs(["321"])) { //caught in lie
@@ -416,50 +414,23 @@ class Map extends Component {
   }
 
   endConversation = () => {
-    this.setState({
-      situation: "moving",
-      overlay: null,
-    }); 
-  }
-
-  batchofIDs = async (array) => {
-    //make sure array of IDs are strings like ["0", "14", "800"]
-    let source = [];
-    let answer = await get("/api/choice", { userId: this.props.userId}).then((ret) => {
-      source = ret["choices"].slice();
-      for (const i in array) {
-        if (!source.includes(array[i])) {
-          console.log("don't have all in",array); ///////////////////////////////////////////////
-          return false;
-        }
-      }
-      console.log("got everything in",array); ///////////////////////////////////////////////
-      return true;
+    get("/api/choice", { userId: this.props.userId}).then((what) => { //api call to wipe the player's previous choices
+      this.setState({
+        situation: "moving",
+        overlay: null,
+        ids: what["choices"],
+      }); 
     });
-    console.log("but outside the GET:",source); ///////////////////////////////////////////////////////
-    // for (const i in array) {
-    //   if (!source.includes(array[i])) {
-    //     console.log("don't have all in",array); ///////////////////////////////////////////////
-    //     return false;
-    //   }
-    // }
-    // console.log("got everything in",array); ///////////////////////////////////////////////
-    // return true;
-    console.log("answer",answer);
-    return answer;
   }
 
-
-  // componentDidUpdate() {
-  //   get("/api/choice", { userId: this.props.userId}).then((ret) => {
-  //     this.setState({
-  //       ids: ret["choices"].slice(),
-  //     });
-  //   });
-  // }
-
-
-
+  batchofIDs = (array) => {
+    for (const i in array) {
+      if (!this.state.ids.includes(array[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
 
 
   componentWillUnmount() {

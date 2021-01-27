@@ -491,6 +491,7 @@
 ],
 [
     {   // After LIVIA if good  - index 15 END
+        "person": "",
         "question":"LIVIA: I can feel the Sight in you. Return to Cassandra when you're finished with all three tasks.",
         "answers":[
             {"title":"[Continue]","response":111}, //should be > 0
@@ -589,16 +590,6 @@
         "question":"TURTLE: *turtle turtle*",
         "answers":[
             {"title":"[Good turtle]","response":111},  //should be > 0
-        ]
-    },
-],
-
-[
-    {   // Parrot  - index 20 END
-        "person": "practice-smiley",
-        "question":"PARROT: Meep meep!",
-        "answers":[
-            {"title":"[Good bird]","response":111},  //should be > 0
         ]
     },
 ],
