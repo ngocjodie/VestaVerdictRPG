@@ -44,6 +44,12 @@ class Map extends Component {
   }
 
   componentDidMount() {
+    get("/api/choice", { userId: this.props.userId}).then((ret) => {
+      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
+    });
+    // What if more relevant choices are made between mounting the map and clicking the thing/person?
+    // Could I keep calling it then?
+
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
@@ -170,7 +176,6 @@ class Map extends Component {
     
     if (type === "START") { //tester
       post("/api/choice", {choice: "WIPE"}).then((what) => {
-        console.log("from the POST", what); ///////////////////////////////////////////////
         this.props.switch();
       })
       //api call to wipe the player's previous choices
@@ -183,18 +188,16 @@ class Map extends Component {
 
     //specific cases may/will require hardcoding
 
-    if (type === "") { //template
+    if (type === "key in MapInfo.js") { //template
       //action
-    } else if (type === "button") { //tester
-      this.props.switch(); 
-    } else if (type === "west") {
-      this.showNewThing("redcircle"); //how telescopes work
+    } else if (type === "west") { //how telescopes work
+      this.showNewThing("redcircle");
     } else if (type === "east") {
       this.showNewThing("river");
     } else if (type === "fake exit") {
       this.startConversation(this.props.dialogueOption);
     } else if (type === "another") {
-      this.startConversation(0);
+      this.startConversation(0);  //Livia asks for paint bag
     } else if (type === "seat1") {
       this.startConversation(19); //turtle
     } else if (type === "seat2") {
@@ -231,15 +234,18 @@ class Map extends Component {
 
 
   startConversation = (index) => { //different function because IT tells Player when to continue gameplay
-                      /*index*/
     if (this.state.overlay !== null) {
       return;
     }
     
     this.setState({
-      situation: "dialoguing",                              //index
+      situation: "dialoguing",
       overlay: <DialogueBox key={"convo"} dialogue={Convos[index]} ending={this.endConversation} />,
     });
+
+    //if (combo of IDs or something to indicate it's time for a Court Scene) {
+    //  this.props.switch();
+    //}
   }
 
   endConversation = () => {
@@ -247,7 +253,25 @@ class Map extends Component {
     this.setState({
       situation: "moving",
       overlay: null,
-    });    
+    }); 
+    //if (transitioning to a new room) {
+    //   this.props.switch();
+    //}
+  }
+
+  batchofIDs = (array) => {
+    //make sure array of IDs are strings
+    let source = [];
+    get("/api/choice", { userId: this.props.userId}).then((ret) => {
+      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
+      source = ret;
+    });
+    for (const i in array) {
+      if (!source.includes(i)) {
+        return false;
+      }
+    }
+    return true;
   }
 
 

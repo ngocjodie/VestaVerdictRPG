@@ -128,10 +128,9 @@ class DialogueBox extends React.Component {
 
   handleAnswer(answer) {
     console.log("about to enter post..."); /////////////////////////////////////////////////////////////////
+
+    //sift through null choices in here later
     post("/api/choice", {choice: answer.id} ).then(()=>{
-      // console.log("the array:",this.props.dialogue); ////////////////////////////////////////////////////////
-      // console.log("the choice/index:",answer.response); /////////////////////////////////////////////////////
-      
       if (answer.response > this.props.dialogue.length) {
         console.log("We have reached the end"); /////////////////////////////////////////////////////////
         this.props.ending(); 
@@ -141,8 +140,8 @@ class DialogueBox extends React.Component {
 
       this.setState({
         currentDialogue: this.props.dialogue[answer.response],
-      })
-    })
+      });
+    });
   }
 
 
