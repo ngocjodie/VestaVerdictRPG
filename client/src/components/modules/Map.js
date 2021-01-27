@@ -280,7 +280,7 @@ class Map extends Component {
       }
 
     } else if (type === "youngCassandra") {
-      if (this.batchofIDs(["902"])) { //finished 2nd Council Scene
+      if (this.batchofIDs(["901"])) { //finished 2nd Council Scene
         /*if (this.batchofIDs(["42","505","600"])) { //finished all tests
           // Convo doesn't exist yet? --> or next Council Scene
         } else if (this.batchofIDs(["42"]) || this.batchofIDs(["505"]) || this.batchofIDs(["600"])) {   //between tests
@@ -353,7 +353,7 @@ class Map extends Component {
           this.startConversation(31);
         }
         // END OF GAME
-      } else if (this.batchofIDs(["902"])) { //3rd Council Scene (finished 2nd flashback)
+      } else if (this.batchofIDs(["42","505","600"])) { //3rd Council Scene (finished 2nd flashback)
         if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
           this.startConversation(23);
         } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
