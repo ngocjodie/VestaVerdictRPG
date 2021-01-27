@@ -65,9 +65,29 @@ router.get("/awards", (req, res) => {
       res.status(402).send({ message: "nope" });
       return;
     }
+    console.log(user.awards)
     res.send({
       awards: user.awards
     });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).send({message: "unknown error"});
+  });
+});
+
+router.post("/awards",  auth.ensureLoggedIn, (req, res) => {
+  User.findOne({_id: req.user._id }).then(user => {
+    if (!user) {
+      res.status(402).send({ message: "nope" });
+      return;
+    }
+    user.awards.push(req.body.award)
+    user.save().then(()=>{
+      res.send({
+        awards: user.awards
+      });
+    }
+    )
   }).catch(err => {
     console.log(err);
     res.status(500).send({message: "unknown error"});
@@ -97,7 +117,7 @@ router.post("/choice", auth.ensureLoggedIn, (req, res) => {
 });
 
 // I made a new choice GET request
-router.get("/choice", (req, res) => {
+router.get("/choice", auth.ensureLoggedIn, (req, res) => {
   User.findOne({_id: req.user._id}).then(user => {
     if (!user) {
       res.status(402).send({ message:"nope" });

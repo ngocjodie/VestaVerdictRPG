@@ -602,7 +602,670 @@
         ]
     },
 ],
+[  
+    {   // COUNCIL SCENE #2 -IF YOU GOT WATER - index 20
+     "question":"FORTUNATA: These details may be important. What were you doing the morning of the trials?",
+     "answers":[
+         {"title":"I went to the vista","response":1},
+         {"title":"I was at home all morning (lie)","response":2, "id":439},
+     ]
+ },
+ {
+     // 1 : end
+     "question":"LIVIA: Did anything of note happen?",
+     "answers":[
+         {"title":"I helped someone who'd fallen","response":8},
+         {"title":"I met some talking grapes", "response":7},
+         {"title":"No, I found my sister's bag and went home", "response":8},     
+        ]
+ },
+ {
+     // 2 : end
+     "question":"JUNO: A lie! I saw you drawing water from our well.",
+     "answers":[
+         {"title": "You might be mistaking me for someone else","response":3, 'id':321},
+         {"title": "Oh, I forgot! I also went to the vista.","response":4, 'id':321},
+     ]
+ },
+ {
+     // 3 : end
+     "question":"JUNO: I know what I saw.",
+     "answers":[
+         {"title": "[Next]","response": 4},
+     ]
+ },
+ {
+     // 4 : end
+     "question":"FORTUNATA: Your lie is troubling, young sister.",
+     "answers":[
+         {"title": "[Next]","response": 5},
+     ]
+ },
+ {
+     // 5 : END HERE
+     "question":"LIVIA: Yes, indeed. If that is your testimony, we will move forward. Tell us about the trials.",
+     "answers":[
+         {"title":"Okay, let me remember","response":111},
+     ]
+ },
+ {
+     // 6: cont
+     "question":"LAIA: RHEA! You better not be home.",
+     "answers":[
+         {"title":"[You hear your sister's footfalls]","response":7},
+     ]
+ },
+ {
+     // 7 : 
+     "question":"FORTUNATA: Magic fruit? That's concerning.",
+     "answers":[
+         {"title": " [Next]","response":9},
+     ]
+ },
+ {
+     // 8 : END
+     "question":"LIVIA: If that is your testimony, we will move forward. Tell us about the trials.",
+     "answers":[
+         {"title":"Okay, let me remember","response":111},
+     ]
+ },
+ {
+    // 9 : END
+    "question":"LIVIA: It could mean many things. Rhea, please go on. Try to remember what happened at the trials.",
+    "answers":[
+        {"title":"Okay, let me remember","response":111},
+    ]
+},
+],
+[  
+    {   // COUNCIL SCENE #2 -IF YOU DID NOT GET WATER - index 21
+     "question":"LIVIA: These details may be important. What were you doing the morning of the trials?",
+     "answers":[
+         {"title":"I went to the vista","response":1},
+         {"title":"I was at home all morning (lie)","response":2, "id":439},
+     ]
+ },
+ {
+     // 1 : end
+     "question":"LIVIA: Did anything of note happen?",
+     "answers":[
+         {"title":"I helped someone who'd fallen","response":5},
+         {"title":"I met some talking grapes", "response":4},
+         {"title":"No, I found my sister's bag and went home", "response":5},     
+        ]
+ },
+ {
+     // 2 : end
+     "question":"FORTUNATA: Her story checks out. No one saw her before the trials.",
+     "answers":[
+         {"title": "[Next]","response" :3},
+     ]
+ },
+ {
+     // 3 : END HERE
+     "question":"LIVIA: Yes, indeed. If that is your testimony, we will move forward. Tell us about the trials.",
+     "answers":[
+         {"title":"Okay, let me remember","response":111},
+     ]
+ },
+ {
+     // 4 : 
+     "question":"FORTUNATA: Magic fruit? That's concerning.",
+     "answers":[
+         {"title": " [Next]","response":6},
+     ]
+ },
+ {
+     // 5 : END
+     "question":"LIVIA: If that is your testimony, we will move forward. Tell us about the trials.",
+     "answers":[
+         {"title":"Okay, let me remember","response":111},
+     ]
+ },
+ {
+    // 6 : END
+    "question":"LIVIA: It could mean many things. Rhea, please go on. Try to remember what happened at the trials.",
+    "answers":[
+        {"title":"Okay, let me remember","response":111},
+    ]
+},
+],
+[
+    {   // LIVIA CONVO - index 22
+        "question":"LIVIA: Do you know how to play Chellah?",
+        "answers":[
+            {"title":"Yes (lie)","response":4, "id":780},
+            {"title":"I've never played.","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"Chellah may be a game of luck and chance to some. But to seers, it is a training exercise.",
+        "answers":[    
+        {"title":"[Continue]","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: When I place the marble into the covered maze, you must tell me the path it takes at each turn.",
+        "answers":[
+            {"title": "[Continue]","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"LIVIA: If you have the power of Sight, you will understand which path to choose at each branch. Shall we commence?",
+        "answers":[
+            {"title": "[Drop the marble into the maze]","response": 5},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Very well, let's begin.",
+        "answers":[
+            {"title": "[Drop the marble into the box]","response": 5},
+            {"title": "[Open the wooden game box]","response": 6, "id":800},
+            {"title": "[Stare at the marble confidently]","response": 6, "id":800},  //this is hilarious
 
+
+        ]
+    },
+    {
+        // 5 : cont                           make intuitions in brackets too
+        "question":"Which path do you choose? You feel a strong pull toward the middle.",
+        "answers":[
+            {"title":"Right","response":7, "id":122},
+            {"title":"Middle","response":8},
+            {"title":"Left","response":7, "id":122},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: I sense ... you need an explanation.",
+        "answers":[
+            {"title":"[Let her continue]","response":1},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"LIVIA: Ah, sometimes our Sight can fail us.",
+        "answers":[
+            {"title":"I'll do better next time","response":1}, //want to start over, right?
+            {"title": "My bad","response":1},
+            {"title":"Thank you","response":1 }
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"Which path do you choose? You feel a strong pull toward the left.",
+        "answers":[
+            {"title":"Right","response":7, "id":122},
+            {"title":"Middle","response":7, "id":122},
+            {"title":"Left","response":9},
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"Which path do you choose? You feel a strong pull toward the middle.",
+        "answers":[
+            {"title":"Right","response":7, "id":122},
+            {"title":"Middle","response":10},
+            {"title":"Left","response":7, "id":122},
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"Which path do you choose? You feel a strong pull toward the middle.",
+        "answers":[
+            {"title":"Right","response":7, "id":124},
+            {"title":"Middle","response":11,"id":300},
+            {"title":"Left","response":7, "id":124}, 
+        ]
+    },
+    {
+        // 11 : cont
+        "question":"LIVIA: Ah, well done. That path was correct.",
+        "answers":[
+            {"title":"Thank you","response":111},
+        ]
+    },
+  ],
+  [
+    {   // COUNCIL SCENE 3 GOOD Omens, GOOD trials CONVO - index 23
+        "question":"LIVIA: Yes, we all met you that day. I thought you had great promise. I could sense the Sight in you.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: I concur.",
+        "answers":[    
+        {"title":"[Next]","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"JUNO: The omens, they were good.",
+        "answers":[
+            {"title": "[Next]","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"LIVIA: And so, Cassandra chose you as her apprentice. But it wasn't even a week until she dissapeared.",
+        "answers":[
+            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "All I ever wanted was to become a Seer","response": 8},
+
+        ]
+    },
+    {
+        // 4 : end
+        "question":"JUNO: Mistake or not, your actions reflect only on you.",
+        "answers":[
+            {"title": "[Next]","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: But she claims innocence. Let her finish.",
+        "answers":[
+            {"title":"[Next]","response":7},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: I sense ... you need an explanation.",
+        "answers":[
+            {"title":"[Let her continue]","response":1},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"JUNO: Ambition like yours can lead to a fall.",
+        "answers":[
+            {"title":"It's not like that","response":7},
+            {"title":"Let me finnish my story","response":7},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"FORTUNATA: Continue, Rhea. What happened the night the sacred fire went out?",
+        "answers":[
+            {"title":"I will try my best to remember","response":111},
+        ]
+    }
+],
+[
+    {   // COUNCIL SCENE 3 BAD OMENS, GOOD CONVO - index 24
+        "question":"LIVIA: Yes, we all met you that day. I thought you had great promise. I could sense the Sight in you.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: I concur.",
+        "answers":[    
+        {"title":"[Next]","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"JUNO: But the omens . . . they were dark.",
+        "answers":[
+            {"title": "[Next]","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"LIVIA: And so, Cassandra chose you as her apprentice. But it wasn't even a week until she dissapeared.",
+        "answers":[
+            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "All I ever wanted was to become a Seer","response": 8},
+
+        ]
+    },
+    {
+        // 4 : end
+        "question":"JUNO: Mistake or not, your actions reflect only on you.",
+        "answers":[
+            {"title": "[Next]","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: But she claims innocence. Let her finish.",
+        "answers":[
+            {"title":"[Next]","response":7},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: I sense ... you need an explanation.",
+        "answers":[
+            {"title":"[Let her continue]","response":1},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"JUNO: Ambition like yours can lead to a fall.",
+        "answers":[
+            {"title":"It's not like that","response":7},
+            {"title":"Let me finnish my story","response":7},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"FORTUNATA: Continue, Rhea. What happened the night the sacred fire went out?",
+        "answers":[
+            {"title":"I will try my best to remember","response":111},
+        ]
+    }
+],
+[
+    {   // COUNCIL SCENE 3 Bad OMENS, bad trials CONVO - index 25
+        "question":"LIVIA: Yes, we all met you that day at the trials. I will admit . . . I did not understand Cassandra's choice.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: You had spirit but, errr, no Sight.",
+        "answers":[    
+        {"title":"[Next]","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"JUNO: The omens . . . they were dark.",
+        "answers":[
+            {"title": "[Next]","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"LIVIA: And yet, Cassandra chose you as her apprentice.",
+        "answers":[
+            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "Don't you find her choice suspicious?","response": 8, 'id': 222},
+
+        ]
+    },
+    {
+        // 4 : end
+        "question":"JUNO: Mistake or not, your actions reflect only on you.",
+        "answers":[
+            {"title": "[Next]","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: But she claims innocence. Let her finish.",
+        "answers":[
+            {"title":"[Next]","response":7},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"FORTUNATA: This is indeed troubling, but please go on.",
+        "answers":[
+            {"title":"[Next]","response":10},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"LIVIA: You have a point. I did not understand Cassandra's logic. She was set on choosing you.",
+        "answers":[
+            {"title":"Her intentions were not pure","response":9},
+            {"title":"Things aren't what they seem","response":10},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"JUNO: Cassandra was always dedicated, a good priestess. I do not understand her intentions, but I do not believe she was corrupt.",
+        "answers":[
+            {"title":"Listen to my side of the story before you decide","response":6},
+            {"title":"I know this is hard to hear, but please listen","response":6},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    }
+],
+[
+    {   // COUNCIL SCENE 3 Good OMENS, bad trials CONVO - index 26
+        "question":"LIVIA: Yes, we all met you that day at the trials. I will admit . . . I did not understand Cassandra's choice.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: You had spirit but, errr, no Sight.",
+        "answers":[    
+        {"title":"[Next]","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"JUNO: Still, the omens were all good.",
+        "answers":[
+            {"title": "[Next]","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"LIVIA: And yet, Cassandra chose you as her apprentice.",
+        "answers":[
+            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "Don't you find her choice suspicious?","response": 8, 'id': 222},
+
+        ]
+    },
+    {
+        // 4 : end
+        "question":"JUNO: Mistake or not, your actions reflect only on you.",
+        "answers":[
+            {"title": "[Next]","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: But she claims innocence. Let her finish.",
+        "answers":[
+            {"title":"[Next]","response":7},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"FORTUNATA: This is indeed troubling, but please go on.",
+        "answers":[
+            {"title":"[Next]","response":10},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"LIVIA: You have a point. I did not understand Cassandra's logic. She was set on choosing you.",
+        "answers":[
+            {"title":"Her intentions were not pure","response":9},
+            {"title":"Things aren't what they seem","response":10},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"JUNO: Cassandra was always dedicated, a good priestess. I do not understand her intentions, but I do not believe she was corrupt.",
+        "answers":[
+            {"title":"Listen to my side of the story before you decide","response":6},
+            {"title":"I know this is hard to hear, but please listen","response":6},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    }
+],
+[
+    {   // FIRE SCENE - NO FRUIT
+        "question":"Cassandra looks . . . different.",
+        "answers":[
+            {"title":"[Step forward]","response":1},
+            {"title":"[Stay in the shadows]","response":3},
+
+        ]
+    },
+    {
+        // 1 : end
+        "question":"Cassandra places her hands directly on the fire. She turns at the sound of your footsteps.",
+        "answers":[    
+        {"title":"What are you doing?","response":2},
+        {"title":"Stop!","response":2},
+        {"title":"I knew you looked familiar","response":5},
+
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"CASSANDRA: You shouldn't be here, child.",
+        "answers":[
+            {"title":"You were acting strangely, so I followed you","response":2},
+            {"title":"That makes two of us","response":2},
+            {"title":"Stop what you're doing, or I'll call for help","response":2},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"Cassandra places her hands directly on the fire. When she removes them, they are unburned.",
+        "answers":[
+            {"title":"What are you doing?","response":2},
+            {"title":"Stop!","response":2},
+            {"title":"[Remain hidden]","response":4},
+
+        ]
+    },
+    {
+        // 4 : end
+        "question":"Cassandra eats a handful of fruit. She begins to glow.",
+        "answers":[
+            {"title": "Stop!","response": 13},
+            {"title":"[Watch in terror]","response":11},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"CASSANDRA: Took you long enough. Oh well . . . I was hoping things wouldn't get this messy.",
+        "answers":[
+            {"title":"Stop what you're doing, or I'll call for help","response":7},
+            {"title":"Err, what things?","response":8},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"FORTUNATA: This is indeed troubling, but please go on.",
+        "answers":[
+            {"title":"[Next]","response":10},
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"CASSANDRA: I have no time for this. Leave!",
+        "answers":[
+            {"title":"[Next]","response":9},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"Cassandra laughs. 'Do whatever you like.'",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"Cassandra eats a handful of fruit. She begins to glow and the fire swirls toward her.",
+        "answers":[
+            {"title":"[Scream for help]","response":10},
+            {"title":"[Run forward and push Cassandra away from the fire]","response":11},
+            {"title":"[Shield yourself]","response":12},
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"The fire blazes, and then explodes",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 11 : cont
+        "question":"The fire blazes, and then explodes",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 12 : cont
+        "question":"The fire blazes, and then explodes",
+        "answers":[
+            {"title":"I will do my best to remember","response":111},
+        ]
+    },
+    {
+        // 13 : cont
+        "question":"CASSANDRA: What are you doing here? LEAVE!",
+        "answers":[
+            {"title":"[Scream for help]","response":10},
+            {"title":"[Run forward and push Cassandra away from the fire]","response":11},
+            {"title":"[Shield yourself]","response":12},
+        ]
+    }
+]
 ];
 
   export default Convos;

@@ -135,6 +135,73 @@
 }
 /* ~~~ MAP IMAGES ENDING HERE ~~~~ */
 
+/* SPRITES FOR PEOPLE/ITEMS */
+
+.Game-leia {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/leia.png");
+  background-size: 100%;
+  position: relative;
+}
+
+
+.Game-youngCassandra {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/youngCassandra.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-layingDownCassandra {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/layingDownCassandra.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-angryGirl {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/angryGirl.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-leaderGirl {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/leaderGirl.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-riddlesGirl {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/riddlesGirl.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-grape {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/grape.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-bag {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/bag.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-turtle {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/turtle.png");
+  background-size: 100%;
+  position: relative;
+}
+
+
 .small-box {
   image-rendering: pixelated;
   background-image: url("../modules/smallbox.png");
@@ -184,6 +251,8 @@
 .invisible {
   z-index: -1;
 }
+
+
 
 
 .temporary-cover {
