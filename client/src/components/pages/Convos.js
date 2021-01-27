@@ -571,7 +571,7 @@
  },
  {
      // 5 : cont
-     "question":"LIVIA: Very well. We wish to hear your testimony. Swear in the name of the goddness to tell nothing but the truth.",
+     "question":"LIVIA: Very well. We wish to hear your testimony. Swear in the name of the goddess to tell nothing but the truth.",
      "answers":[
          {"title":"In Vesta's name, I swear","response":6},
      ]
