@@ -37,7 +37,7 @@
         // 4 : end
         "question":"LAIA: Ah, thank you! Take the west path to get there quickly.",
         "answers":[
-            {"title": "[End]","response": 111},
+            {"title": "[End]","response": 111, "id":80},
         ]
     },
     {
@@ -67,7 +67,7 @@
         // 8 : cont
         "question":"LAIA: Take the west path, and you'll reach the vista at the top.",
         "answers":[
-            {"title":"[END]","response":111}
+            {"title":"[END]","response":111, "id":80}
         ]
     },
   ],
@@ -84,7 +84,7 @@
      // 1 : end 2nd ANSWER [END] - ALSO WHAT HAPPENS WHEN THEY WALK AWAY HERE?
      "question":"OLD WOMAN: I need my fruit. Bring it to me, will you Dear?",
      "answers":[
-         {"title":"Of course","response":111},
+         {"title":"Of course","response":111, "id":15}, //id for promising fruit
          {"title":"No, bye","response":111}
 
      ]
@@ -101,7 +101,7 @@
      // 3 : end BOTH ANSWERS [END] #DIDNT_HELP
      "question":"OLD WOMAN: Thank you for pointing that out, Dear. Now, could you help me pick up my fruit?",
      "answers":[
-        {"title":"Of course","response":111},
+        {"title":"Of course","response":111, "id":15},  //id for promising fruit
         {"title":"No, bye","response":111}
      ]
  },
@@ -210,14 +210,14 @@
      // 1 : END ALL
      "question":"LAIA: Thank you so much! And good luck!",
      "answers":[
-         {"title":"[You've remembered all you can]","response":111}, 
+         {"title":"[You've remembered all you can]","response":111, "id":901}, 
      ]
  },
  {
      // 2 : END ALL
      "question":"LAIA: Thank you, course! This was a huge help. And good luck later!",
      "answers":[
-         {"title": "[You've remembered all you can]","response":111},
+         {"title": "[You've remembered all you can]","response":111, "id":901},
          
      ]
  },
@@ -234,14 +234,14 @@
      // 1 : END ALL
      "question":"LAIA: Oh no! Thank you for trying.",
      "answers":[
-         {"title":"[You've remembered all you can]","response":111},
+         {"title":"[You've remembered all you can]","response":111, "id":901},
      ]
  },
  {
      // 2 : END ALL
      "question":"LAIA: What? Why?",
      "answers":[
-         {"title": "[You've remembered all you can]","response":111},
+         {"title": "[You've remembered all you can]","response":111, "id":901},
          
      ]
  },
@@ -352,7 +352,7 @@
         // 5 : END ALL
         "question":"JUNO: Thank you, sister.",
         "answers":[
-           {"title": "[Step away]","response":111}, //should be > 6
+           {"title": "[Step away]","response":111, "id":600}, //should be > 6
         ]
     },
     ],
@@ -452,7 +452,7 @@
         // 11 : cont
         "question":"LIVIA: Ah, well done. That path was correct.",
         "answers":[
-            {"title":"Thank you","response":111},
+            {"title":"Thank you","response":111, "id":505},
         ]
     },
     //maybe another option to close the scene even if Rhea fails
@@ -874,7 +874,7 @@
             {"title":"[Next]","response":7},
         ]
     },
-    {
+    { //wrong thing?
         // 6: cont
         "question":"LIVIA: I sense ... you need an explanation.",
         "answers":[
@@ -897,7 +897,7 @@
 
         ]
     },
-    {
+    { //no responses go to 9?
         // 9 : cont
         "question":"FORTUNATA: Continue, Rhea. What happened the night the sacred fire went out?",
         "answers":[
@@ -1172,7 +1172,7 @@
         // 2 : end
         "question":"CASSANDRA: You shouldn't be here, child.",
         "answers":[
-            {"title":"You were acting strangely, so I followed you","response":2},
+            {"title":"You were acting strangely, so I followed you","response":2}, //different response?
             {"title":"That makes two of us","response":9},
             {"title":"Stop what you're doing, or I'll call for help","response":8},
         ]
@@ -1253,7 +1253,7 @@
         // 12 : cont
         "question":"The fire blazes, and heat erupts around you. When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
         "answers":[
-            {"title":"[Continue]","response":111},
+            {"title":"[Continue]","response":111, "id":903},
         ]
     },
     {
@@ -1269,7 +1269,7 @@
         // 14 : cont
         "question": "When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
         "answers":[
-            {"title":"[Continue]","response":111},
+            {"title":"[Continue]","response":111, "id":903},
         ]
     },
 ],
@@ -1953,7 +1953,7 @@
         // 13 : cont
         "question":"FORTUNATA: And with that, you've answered my final riddle.",
         "answers":[
-            {"title":"[End]","response":111},
+            {"title":"[End]","response":111, "id":42},
         ]
     },
 ],

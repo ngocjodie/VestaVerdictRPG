@@ -55,7 +55,7 @@ class Game extends Component {
     //
     get("/api/choice", { userId: this.props.userId}).then((ret) => {
       console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
-  });
+    });
   }
 
   switchScenes = () => {
