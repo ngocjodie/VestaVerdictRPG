@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../utilities.css";
 import "./Skeleton.css";
 import "./Game.js";
-import bg from "./background_frontpage.jpg";
+import bg from "./basicBlack.png";
 
 
 

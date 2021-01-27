@@ -2,6 +2,7 @@
    const Convos = [[  // using response: 111 to end a conversation
        {   // LAIA CONVO - index 0
         //"person":"portrait-Laia"  === person field mapping to the CSS className
+        "person":"laiaPFP",
         "question":"LAIA: Burn it all! Rhea, are you here?",
         "answers":[
             {"title":"Yes","response":1, "id":0},
@@ -70,9 +71,10 @@
             {"title":"[END]","response":111, "id":80}
         ]
     },
-  ],
+  ], 
   [
     {   // OLD WOMAN 1ST CONVO - 1ST ANSWER [END]
+    "person": "oldSadCassandraPFP",
      "question":"The old woman groans. 'Hello? Is someone there? I've fallen, and I can't get my fruit.'",
      "answers":[ 
          {"title":" [Walk away] ","response":111, "id":3},
@@ -108,6 +110,7 @@
 ],
 [
     {   // FRUIT CONVO - index 2
+    "person": "grapePFP",
      "question":"FRUIT: Do you want some fruit? Mmm-mmm. You could take a little bite.",
      "answers":[
          {"title":"No thanks.","response":1, "id":0},
@@ -142,6 +145,7 @@
 ],
 [
     {   // OLD WOMAN 2ND CONVO - index 3
+     "person": "oldHappyCassandraPFP",
      "question":"OLD WOMAN: Thank you, Dear! Can I have the fruit?.",
      "answers":[
          {"title":"[Give her all of the fruit]","response":1, "id":7},
@@ -167,6 +171,7 @@
 ],
 [
     {   // OLD WOMAN 3RD CONVO - index 4
+    "person": "oldHappyCassandraPFP",
      "question":"The old woman accepts your water. 'Thank you, Dear.''",
      "answers":[
          {"title":"You're welcome","response":1},
@@ -200,6 +205,7 @@
 ],
 [
     {   // LAIA WITH BAG  - index 5
+    "person": "laiaPFP",
      "question":"LAIA: Oh, Rhea you're back!",
      "answers":[
          {"title":"Here's your bag!","response":1},
@@ -224,6 +230,7 @@
 ],
 [
     {   // LAIA WITHOUT BAG - index 6
+    "person": "laiaPFP",
      "question":"LAIA: Oh, Rhea you're back!",
      "answers":[
          {"title": "Sorry, I couldn't find your bag (lie)","response":1,"id":60},
@@ -248,6 +255,7 @@
 ],
 [
     {   // CASSANDRA GREETS - INDEX 7
+    "person": "youngCassandraPFP",
      "question":"CASSANDRA: Welcome to the temple of Vesta, young sister.",
      "answers":[
          {"title": "How do the trials work?","response":1,},
@@ -272,6 +280,7 @@
 ],
 [
 {   // CASSANDRA GREETS TELESCOPE - INDEX 8
+    "person": "youngCassandraPFP",
      "question":"CASSANDRA: Welcome to the temple of Vesta, young sister.",
      "answers":[
          {"title": "How do the trials work?","response":1,},
@@ -305,6 +314,7 @@
 ],
 [
     {   // JUNO TOY TEST - INDEX 9
+        "person": "angryPFP",
          "question":"JUNO: Hello, young sister. Choose three.",
          "answers":[
              {"title": "Why?","response":1},
@@ -358,6 +368,7 @@
     ],
     [
     {   // LIVIA CONVO - index 10
+        "person": "leaderPFP",
         "question":"LIVIA: Do you know how to play Chellah?",
         "answers":[
             {"title":"Yes (lie)","response":4, "id":780},
@@ -459,6 +470,7 @@
   ],
   [
     {   // After LAIA  - index 11 END
+        "person": "laiaPFP",
         "question":"LAIA: Thank you! Hurry Back!",
         "answers":[
             {"title":"[Continue]","response":111}, //should be a large #
@@ -467,6 +479,7 @@
 ],
 [
     {   // After PROMISING FRUIT  - index 12 END
+        "person": "laiaPFP",
         "question":"OLD WOMAN: Thank you for offering to get my fruit!",
         "answers":[
             {"title":"[Continue]","response":111}, //should be > 0
@@ -475,6 +488,7 @@
 ],
 [
     {   // After PROMISING Water  - index 13 END
+        "person": "laiaPFP",
         "question":"OLD WOMAN: Thank you for getting me water, Dear! Come back soon.",
         "answers":[
             {"title":"[Continue]","response":111},  //should be > 0
@@ -483,6 +497,7 @@
 ],
 [
     {   // After JUNO  - index 14 END
+        "person": "angryPFP",
         "question":"JUNO: Go on.",
         "answers":[
             {"title":"[Continue]","response":111},  //should be > 0
@@ -491,6 +506,7 @@
 ],
 [
     {   // After LIVIA if good  - index 15 END
+        "person": "leaderPFP",
         "question":"LIVIA: I can feel the Sight in you. Return to Cassandra when you're finished with all three tasks.",
         "answers":[
             {"title":"[Continue]","response":111}, //should be > 0
@@ -499,6 +515,7 @@
 ],
 [
     {   // After LIVIA if NOT good  - index 16 END
+        "person": "leaderPFP",
         "question":"LIVIA: Return to Cassandra when you're finished with all three tasks.",
         "answers":[
             {"title":"[Continue]","response":111}, //should be > 0
@@ -507,6 +524,7 @@
 ],
 [
     {   // After Fortunata   - index 17 END
+        "person": "riddlesPFP",
         "question":"FORTUNATA: Those were all my riddles.",
         "answers":[
             {"title":"[Continue]","response":111}, //should be > 0
@@ -514,7 +532,8 @@
     },
 ],
 [
-    {   // COUNCIL SCENE 1 - index 18                                                                        
+    {   // COUNCIL SCENE 1 - index 18  
+    "person": "councilPFP",                                                                      
      "question":"LIVIA: We now call on the defendant, who is charged with destroying the sacred fire and breaking her holy oath. Rhea, please come forward.",
      "answers":[
          {"title":"[Walk to the stand]","response":1},
@@ -585,6 +604,8 @@
 ],
 [
     {   // Turtle  - index 19 END
+        // NEED TO COME BACK TO
+        "person": "invisible",
         "person": "practice-smiley",
         "question":"TURTLE: *turtle turtle*",
         "answers":[
@@ -593,17 +614,18 @@
     },
 ],
 
-[
-    {   // Parrot  - index 20 END
-        "person": "practice-smiley",
-        "question":"PARROT: Meep meep!",
-        "answers":[
-            {"title":"[Good bird]","response":111},  //should be > 0
-        ]
-    },
-],
+// [
+//     {   // Parrot  - index 20 END
+//         "person": "practice-smiley",
+//         "question":"PARROT: Meep meep!",
+//         "answers":[
+//             {"title":"[Good bird]","response":111},  //should be > 0
+//         ]
+//     },
+// ],
 [  
     {   // COUNCIL SCENE #2 -IF YOU GOT WATER - index 20
+    "person": "councilPFP",
      "question":"FORTUNATA: These details may be important. What were you doing the morning of the trials?",
      "answers":[
          {"title":"I went to the vista","response":1},
@@ -679,6 +701,7 @@
 ],
 [  
     {   // COUNCIL SCENE #2 -IF YOU DID NOT GET WATER - index 21
+    "person": "councilPFP",
      "question":"LIVIA: These details may be important. What were you doing the morning of the trials?",
      "answers":[
          {"title":"I went to the vista","response":1, 'id': 232},
@@ -732,6 +755,7 @@
 ],
 [
     {   // LIVIA CONVO - index 22
+        "person": "leaderPFP",
         "question":"LIVIA: Do you know how to play Chellah?",
         "answers":[
             {"title":"Yes (lie)","response":4, "id":780},
@@ -832,6 +856,7 @@
   ],
   [
     {   // COUNCIL SCENE 3 GOOD Omens, GOOD trials CONVO - index 23
+        "person": "councilPFP",
         "question":"LIVIA: Yes, we all met you that day. I thought you had great promise. I could sense the Sight in you.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -907,6 +932,7 @@
 ],
 [
     {   // COUNCIL SCENE 3 BAD OMENS, GOOD CONVO - index 24
+        "person": "councilPFP",
         "question":"LIVIA: Yes, we all met you that day. I thought you had great promise. I could sense the Sight in you.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -982,6 +1008,7 @@
 ],
 [
     {   // COUNCIL SCENE 3 Bad OMENS, bad trials CONVO - index 25
+        "person": "councilPFP",
         "question":"LIVIA: Yes, we all met you that day at the trials. I will admit . . . I did not understand Cassandra's choice.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1066,6 +1093,7 @@
 ],
 [
     {   // COUNCIL SCENE 3 Good OMENS, bad trials CONVO - index 26
+        "person": "councilPFP",
         "question":"LIVIA: Yes, we all met you that day at the trials. I will admit . . . I did not understand Cassandra's choice.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1150,6 +1178,8 @@
 ],
 [
     {   // FIRE SCENE - NO FRUIT
+        "person": "youngCassandraPFP",
+
         "question":"Cassandra looks . . . different.",
         "answers":[
             {"title":"[Step forward]","response":1},
@@ -1275,6 +1305,7 @@
 ],
 [
     {   // FIRE SCENE - ATE THE FRUIT
+        "person": "youngCassandraPFP",
         "question":"Cassandra looks . . . different. She turns as you enter the room. 'Oh, you're just in time.'",
         "answers":[
             {"title":"For what?","response":1},
@@ -1404,6 +1435,7 @@
 ],
 [
     {   // COUNCIL SCENE 3 NO FRUIT - GUILTY DUE TO LYING - index 29
+        "person": "councilPFP",
         "question":"LIVIA: That night, we all came when we heard the noise.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1492,6 +1524,7 @@
 ],
 [
     {   // COUNCIL SCENE 3 NO FRUIT - GUILTY DUE TO LYING - index 30
+        "person": "councilPFP",
         "question":"LIVIA: That night, we all came when we heard the noise.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1580,6 +1613,7 @@
 ],
 [
     {   // ENDING - INNOCENT THROUGH HONESTY - index 31
+        "person": "councilPFP",
         "question":"LIVIA: That night, we all came when we heard the noise.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1669,6 +1703,7 @@
 
 [
     {   // ENDING FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 32
+        "person": "councilPFP",
         "question":"LIVIA: That night, we all came when we heard the noise.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1757,6 +1792,7 @@
 ],
 [
     {   // ENDING NOT FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 33
+        "person": "councilPFP",
         "question":"LIVIA: That night, we all came when we heard the noise.",
         "answers":[
             {"title":"[Next]","response":1},
@@ -1845,6 +1881,7 @@
 ],
 [
     {   // ENDING NOT FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 33
+        "person": "riddlesPFP",
         "question":"FORTUNATA: You've made it this far. So, how about some questions?",
         "answers":[
             {"title":"What kind of questions?","response":1},
