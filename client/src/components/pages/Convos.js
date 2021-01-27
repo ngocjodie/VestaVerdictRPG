@@ -615,7 +615,7 @@
      "question":"LIVIA: Did anything of note happen?",
      "answers":[
          {"title":"I helped someone who'd fallen","response":8},
-         {"title":"I met some talking grapes", "response":7},
+         {"title":"I met some talking grapes", "response":7,'id':467},
          {"title":"No, I found my sister's bag and went home", "response":8},     
         ]
  },
@@ -681,7 +681,7 @@
     {   // COUNCIL SCENE #2 -IF YOU DID NOT GET WATER - index 21
      "question":"LIVIA: These details may be important. What were you doing the morning of the trials?",
      "answers":[
-         {"title":"I went to the vista","response":1},
+         {"title":"I went to the vista","response":1, 'id': 232},
          {"title":"I was at home all morning (lie)","response":2, "id":439},
      ]
  },
@@ -690,7 +690,7 @@
      "question":"LIVIA: Did anything of note happen?",
      "answers":[
          {"title":"I helped someone who'd fallen","response":5},
-         {"title":"I met some talking grapes", "response":4},
+         {"title":"I met some talking grapes", "response":4, 'id':467},
          {"title":"No, I found my sister's bag and went home", "response":5},     
         ]
  },
@@ -1172,9 +1172,9 @@
         // 2 : end
         "question":"CASSANDRA: You shouldn't be here, child.",
         "answers":[
-            {"title":"You were acting strangely, so I followed you","response":2}, //responses should be 7,8,9?
-            {"title":"That makes two of us","response":2},
-            {"title":"Stop what you're doing, or I'll call for help","response":2},
+            {"title":"You were acting strangely, so I followed you","response":2}, //different response?
+            {"title":"That makes two of us","response":9},
+            {"title":"Stop what you're doing, or I'll call for help","response":8},
         ]
     },
     {
@@ -1237,23 +1237,23 @@
     },
     {
         // 10 : cont
-        "question":"The fire blazes, and then explodes",
+        "question":"The fire blazes around Cassandra, and then explodes.",
         "answers":[
-            {"title":"I will do my best to remember","response":111, "id":903},
+            {"title":"[Close your eyes]","response":14},
         ]
     },
     {
         // 11 : cont
-        "question":"The fire blazes, and then explodes",
+        "question":"You push Cassandra backward. She screams, and the fire explodes.",
         "answers":[
-            {"title":"I will do my best to remember","response":111, "id":903},
+            {"title":"[Block your eyes]","response":14},
         ]
     },
     {
         // 12 : cont
-        "question":"The fire blazes, and then explodes",
+        "question":"The fire blazes, and heat erupts around you. When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
         "answers":[
-            {"title":"I will do my best to remember","response":111, "id":903},
+            {"title":"[Continue]","response":111, "id":903},
         ]
     },
     {
@@ -1264,8 +1264,699 @@
             {"title":"[Run forward and push Cassandra away from the fire]","response":11},
             {"title":"[Shield yourself]","response":12},
         ]
+    },
+    {
+        // 14 : cont
+        "question": "When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
+        "answers":[
+            {"title":"[Continue]","response":111, "id":903},
+        ]
+    },
+],
+[
+    {   // FIRE SCENE - ATE THE FRUIT
+        "question":"Cassandra looks . . . different. She turns as you enter the room. 'Oh, you're just in time.'",
+        "answers":[
+            {"title":"For what?","response":1},
+            {"title":"Why did you ask me to come?","response":3},
+
+        ]
+    },
+    {
+        // 1 : end
+        "question":"CASSANDRA: I know you stole my fruit. I need it back.",
+        "answers":[    
+        {"title":"I knew you looked familiar!","response":2},
+        {"title":"I don't know what you're talking about (lie)","response":4, "id":877},
+        {"title":"I ate it. Can't really help you there.","response":3},
+
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"CASSANDRA: Took you long enough. Anyway, I have a proposition for you.",
+        "answers":[
+            {"title":"Go on","response":3},
+            {"title":"I think I'll be going now","response":5},
+
+        ]
+    },
+    {
+        // 3 : end
+        "question":"CASSANDRA: I don't need the fruit back. I just need it's power. Help me siphon the flames, and I'll call it even.",
+        "answers":[
+            {"title":"No thanks","response":5},
+            {"title":"What's in it for me?","response":6},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"Don't play dumb. I have a proposition for you.",
+        "answers":[
+            {"title":"Go on","response":3},
+            {"title":"I think I'll be going now","response":5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"CASSANDRA: Curses . . . I was hoping this wouldn't get so messy.",
+        "answers":[
+            {"title":"[Continue]","response":7},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"CASSANDRA: More power than you've ever felt.",
+        "answers":[
+            {"title":"No thanks","response":7},
+            {"title":"I'm in","response":8},
+
+        ]
+    },
+    {
+        // 7 : 
+        "question":"Cassandra thrusts her hands into the fire. The flames erupt and tug at your clothes like grasping fingers.",
+        "answers":[
+            {"title":"[Scream for help]","response":10},
+            {"title":"[Run forward and push Cassandra away from the fire]","response":11},
+            {"title":"[Shield yourself]","response":12},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"Cassandra smiles. 'Step up to the fire.",
+        "answers":[
+            {"title":"[Step forward]","response":9},
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"Cassandra places her hands in the flames. 'Help me siphon it's power.'",
+        "answers":[
+            {"title":"[Put your hands in the flames]","response":15},
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"The fire blazes around Cassandra, and then explodes.",
+        "answers":[
+            {"title":"[Close your eyes]","response":14},
+        ]
+    },
+    {
+        // 11 : cont
+        "question":"You push Cassandra backward. She screams, and the fire explodes.",
+        "answers":[
+            {"title":"[Block your eyes]","response":14},
+        ]
+    },
+    {
+        // 12 : cont
+        "question":"The fire blazes, and heat erupts around you. When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
+        "answers":[
+            {"title":"[Continue]","response":111},
+        ]
+    },
+    {
+        // 13 : cont
+        "question":"CASSANDRA: What are you doing here? LEAVE!",
+        "answers":[
+            {"title":"[Scream for help]","response":10},
+            {"title":"[Run forward and push Cassandra away from the fire]","response":11},
+            {"title":"[Shield yourself]","response":12},
+        ]
+    },
+    {
+        // 14 : cont
+        "question": "When you open your eyes, Cassandra is gone and the fire is nothing but ash.",
+        "answers":[
+            {"title":"[Continue]","response":111},
+        ]
+    },
+    {
+        // 15 : cont
+        "question": "As the power enters your body, the flames begin to die out, until there is nothing but ash.",
+        "answers":[
+            {"title":"[Continue]","response":111},
+        ]
+    },
+],
+[
+    {   // COUNCIL SCENE 3 NO FRUIT - GUILTY DUE TO LYING - index 29
+        "question":"LIVIA: That night, we all came when we heard the noise.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
+        "answers":[    
+        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"Just hear me out!","response":2},
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: Why were you in that room?.",
+        "answers":[
+            {"title": "I was curious about Cassandra","response":4},
+            {"title": "I followed Cassandra because she was acting strangely","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"JUNO: There is no reason for us to believe it wasn't the other way around; Cassandra may have followed you.",
+        "answers":[
+            {"title": "[Continue]","response": 4},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Can you explain what happened to the fire?",
+        "answers":[
+            {"title": "Cassandra stole it","response": 5},
+            {"title": "Cassandra made it explode","response": 5},
+
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"LIVIA: Very well, we have heard all that we need and will now deliberate.",
+        "answers":[
+            {"title":"[The council returns an hour later]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: We have each made our decision.",
+        "answers":[
+            {"title":"[Next]","response":7},
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"JUNO: Guilty.",
+        "answers":[
+            {"title":"[Next]","response":8},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Guilty.",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"LIVIA: I vote guilty.",
+        "answers":[
+            {"title":"This is bad...","response":10},
+            {"title":"Please, it wasn't me!","response":10},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: The defendent is found guilty.",
+        "answers":[
+            {"title":"[END]","response":111}
+
+        ]
     }
-]
+],
+[
+    {   // COUNCIL SCENE 3 NO FRUIT - GUILTY DUE TO LYING - index 30
+        "question":"LIVIA: That night, we all came when we heard the noise.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
+        "answers":[    
+        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"Just hear me out!","response":2},
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: Why were you in that room?.",
+        "answers":[
+            {"title": "Cassandra asks me to come there","response":4},
+            {"title": "I followed Cassandra because she was acting strangely","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"JUNO: There is no reason for us to believe it wasn't the other way around; Cassandra may have followed you.",
+        "answers":[
+            {"title": "[Continue]","response": 4},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Can you explain what happened to the fire?",
+        "answers":[
+            {"title": "Cassandra stole it","response": 5},
+            {"title": "Cassandra made it explode","response": 5},
+
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"LIVIA: Very well, we have heard all that we need and will now deliberate.",
+        "answers":[
+            {"title":"[The council returns an hour later]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: We have each made our decision.",
+        "answers":[
+            {"title":"[Next]","response":7},
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"JUNO: Guilty.",
+        "answers":[
+            {"title":"[Next]","response":8},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Guilty.",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"LIVIA: I vote guilty.",
+        "answers":[
+            {"title":"This is bad...","response":10},
+            {"title":"Please, it wasn't me!","response":10},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: The defendent is found guilty.",
+        "answers":[
+            {"title":"[END]","response":111}
+
+        ]
+    }
+],
+[
+    {   // ENDING - INNOCENT THROUGH HONESTY - index 31
+        "question":"LIVIA: That night, we all came when we heard the noise.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
+        "answers":[    
+        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"Just hear me out!","response":2},
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: Why were you in that room?.",
+        "answers":[
+            {"title": "I was curious about Cassandra","response":4},
+            {"title": "I followed Cassandra because she was acting strangely","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"JUNO: Hmm, you have been honest thus far . . .",
+        "answers":[
+            {"title": "[Continue]","response": 4},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Can you explain what happened to the fire?",
+        "answers":[
+            {"title": "Cassandra stole it","response": 5},
+            {"title": "Cassandra made it explode","response": 5},
+            {"title": "I don't know, but I had nothing to do with it","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"LIVIA: Very well, we have heard all that we need and will now deliberate.",
+        "answers":[
+            {"title":"[The council returns an hour later]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: We have each made our decision.",
+        "answers":[
+            {"title":"[Next]","response":7},
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"JUNO: I had not been fair to your earlier. My vote is not guilty.",
+        "answers":[
+            {"title":"[Next]","response":8},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: My vote is not guilty, young sister.",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"LIVIA: I vote not guilty. Your actions speak in your favor.",
+        "answers":[
+            {"title":"So, this is good?","response":10},
+            {"title":"Thank you, sisters","response":10},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: The verdict is not guilty.",
+        "answers":[
+            {"title":"[END]","response":111},
+
+        ]
+    }
+],
+
+[
+    {   // ENDING FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 32
+        "question":"LIVIA: That night, we all came when we heard the noise.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
+        "answers":[    
+        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"Just hear me out!","response":2},
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: Why were you in that room?.",
+        "answers":[
+            {"title": "Cassandra asks me to come there","response":4},
+            {"title": "I followed Cassandra because she was acting strangely","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"JUNO: Hmm, you have been honest thus far . . .",
+        "answers":[
+            {"title": "[Continue]","response": 4},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Can you explain what happened to the fire?",
+        "answers":[
+            {"title": "Cassandra stole it","response": 5},
+            {"title": "Cassandra made it explode","response": 5},
+            {"title": "I don't know, but I had nothing to do with it","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"LIVIA: Very well, we have heard all that we need and will now deliberate.",
+        "answers":[
+            {"title":"[The council returns an hour later]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: We have each made our decision.",
+        "answers":[
+            {"title":"[Next]","response":7},
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"JUNO: My vote is not guilty.",
+        "answers":[
+            {"title":"[Next]","response":8},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Cassandra was my friend, but I now see she had gone down a dark path. I vote not guilty, young sister.",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"LIVIA: I too vote not guilty.",
+        "answers":[
+            {"title":"So, this is good?","response":10},
+            {"title":"Thank you, sisters","response":10},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: The verdict is not guilty.",
+        "answers":[
+            {"title":"[END]","response":111},
+
+        ]
+    }
+],
+[
+    {   // ENDING NOT FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 33
+        "question":"LIVIA: That night, we all came when we heard the noise.",
+        "answers":[
+            {"title":"[Next]","response":1},
+        ]
+    },
+    {
+        // 1 : end
+        "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
+        "answers":[    
+        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"Just hear me out!","response":2},
+
+        ]
+    },
+    {
+        // 2 : end
+        "question":"LIVIA: Why were you in that room?.",
+        "answers":[
+            {"title": "I was curious about Cassandra","response":4},
+            {"title": "I followed Cassandra because she was acting strangely","response":3},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"JUNO: Hmm, you have been honest thus far . . .",
+        "answers":[
+            {"title": "[Continue]","response": 4},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"LIVIA: Can you explain what happened to the fire?",
+        "answers":[
+            {"title": "Cassandra stole it","response": 5},
+            {"title": "Cassandra made it explode","response": 5},
+            {"title": "I don't know, but I had nothing to do with it","response": 5},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"LIVIA: Very well, we have heard all that we need and will now deliberate.",
+        "answers":[
+            {"title":"[The council returns an hour later]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"LIVIA: We have each made our decision.",
+        "answers":[
+            {"title":"[Next]","response":7},
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"JUNO: My vote is not guilty.",
+        "answers":[
+            {"title":"[Next]","response":8},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Cassandra was my friend, but I now see she had gone down a dark path. I vote not guilty, young sister.",
+        "answers":[
+            {"title":"[Next]","response":9},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"LIVIA: I too vote not guilty.",
+        "answers":[
+            {"title":"So, this is good?","response":10},
+            {"title":"Thank you, sisters","response":10},
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"LIVIA: The verdict is not guilty.",
+        "answers":[
+            {"title":"[END]","response":111},
+
+        ]
+    }
+],
+[
+    {   // ENDING NOT FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 33
+        "question":"FORTUNATA: You've made it this far. So, how about some questions?",
+        "answers":[
+            {"title":"What kind of questions?","response":1},
+            {"title":"Ask away","response":2},
+
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: A curious one, are we? The sooner we begin, the sooner you'll know.",
+        "answers":[    
+        {"title":"Let's begin","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"Listen with care, and you will find meaning here . . . Many have heard it, but no one’s ever seen it. It will not speak unless spoken to. What is it?",
+        "answers":[
+            {"title": "Me","response":3},
+            {"title": "An echo","response":5},
+            {"title": "Magical fruit","response":4},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"FORTUNATA: Oh, not what I was looking for.",
+        "answers":[
+            {"title": "[Continue]","response": 6},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"FORTUNATA: Interesting answers...but incorrect.",
+        "answers":[
+            {"title": "[Continue]","response": 6},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: Ah, you've solved it. Time for a second, fitting of your wit.",
+        "answers":[
+            {"title":"[Continue]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"FORTUNATA: Next question . . . a bunch of fruit walk into a tavern. Which is the most powerful?",
+        "answers":[
+            {"title":"The plum","response":8},
+            {"title":"The grape","response":7},
+            {"title":"The apple","response":9},
+
+
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"FORTUNATA: Correct! You know your fruit tiers.",
+        "answers":[
+            {"title":"[Next]","response":10},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Unfortunately, that's not correct. Plums are very timid.",
+        "answers":[
+            {"title":"[Next]","response":10},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"FORTUNATA: Unfortunately, that's not correct. Apples are very timid.",
+        "answers":[
+            {"title":"[Next]","response":10},
+
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"FORTUNATA: My final question . . . what color are the goddess's eyes?",
+        "answers":[
+            {"title":"Brown","response":11},
+            {"title":"Blue","response":11},
+            {"title":"Um, I have no idea","response":12},
+
+        ]
+    },
+    {
+        // 11 : cont
+        "question":"FORTUNATA: That's neither correct nor incorrect, because no one knows.",
+        "answers":[
+            {"title":"[Next]","response":13},
+        ]
+    },
+    {
+        // 12 : cont
+        "question":"FORTUNATA: Ah, that's correct! No one knows.",
+        "answers":[
+            {"title":"[End]","response":13},
+        ]
+    },
+    {
+        // 13 : cont
+        "question":"FORTUNATA: And with that, you've answered my final riddle.",
+        "answers":[
+            {"title":"[End]","response":111, "id":42},
+        ]
+    },
+],
 ];
 
   export default Convos;

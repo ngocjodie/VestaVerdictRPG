@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Playthroughs from "./Playthroughs.js";
-import Awards from "./Awards.js";
 import "./Profile.css"
 import Rhea from "./Rheas.png"
 import {get} from "../../utilities.js"
@@ -86,7 +85,7 @@ class Frontpage extends Component {
           <div className="holder h8"></div>
         </div>
         <Playthroughs userId={this.props.userId} />
-        <Awards userId={this.props.userId} />
+        <br></br>
       </>
 
     );
