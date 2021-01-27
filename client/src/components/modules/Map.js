@@ -169,7 +169,8 @@ class Map extends Component {
     
     if (type === "START") { //tester
       post("/api/choice", {choice: "WIPE"}).then(() => {
-        this.props.switch();
+        this.props.switch(); //to first Council Scene
+        //this.startConversation(18);
       })
     } 
 
@@ -182,21 +183,133 @@ class Map extends Component {
 
     // console.log("clicking on", properties, "of type", type);
 
-    if (type === "key in MapInfo.js") { //template
-      //action
+    if (type === "turtle") { //template
+      this.startConversation(19);
     } else if (type === "telescopeLeft") { //how telescopes work
-      this.showNewThing("redcircle");
+      this.showNewThing("pretty view"); //aesthetic view
+
     } else if (type === "telescopeRight") {
-      this.showNewThing("river");
-    } else if (type === "bed") {
-      // console.log("nice cozy bed"); //////////////////////////////////////////////////////////////////
-      this.startConversation(this.props.dialogueOption);
-    } else if (type === "another") {
-      this.startConversation(0);  //Livia asks for paint bag
-    } else if (type === "seat1") {
-      this.startConversation(19); //turtle
-    } else if (type === "seat2") {
-      this.startConversation(20); //parrot
+      if (this.batchofIDs(["past 1st flashback"])){  //finished 2nd Council Scene
+        this.showNewThing("empty clearing");
+      } else if (this.batchofIDs(["7"]) || this.batchofIDs(["8"])) { //gave fruit to old woman
+        //POST request that they've seen healthy Cassandra
+        this.showNewThing("healthy Cassandra walking away");
+      } else {
+        this.showNewThing("old woman in clearing");
+      }
+                                                      //promised water ?            does she ever leave the temple after the 1st flashback? 
+    } else if (type === "fountain" && this.batchofIDs(["12"]) && !this.batchofIDs(["past 1st flashback"])) {
+      // POST request to log the choice
+      post("/api/choice", {choice: "#"} ).then(()=>{ //WATER = id:"12" right?
+        console.log("got water");
+      });
+
+    } else if (type === "bag") {
+      // POST request to log the choice
+      post("/api/choice", {choice: "#"} ).then(()=>{ //got bag
+        console.log("got bag");
+      });
+      // cover it with a tile of ground using showNewThing?
+
+    } else if (type === "fruit") {
+      this.startConversation(2);  //tempting grapes
+      //hide them in a similar way to the bag?
+
+    } else if (type === "old woman") {
+      if (this.batchofIDs(["haven't talked before"])){
+        this.startConversation(1);
+      } else if (this.batchofIDs(["promised fruit"])){
+        this.startConversation(12);
+      } else if (this.batchofIDs(["talked once before and talked to fruit"])){
+        this.startConversation(3);
+      } else if (this.batchofIDs(["12"])){ //promised water?
+        this.startConversation(13);
+      } else if (this.batchofIDs(["got water"])) { //same # as fountain's POST
+        this.startConversation(4);
+      }
+
+    } else if (type === "Laia") {
+      if (this.batchofIDs(["14"])) { //sold bag
+        this.startConversation(6);
+      } else if (this.batchofIDs(["got bag"])) { //13 + more or just not 14? or POST once bag is clicked on?
+        this.startConversation(5);
+      } else if (this.batchofIDs(["talked to her before"])) {
+        this.startConversation(11); //don't see her anywhere else right?
+      } else { //start 
+        this.startConversation(0); // or would this automatically start after first Council Scene?
+      }
+
+    } else if (type === "Cassandra") {
+      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
+        if (this.batchofIDs(["finished all tests"])) {
+          // Convo doesn't exist yet?
+        } else if (this.batchofIDs(["between tests"])) {
+          //Convo doesn't exist yet?
+        } else if (this.batchofIDs(["saw healthy Cassandra in telescope"])) {
+          this.startConversation(8);
+        } else {
+          this.startConversation(7);
+        }
+      } else { // in phase 3
+        //
+      }
+
+    } else if (type === "Livia") {
+      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
+        if (this.batchofIDs(["122"])) { //fail chellah
+          this.startConversation(16);
+        } else if (this.batchofIDs(["300"])) { //pass chellah
+          this.startConversation(15);
+        } else if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate 1 or many grapes
+          this.startConversation(22);
+        } else if (this.batchofIDs(["532"])) { //no fruit
+          this.startConversation(10);
+        }
+      } else { //in phase 3
+        //
+      }
+
+    } else if (type === "Juno") {
+      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
+        if (this.batchofIDs(["finished toy test"])) {
+          this.startConversation(14);
+        } else {
+          this.startConversation(9);
+        }
+      } else { //in phase 3
+        //
+      }
+
+    } else if (type === "Fortunata") {
+      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
+        if (this.batchofIDs(["finished riddles"])) {
+          this.startConversation(17);
+        } else {
+          this.startConversation(); //Convo doesn't exist yet
+        }
+      } else { //in phase 3
+        //
+      }
+
+    } else if (type === "council") { //
+      if (this.batchofIDs(["finished first flashback"])) {
+        if (this.batchofIDs(["got water"])) {
+          this.startConversation(20);
+        } else {
+          this.startConversation(21); 
+        }
+      } else { //3rd Council Scene bad=666   tirals: bad=122,124 good=300
+        if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
+          this.startConversation(23);
+        } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
+          this.startConversation(24);
+        } else if (this.batchofIDs(["666","124"]) || this.batchofIDs(["666","122"])) { //bad omens, bad trials
+          this.startConversation(25);
+        } else if (this.batchofIDs(["122"]) || this.batchofIDs(["124"])) { //good omens, bad trials
+          this.startConversation(26);
+        }
+      }
+
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
     }

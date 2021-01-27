@@ -30,6 +30,7 @@ class Box extends Component {
       width: `${this.props.width}px`,
       height: `${this.props.height}px`,
     }
+
     const classname = this.props.name + " pixel-art";
     
     return (

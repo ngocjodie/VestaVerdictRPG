@@ -84,7 +84,7 @@
      // 1 : end 2nd ANSWER [END] - ALSO WHAT HAPPENS WHEN THEY WALK AWAY HERE?
      "question":"OLD WOMAN: I need my fruit. Bring it to me, will you Dear?",
      "answers":[
-         {"title":"Of course","response":111},
+         {"title":"Of course","response":111}, //id for promising fruit
          {"title":"No, bye","response":111}
 
      ]
@@ -101,7 +101,7 @@
      // 3 : end BOTH ANSWERS [END] #DIDNT_HELP
      "question":"OLD WOMAN: Thank you for pointing that out, Dear. Now, could you help me pick up my fruit?",
      "answers":[
-        {"title":"Of course","response":111},
+        {"title":"Of course","response":111},  //id for promising fruit
         {"title":"No, bye","response":111}
      ]
  },

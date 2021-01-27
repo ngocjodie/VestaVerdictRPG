@@ -85,7 +85,7 @@ export const mapinfo = {
         "topWall" : ["invisible", 0, 0, 960, 80 ],
         "bottomWall" : ["invisible", 0, 508, 960, 32 ],
         "cabinet": ["invisible", 32, 74, 78, 48],
-        "bed": ["", 240, 64, 90, 105], //className = invisible
+        "bed": ["invisible", 240, 64, 90, 105],
         "extraWallandStuff": ["invisible", 416, 96, 544, 50],
         "topRightFurniture": ["invisible", 790, 128, 128, 38],
         "column": ["invisible", 340, 0, 94, 390],
@@ -221,7 +221,7 @@ export const mapinfo = {
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
     "bottomLedge" : ["invisible", 260, 430, 500, 30],
     "left wall" : ["invisible", 0, 0, 23, 560],
-    "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
+    "forTempleWallLeft" : ["invisible", 260, 42, 160, 120],
     "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
     "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
     "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
