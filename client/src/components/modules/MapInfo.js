@@ -37,7 +37,7 @@ export const mapinfo = {
   "tempstart":{
     thismap: "temporary-cover",
     playerstart: [null,null],
-    nextmap: "clearing2",
+    nextmap: "Council1",
     objects: {
       "START": ["", 0, 0, 960, 960],
     },
