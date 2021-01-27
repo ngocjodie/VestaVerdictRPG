@@ -47,7 +47,7 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "templeInterior",
+      currentMap: "tempstart",
     };
   }
 
@@ -55,7 +55,7 @@ class Game extends Component {
     //
     get("/api/choice", { userId: this.props.userId}).then((ret) => {
       console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
-  });
+    });
   }
 
   switchScenes = () => {

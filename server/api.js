@@ -100,10 +100,12 @@ router.post("/choice", auth.ensureLoggedIn, (req, res) => {
       res.status(402).send({ message: "nope" });
       return;
     }
+    
     if (req.body.choice === "WIPE") { //the unique signal to wipe the choices
       user.choices = []
     } else if (user.choices) {
-      user.choices = user.choices.concat([req.body.choice])
+      mid = user.choices.filter(num => num !== null);
+      user.choices = mid.concat([req.body.choice])
     } else {
       user.choices = [req.body.choice]
     }
