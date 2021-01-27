@@ -47,7 +47,7 @@ class Game extends Component {
     this.state = {
       dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "rheaExterior",
+      currentMap: "templeInterior",
     };
   }
 

@@ -175,7 +175,7 @@
 
 .Game-riddlesGirl {
   image-rendering: pixelated;
-  background-position: url("../modules/profilePics/riddlesGirl.png");
+  background-image: url("../modules/profilePics/riddlesGirl.png");
   background-size: 100%;
   position: relative;
 }
