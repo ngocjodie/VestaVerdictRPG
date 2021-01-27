@@ -160,7 +160,7 @@ export const mapinfo = {
     "leftWall" : ["invisible", 0, 0, 20, 960 ],
     "rightWall" : ["invisible", 942, 0, 32, 960 ],
     "topWall" : ["invisible", 0, 0, 960, 40 ],
-    "bottomWall" : ["invisible", 0, 380, 960, 32 ], 
+    "bottomWall" : ["small-box", 0, 960, 960, 32 ], 
     },
   },
 
