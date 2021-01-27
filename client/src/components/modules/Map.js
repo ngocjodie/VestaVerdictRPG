@@ -176,13 +176,19 @@ class Map extends Component {
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
 
     if (type === "START") { //tester
-      post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
-        this.startConversation(18); // make first map after start the Council background
-        this.props.switch(); //home w/ Laia
+      post("/api/choice", { choice: "WIPE" }).then(() => { //api call to wipe the player's previous choices
+        console.log("POSTed");
+        this.props.switch(); // Council background
       });
+    } else if (type === "starting") {
+      if (this.batchofIDs(["900"])){ //finished 1st Council Scene
+        this.props.switch(); //home w/ Laia
+      } else {
+        this.startConversation(18); // make first map after start the Council background
+      }
     }
 
-    let awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
+    const awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
 
     if (type === "END") {
       get("/api/choice").then((important_choices) => {
@@ -214,18 +220,18 @@ class Map extends Component {
       this.startConversation(19);
 
     } else if (type === "telescopeLeft") { //how telescopes work
-      this.showNewThing("pretty view"); //aesthetic view
+      this.showNewThing("telescope-view"); //aesthetic view
 
     } else if (type === "telescopeRight") {
       if (this.batchofIDs(["444"])){  //saw healthy Cassandra
-        this.showNewThing("empty clearing");
+        this.showNewThing("telescope-clearing");
       } else if (this.batchofIDs(["7"]) || this.batchofIDs(["8"])) { //gave fruit to old woman
         post("/api/choice", {choice: "444"} ).then(()=>{ //POST request that they've seen healthy Cassandra
           console.log("got a teaser");
         });
-        this.showNewThing("healthy Cassandra walking away");
+        this.showNewThing("telescope-younglady");
       } else {
-        this.showNewThing("old woman in clearing");
+        this.showNewThing("telescope-oldlady");
       }
                                                       //promised water
     } else if (type === "fountain" && this.batchofIDs(["12"])) {
@@ -242,22 +248,23 @@ class Map extends Component {
       // cover it with a tile of ground using showNewThing to show that you got it?
 
     } else if (type === "grape") {
+      //can't press on grapes twice
       this.startConversation(2);  //tempting grapes
       //hide them in a similar way to the bag?
       post("/api/choice", {choice: "150"} ).then(()=>{ //got bag
-        console.log("got bag");
+        console.log("got fruit");
       });
 
     } else if (type === "lyingDownCassandra") { //old woman
-      if (this.batchofIDs(["15"])){ //promised fruit
-        this.startConversation(12);
-      } else if (this.batchofIDs(["15", "150"])){ //promised fruit and got it
-        this.startConversation(3);
+      if (this.batchofIDs(["426", "12"])) { //promised water and got it -- same # as fountain's POST
+        this.startConversation(4);
       } else if (this.batchofIDs(["12"])){ //promised water
         this.startConversation(13);
-      } else if (this.batchofIDs(["426"])) { //got water -- same # as fountain's POST
-        this.startConversation(4);
-      } else {
+      } else if (this.batchofIDs(["15", "150"])){ //promised fruit and got it
+        this.startConversation(3);
+      } else if (this.batchofIDs(["15"])){ //promised fruit
+        this.startConversation(12);
+      } else { // 1st time talking
         this.startConversation(1);
       }
 
@@ -273,7 +280,7 @@ class Map extends Component {
       }
 
     } else if (type === "youngCassandra") {
-      if (this.batchofIDs(["901"])) { //finished 2nd Council Scene
+      if (this.batchofIDs(["901"])) { //finished 2nd Council Scene aka 1st flashback
         /*if (this.batchofIDs(["42","505","600"])) { //finished all tests
           // Convo doesn't exist yet? --> or next Council Scene
         } else if (this.batchofIDs(["42"]) || this.batchofIDs(["505"]) || this.batchofIDs(["600"])) {   //between tests
@@ -293,7 +300,6 @@ class Map extends Component {
       }
 
     } else if (type === "leaderGirl") { //Livia
-      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
       if (this.batchofIDs(["505","122"]) || this.batchofIDs(["505","124"])) { //failed chellah
         console.log("sucked at chellah"); //////////////////
         this.startConversation(16);
@@ -309,7 +315,6 @@ class Map extends Component {
       }
 
     } else if (type === "angryGirl") { //Juno
-      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
       if (this.batchofIDs(["600"])) { //finished toy test
         console.log("did omens already"); //////////////////
         this.startConversation(14);
@@ -319,7 +324,6 @@ class Map extends Component {
       }
 
     } else if (type === "riddlesGirl") { //Fortunata
-      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
       if (this.batchofIDs(["42"])) { //finished riddles
         console.log("already finished riddles"); /////////////////////////////////////////////////////////////
         this.startConversation(17);
@@ -381,8 +385,8 @@ class Map extends Component {
     }
 
     this.setState({
-      situation: "interacting",                                       //because there can only be 1 at a time
-      overlay: <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
+      situation: "interacting",                                         //because there can only be 1 at a time
+      overlay: <Box name={name} x={30} y={22} width={900} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
     });
   }
 
@@ -426,7 +430,7 @@ class Map extends Component {
   }
 
 
-  componentWillUnmount() {
+  componentWillUnmount(){
     clearInterval(this.state.intervalid);
 
     window.removeEventListener("keydown", (e) => {

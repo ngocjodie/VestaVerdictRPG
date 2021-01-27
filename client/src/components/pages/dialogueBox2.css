@@ -17,8 +17,8 @@
 
 .dBox-img {
   image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
+  /* image-rendering: -moz-crisp-edges; */
+  /* image-rendering: crisp-edges; */
   z-index: 1;
   top: 63%;
 }
@@ -145,8 +145,8 @@ to{opacity:1;}
   text-align: left;
   cursor: pointer;;
   text-indent: 28px;
-  animation: 2s;
-  -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+  /* animation: 2s;
+  -webkit-animation: fadein 2.5s; Safari and Chrome */
 }
 
 @keyframes fadein {
@@ -155,7 +155,7 @@ to{opacity:1;}
   100% {opacity: 1;}
 }
 
-
+/* 
 .dBox-choices:hover {
   transition: 800ms cubic-bezier(0.2, 0, 0, 0.8);
   text-indent: 36px;
@@ -170,7 +170,7 @@ to{opacity:1;}
   background-color: #ffffffce;
   border-radius: 25px;
   text-indent: 36px;
-}
+} */
 
 
 
@@ -309,9 +309,9 @@ animation-delay: 2s;
   background-image: url("../modules/profilePics/CouncilPFP.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  top: 15%;
-  left: 10%;
-  width: 30vh;
+  top: 25%;
+  left: 0%;
+  width: 70vh;
   height: 30vh;
 }
 
