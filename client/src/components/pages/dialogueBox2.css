@@ -303,3 +303,124 @@ animation-delay: 2s;
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
+.councilPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/CouncilPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+.leaderPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/LeaderPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.angryPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/AngryPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.riddlesPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/RiddlesPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.oldHappyCassandraPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/OldHappyCassandraPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.oldSadCassandraPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/OldSadCassandraPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+
+.youngCassandraPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/YoungCassandraPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+
+.rheaPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/RheaPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.laiaPFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/LaiaPFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
+
+.grapePFP {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/GrapePFP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
