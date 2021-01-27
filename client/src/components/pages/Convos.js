@@ -36,7 +36,7 @@
     },
     {
         // 4 : end
-        "question":"LAIA: Ah, thank you! Take the west path to get there quickly.",
+        "question":"LAIA: Ah, thank you! Take the north path to get there quickly.",
         "answers":[
             {"title": "[End]","response": 111, "id":80},
         ]
@@ -66,7 +66,7 @@
     },
     {
         // 8 : cont
-        "question":"LAIA: Take the west path, and you'll reach the vista at the top.",
+        "question":"LAIA: Take the north path, and you'll reach the vista at the top.",
         "answers":[
             {"title":"[END]","response":111, "id":80}
         ]
