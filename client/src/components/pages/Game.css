@@ -159,21 +159,21 @@
   position: relative;
 }
 
-.Game-angryGirl {
+.Game-angryGirl { /*Juno*/
   image-rendering: pixelated;
   background-image: url("../modules/profilePics/angryGirl.png");
   background-size: 100%;
   position: relative;
 }
 
-.Game-leaderGirl {
+.Game-leaderGirl { /*Livia*/
   image-rendering: pixelated;
   background-image: url("../modules/profilePics/leaderGirl.png");
   background-size: 100%;
   position: relative;
 }
 
-.Game-riddlesGirl {
+.Game-riddlesGirl { /*Fortunata*/
   image-rendering: pixelated;
   background-image: url("../modules/profilePics/riddlesGirl.png");
   background-size: 100%;

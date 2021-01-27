@@ -20,8 +20,8 @@ import Box from "./Box.js";
  * @param {Object[]} objects player obstacles --> look for a special one labelled goal
  * @param {() => ()} switch for switching to the next map
  * 
- * @param {() => ()} conversing for letting Game control the process of conversation
- * @param {number} dialogueOption for which convo to do next --> maybe eliminate this when we get the GET request up and running
+ * @param {() => ()} conversing for letting Game control the process of conversation --> eliminate since it's all being controlled from here?
+ * @param {number} dialogueOption  --> eliminate this now that we got the GET request up and running
  * 
  */
 
@@ -33,13 +33,13 @@ class Map extends Component {
       playery: null,
       last_dir: "down",
       held_dir: null,
-      // speed: 5,
-      speed: 5,
+      speed: 8,
       fps: 60,
       intervalid: null,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
       overlay: null, //there can only be one overlay -- or change to interactable so that it won't even try to process 2 interactions at once
 
+      // ids: [],
       //"moving"      = only time when playerx/y can be changed and Player re-rendered
       //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them to server(?) immediately after
       //"interacting" = when Box's onClick things are happening --> can't do anything else til it's clicked again
@@ -48,6 +48,11 @@ class Map extends Component {
   }
 
   componentDidMount() {
+    // let ids = post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
+    //     console.log("from the POST", what); ///////////////////////////////////////////////
+    //     this.startConversation(18); // make first map after start the Council background
+    //     this.props.switch(); //home w/ Laia
+    // });
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
@@ -168,15 +173,14 @@ class Map extends Component {
 
   interaction = (properties) => { // onClick function --doesn't work for invisible CSS class
     const type = properties.id;
-    // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
 
     if (type === "START") { //tester
-      post("/api/choice", { choice: "WIPE" }).then((what) => {
+      post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
         console.log("from the POST", what); ///////////////////////////////////////////////
-        this.props.switch();
-      })
-      //api call to wipe the player's previous choices
+        this.startConversation(18); // make first map after start the Council background
+        this.props.switch(); //home w/ Laia
+      });
     }
 
     let awardsDefinition = {"sly": ["3", "6"], "cinnamon": ["0", "13"]};
@@ -214,130 +218,158 @@ class Map extends Component {
 
     // console.log("clicking on", properties, "of type", type);
 
-    if (type === "turtle") { //template
+    if (type === "turtle") {
       this.startConversation(19);
+
     } else if (type === "telescopeLeft") { //how telescopes work
       this.showNewThing("pretty view"); //aesthetic view
 
     } else if (type === "telescopeRight") {
-      if (this.batchofIDs(["past 1st flashback"])){  //finished 2nd Council Scene
+      if (this.batchofIDs(["444"])){  //saw healthy Cassandra
         this.showNewThing("empty clearing");
       } else if (this.batchofIDs(["7"]) || this.batchofIDs(["8"])) { //gave fruit to old woman
-        //POST request that they've seen healthy Cassandra
+        post("/api/choice", {choice: "444"} ).then(()=>{ //POST request that they've seen healthy Cassandra
+          console.log("got a teaser");
+        });
         this.showNewThing("healthy Cassandra walking away");
       } else {
         this.showNewThing("old woman in clearing");
       }
-                                                      //promised water ?            does she ever leave the temple after the 1st flashback? 
-    } else if (type === "fountain" && this.batchofIDs(["12"]) && !this.batchofIDs(["past 1st flashback"])) {
+                                                      //promised water
+    } else if (type === "fountain" && this.batchofIDs(["12"])) {
       // POST request to log the choice
-      post("/api/choice", {choice: "#"} ).then(()=>{ //WATER = id:"12" right?
+      post("/api/choice", {choice: "426"} ).then(()=>{
         console.log("got water");
       });
 
     } else if (type === "bag") {
       // POST request to log the choice
-      post("/api/choice", {choice: "#"} ).then(()=>{ //got bag
+      post("/api/choice", {choice: "88"} ).then(()=>{ //got bag
         console.log("got bag");
       });
-      // cover it with a tile of ground using showNewThing?
+      // cover it with a tile of ground using showNewThing to show that you got it?
 
-    } else if (type === "fruit") {
+    } else if (type === "grape") {
       this.startConversation(2);  //tempting grapes
       //hide them in a similar way to the bag?
+      post("/api/choice", {choice: "150"} ).then(()=>{ //got bag
+        console.log("got bag");
+      });
 
-    } else if (type === "old woman") {
-      if (this.batchofIDs(["haven't talked before"])){
-        this.startConversation(1);
-      } else if (this.batchofIDs(["promised fruit"])){
+    } else if (type === "lyingDownCassandra") { //old woman
+      if (this.batchofIDs(["15"])){ //promised fruit
         this.startConversation(12);
-      } else if (this.batchofIDs(["talked once before and talked to fruit"])){
+      } else if (this.batchofIDs(["15", "150"])){ //promised fruit and got it
         this.startConversation(3);
-      } else if (this.batchofIDs(["12"])){ //promised water?
+      } else if (this.batchofIDs(["12"])){ //promised water
         this.startConversation(13);
-      } else if (this.batchofIDs(["got water"])) { //same # as fountain's POST
+      } else if (this.batchofIDs(["426"])) { //got water -- same # as fountain's POST
         this.startConversation(4);
+      } else {
+        this.startConversation(1);
       }
 
-    } else if (type === "Laia") {
+    } else if (type === "leia") { //Laia
       if (this.batchofIDs(["14"])) { //sold bag
         this.startConversation(6);
-      } else if (this.batchofIDs(["got bag"])) { //13 + more or just not 14? or POST once bag is clicked on?
+      } else if (this.batchofIDs(["88"])) { //got bag
         this.startConversation(5);
-      } else if (this.batchofIDs(["talked to her before"])) {
+      } else if (this.batchofIDs(["80"])) { //talked to her before
         this.startConversation(11); //don't see her anywhere else right?
       } else { //start 
         this.startConversation(0); // or would this automatically start after first Council Scene?
       }
 
-    } else if (type === "Cassandra") {
-      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
-        if (this.batchofIDs(["finished all tests"])) {
-          // Convo doesn't exist yet?
-        } else if (this.batchofIDs(["between tests"])) {
+    } else if (type === "youngCassandra") {
+      if (this.batchofIDs(["902"])) { //finished 2nd Council Scene
+        if (this.batchofIDs(["42","505","600"])) { //finished all tests
+          // Convo doesn't exist yet? --> or next Council Scene
+        } else if (this.batchofIDs(["42"]) || this.batchofIDs(["505"]) || this.batchofIDs(["600"])) {   //between tests
           //Convo doesn't exist yet?
-        } else if (this.batchofIDs(["saw healthy Cassandra in telescope"])) {
+        } else if (this.batchofIDs(["444"])) { //saw young Cassandra
           this.startConversation(8);
-        } else {
+        } else { //enter temple normally
           this.startConversation(7);
         }
       } else { // in phase 3
-        //
-      }
-
-    } else if (type === "Livia") {
-      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
-        if (this.batchofIDs(["122"])) { //fail chellah
-          this.startConversation(16);
-        } else if (this.batchofIDs(["300"])) { //pass chellah
-          this.startConversation(15);
-        } else if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate 1 or many grapes
-          this.startConversation(22);
-        } else if (this.batchofIDs(["532"])) { //no fruit
-          this.startConversation(10);
-        }
-      } else { //in phase 3
-        //
-      }
-
-    } else if (type === "Juno") {
-      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
-        if (this.batchofIDs(["finished toy test"])) {
-          this.startConversation(14);
+        if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate fruit ... or kept some for later (id=8)?
+          this.startConversation(28);
         } else {
-          this.startConversation(9);
+          this.startConversation(27);
         }
-      } else { //in phase 3
-        //
       }
 
-    } else if (type === "Fortunata") {
-      if (this.batchofIDs(["in phase 2"])) { //finished 2nd Council Scene
-        if (this.batchofIDs(["finished riddles"])) {
-          this.startConversation(17);
-        } else {
-          this.startConversation(); //Convo doesn't exist yet
-        }
-      } else { //in phase 3
-        //
+    } else if (type === "leaderGirl") { //Livia
+      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
+      if (this.batchofIDs(["505","122"]) || this.batchofIDs(["505","124"])) { //failed chellah
+        console.log("sucked at chellah"); //////////////////
+        this.startConversation(16);
+      } else if (this.batchofIDs(["505","300"])) { //passed chellah
+        console.log("aced at chellah"); //////////////////
+        this.startConversation(15);
+      } else if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //start chellah after eating 1 or many grapes
+        console.log("chellah with advantage"); //////////////////////////////////////////////////////////////
+        // this.startConversation(22);
+      } else { //start chellah with no fruit
+        console.log("starting chellah"); //////////////////
+        this.startConversation(10);
       }
 
-    } else if (type === "council") { //
-      if (this.batchofIDs(["finished first flashback"])) {
-        if (this.batchofIDs(["got water"])) {
-          this.startConversation(20);
-        } else {
-          this.startConversation(21); 
+    } else if (type === "angryGirl") { //Juno
+      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
+      if (this.batchofIDs(["600"])) { //finished toy test
+        console.log("did omens already"); //////////////////
+        this.startConversation(14);
+      } else {
+        console.log("look, toys"); //////////////////
+        this.startConversation(9);
+      }
+
+
+    } else if (type === "riddlesGirl") { //Fortunata
+      console.log("reached",type,"'s if-else block"); ////////////////////////////////////////////////////////
+      if (this.batchofIDs(["42"])) { //finished riddles
+        console.log("already finished riddles"); /////////////////////////////////////////////////////////////
+        this.startConversation(17);
+      } else {
+        console.log("start riddles test"); ///////////////////////////////////////////////////////////////////
+        // this.startConversation(34);
+      }
+
+ //NEED TO SWITCH CHRONO ORDER or else they'll all fall under 1st flashback
+    } else if (type === "council") { // where eveything has a default just in case
+      if (this.batchofIDs(["903"])) { //final verdict (after 3rd flashback)
+        if (this.batchofIDs(["321"])) { //caught in lie
+          if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate fruit
+            this.startConversation(30);
+          } else {
+            this.startConversation(29);
+          }
+        } else if (this.batchofIDs(["222"]) && !this.batchofIDs(["321"])) { //blame Cassandra
+          if (this.batchofIDs(["6"])) { //fruit
+            this.startConversation(32);
+          } else {
+            this.startConversation(33);
+          }
+        } else { //innocent b/c of honesty
+          this.startConversation(31);
         }
-      } else { //3rd Council Scene bad=666   tirals: bad=122,124 good=300
+        // END OF GAME
+      } else if (this.batchofIDs(["902"])) { //3rd Council Scene (finished 2nd flashback)
         if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
           this.startConversation(23);
         } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
           this.startConversation(24);
         } else if (this.batchofIDs(["666","124"]) || this.batchofIDs(["666","122"])) { //bad omens, bad trials
           this.startConversation(25);
-        } else if (this.batchofIDs(["122"]) || this.batchofIDs(["124"])) { //good omens, bad trials
+        } else { //good omens, bad trials --> default
           this.startConversation(26);
+        }
+      } else if (this.batchofIDs(["901"])) { //2nd Council Scene
+        if (this.batchofIDs(["426"])) { //got water
+          this.startConversation(20);
+        } else {
+          this.startConversation(21); 
         }
       }
 
@@ -349,7 +381,7 @@ class Map extends Component {
 
 
 
-
+                //name = CSS className
   showNewThing = (name) => { //mostly for telescope but maybe for others, you never know ...
     // callback function that'll render another box based on what the caller Box says
     // assume it's a square that's supposed to cover the page: x=230, y=22, w=500, h=500
@@ -381,37 +413,50 @@ class Map extends Component {
       situation: "dialoguing",
       overlay: <DialogueBox key={"convo"} dialogue={Convos[index]} ending={this.endConversation} />,
     });
-
   }
 
   endConversation = () => {
-    this.props.conversing();
     this.setState({
       situation: "moving",
       overlay: null,
     }); 
-    //if (transitioning to a new room) {
-    //   this.props.switch();
-    //}
   }
 
-  batchofIDs = (array) => {
+  batchofIDs = async (array) => {
     //make sure array of IDs are strings like ["0", "14", "800"]
     let source = [];
-    get("/api/choice", { userId: this.props.userId}).then((ret) => {
-      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
-      source = ret;
-    });
-    for (const i in array) {
-      if (!source.includes(i)) {
-        return false;
+    let answer = await get("/api/choice", { userId: this.props.userId}).then((ret) => {
+      source = ret["choices"].slice();
+      for (const i in array) {
+        if (!source.includes(array[i])) {
+          console.log("don't have all in",array); ///////////////////////////////////////////////
+          return false;
+        }
       }
-    }
-    return true;
+      console.log("got everything in",array); ///////////////////////////////////////////////
+      return true;
+    });
+    console.log("but outside the GET:",source); ///////////////////////////////////////////////////////
+    // for (const i in array) {
+    //   if (!source.includes(array[i])) {
+    //     console.log("don't have all in",array); ///////////////////////////////////////////////
+    //     return false;
+    //   }
+    // }
+    // console.log("got everything in",array); ///////////////////////////////////////////////
+    // return true;
+    console.log("answer",answer);
+    return answer;
   }
 
 
-
+  // componentDidUpdate() {
+  //   get("/api/choice", { userId: this.props.userId}).then((ret) => {
+  //     this.setState({
+  //       ids: ret["choices"].slice(),
+  //     });
+  //   });
+  // }
 
 
 
@@ -435,8 +480,6 @@ class Map extends Component {
         last_dir: dir,
       });
     });
-
-    //send dialogue things so Game can tell what's next
   }
 
   render() {

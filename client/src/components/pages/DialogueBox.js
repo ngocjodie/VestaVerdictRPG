@@ -218,7 +218,7 @@ class DialogueBox extends React.Component {
             <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
               {this.state.currentDialogue.question} 
 
-            <div class="dBox-textQ hiders">
+            <div className="dBox-textQ hiders">
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
             </div>
