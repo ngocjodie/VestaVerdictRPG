@@ -39,7 +39,7 @@ export const mapinfo = {
     playerstart: [null,null],
     nextmap: "clearing2",
     objects: {
-      "START": ["temporary-start", 380, 400, 200, 100],
+      "START": ["", 0, 0, 960, 960],
     },
   },
 
