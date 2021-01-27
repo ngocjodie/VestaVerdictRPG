@@ -83,6 +83,58 @@
   position: relative;
 }
 
+
+/* ~~~ MAP IMAGES STARTING HERE ~~~  */
+.Game-home {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/home.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-templeExterior {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/templeExterior.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-templeInterior {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/templeInterior.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-panorama {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/panorama.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-fireRoom {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/fireRoom.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-clearing {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/clearing.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.Game-rheaExterior {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/rheaExterior.png");
+  background-size: 100%;
+  position: relative;
+}
+/* ~~~ MAP IMAGES ENDING HERE ~~~~ */
+
 .small-box {
   image-rendering: pixelated;
   background-image: url("../modules/smallbox.png");
