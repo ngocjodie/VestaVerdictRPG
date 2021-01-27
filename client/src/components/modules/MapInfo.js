@@ -323,14 +323,39 @@ export const mapinfo = {
     },
   },
 
-  "templeInterior": {
-    thismap: "Game-templeInterior",
-    playerstart: [480, 535],
-    // nextmap: "rheaExterior", //which map it switches to when Player collides with exit object
+  "templeExterior3": {
+    thismap: "Game-templeExterior",
+    playerstart: [451, 163],
+    nextmap: "templeInterior", //which map it switches to when Player collides with exit object
+
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
-      // "exit"    : [ "invisible", 740, 478, 96, 32],
+    "exit"  : [ "invisible", 415, 93, 65, 30],
+    "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
+    "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
+    "rightLedge" : ["invisible", 725, 142, 30, 500],
+    "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
+    "bottomLedge" : ["invisible", 260, 430, 500, 30],
+    "left wall" : ["invisible", 0, 0, 23, 560],
+    "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
+    "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
+    "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
+    "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
+    "fountain": ["invisible", 365, 295, 160, 119],
+    "fountainWater": ["invisible", 425, 275, 50, 89],
+    },
+  },
+  
+
+  "templeInterior": {
+    thismap: "Game-templeInterior",
+    playerstart: [480, 505],
+    nextmap: "templeExterior3", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+      "exit"    : [ "invisible", 448, 513, 63, 32],
       "leftWall" : ["invisible", 0, 0, 26, 960 ],
       "rightWall" : ["invisible", 945, 0, 32, 960 ],
       "topWall" : ["invisible", 0, 0, 960, 135],
