@@ -44,12 +44,6 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    get("/api/choice", { userId: this.props.userId}).then((ret) => {
-      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
-    });
-    // What if more relevant choices are made between mounting the map and clicking the thing/person?
-    // Could I keep calling it then?
-
     this.setState({
       playerx: this.props.start[0],
       playery: this.props.start[1],
@@ -168,17 +162,15 @@ class Map extends Component {
   }
 
 
-
   interaction = (properties) => { // onClick function --doesn't work for invisible CSS class
     const type = properties.id;
     // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
     
     if (type === "START") { //tester
-      post("/api/choice", {choice: "WIPE"}).then((what) => {
+      post("/api/choice", {choice: "WIPE"}).then(() => {
         this.props.switch();
       })
-      //api call to wipe the player's previous choices
     } 
 
     if (!close) {
@@ -188,13 +180,16 @@ class Map extends Component {
 
     //specific cases may/will require hardcoding
 
+    // console.log("clicking on", properties, "of type", type);
+
     if (type === "key in MapInfo.js") { //template
       //action
-    } else if (type === "west") { //how telescopes work
+    } else if (type === "telescopeLeft") { //how telescopes work
       this.showNewThing("redcircle");
-    } else if (type === "east") {
+    } else if (type === "telescopeRight") {
       this.showNewThing("river");
-    } else if (type === "fake exit") {
+    } else if (type === "bed") {
+      // console.log("nice cozy bed"); //////////////////////////////////////////////////////////////////
       this.startConversation(this.props.dialogueOption);
     } else if (type === "another") {
       this.startConversation(0);  //Livia asks for paint bag
@@ -243,9 +238,6 @@ class Map extends Component {
       overlay: <DialogueBox key={"convo"} dialogue={Convos[index]} ending={this.endConversation} />,
     });
 
-    //if (combo of IDs or something to indicate it's time for a Court Scene) {
-    //  this.props.switch();
-    //}
   }
 
   endConversation = () => {
@@ -260,7 +252,7 @@ class Map extends Component {
   }
 
   batchofIDs = (array) => {
-    //make sure array of IDs are strings
+    //make sure array of IDs are strings like ["0", "14", "800"]
     let source = [];
     get("/api/choice", { userId: this.props.userId}).then((ret) => {
       console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////

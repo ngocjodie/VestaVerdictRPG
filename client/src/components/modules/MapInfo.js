@@ -85,7 +85,7 @@ export const mapinfo = {
         "topWall" : ["invisible", 0, 0, 960, 80 ],
         "bottomWall" : ["invisible", 0, 508, 960, 32 ],
         "cabinet": ["invisible", 32, 74, 78, 48],
-        "bed": ["invisible", 240, 64, 90, 105],
+        "bed": ["", 240, 64, 90, 105], //className = invisible
         "extraWallandStuff": ["invisible", 416, 96, 544, 50],
         "topRightFurniture": ["invisible", 790, 128, 128, 38],
         "column": ["invisible", 340, 0, 94, 390],
@@ -225,7 +225,7 @@ export const mapinfo = {
     "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
     "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
     "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
-    "fountain": ["invisible", 365, 295, 160, 119],
+    "fountain": ["", 365, 295, 160, 119],                 //originally invisible
     "fountainWater": ["invisible", 425, 265, 50, 89]
     },
 },
