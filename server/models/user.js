@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   name: String,
   googleid: String,
   playthroughs: Number,
-  awards: String,
+  awards: [String],
   choices: [String]
 });
 

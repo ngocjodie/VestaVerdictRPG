@@ -27,7 +27,7 @@ function getOrCreateUser(user) {
       name: user.name,
       googleid: user.sub,
       playthroughs: 0,
-      awards: "no awards yet",
+      awards: [],
       choices: []
     });
 
