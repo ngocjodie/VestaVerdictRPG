@@ -28,10 +28,10 @@ class Skeleton extends Component {
   <img src={bg} className="Skeleton-img"/>
     </div>
       <p className="Skeleton-paraheader">
-      Choose your role and prove your innocence.
+      THE VESTA VERDICT RPG
       </p>
       <div className="Skeleton-paragraph">
-        The sacred flames have gone out, and the council believes you are to blame.
+      Choose your role and prove your innocence.
       </div>
       </>
     );
