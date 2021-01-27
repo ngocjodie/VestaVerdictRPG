@@ -147,6 +147,34 @@
 
 /* SPRITES FOR PEOPLE/ITEMS */
 
+.telescope-view {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/telescope-view.png");
+  background-size: 100%;
+  position: relative;  
+}
+
+.telescope-clearing {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/telescope-background.png");
+  background-size: 100%;
+  position: relative;  
+}
+
+.telescope-oldlady {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/telescope-oldLady.png");
+  background-size: 100%;
+  position: relative;  
+}
+
+.telescope-younglady {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/telescope-youngLady.png");
+  background-size: 100%;
+  position: relative;  
+}
+
 .Game-leia {
   image-rendering: pixelated;
   background-image: url("../modules/profilePics/leia.png");

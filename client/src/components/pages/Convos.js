@@ -479,19 +479,19 @@
 ],
 [
     {   // After PROMISING FRUIT  - index 12 END
-        "person": "laiaPFP",
+        "person": "oldSadCassandraPFP",
         "question":"OLD WOMAN: Thank you for offering to get my fruit!",
         "answers":[
-            {"title":"[Continue]","response":111}, //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
 [
     {   // After PROMISING Water  - index 13 END
-        "person": "laiaPFP",
+        "person": "oldHappyCassandraPFP",
         "question":"OLD WOMAN: Thank you for getting me water, Dear! Come back soon.",
         "answers":[
-            {"title":"[Continue]","response":111},  //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
@@ -500,7 +500,7 @@
         "person": "angryPFP",
         "question":"JUNO: Go on.",
         "answers":[
-            {"title":"[Continue]","response":111},  //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
@@ -509,7 +509,7 @@
         "person": "leaderPFP",
         "question":"LIVIA: I can feel the Sight in you. Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":111}, //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
@@ -518,7 +518,7 @@
         "person": "leaderPFP",
         "question":"LIVIA: Return to Cassandra when you're finished with all three tasks.",
         "answers":[
-            {"title":"[Continue]","response":111}, //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
@@ -527,7 +527,7 @@
         "person": "riddlesPFP",
         "question":"FORTUNATA: Those were all my riddles.",
         "answers":[
-            {"title":"[Continue]","response":111}, //should be > 0
+            {"title":"[Continue]","response":111},
         ]
     },
 ],
@@ -587,7 +587,7 @@
      // 7 : end
      "question":"LIVIA: Now, tell us--what happened the day you first came to the temple?",
      "answers":[
-         {"title":"I'll try my best to remember...","response":111, "id":900}, //both should be > 10
+         {"title":"I'll try my best to remember...","response":111, "id":900},
          {"title": "It all started with my sister","response":111, "id":900},
      ]
  },
@@ -605,11 +605,11 @@
 [
     {   // Turtle  - index 19 END
         // NEED TO COME BACK TO
-        "person": "invisible",
+        // "person": "invisible",
         "person": "practice-smiley",
         "question":"TURTLE: *turtle turtle*",
         "answers":[
-            {"title":"[Good turtle]","response":111},  //should be > 0
+            {"title":"[Good turtle]","response":111},
         ]
     },
 ],
@@ -619,7 +619,7 @@
 //         "person": "practice-smiley",
 //         "question":"PARROT: Meep meep!",
 //         "answers":[
-//             {"title":"[Good bird]","response":111},  //should be > 0
+//             {"title":"[Good bird]","response":111},
 //         ]
 //     },
 // ],
@@ -814,7 +814,7 @@
         // 7 : ALL END
         "question":"LIVIA: Ah, sometimes our Sight can fail us.",
         "answers":[
-            {"title":"I'll do better next time","response":1}, //want to start over, right?
+            {"title":"I'll do better next time","response":1},
             {"title": "My bad","response":1},
             {"title":"Thank you","response":1 }
         ]
