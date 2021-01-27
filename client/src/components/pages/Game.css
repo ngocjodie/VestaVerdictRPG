@@ -133,6 +133,15 @@
   background-size: 100%;
   position: relative;
 }
+
+.Game-council {
+  image-rendering: pixelated;
+  background-image: url("../modules/maps/councilBG.png");
+  background-size: 100%;
+  position: relative;
+}
+
+
 /* ~~~ MAP IMAGES ENDING HERE ~~~~ */
 
 /* SPRITES FOR PEOPLE/ITEMS */

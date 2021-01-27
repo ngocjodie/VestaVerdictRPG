@@ -5,6 +5,16 @@
 */
 
 export const mapinfo = {
+  "Council1": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "home",
+    
+    objects: {
+      "screen" : ["invisible", -1, -1, 962, 546],
+    },
+  },
+
   "home": {
     thismap: "Game-home",
     playerstart: [192, 96],
