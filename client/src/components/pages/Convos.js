@@ -1398,7 +1398,7 @@
         // 15 : cont
         "question": "As the power enters your body, the flames begin to die out, until there is nothing but ash.",
         "answers":[
-            {"title":"[Continue]","response":111},
+            {"title":"[Continue]","response":111, 'id':927},
         ]
     },
 ],
@@ -1485,7 +1485,7 @@
         // 10 : cont
         "question":"LIVIA: The defendent is found guilty.",
         "answers":[
-            {"title":"[END]","response":111}
+            {"title":"[END]","response":111,"id":936}
 
         ]
     }
@@ -1573,7 +1573,7 @@
         // 10 : cont
         "question":"LIVIA: The defendent is found guilty.",
         "answers":[
-            {"title":"[END]","response":111}
+            {"title":"[END]","response":111, "id":719}
 
         ]
     }
@@ -1661,7 +1661,7 @@
         // 10 : cont
         "question":"LIVIA: The verdict is not guilty.",
         "answers":[
-            {"title":"[END]","response":111},
+            {"title":"[END]","response":111, 'id':469},
 
         ]
     }
@@ -1750,7 +1750,7 @@
         // 10 : cont
         "question":"LIVIA: The verdict is not guilty.",
         "answers":[
-            {"title":"[END]","response":111},
+            {"title":"[END]","response":111, 'id':469},
 
         ]
     }

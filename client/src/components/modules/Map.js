@@ -180,12 +180,10 @@ class Map extends Component {
       //api call to wipe the player's previous choices
     }
 
-    let awardsDefinition = {"sly": ["3", "6"], "cinnamon": ["0", "13"]};
+    let awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
 
     if (type === "END") {
       get("/api/choice").then((important_choices) => {
-        console.log("sent get request");
-        console.log(awardsDefinition);
         Object.entries(awardsDefinition).forEach((awardName, decisions) => {
           console.log("hello im here 1");
           let getAwards = true;
@@ -194,12 +192,7 @@ class Map extends Component {
               getAwards = false;
             }
           }
-          // const getAwards = decisions.reduce(id => {
-          //   return (important_choices.includes(id))
-          // })
           if (getAwards) {
-            console.log("hello im here");
-            console.log(awardName[0]);
             post("/api/awards", { award: awardName[0] })
           }
         })
