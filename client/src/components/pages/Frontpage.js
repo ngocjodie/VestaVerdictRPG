@@ -3,14 +3,14 @@ import Playthroughs from "./Playthroughs.js";
 import Awards from "./Awards.js";
 import "./Profile.css"
 import Rhea from "./Rheas.png"
-// import $ from 'jquery'; 
+import {get} from "../../utilities.js"
 
 
 class Frontpage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasWon: false,
+      awards: [],
       scrollPercent: 40,
       lastScrollPercent: 0,
       lastScrollTop: 0,
@@ -21,7 +21,11 @@ class Frontpage extends Component {
   componentDidMount() {
     console.log(this.props.userId);
     window.addEventListener('scroll', this.handleScroll);
+    get("/api/awards",{userId:this.props.userId}).then((response)=>{
+      this.setState({awards:response.awards})
+    })
   }
+  
 
   handleScroll() {
     console.log("scrolling!");
@@ -71,7 +75,7 @@ class Frontpage extends Component {
               <span className="tooltiptext">Tooltip text</span>
             </div>
           </div>
-          <div className={this.state.hasWon ? "holder h2" : "holder h9"}></div>
+          <div className={this.state.awards.indexOf("sly")!== -1 ? "holder h2" : "holder h9"}></div>
           <div className="holder h3"></div>
           <div className="holder h4"></div>
         </div>

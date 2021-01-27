@@ -5,6 +5,10 @@ import DialogueBox from "../pages/DialogueBox.js";
 import Convos from "../pages/Convos";
 import Player from "./Player.js";
 import Box from "./Box.js";
+// import AWARDS_DEFINITION from "./awardsDefinition.js";
+
+
+
 
 /**
  * PROPS:
@@ -27,7 +31,7 @@ class Map extends Component {
     this.state = {
       playerx: null,
       playery: null,
-      last_dir: "down", 
+      last_dir: "down",
       held_dir: null,
       // speed: 5,
       speed: 5,
@@ -60,7 +64,7 @@ class Map extends Component {
       "a": "left",
       "d": "right",
     }
-   
+
     window.addEventListener("keydown", (e) => {
       const dir = directions[e.key];
       this.setState({
@@ -68,11 +72,11 @@ class Map extends Component {
         held_dir: dir,
       });
     });
-   
+
     window.addEventListener("keyup", (e) => {
       const dir = directions[e.key];
       this.setState({
-        held_dir: null, 
+        held_dir: null,
         last_dir: dir,
       });
     });
@@ -129,9 +133,9 @@ class Map extends Component {
 
   checkCollision = (thing, xpos, ypos, direction) => {//thing = [className, x, y, width, height]
     const topBorder = thing[2];             // y
-    const bottomBorder = thing[2]+thing[4]; // y + h
+    const bottomBorder = thing[2] + thing[4]; // y + h
     const leftBorder = thing[1];            // x
-    const rightBorder = thing[1]+thing[3];  // x + w 
+    const rightBorder = thing[1] + thing[3];  // x + w 
     let final = [xpos, ypos];
 
     // if new (x,y) bad and old (x,y) fine, kick them back out
@@ -151,11 +155,11 @@ class Map extends Component {
 
 
   distancetest = (x1, y1, x2, y2, w2, h2, limit) => {
-    let a = ( (x2 - x1)**2 + (y2 - y1)**2 )**0.5;      //corner distances
-    let b = ( (x2+w2 - x1)**2 + (y2 - y1)**2 )**0.5;
-    let c = ( (x2 - x1)**2 + (y2+h2 - y1)**2 )**0.5;
-    let d = ( (x2+w2 - x1)**2 + (y2+h2 - y1)**2 )**0.5;
-    if ( a<limit || b<limit || c<limit || d<limit ) {
+    let a = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;      //corner distances
+    let b = ((x2 + w2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5;
+    let c = ((x2 - x1) ** 2 + (y2 + h2 - y1) ** 2) ** 0.5;
+    let d = ((x2 + w2 - x1) ** 2 + (y2 + h2 - y1) ** 2) ** 0.5;
+    if (a < limit || b < limit || c < limit || d < limit) {
       return true;
     }
     return false;
@@ -167,14 +171,40 @@ class Map extends Component {
     const type = properties.id;
     // radius limit is the last parameter
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
-    
+
     if (type === "START") { //tester
-      post("/api/choice", {choice: "WIPE"}).then((what) => {
+      post("/api/choice", { choice: "WIPE" }).then((what) => {
         console.log("from the POST", what); ///////////////////////////////////////////////
         this.props.switch();
       })
       //api call to wipe the player's previous choices
-    } 
+    }
+
+    let awardsDefinition = {"sly": ["3", "6"], "cinnamon": ["0", "13"]};
+
+    if (type === "END") {
+      get("/api/choice").then((important_choices) => {
+        console.log("sent get request");
+        console.log(awardsDefinition);
+        Object.entries(awardsDefinition).forEach((awardName, decisions) => {
+          console.log("hello im here 1");
+          let getAwards = true;
+          for (let s in decisions) {
+            if (!important_choices.includes(s)) {
+              getAwards = false;
+            }
+          }
+          // const getAwards = decisions.reduce(id => {
+          //   return (important_choices.includes(id))
+          // })
+          if (getAwards) {
+            console.log("hello im here");
+            console.log(awardName[0]);
+            post("/api/awards", { award: awardName[0] })
+          }
+        })
+      }
+      )}
 
     if (!close) {
       console.log("too far from the thing it clicked on"); ////////////////////////////////////////////////
@@ -186,7 +216,7 @@ class Map extends Component {
     if (type === "") { //template
       //action
     } else if (type === "button") { //tester
-      this.props.switch(); 
+      this.props.switch();
     } else if (type === "west") {
       this.showNewThing("redcircle"); //how telescopes work
     } else if (type === "east") {
@@ -214,10 +244,10 @@ class Map extends Component {
     if (this.state.overlay !== null) {
       return;
     }
-    
+
     this.setState({
       situation: "interacting",                                       //because there can only be 1 at a time
-      overlay:  <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
+      overlay: <Box name={name} x={80} y={22} width={800} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
     });
   }
 
@@ -231,11 +261,11 @@ class Map extends Component {
 
 
   startConversation = (index) => { //different function because IT tells Player when to continue gameplay
-                      /*index*/
+    /*index*/
     if (this.state.overlay !== null) {
       return;
     }
-    
+
     this.setState({
       situation: "dialoguing",                              //index
       overlay: <DialogueBox key={"convo"} dialogue={Convos[index]} ending={this.endConversation} />,
@@ -247,7 +277,7 @@ class Map extends Component {
     this.setState({
       situation: "moving",
       overlay: null,
-    });    
+    });
   }
 
 
@@ -257,7 +287,7 @@ class Map extends Component {
 
 
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.state.intervalid);
 
     window.removeEventListener("keydown", (e) => {
@@ -267,11 +297,11 @@ class Map extends Component {
         held_dir: dir,
       });
     });
-   
+
     window.removeEventListener("keyup", (e) => {
       const dir = directions[e.key];
       this.setState({
-        held_dir: null, 
+        held_dir: null,
         last_dir: dir,
       });
     });
@@ -298,7 +328,7 @@ class Map extends Component {
         {objs}
         <Player x={this.state.playerx} y={this.state.playery} last_dir={this.state.last_dir} held_dir={this.state.held_dir} />
         {this.state.overlay}
-      </div>  
+      </div>
     );
   }
 }
