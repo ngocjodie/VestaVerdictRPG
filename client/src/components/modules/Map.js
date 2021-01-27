@@ -373,10 +373,6 @@ class Map extends Component {
 
 
   startConversation = (index) => { //different function because IT tells Player when to continue gameplay
-<<<<<<< HEAD
-=======
-    /*index*/
->>>>>>> 337c8df68acf83317b7647694aa3205b873012a1
     if (this.state.overlay !== null) {
       return;
     }
@@ -393,7 +389,6 @@ class Map extends Component {
     this.setState({
       situation: "moving",
       overlay: null,
-<<<<<<< HEAD
     }); 
     //if (transitioning to a new room) {
     //   this.props.switch();
@@ -413,9 +408,6 @@ class Map extends Component {
       }
     }
     return true;
-=======
-    });
->>>>>>> 337c8df68acf83317b7647694aa3205b873012a1
   }
 
 
