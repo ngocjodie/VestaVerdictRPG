@@ -93,8 +93,6 @@ import "./dialogueBox2.css"
 // ];
 
  /**
- * What should it inherit? If dialogue shows up later?
- * states of the character(?)
  * @param {[Convo Object]} dialogue sequence list of Q&A
  * @param {() => ()} ending function to exit dialogue and get it off the map
  */
@@ -127,14 +125,9 @@ class DialogueBox extends React.Component {
   }
 
   handleAnswer(answer) {
-    console.log("about to enter post..."); /////////////////////////////////////////////////////////////////
-
-    //sift through null choices in here later
     post("/api/choice", {choice: answer.id} ).then(()=>{
       if (answer.response > this.props.dialogue.length) {
-        console.log("We have reached the end"); /////////////////////////////////////////////////////////
         this.props.ending(); 
-        //maybe return a parameter that'll help Map/Game figure out
         return;
       }
 
@@ -175,7 +168,7 @@ class DialogueBox extends React.Component {
       // alert("state: opening")
       setTimeout(() => {
           send("DONE");
-        }, 30
+        }, 300
       );
     }
 
@@ -183,17 +176,15 @@ class DialogueBox extends React.Component {
       // alert("closing")
       setTimeout(() => {
           send("DONE");
-        }, 30
+        }, 300
       );
-      // console.log("time to go"); ///// more effective up by the POST request //////
-      // this.props.ending();
     }
 
     if (this.state.current.matches("onlyTextClosing")) {
       // alert("textclosing")
       setTimeout(() => {
           send("DONE");
-        }, 30
+        }, 300
       );
     }
 
@@ -201,36 +192,31 @@ class DialogueBox extends React.Component {
       // alert("textOpening")
       setTimeout(() => {
           send("DONE");
-        }, 30
+        }, 300
       );
     }
 
-    // let portrait = "portrait-oldlady"; //a default in case we forget the field anywhere --> could just be an empty png
-    // if (this.state.speaker) {
-    //   portrait = this.state.speaker;
-    // }
-
     return (
-        <div className="dBox-flex-container">
-          <div className="portrait-Rhea"></div>
-          <div className={this.state.speaker}></div> {/* generalize to the person Rhea's talking to */}
-          <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
-            <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
-              {this.state.currentDialogue.question} 
+      <div className="dBox-flex-container">
+        <div className="portrait-Rhea"></div>
+        <div className={this.state.speaker}></div> {/* generalize to the person Rhea's talking to */}
+        <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
+          <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
+            {this.state.currentDialogue.question} 
 
-            <div className="dBox-textQ hiders">
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </div>
-            
-            </div>
-            {this.state.currentDialogue.answers.map((answer)=> (
-            <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); this.handleAnswer(answer)}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> {answer.title} </div></button>
-            ))}
+          {/* <div className="dBox-textQ hiders">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
           </div>
+            */}
+          </div>
+          {this.state.currentDialogue.answers.map((answer)=> (
+          <button onClick={() => {continuing ? send("CONTINUE") : send("CLOSE"); this.handleAnswer(answer)}} className={`dBox-textA ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}><div className="dBox-choices"> {answer.title} </div></button>
+          ))}
         </div>
-        
-  );
+      </div>
+      
+    );
   }
 }
 

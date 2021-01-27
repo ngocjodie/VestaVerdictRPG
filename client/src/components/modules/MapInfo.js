@@ -11,7 +11,7 @@ export const mapinfo = {
     nextmap: "home",
     
     objects: {
-      "screen" : ["invisible", -1, -1, 962, 546],
+      "starting" : ["", -1, -1, 962, 546],
     },
   },
 
@@ -185,7 +185,7 @@ export const mapinfo = {
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible", 415, 93, 65, 30],
-    "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
+    // "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
     "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],

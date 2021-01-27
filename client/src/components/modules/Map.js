@@ -176,13 +176,20 @@ class Map extends Component {
     const close = this.distancetest(this.state.playerx, this.state.playery, properties.x, properties.y, properties.width, properties.height, 64);
 
     if (type === "START") { //tester
-      post("/api/choice", { choice: "WIPE" }).then((what) => { //api call to wipe the player's previous choices
-        this.startConversation(18); // make first map after start the Council background
-        this.props.switch(); //home w/ Laia
+      post("/api/choice", { choice: "WIPE" }).then(() => { //api call to wipe the player's previous choices
+        console.log("POSTed");
+        // this.startConversation(18); // make first map after start the Council background
+        this.props.switch(); // Council background
       });
+    } else if (type === "starting") {
+      if (this.batchofIDs(["900"])){ //finished 1st Council Scene
+        this.props.switch(); //home w/ Laia
+      } else {
+        this.startConversation(18); // make first map after start the Council background
+      }
     }
 
-    let awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
+    const awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
 
     if (type === "END") {
       get("/api/choice").then((important_choices) => {
@@ -242,6 +249,7 @@ class Map extends Component {
       // cover it with a tile of ground using showNewThing to show that you got it?
 
     } else if (type === "grape") {
+      //can't press on grapes twice
       this.startConversation(2);  //tempting grapes
       //hide them in a similar way to the bag?
       post("/api/choice", {choice: "150"} ).then(()=>{ //got bag
@@ -426,7 +434,7 @@ class Map extends Component {
   }
 
 
-  componentWillUnmount() {
+  componentWillUnmount(){
     clearInterval(this.state.intervalid);
 
     window.removeEventListener("keydown", (e) => {
