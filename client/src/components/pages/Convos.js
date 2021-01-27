@@ -1843,6 +1843,120 @@
         ]
     }
 ],
+[
+    {   // ENDING NOT FRUIT - INNOCENT THROUGH BLAMING CASSANDRA - index 33
+        "question":"FORTUNATA: You've made it this far. So, how about some questions?",
+        "answers":[
+            {"title":"What kind of questions?","response":1},
+            {"title":"Ask away","response":2},
+
+        ]
+    },
+    {
+        // 1 : end
+        "question":"FORTUNATA: A curious one, are we? The sooner we begin, the sooner you'll know.",
+        "answers":[    
+        {"title":"Let's begin","response":2},
+        ]
+    },
+    {
+        // 2 : end
+        "question":"Listen with care, and you will find meaning here . . . Many have heard it, but no one’s ever seen it. It will not speak unless spoken to. What is it?",
+        "answers":[
+            {"title": "Me","response":3},
+            {"title": "An echo","response":5},
+            {"title": "Magical fruit","response":4},
+        ]
+    },
+    {
+        // 3 : end
+        "question":"FORTUNATA: Oh, not what I was looking for.",
+        "answers":[
+            {"title": "[Continue]","response": 6},
+        ]
+    },
+    {
+        // 4 : end
+        "question":"FORTUNATA: Interesting answers...but incorrect.",
+        "answers":[
+            {"title": "[Continue]","response": 6},
+        ]
+    },
+    {
+        // 5 : cont      
+        "question":"FORTUNATA: Ah, you've solved it. Time for a second, fitting of your wit.",
+        "answers":[
+            {"title":"[Continue]","response":6},
+        ]
+    },
+    {
+        // 6: cont
+        "question":"FORTUNATA: Next question . . . a bunch of fruit walk into a tavern. Which is the most powerful?",
+        "answers":[
+            {"title":"The plum","response":8},
+            {"title":"The grape","response":7},
+            {"title":"The apple","response":9},
+
+
+
+        ]
+    },
+    {
+        // 7 : ALL END
+        "question":"FORTUNATA: Correct! You know your fruit tiers.",
+        "answers":[
+            {"title":"[Next]","response":10},
+        ]
+    },
+    {
+        // 8 : cont
+        "question":"FORTUNATA: Unfortunately, that's not correct. Plums are very timid.",
+        "answers":[
+            {"title":"[Next]","response":10},
+
+        ]
+    },
+    {
+        // 9 : cont
+        "question":"FORTUNATA: Unfortunately, that's not correct. Apples are very timid.",
+        "answers":[
+            {"title":"[Next]","response":10},
+
+
+        ]
+    },
+    {
+        // 10 : cont
+        "question":"FORTUNATA: My final question . . . what color are the goddess's eyes?",
+        "answers":[
+            {"title":"Brown","response":11},
+            {"title":"Blue","response":11},
+            {"title":"Um, I have no idea","response":12},
+
+        ]
+    },
+    {
+        // 11 : cont
+        "question":"FORTUNATA: That's neither correct nor incorrect, because no one knows.",
+        "answers":[
+            {"title":"[Next]","response":13},
+        ]
+    },
+    {
+        // 12 : cont
+        "question":"FORTUNATA: Ah, that's correct! No one knows.",
+        "answers":[
+            {"title":"[End]","response":13},
+        ]
+    },
+    {
+        // 13 : cont
+        "question":"FORTUNATA: And with that, you've answered my final riddle.",
+        "answers":[
+            {"title":"[End]","response":111},
+        ]
+    },
+],
 ];
 
   export default Convos;
