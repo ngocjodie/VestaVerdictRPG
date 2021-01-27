@@ -1994,6 +1994,33 @@
         ]
     },
 ],
+[
+    {  // index 35
+        "person": "practice-smiley",
+        "question":"You have found Laia's bag.",
+        "answers":[
+            {"title":"[Pick it up]","response":111},
+        ]
+    },
+],
+[
+    {  // index 36
+        "person": "practice-smiley",
+        "question":"You approach the fountain.",
+        "answers":[
+            {"title":"[Draw water]","response":111},
+        ]
+    },
+],
+[
+    {   // CASSANDRA GREETS - INDEX 37
+    "person": "youngCassandraPFP",
+     "question":"CASSANDRA: Ah, you've finished the trials, young sister. I shall see you again soon.",
+     "answers":[
+         {"title": "[End]","response":111},
+     ]
+ },
+],
 ];
 
   export default Convos;
