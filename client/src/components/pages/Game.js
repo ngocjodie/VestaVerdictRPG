@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { get } from "../../utilities";
+
 
 import Map from "../modules/Map.js"; //separate js files for map info like obstacles
 import { mapinfo } from "../modules/MapInfo.js";
@@ -10,7 +12,6 @@ import "./Game.css";
 /** QUESTIONS FOR OFFICE HOURS
  * 
  * FUNCTIONS TO TAKE CARE OF
- * - exit function in handleAnswer or closing state in DialogueBox.js
  * - how to modify dialogueOptions in conversing function in Game.js
  * - sending, extracting, and using action IDs that change the story in Map, DialogueBox, Awards, Playthroughs, and Profile.js 
  *  
@@ -26,6 +27,9 @@ import "./Game.css";
  * - desired speed and fps in state in Map.js
  * - the currentMap the game starts at in Game.js
  * - eliminating unnecessary files, comments, and code everywhere
+ * 
+ * ACCOMPLISHED
+ * - exit function in handleAnswer or closing state in DialogueBox.js
  */
 
 
@@ -41,14 +45,17 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dialogueOption: 1,
+      dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "home",
+      currentMap: "tempstart",
     };
   }
 
   componentDidMount(){     // for api calls
     //
+    get("/api/choice", { userId: this.props.userId}).then((ret) => {
+      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
+  });
   }
 
   switchScenes = () => {
@@ -59,28 +66,13 @@ class Game extends Component {
   }
   
   conversing = () => { 
-    console.log("now we're talkin"); ////////////////////// tee hee //////////////////////////////////
     this.setState({
       dialogueOption: this.state.dialogueOption + 1, //if there's another way/system, we'll do that
     });
-    //
   }
-
-  /* 
-    probably callback functions to pass to Map AND DialogueBox
-    ~ Map uses it to change state so inputs control choices, not player movement  --> make it a prop?
-    ~ Map uses it as part of the interaction function when important things/people are clicked on
-    ~ DialogueBox uses it to change Game's dialogueOption
-    ~ DialogueBox uses it to tell Map 
-  */
 
   render() {
     const info = mapinfo[this.state.currentMap];
-
-    // let conversation = null;
-    // if (this.state.talking) {
-    //   conversation = <DialogueBox dialogue={Convos[this.state.dialogueOption]}/>;
-    // }
 
     return(
         <div className="Game-frame">
@@ -91,12 +83,8 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            {/* Adding a key and doing the intervalid things are what make playerstart work. It's pretty easy to undo if we prefer the other way. */}
             <Map key={this.state.currentMap} name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} conversing={this.conversing} dialogueOption={this.state.dialogueOption} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
-
-          {/* {conversation} */}
-          {/* <DialogueBox dialogue={Convos[this.state.dialogueOption]}/> */}
 
         </div>
     );

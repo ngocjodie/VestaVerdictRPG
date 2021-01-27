@@ -78,6 +78,43 @@ export const mapinfo = {
     nextmap: "rheaExterior", //which map it switches to when Player collides with exit object
 
     objects: { 
+      // UNIQUEkey: [CSS className,  x,   y,  width, height]
+        "exit"    : [ "invisible", 740, 478, 96, 32],
+        "leftWall" : ["invisible", 0, 0, 54, 960 ],
+        "rightWall" : ["invisible", 915, 0, 32, 960 ],
+        "topWall" : ["invisible", 0, 0, 960, 80 ],
+        "bottomWall" : ["invisible", 0, 508, 960, 32 ],
+        "cabinet": ["invisible", 32, 74, 78, 48],
+        "bed": ["invisible", 240, 64, 90, 105],
+        "extraWallandStuff": ["invisible", 416, 96, 544, 50],
+        "topRightFurniture": ["invisible", 790, 128, 128, 38],
+        "column": ["invisible", 340, 0, 94, 390],
+        "bottomLeftWall" :["invisible", 0, 288, 198, 140],
+        "bottomRightWall": ["invisible", 218, 288, 192, 140],
+        "bottomLeftDrawer": ["invisible", 55, 416, 83, 49],
+        "chairLeft": ["invisible", 540, 224, 46, 63],
+        "chairRight": ["invisible", 763, 238, 46, 68],
+        "table": ["invisible", 603, 190, 142, 135],
+        "leftExit": ["invisible", 693, 379, 61, 160],
+        "rightExit": ["invisible", 820, 379, 60, 160]
+  },
+},
+
+  "tempstart":{
+    thismap: "temporary-cover",
+    playerstart: [null,null],
+    nextmap: "home",
+    objects: {
+      "START": ["temporary-start", 380, 400, 200, 100],
+      },
+    },
+
+  "room1": {
+    thismap: "river",
+    playerstart: [100, 100],
+    nextmap: "room2", //which map it switches to when Player collides with exit object
+
+    objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
       "exit"    : [ "invisible", 740, 478, 96, 32],
       "leftWall" : ["invisible", 0, 0, 54, 960 ],

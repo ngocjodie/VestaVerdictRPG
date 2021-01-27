@@ -107,7 +107,8 @@ class DialogueBox extends React.Component {
     super(props)
     this.state = {
       current: dialogueMachine.initialState,
-      currentDialogue: this.props.dialogue[0]
+      currentDialogue: this.props.dialogue[0],
+      speaker: this.props.dialogue[0].person,
     }
   
   }
@@ -126,17 +127,18 @@ class DialogueBox extends React.Component {
   }
 
   handleAnswer(answer) {
+    console.log("about to enter post..."); /////////////////////////////////////////////////////////////////
     post("/api/choice", {choice: answer.id} ).then(()=>{
-      /**
-       * if (answer.response === null) {
-       *   console.log("time to go"); /////////////////////////////////////////////////////////////////
-       *   this.props.ending();
-       *   return;
-       * }
-       * 
-       * exit the Box by sending signal to Map
-       * and ignore setState
-       */
+      // console.log("the array:",this.props.dialogue); ////////////////////////////////////////////////////////
+      // console.log("the choice/index:",answer.response); /////////////////////////////////////////////////////
+      
+      if (answer.response > this.props.dialogue.length) {
+        console.log("We have reached the end"); /////////////////////////////////////////////////////////
+        this.props.ending(); 
+        //maybe return a parameter that'll help Map/Game figure out
+        return;
+      }
+
       this.setState({
         currentDialogue: this.props.dialogue[answer.response],
       })
@@ -184,8 +186,8 @@ class DialogueBox extends React.Component {
           send("DONE");
         }, 30
       );
-      console.log("time to go"); /////////////////////////////////////////////////////////////////
-      this.props.ending();
+      // console.log("time to go"); ///// more effective up by the POST request //////
+      // this.props.ending();
     }
 
     if (this.state.current.matches("onlyTextClosing")) {
@@ -204,9 +206,15 @@ class DialogueBox extends React.Component {
       );
     }
 
+    // let portrait = "portrait-oldlady"; //a default in case we forget the field anywhere --> could just be an empty png
+    // if (this.state.speaker) {
+    //   portrait = this.state.speaker;
+    // }
 
     return (
         <div className="dBox-flex-container">
+          <div className="portrait-Rhea"></div>
+          <div className={this.state.speaker}></div> {/* generalize to the person Rhea's talking to */}
           <div className={`dBox-boxPic dBox-img ${boxHidden ? " dBox-hidden" : ""}`}>
             <div className={`dBox-textQ ${textHidden ? " dBox-hidden" : " dBox-blockDisplay"}`}> 
               {this.state.currentDialogue.question} 
@@ -222,6 +230,7 @@ class DialogueBox extends React.Component {
             ))}
           </div>
         </div>
+        
   );
   }
 }
