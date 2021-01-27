@@ -96,7 +96,8 @@ export const mapinfo = {
         "chairRight": ["invisible", 763, 238, 46, 68],
         "table": ["invisible", 603, 190, 142, 135],
         "leftExit": ["invisible", 693, 379, 61, 160],
-        "rightExit": ["invisible", 820, 379, 60, 160]
+        "rightExit": ["invisible", 820, 379, 60, 160],
+        "leia": ["Game-leia", 450, 150, 32, 64]
   },
 },
 
@@ -109,6 +110,7 @@ export const mapinfo = {
       },
     },
 
+/*
   "room1": {
     thismap: "river",
     playerstart: [100, 100],
@@ -142,6 +144,8 @@ export const mapinfo = {
     },
   },
 
+*/
+
   "rheaExterior": {
     thismap: "Game-rheaExterior",
     playerstart: [96, 272],
@@ -161,6 +165,7 @@ export const mapinfo = {
     "rightWall" : ["invisible", 942, 0, 32, 960 ],
     "topWall" : ["invisible", 0, 0, 960, 40 ],
     "bottomWall" : ["small-box", 0, 960, 960, 32 ], 
+    "turtle": ["Game-turtle", 600, 440, 32, 32]
     },
   },
 
@@ -202,9 +207,31 @@ export const mapinfo = {
       "lowerBoundaryRight" : ["invisible", 730, 430, 280, 100],
       "midTop" : [ "invisible", 260, 128, 500, 30],
       "midBottom" : ["invisible", 260, 480, 500, 30],
-      "left wall" : ["invisible", 0, 0, 23, 560]
+      "leftWall" : ["invisible", 0, 0, 23, 560],
+      "lyingDownCassandra": ["Game-layingDownCassandra", 540, 260, 62, 64],
+      "bag": ["Game-bag", 160, 200, 32, 32],
+      "grape": ["Game-grape", 580, 350, 32, 32]
       },
   },
+
+  "clearing2": {
+    thismap: "Game-clearing",
+    playerstart: [50, 277],
+    nextmap: "templeExterior", //which map it switches to when Player collides with exit object
+  
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+    "exit"  : [ "invisible",  940, 20, 50, 800],
+    "upperBoundaryLeft" : ["invisible", 0, 142, 280, 50],
+    "lowerBoundaryLeft" : ["invisible", 0, 420, 280, 100],
+    "upperBoundaryRight" : ["invisible", 730, 142, 280, 50],
+    "lowerBoundaryRight" : ["invisible", 730, 430, 280, 100],
+    "midTop" : [ "invisible", 260, 128, 500, 30],
+    "midBottom" : ["invisible", 260, 480, 500, 30],
+    "left wall" : ["invisible", 0, 0, 23, 560]
+    },
+},
 
   "templeExterior": {
     thismap: "Game-templeExterior",
@@ -226,8 +253,33 @@ export const mapinfo = {
     "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
     "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
     "fountain": ["invisible", 365, 295, 160, 119],
-    "fountainWater": ["invisible", 425, 265, 50, 89]
+    "fountainWater": ["invisible", 425, 275, 50, 89]
     },
+},
+
+"templeExterior2": {
+  thismap: "Game-templeExterior",
+  playerstart: [165, 207],
+  nextmap: "templeInterior", //which map it switches to when Player collides with exit object
+
+
+  objects: { 
+  // UNIQUEkey: [CSS className,  x,   y,  width, height]
+  "exit"  : [ "invisible", 415, 93, 65, 30],
+  "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
+  "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
+  "rightLedge" : ["invisible", 725, 142, 30, 500],
+  "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
+  "bottomLedge" : ["invisible", 260, 430, 500, 30],
+  "left wall" : ["invisible", 0, 0, 23, 560],
+  "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
+  "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
+  "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
+  "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
+  "fountain": ["invisible", 365, 295, 160, 119],
+  "fountainWater": ["invisible", 425, 275, 50, 89],
+  "youngCassandra": ["Game-youngCassandra", 630, 240, 32, 64]
+  },
 },
 
 "templeInterior": {
@@ -247,6 +299,9 @@ export const mapinfo = {
     "leftStatue": ["invisible", 50, 335, 88, 160],
     "bottomRightStatue": ["invisible", 858, 345, 80, 150],
     "topRightStatue": ["invisible", 858, 165, 80, 105],
+    "angryGirl": ["Game-angryGirl", 580, 230, 30, 64],
+    "leaderGirl": ["Game-leaderGirl", 630, 230, 32, 64],
+    "riddlesGirl": ["Game-riddlesGirl",  680, 230, 32, 64]
     },
   },
 
@@ -263,7 +318,8 @@ export const mapinfo = {
       "topWall" : ["invisible", 0, 0, 960, 135],
       "bottomWall" : ["invisible", 0, 540, 960, 32 ],
       "fire": ["invisible", 405, 245, 150, 150],
-      "flamesOfFire": ["invisible", 440, 175, 83, 150]    
+      "flamesOfFire": ["invisible", 440, 175, 83, 150],
+      "youngCassandra": ["Game-youngCassandra", 680, 210, 32, 64]
     },
   }
 }
