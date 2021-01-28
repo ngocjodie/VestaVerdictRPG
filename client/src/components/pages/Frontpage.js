@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Playthroughs from "./Playthroughs.js";
+// import Playthroughs from "./Playthroughs.js";
 import "./Profile.css"
 import Rhea from "./Rheas.png"
 import {get} from "../../utilities.js"
@@ -80,7 +80,7 @@ class Frontpage extends Component {
           <div className={this.state.awards.indexOf("dove")!== -1 ? "holder h7" : "holder h9"}></div>
           <div className={this.state.awards.indexOf("liar") !== -1 ? "holder h8" : "holder h9"}></div>
         </div>
-        <Playthroughs userId={this.props.userId} />
+        {/* <Playthroughs userId={this.props.userId} /> */}
         <br></br>
       </>
 
