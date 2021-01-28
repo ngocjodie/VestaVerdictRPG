@@ -307,7 +307,7 @@ export const mapinfo = {
   "templeInterior": {
     thismap: "Game-templeInterior",
     playerstart: [480, 505],
-    nextmap: "templeExterior2", //which map it switches to when Player collides with exit object
+    nextmap: "templeExterior4", //which map it switches to when Player collides with exit object
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -324,6 +324,30 @@ export const mapinfo = {
       "angryGirl": ["Game-angryGirl", 580, 230, 30, 64],
       "leaderGirl": ["Game-leaderGirl", 630, 230, 32, 64],
       "riddlesGirl": ["Game-riddlesGirl",  680, 230, 32, 64]
+    },
+  },
+
+  "templeExterior4": {
+    thismap: "Game-templeExterior",
+    playerstart: [450, 149],
+    nextmap: "templeInterior", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+    "exit"  : [ "invisible", 415, 93, 65, 30],
+    "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
+    "blocksBottomLeftStairs" : ["invisible", 0, 430, 100, 100],
+    "rightLedge" : ["invisible", 725, 142, 30, 500],
+    "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
+    "bottomLedge" : ["invisible", 80, 445, 800, 30],
+    "left wall" : ["invisible", 0, 0, 23, 560],
+    "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
+    "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
+    "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
+    "forTempleWallRightRedBrick" : ["invisible", 600, 140, 45, 130], 
+    "fountain": ["invisible", 365, 295, 160, 119],
+    "fountainWater": ["invisible", 425, 275, 50, 89],
+    "youngCassandra": ["Game-youngCassandra", 630, 240, 32, 64]
     },
   },
 
@@ -427,7 +451,7 @@ export const mapinfo = {
     
     objects: {
       "END" : ["", -1, -1, 962, 546],
-      "gameboard" : ["checker", 500, 300, 100, 80],
+      "endScreen": ["Game-end", 0, 0, 960, 544]
     },
   },
 

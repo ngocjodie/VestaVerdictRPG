@@ -314,6 +314,13 @@
   background-repeat: no-repeat;
 }
 
+.Game-end {
+  image-rendering: pixelated;
+  background-image: url("../modules/endScreen.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 /* .shadow {
   width: calc( var(--grid-cell)* 2 );
   height: calc( var(--grid-cell)* 2 );

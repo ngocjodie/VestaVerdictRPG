@@ -297,6 +297,17 @@ animation-delay: 2s;
   height: 30vh;
 }
 
+.transparentPixel {
+  image-rendering: pixelated;
+  background-image: url("./transparentPixel.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 15%;
+  left: 10%;
+  width: 30vh;
+  height: 30vh;
+}
+
 .sprites {
   image-rendering: pixelated;
   background-image: url("./potraitsOfPeople.png");
