@@ -30,7 +30,7 @@ class Map extends Component {
       playery: null,
       last_dir: "down",
       held_dir: null,
-      speed: 15,
+      speed: 8,
       fps: 60,
       intervalid: null,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
