@@ -176,7 +176,7 @@ class DialogueBox extends React.Component {
       // alert("closing")
       setTimeout(() => {
           send("DONE");
-        }, 300
+        }, 30
       );
     }
 
@@ -192,7 +192,7 @@ class DialogueBox extends React.Component {
       // alert("textOpening")
       setTimeout(() => {
           send("DONE");
-        }, 300
+        }, 30
       );
     }
 

@@ -172,7 +172,7 @@ export const mapinfo = {
 
   "panorama-copy": {
     thismap: "Game-panorama",
-    playerstart: [850, 50],
+    playerstart: [750, 100],
     nextmap: "rheaExterior-copy", //which map it switches to when Player collides with exit object
   
     objects: { 
@@ -347,6 +347,7 @@ export const mapinfo = {
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible", 415, 93, 65, 30],
+    // "blockedEntrance": [ "invisible", 415, 93, 65, 30],
     "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
     "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
