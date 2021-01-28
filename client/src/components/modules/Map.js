@@ -398,7 +398,16 @@ class Map extends Component {
   }
 
   endConversation = (id) => {
-    if (id == "903") {
+    if (id == "900") {
+      console.log("endConv worked for",id); //////////////////////////////////////////////////////////////////
+      this.props.switch("Council1");
+    } else if (id == "901") {
+      console.log("endConv worked for",id); //////////////////////////////////////////////////////////////////
+      this.props.switch("Council2");
+    } else if (id == "902") {
+      console.log("endConv worked for",id); //////////////////////////////////////////////////////////////////
+      this.props.switch("Council3");
+    } else if (id == "903") {
       console.log("endConv worked for",id); //////////////////////////////////////////////////////////////////
       this.props.switch("Council4");
     } else if (id == "944") { //hasn't activated yet
