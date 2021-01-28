@@ -46,7 +46,7 @@ class Game extends Component {
     super(props);
     this.state = {
       dimensions: [960, 544],  //same as .Game-frame
-      currentMap: "tempstart",
+      currentMap: "templeExterior",
     };
   }
 
