@@ -445,7 +445,7 @@ export const mapinfo = {
   },
 
   "The End": {
-    thismap: "river",
+    thismap: "Game-end",
     playerstart: [null, null],
     nextmap: "Game-end", //end screen
     

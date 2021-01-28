@@ -242,7 +242,7 @@ class Map extends Component {
           }
         })
       }
-      )}
+    )}
 
     if (!close) {
       console.log("too far from the thing it clicked on"); ////////////////////////////////////////////////
@@ -344,7 +344,7 @@ class Map extends Component {
       } else {
         this.startConversation(34);
       }
-      
+
     } else {
       console.log("Hello there. ~From",type); //////////////////////////////////////////////////////////////////
     }
