@@ -5,7 +5,7 @@
         "person":"laiaPFP",
         "question":"LAIA: Burn it all! Rhea, are you here?",
         "answers":[
-            {"title":"Yes","response":1, "id":0},
+            {"title":"Yes.","response":1, "id":0},
             {"title":"[Stay Silent]","response":1},
         ]
     },
@@ -60,7 +60,7 @@
         "question":"LAIA: There you are! Ugh, sometimes you're so--nevermind, I really need your help. I left my paint bag on the vista.",
         "answers":[
             {"title":"So?","response":3},
-            {"title": "I can go get it.","response":4},
+            {"title":"I can go get it.","response":4},
             {"title":"I can't go! I have to practice for the trials.","response":5 }
         ]
     },
@@ -86,8 +86,8 @@
      // 1 : end 2nd ANSWER [END] - ALSO WHAT HAPPENS WHEN THEY WALK AWAY HERE?
      "question":"OLD WOMAN: I need my fruit. Bring it to me, will you Dear?",
      "answers":[
-         {"title":"Of course","response":111, "id":15}, //id for promising fruit
-         {"title":"No, bye","response":111}
+         {"title":"Of course.","response":111, "id":15}, //id for promising fruit
+         {"title":"No, bye.","response":111}
 
      ]
  },
@@ -103,8 +103,8 @@
      // 3 : end BOTH ANSWERS [END] #DIDNT_HELP
      "question":"OLD WOMAN: Thank you for pointing that out, Dear. Now, could you help me pick up my fruit?",
      "answers":[
-        {"title":"Of course","response":111, "id":15},  //id for promising fruit
-        {"title":"No, bye","response":111}
+        {"title":"Of course.","response":111, "id":15},  //id for promising fruit
+        {"title":"No, bye.","response":111}
      ]
  },
 ],
@@ -114,7 +114,7 @@
      "question":"FRUIT: Do you want some fruit? Mmm-mmm. You could take a little bite.",
      "answers":[
          {"title":"No thanks.","response":1, "id":0},
-         {"title":"Sure","response":2},
+         {"title":"Sure.","response":2},
      ]
  },
  {
@@ -146,7 +146,7 @@
 [
     {   // OLD WOMAN 2ND CONVO - index 3
      "person": "oldHappyCassandraPFP",
-     "question":"OLD WOMAN: Thank you, Dear! Can I have the fruit?.",
+     "question":"OLD WOMAN: Thank you, Dear! Can I have the fruit?",
      "answers":[
          {"title":"[Give her all of the fruit]","response":1, "id":7},
          {"title":"[Keep some for later]","response":1, "id":8},
@@ -157,14 +157,14 @@
      "question":"The old woman gobbles down the fruit. 'Thank you! But before I move on, I could use some water.'",
      "answers":[
          {"title":"Sorry, I gotta go.","response":111, "id":11},
-         {"title":"I can get some for you", "response":2, "id":12},
+         {"title":"I can get some for you.", "response":2, "id":12},
      ]
  },
  {
      // 2 : END ALL
      "question":"OLD WOMAN: Thank you, Dear. There's a fountain at the temple courtyard right down the path.",
      "answers":[
-         {"title": "Cool, I didn't know there was a path here","response":111},
+         {"title": "Cool, I didn't know there was a path here.","response":111},
          {"title": "I'll be right back.","response":111},
      ]
  },
@@ -174,16 +174,16 @@
     "person": "oldHappyCassandraPFP",
      "question":"The old woman accepts your water. 'Thank you, Dear.''",
      "answers":[
-         {"title":"You're welcome","response":1},
-         {"title":"Cool, now you won't die","response":1},
+         {"title":"You're welcome.","response":1},
+         {"title":"Cool, now you won't die.","response":1},
      ]
  },
  {
      // 1 : end 
      "question":"OLD WOMAN: Before you go . . . I need a bag like that for my journey. Could I buy it from you?",
      "answers":[
-         {"title":"No, sorry","response":2, "id":13},
-         {"title":"Okay, sure", "response":3, "id":14},
+         {"title":"No, sorry.","response":2, "id":13},
+         {"title":"Okay, sure.", "response":3, "id":14},
      ]
  },
  {
@@ -233,8 +233,8 @@
     "person": "laiaPFP",
      "question":"LAIA: Oh, Rhea you're back!",
      "answers":[
-         {"title": "Sorry, I couldn't find your bag (lie)","response":1,"id":60},
-         {"title":"I sold your bag","response":2},
+         {"title": "Sorry, I couldn't find your bag. (lie)","response":1,"id":60},
+         {"title":"I sold your bag.","response":2},
      ]
  },
  {
@@ -259,21 +259,21 @@
      "question":"CASSANDRA: Welcome to the temple of Vesta, young sister.",
      "answers":[
          {"title": "How do the trials work?","response":1,},
-         {"title":"I'm ready for the trials","response":2},
+         {"title":"I'm ready for the trials.","response":2},
      ]
  },
  {
      // 1 : 
      "question":"CASSANDRA: I am looking for an Apprentice Seer. The three sisters of the High Council have tests prepared to judge your readiness.",
      "answers":[
-         {"title": "I am ready","response":2},
+         {"title": "I am ready.","response":2},
         ]
  },
  {
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":111}, //should be > 3
+         {"title": "Thank you.","response":111}, //should be > 3
          
      ]
  },
@@ -284,22 +284,22 @@
      "question":"CASSANDRA: Welcome to the temple of Vesta, young sister.",
      "answers":[
          {"title": "How do the trials work?","response":1,},
-         {"title":"I'm ready for the trials","response":2},
-         {"title":"You seem familiar","response":3},
+         {"title":"I'm ready for the trials.","response":2},
+         {"title":"You seem familiar.","response":3},
      ]
  },
  {
      // 1 : END ALL
      "question":"CASSANDRA: I am looking for an Apprentice Seer. The three sisters of the High Council have tests prepared to judge your readiness.",
      "answers":[
-         {"title": "I'm ready","response":2},
+         {"title": "I'm ready.","response":2},
         ]
  },
  {
      // 2 : END ALL
      "question":"CASSANDRA: When you're prepared, enter the temple.",
      "answers":[
-         {"title": "Thank you","response":111}, //should be > 4
+         {"title": "Thank you.","response":111}, //should be > 4
      ]
     },
  { //   3
@@ -307,25 +307,25 @@
      "question":"CASSANDRA: I don't know what you could mean.",
      "answers":[
         {"title": "How do the trials work?","response":1,},
-        {"title":"I'm ready for the trials","response":2},
+        {"title":"I'm ready for the trials.","response":2},
          
      ]
  },
 ],
 [
     {   // JUNO TOY TEST - INDEX 9
-        "person": "angryPFP",
+        "person": "junoWithKnickKnacksPFP",
          "question":"JUNO: Hello, young sister. Choose three.",
          "answers":[
              {"title": "Why?","response":1},
-             {"title":"Okay","response":2},
+             {"title":"Okay.","response":2},
          ]
      },
      {
          // 1 : END ALL
          "question":"JUNO: I will tell you no more.",
          "answers":[
-            {"title":"Okay","response":2},
+            {"title":"Okay.","response":2},
             ]
      },
      {
@@ -371,7 +371,7 @@
         "person": "leaderPFP",
         "question":"LIVIA: Do you know how to play Chellah?",
         "answers":[
-            {"title":"Yes (lie)","response":4, "id":780},
+            {"title":"Yes. (lie)","response":4, "id":780},
             {"title":"I've never played.","response":1},
         ]
     },
@@ -427,9 +427,9 @@
         // 7 : ALL END
         "question":"LIVIA: Ah, sometimes our Sight can fail us.",
         "answers":[
-            {"title":"I'll do better next time","response":1}, //want to start over, right?
-            {"title": "My bad","response":1},
-            {"title":"Thank you","response":1 }
+            {"title":"I'll do better next time.","response":1}, //want to start over, right?
+            {"title": "My bad.","response":1},
+            {"title":"Thank you.","response":1 }
         ]
     },
     {
@@ -463,7 +463,7 @@
         // 11 : cont
         "question":"LIVIA: Ah, well done. That path was correct.",
         "answers":[
-            {"title":"Thank you","response":111, "id":505},
+            {"title":"Thank you.","response":111, "id":505},
         ]
     },
     //maybe another option to close the scene even if Rhea fails
@@ -564,7 +564,7 @@
      // 4 : end
      "question": "LIVIA: 'Be quiet, Juno. Above all, the goddess wants justice. We will hold a fair trial.' The High Priestess turns toward you. 'Do you still claim innocence?'",
      "answers":[
-        {"title":"Yes, I do","response":5},
+        {"title":"Yes, I do.","response":5},
         {"title":"Please! I swear, I didn't do it.","response":5},
         {"title":"This council doesn't seem very fair.","response":8, "id":33},
      ]
@@ -573,7 +573,7 @@
      // 5 : cont
      "question":"LIVIA: Very well. We wish to hear your testimony. Swear in the name of the goddess to tell nothing but the truth.",
      "answers":[
-         {"title":"In Vesta's name, I swear","response":6},
+         {"title":"In Vesta's name, I swear.","response":6},
      ]
  },
  {
@@ -588,16 +588,16 @@
      "question":"LIVIA: Now, tell us--what happened the day you first came to the temple?",
      "answers":[
          {"title":"I'll try my best to remember...","response":111, "id":900},
-         {"title": "It all started with my sister","response":111, "id":900},
+         {"title": "It all started with my sister.","response":111, "id":900},
      ]
  },
  {
      // 8 : cont
      "question":"JUNO: If you are innocent, you should not be worried.",
      "answers":[
-         {"title":"Very well","response":5},
-         {"title":"Easy for you to say","response":6},
-         {"title":"I'm worried you won't see the truth","response":6},
+         {"title":"Very well.","response":5},
+         {"title":"Easy for you to say.","response":6},
+         {"title":"I'm worried you won't see the truth.","response":6},
 
      ]
  },
@@ -628,24 +628,24 @@
     "person": "councilPFP",
      "question":"FORTUNATA: These details may be important. What were you doing the morning of the trials?",
      "answers":[
-         {"title":"I went to the vista","response":1},
-         {"title":"I was at home all morning (lie)","response":2, "id":439},
+         {"title":"I went to the vista.","response":1},
+         {"title":"I was at home all morning. (lie)","response":2, "id":439},
      ]
  },
  {
      // 1 : end
      "question":"LIVIA: Did anything of note happen?",
      "answers":[
-         {"title":"I helped someone who'd fallen","response":8},
-         {"title":"I met some talking grapes", "response":7,'id':467},
-         {"title":"No, I found my sister's bag and went home", "response":8},     
+         {"title":"I helped someone who'd fallen.","response":8},
+         {"title":"I met some talking grapes.", "response":7,'id':467},
+         {"title":"No, I found my sister's bag and went home.", "response":8},     
         ]
  },
  {
      // 2 : end
      "question":"JUNO: A lie! I saw you drawing water from our well.",
      "answers":[
-         {"title": "You might be mistaking me for someone else","response":3, 'id':321},
+         {"title": "You might be mistaking me for someone else.","response":3, 'id':321},
          {"title": "Oh, I forgot! I also went to the vista.","response":4, 'id':321},
      ]
  },
@@ -667,7 +667,7 @@
      // 5 : END HERE
      "question":"LIVIA: Yes, indeed. If that is your testimony, we will move forward. Tell us about the trials.",
      "answers":[
-         {"title":"Okay, let me remember","response":111,"id":922},
+         {"title":"Okay, let me remember.","response":111,"id":922},
      ]
  },
  {
@@ -688,14 +688,14 @@
      // 8 : END
      "question":"LIVIA: If that is your testimony, we will move forward. Tell us about the trials.",
      "answers":[
-         {"title":"Okay, let me remember","response":111, 'id':922},
+         {"title":"Okay, let me remember.","response":111, 'id':922},
      ]
  },
  {
     // 9 : END
     "question":"LIVIA: It could mean many things. Rhea, please go on. Try to remember what happened at the trials.",
     "answers":[
-        {"title":"Okay, let me remember","response":111, 'id':922},
+        {"title":"Okay, let me remember.","response":111, 'id':922},
     ]
 },
 ],
@@ -704,17 +704,17 @@
     "person": "councilPFP",
      "question":"LIVIA: These details may be important. What were you doing the morning of the trials?",
      "answers":[
-         {"title":"I went to the vista","response":1, 'id': 232},
-         {"title":"I was at home all morning (lie)","response":2, "id":439},
+         {"title":"I went to the vista.","response":1, 'id': 232},
+         {"title":"I was at home all morning. (lie)","response":2, "id":439},
      ]
  },
  {
      // 1 : end
      "question":"LIVIA: Did anything of note happen?",
      "answers":[
-         {"title":"I helped someone who'd fallen","response":5},
-         {"title":"I met some talking grapes", "response":4, 'id':467},
-         {"title":"No, I found my sister's bag and went home", "response":5},     
+         {"title":"I helped someone who'd fallen.","response":5},
+         {"title":"I met some talking grapes.", "response":4, 'id':467},
+         {"title":"No, I found my sister's bag and went home.", "response":5},     
         ]
  },
  {
@@ -728,7 +728,7 @@
      // 3 : END HERE
      "question":"LIVIA: Yes, indeed. If that is your testimony, we will move forward. Tell us about the trials.",
      "answers":[
-         {"title":"Okay, let me remember","response":111,"id":922},
+         {"title":"Okay, let me remember.","response":111,"id":922},
      ]
  },
  {
@@ -742,14 +742,14 @@
      // 5 : END
      "question":"LIVIA: If that is your testimony, we will move forward. Tell us about the trials.",
      "answers":[
-         {"title":"Okay, let me remember","response":111, 'id':922},
+         {"title":"Okay, let me remember.","response":111, 'id':922},
      ]
  },
  {
     // 6 : END
     "question":"LIVIA: It could mean many things. Rhea, please go on. Try to remember what happened at the trials.",
     "answers":[
-        {"title":"Okay, let me remember","response":111, 'id':922},
+        {"title":"Okay, let me remember.","response":111, 'id':922},
     ]
 },
 ],
@@ -758,7 +758,7 @@
         "person": "leaderPFP",
         "question":"LIVIA: Do you know how to play Chellah?",
         "answers":[
-            {"title":"Yes (lie)","response":4, "id":780},
+            {"title":"Yes. (lie)","response":4, "id":780},
             {"title":"I've never played.","response":1},
         ]
     },
@@ -814,9 +814,9 @@
         // 7 : ALL END
         "question":"LIVIA: Ah, sometimes our Sight can fail us.",
         "answers":[
-            {"title":"I'll do better next time","response":1},
-            {"title": "My bad","response":1},
-            {"title":"Thank you","response":1 }
+            {"title":"I'll do better next time.","response":1},
+            {"title": "My bad.","response":1},
+            {"title":"Thank you.","response":1 }
         ]
     },
     {
@@ -850,7 +850,7 @@
         // 11 : cont
         "question":"LIVIA: Ah, well done. That path was correct.",
         "answers":[
-            {"title":"Thank you","response":111,"id":505},
+            {"title":"Thank you.","response":111,"id":505},
         ]
     },
   ],
@@ -880,8 +880,8 @@
         // 3 : end
         "question":"LIVIA: And so, Cassandra chose you as her apprentice. But it wasn't even a week until she dissapeared.",
         "answers":[
-            {"title": "I just got mixed up in all of this","response": 4},
-            {"title": "All I ever wanted was to become a Seer","response": 8},
+            {"title": "I just got mixed up in all of this.","response": 4},
+            {"title": "All I ever wanted was to become a Seer.","response": 8},
 
         ]
     },
@@ -910,15 +910,15 @@
         // 7 : ALL END
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, 'id':933},
+            {"title":"I will do my best to remember.","response":111, 'id':933},
         ]
     },
     {
         // 8 : cont
         "question":"JUNO: Ambition like yours can lead to a fall.",
         "answers":[
-            {"title":"It's not like that","response":7},
-            {"title":"Let me finnish my story","response":7},
+            {"title":"It's not like that.","response":7},
+            {"title":"Let me finish my story.","response":7},
 
         ]
     },
@@ -926,7 +926,7 @@
         // 9 : cont
         "question":"FORTUNATA: Continue, Rhea. What happened the night the sacred fire went out?",
         "answers":[
-            {"title":"I will try my best to remember","response":111, "id":933},
+            {"title":"I will try my best to remember.","response":111, "id":933},
         ]
     }
 ],
@@ -954,10 +954,10 @@
     },
     {
         // 3 : end
-        "question":"LIVIA: And so, Cassandra chose you as her apprentice. But it wasn't even a week until she dissapeared.",
+        "question":"LIVIA: And so, Cassandra chose you as her apprentice. But it wasn't even a week until she disappeared.",
         "answers":[
-            {"title": "I just got mixed up in all of this","response": 4},
-            {"title": "All I ever wanted was to become a Seer","response": 8},
+            {"title": "I just got mixed up in all of this.","response": 4},
+            {"title": "All I ever wanted was to become a Seer.","response": 8},
 
         ]
     },
@@ -986,15 +986,15 @@
         // 7 : ALL END
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, "id":933},
+            {"title":"I will do my best to remember.","response":111, "id":933},
         ]
     },
     {
         // 8 : cont
         "question":"JUNO: Ambition like yours can lead to a fall.",
         "answers":[
-            {"title":"It's not like that","response":7},
-            {"title":"Let me finnish my story","response":7},
+            {"title":"It's not like that.","response":7},
+            {"title":"Let me finish my story.","response":7},
 
         ]
     },
@@ -1002,7 +1002,7 @@
         // 9 : cont
         "question":"FORTUNATA: Continue, Rhea. What happened the night the sacred fire went out?",
         "answers":[
-            {"title":"I will try my best to remember","response":111, "id":933},
+            {"title":"I will try my best to remember.","response":111, "id":933},
         ]
     }
 ],
@@ -1032,7 +1032,7 @@
         // 3 : end
         "question":"LIVIA: And yet, Cassandra chose you as her apprentice.",
         "answers":[
-            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "I just got mixed up in all of this.","response": 4},
             {"title": "Don't you find her choice suspicious?","response": 8, 'id': 222},
 
         ]
@@ -1062,15 +1062,15 @@
         // 7 : ALL END
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, "id":933},
+            {"title":"I will do my best to remember.","response":111, "id":933},
         ]
     },
     {
         // 8 : cont
         "question":"LIVIA: You have a point. I did not understand Cassandra's logic. She was set on choosing you.",
         "answers":[
-            {"title":"Her intentions were not pure","response":9},
-            {"title":"Things aren't what they seem","response":10},
+            {"title":"Her intentions were not pure.","response":9},
+            {"title":"Things aren't what they seem.","response":10},
 
         ]
     },
@@ -1078,8 +1078,8 @@
         // 9 : cont
         "question":"JUNO: Cassandra was always dedicated, a good priestess. I do not understand her intentions, but I do not believe she was corrupt.",
         "answers":[
-            {"title":"Listen to my side of the story before you decide","response":6},
-            {"title":"I know this is hard to hear, but please listen","response":6},
+            {"title":"Listen to my side of the story before you decide.","response":6},
+            {"title":"I know this is hard to hear, but please listen.","response":6},
 
         ]
     },
@@ -1087,7 +1087,7 @@
         // 10 : cont
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, 'id':933},
+            {"title":"I will do my best to remember.","response":111, 'id':933},
         ]
     }
 ],
@@ -1117,7 +1117,7 @@
         // 3 : end
         "question":"LIVIA: And yet, Cassandra chose you as her apprentice.",
         "answers":[
-            {"title": "I just got mixed up in all of this","response": 4},
+            {"title": "I just got mixed up in all of this.","response": 4},
             {"title": "Don't you find her choice suspicious?","response": 8, 'id': 222},
 
         ]
@@ -1147,15 +1147,15 @@
         // 7 : ALL END
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, 'id':933},
+            {"title":"I will do my best to remember.","response":111, 'id':933},
         ]
     },
     {
         // 8 : cont
         "question":"LIVIA: You have a point. I did not understand Cassandra's logic. She was set on choosing you.",
         "answers":[
-            {"title":"Her intentions were not pure","response":9},
-            {"title":"Things aren't what they seem","response":10},
+            {"title":"Her intentions were not pure.","response":9},
+            {"title":"Things aren't what they seem.","response":10},
 
         ]
     },
@@ -1163,8 +1163,8 @@
         // 9 : cont
         "question":"JUNO: Cassandra was always dedicated, a good priestess. I do not understand her intentions, but I do not believe she was corrupt.",
         "answers":[
-            {"title":"Listen to my side of the story before you decide","response":6},
-            {"title":"I know this is hard to hear, but please listen","response":6},
+            {"title":"Listen to my side of the story before you decide.","response":6},
+            {"title":"I know this is hard to hear, but please listen.","response":6},
 
         ]
     },
@@ -1172,7 +1172,7 @@
         // 10 : cont
         "question":"LIVIA: Yes. Now tell us, what happened the night the sacred fire was destroyed?",
         "answers":[
-            {"title":"I will do my best to remember","response":111, 'id':933},
+            {"title":"I will do my best to remember.","response":111, 'id':933},
         ]
     }
 ],
@@ -1193,7 +1193,7 @@
         "answers":[    
         {"title":"What are you doing?","response":2},
         {"title":"Stop!","response":2},
-        {"title":"I knew you looked familiar","response":5},
+        {"title":"I knew you looked familiar.","response":5},
 
 
         ]
@@ -1202,9 +1202,9 @@
         // 2 : end
         "question":"CASSANDRA: You shouldn't be here, child.",
         "answers":[
-            {"title":"You were acting strangely, so I followed you","response":2}, //different response?
-            {"title":"That makes two of us","response":9},
-            {"title":"Stop what you're doing, or I'll call for help","response":8},
+            {"title":"You were acting strangely, so I followed you.","response":2}, //different response?
+            {"title":"That makes two of us.","response":9},
+            {"title":"Stop what you're doing, or I'll call for help.","response":8},
         ]
     },
     {
@@ -1229,7 +1229,7 @@
         // 5 : cont      
         "question":"CASSANDRA: Took you long enough. Oh well . . . I was hoping things wouldn't get this messy.",
         "answers":[
-            {"title":"Stop what you're doing, or I'll call for help","response":7},
+            {"title":"Stop what you're doing, or I'll call for help.","response":7},
             {"title":"Err, what things?","response":8},
         ]
     },
@@ -1316,7 +1316,7 @@
         "question":"CASSANDRA: I know you stole my fruit. I need it back.",
         "answers":[    
         {"title":"I knew you looked familiar!","response":2},
-        {"title":"I don't know what you're talking about (lie)","response":4, "id":877},
+        {"title":"I don't know what you're talking about. (lie)","response":4, "id":877},
         {"title":"I ate it. Can't really help you there.","response":3},
 
 
@@ -1326,16 +1326,16 @@
         // 2 : end
         "question":"CASSANDRA: Took you long enough. Anyway, I have a proposition for you.",
         "answers":[
-            {"title":"Go on","response":3},
-            {"title":"I think I'll be going now","response":5},
+            {"title":"Go on.","response":3},
+            {"title":"I think I'll be going now.","response":5},
 
         ]
     },
     {
         // 3 : end
-        "question":"CASSANDRA: I don't need the fruit back. I just need it's power. Help me siphon the flames, and I'll call it even.",
+        "question":"CASSANDRA: I don't need the fruit back. I just need its power. Help me siphon the flames, and I'll call it even.",
         "answers":[
-            {"title":"No thanks","response":5},
+            {"title":"No thanks.","response":5},
             {"title":"What's in it for me?","response":6},
         ]
     },
@@ -1343,8 +1343,8 @@
         // 4 : end
         "question":"Don't play dumb. I have a proposition for you.",
         "answers":[
-            {"title":"Go on","response":3},
-            {"title":"I think I'll be going now","response":5},
+            {"title":"Go on.","response":3},
+            {"title":"I think I'll be going now.","response":5},
         ]
     },
     {
@@ -1358,8 +1358,8 @@
         // 6: cont
         "question":"CASSANDRA: More power than you've ever felt.",
         "answers":[
-            {"title":"No thanks","response":7},
-            {"title":"I'm in","response":8},
+            {"title":"No thanks.","response":7},
+            {"title":"I'm in.","response":8},
 
         ]
     },
@@ -1381,14 +1381,14 @@
     },
     {
         // 9 : cont
-        "question":"Cassandra places her hands in the flames. 'Help me siphon it's power.'",
+        "question":"Cassandra places her hands in the flames. 'Help me siphon its power.'",
         "answers":[
             {"title":"[Put your hands in the flames]","response":15, "id":927},
         ]
     },
     {
         // 10 : cont
-        "question":"The fire blazes around Cassandra, and then explodes.",
+        "question":"The fire blazes around Cassandra and then explodes.",
         "answers":[
             {"title":"[Close your eyes]","response":14},
         ]
@@ -1443,17 +1443,17 @@
         // 1 : end
         "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
         "answers":[    
-        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"I know it looks bad, but I can explain.","response":2},
         {"title":"Just hear me out!","response":2},
 
         ]
     },
     {
         // 2 : end
-        "question":"LIVIA: Why were you in that room?.",
+        "question":"LIVIA: Why were you in that room?",
         "answers":[
-            {"title": "I was curious about Cassandra","response":4},
-            {"title": "I followed Cassandra because she was acting strangely","response":3},
+            {"title": "I was curious about Cassandra.","response":4},
+            {"title": "I followed Cassandra because she was acting strangely.","response":3},
         ]
     },
     {
@@ -1467,8 +1467,8 @@
         // 4 : end
         "question":"LIVIA: Can you explain what happened to the fire?",
         "answers":[
-            {"title": "Cassandra stole it","response": 5},
-            {"title": "Cassandra made it explode","response": 5},
+            {"title": "Cassandra stole it.","response": 5},
+            {"title": "Cassandra made it explode.","response": 5},
 
         ]
     },
@@ -1532,17 +1532,17 @@
         // 1 : end
         "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
         "answers":[    
-        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"I know it looks bad, but I can explain.","response":2},
         {"title":"Just hear me out!","response":2},
 
         ]
     },
     {
         // 2 : end
-        "question":"LIVIA: Why were you in that room?.",
+        "question":"LIVIA: Why were you in that room?",
         "answers":[
-            {"title": "Cassandra asks me to come there","response":4},
-            {"title": "I followed Cassandra because she was acting strangely","response":3},
+            {"title": "Cassandra asks me to come there.","response":4},
+            {"title": "I followed Cassandra because she was acting strangely.","response":3},
         ]
     },
     {
@@ -1556,8 +1556,8 @@
         // 4 : end
         "question":"LIVIA: Can you explain what happened to the fire?",
         "answers":[
-            {"title": "Cassandra stole it","response": 5},
-            {"title": "Cassandra made it explode","response": 5},
+            {"title": "Cassandra stole it.","response": 5},
+            {"title": "Cassandra made it explode.","response": 5},
 
         ]
     },
@@ -1621,17 +1621,17 @@
         // 1 : end
         "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
         "answers":[    
-        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"I know it looks bad, but I can explain.","response":2},
         {"title":"Just hear me out!","response":2},
 
         ]
     },
     {
         // 2 : end
-        "question":"LIVIA: Why were you in that room?.",
+        "question":"LIVIA: Why were you in that room?",
         "answers":[
-            {"title": "I was curious about Cassandra","response":4},
-            {"title": "I followed Cassandra because she was acting strangely","response":3},
+            {"title": "I was curious about Cassandra.","response":4},
+            {"title": "I followed Cassandra because she was acting strangely.","response":3},
         ]
     },
     {
@@ -1645,9 +1645,9 @@
         // 4 : end
         "question":"LIVIA: Can you explain what happened to the fire?",
         "answers":[
-            {"title": "Cassandra stole it","response": 5},
-            {"title": "Cassandra made it explode","response": 5},
-            {"title": "I don't know, but I had nothing to do with it","response": 5},
+            {"title": "Cassandra stole it.","response": 5},
+            {"title": "Cassandra made it explode.","response": 5},
+            {"title": "I don't know, but I had nothing to do with it.","response": 5},
         ]
     },
     {
@@ -1711,17 +1711,17 @@
         // 1 : end
         "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
         "answers":[    
-        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"I know it looks bad, but I can explain.","response":2},
         {"title":"Just hear me out!","response":2},
 
         ]
     },
     {
         // 2 : end
-        "question":"LIVIA: Why were you in that room?.",
+        "question":"LIVIA: Why were you in that room?",
         "answers":[
-            {"title": "Cassandra asks me to come there","response":4},
-            {"title": "I followed Cassandra because she was acting strangely","response":3},
+            {"title": "Cassandra asks me to come there.","response":4},
+            {"title": "I followed Cassandra because she was acting strangely.","response":3},
         ]
     },
     {
@@ -1735,9 +1735,9 @@
         // 4 : end
         "question":"LIVIA: Can you explain what happened to the fire?",
         "answers":[
-            {"title": "Cassandra stole it","response": 5},
-            {"title": "Cassandra made it explode","response": 5},
-            {"title": "I don't know, but I had nothing to do with it","response": 5},
+            {"title": "Cassandra stole it.","response": 5},
+            {"title": "Cassandra made it explode.","response": 5},
+            {"title": "I don't know, but I had nothing to do with it.","response": 5},
         ]
     },
     {
@@ -1775,7 +1775,7 @@
         "question":"LIVIA: I too vote not guilty.",
         "answers":[
             {"title":"So, this is good?","response":10},
-            {"title":"Thank you, sisters","response":10},
+            {"title":"Thank you, sisters.","response":10},
 
         ]
     },
@@ -1800,17 +1800,17 @@
         // 1 : end
         "question":"JUNO: I will never forget how I walked in to see you standing over the ashes.",
         "answers":[    
-        {"title":"I know it looks bad, but I can explain","response":2},
+        {"title":"I know it looks bad, but I can explain.","response":2},
         {"title":"Just hear me out!","response":2},
 
         ]
     },
     {
         // 2 : end
-        "question":"LIVIA: Why were you in that room?.",
+        "question":"LIVIA: Why were you in that room?",
         "answers":[
-            {"title": "I was curious about Cassandra","response":4},
-            {"title": "I followed Cassandra because she was acting strangely","response":3},
+            {"title": "I was curious about Cassandra.","response":4},
+            {"title": "I followed Cassandra because she was acting strangely.","response":3},
         ]
     },
     {
@@ -1824,9 +1824,9 @@
         // 4 : end
         "question":"LIVIA: Can you explain what happened to the fire?",
         "answers":[
-            {"title": "Cassandra stole it","response": 5},
-            {"title": "Cassandra made it explode","response": 5},
-            {"title": "I don't know, but I had nothing to do with it","response": 5},
+            {"title": "Cassandra stole it.","response": 5},
+            {"title": "Cassandra made it explode.","response": 5},
+            {"title": "I don't know, but I had nothing to do with it.","response": 5},
         ]
     },
     {
@@ -1864,7 +1864,7 @@
         "question":"LIVIA: I too vote not guilty.",
         "answers":[
             {"title":"So, this is good?","response":10},
-            {"title":"Thank you, sisters","response":10},
+            {"title":"Thank you, sisters.","response":10},
 
         ]
     },
@@ -1883,7 +1883,7 @@
         "question":"FORTUNATA: You've made it this far. So, how about some questions?",
         "answers":[
             {"title":"What kind of questions?","response":1},
-            {"title":"Ask away","response":2},
+            {"title":"Ask away.","response":2},
 
         ]
     },
@@ -1891,16 +1891,16 @@
         // 1 : end
         "question":"FORTUNATA: A curious one, are we? The sooner we begin, the sooner you'll know.",
         "answers":[    
-        {"title":"Let's begin","response":2},
+        {"title":"Let's begin.","response":2},
         ]
     },
     {
         // 2 : end
         "question":"Listen with care, and you will find meaning here . . . Many have heard it, but no one’s ever seen it. It will not speak unless spoken to. What is it?",
         "answers":[
-            {"title": "Me","response":3},
-            {"title": "An echo","response":5},
-            {"title": "Magical fruit","response":4},
+            {"title": "Me.","response":3},
+            {"title": "An echo.","response":5},
+            {"title": "Magical fruit.","response":4},
         ]
     },
     {
@@ -1928,9 +1928,9 @@
         // 6: cont
         "question":"FORTUNATA: Next question . . . a bunch of fruit walk into a tavern. Which is the most powerful?",
         "answers":[
-            {"title":"The plum","response":8},
-            {"title":"The grape","response":7},
-            {"title":"The apple","response":9},
+            {"title":"The plum.","response":8},
+            {"title":"The grape.","response":7},
+            {"title":"The apple.","response":9},
 
 
 
@@ -1964,9 +1964,9 @@
         // 10 : cont
         "question":"FORTUNATA: My final question . . . what color are the goddess's eyes?",
         "answers":[
-            {"title":"Brown","response":11},
-            {"title":"Blue","response":11},
-            {"title":"Um, I have no idea","response":12},
+            {"title":"Brown.","response":11},
+            {"title":"Blue.","response":11},
+            {"title":"Um, I have no idea.","response":12},
 
         ]
     },

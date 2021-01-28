@@ -92,7 +92,8 @@ export const mapinfo = {
     "leftWall" : ["invisible", 180, 0, 40, 250 ],
     "leftWallStairs" : ["invisible", 0, 0, 48, 960 ],
     "rightWallStairs" : ["invisible", 90, 330, 48, 960 ],
-    "leftTopStairs" : ["invisible", 0, 230, 210, 80 ],
+    "leftTopStairs" : ["invisible", 0, 230, 140, 80 ],
+    "leftTopStairsTopEdge" : ["invisible", 0, 210, 210, 60 ],
     "stairsCorner" : ["invisible", 0, 295, 64, 64 ],
     "rightWall" : ["invisible", 942, 0, 40, 960 ],
     "topWall" : ["invisible", 0, 0, 720, 100 ],
@@ -134,10 +135,10 @@ export const mapinfo = {
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit" : ["invisible", 20, 157, 165, 30], // back to tree line --> or should it be to the left?
     "leftTreesAndColumns" : ["invisible", 0, 102, 410, 50],
-    "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
+    "blocksBottomLeftStairs" : ["invisible", 0, 430, 100, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
-    "bottomLedge" : ["invisible", 260, 430, 500, 30],
+    "bottomLedge" : ["invisible", 80, 445, 800, 30],
     "left wall" : ["invisible", 0, 0, 23, 560],
     "forTempleFront"  : [ "invisible", 415, 93, 65, 30],
     "forTempleWallLeft" : ["invisible", 260, 42, 160, 120],
@@ -172,7 +173,7 @@ export const mapinfo = {
 
   "panorama-copy": {
     thismap: "Game-panorama",
-    playerstart: [850, 50],
+    playerstart: [750, 100],
     nextmap: "rheaExterior-copy", //which map it switches to when Player collides with exit object
   
     objects: { 
@@ -181,7 +182,8 @@ export const mapinfo = {
     "leftWall" : ["invisible", 180, 0, 40, 250 ],
     "leftWallStairs" : ["invisible", 0, 0, 48, 960 ],
     "rightWallStairs" : ["invisible", 90, 330, 48, 960 ],
-    "leftTopStairs" : ["invisible", 0, 230, 210, 80 ],
+    "leftTopStairs" : ["invisible", 0, 230, 140, 80 ],
+    "leftTopStairsTopEdge" : ["invisible", 0, 210, 210, 60 ],
     "stairsCorner" : ["invisible", 0, 295, 64, 64 ],
     "rightWall" : ["invisible", 942, 0, 40, 960 ],
     "topWall" : ["invisible", 0, 0, 720, 100 ],
@@ -287,10 +289,10 @@ export const mapinfo = {
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible", 415, 93, 65, 30],
     "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
-    "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
+    "blocksBottomLeftStairs" : ["invisible", 0, 430, 100, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
-    "bottomLedge" : ["invisible", 260, 430, 500, 30],
+    "bottomLedge" : ["invisible", 80, 445, 800, 30],
     "left wall" : ["invisible", 0, 0, 23, 560],
     "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
     "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
@@ -347,11 +349,12 @@ export const mapinfo = {
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible", 415, 93, 65, 30],
+    // "blockedEntrance": [ "invisible", 415, 93, 65, 30],
     "leftTreesAndColumns" : ["invisible", 0, 142, 410, 50],
-    "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
+    "blocksBottomLeftStairs" : ["invisible", 0, 430, 100, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
-    "bottomLedge" : ["invisible", 260, 430, 500, 30],
+    "bottomLedge" : ["invisible", 80, 445, 800, 30],
     "left wall" : ["invisible", 0, 0, 23, 560],
     "forTempleWallLeft" : ["sinvisible", 260, 42, 160, 120],
     "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
