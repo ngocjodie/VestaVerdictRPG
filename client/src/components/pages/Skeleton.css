@@ -43,7 +43,7 @@
 
 .Skeleton-paraheader {
   text-align: center;
-  font-size: xx-large;
+  font-size: 6vw;
   font-family: pixelFont;
   color: white;
   }
@@ -51,7 +51,7 @@
   
 .Skeleton-paragraph {
   text-align: center;
-  font-size: medium;
+  font-size: 2vw;
   font-family: pixelFont;
   color: white;
 

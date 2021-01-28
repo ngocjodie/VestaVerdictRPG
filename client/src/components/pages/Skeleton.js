@@ -24,6 +24,7 @@ class Skeleton extends Component {
   render() {
     return (
       <>
+      <br></br>
       <div className="Skeleton-bg">
   <img src={bg} className="Skeleton-img"/>
     </div>
