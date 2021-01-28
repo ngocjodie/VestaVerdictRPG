@@ -344,6 +344,7 @@ class Map extends Component {
       } else {
         this.startConversation(34);
       }
+      
     } else {
       console.log("Hello there. ~From",type); //////////////////////////////////////////////////////////////////
     }
