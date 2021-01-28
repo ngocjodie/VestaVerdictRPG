@@ -1222,7 +1222,7 @@
         "question":"Cassandra eats a handful of fruit. She begins to glow.",
         "answers":[
             {"title": "Stop!","response": 13},
-            {"title":"[Watch in terror]","response":11},
+            {"title":"[Watch in terror]","response":10},
         ]
     },
     {
@@ -1307,7 +1307,7 @@
         "question":"Cassandra looks . . . different. She turns as you enter the room. 'Oh, you're just in time.'",
         "answers":[
             {"title":"For what?","response":1},
-            {"title":"Why did you ask me to come?","response":3},
+            {"title":"Why did you ask me to come?","response":1},
 
         ]
     },
