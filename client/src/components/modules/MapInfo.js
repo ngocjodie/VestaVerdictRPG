@@ -447,11 +447,10 @@ export const mapinfo = {
   "The End": {
     thismap: "river",
     playerstart: [null, null],
-    nextmap: "home", //end screen
+    nextmap: "Game-end", //end screen
     
     objects: {
       "END" : ["", -1, -1, 962, 546],
-      "endScreen": ["Game-end", 0, 0, 960, 544]
     },
   },
 
