@@ -35,8 +35,8 @@ class Map extends Component {
       intervalid: null,
       situation: "moving",  //can be "moving", "dialoguing", or "interacting"
       overlay: null, //there can only be one overlay -- or change to interactable so that it won't even try to process 2 interactions at once
+      ids: [],
 
-      // ids: [],
       //"moving"      = only time when playerx/y can be changed and Player re-rendered
       //"dialoguing"  = when dialogue box things are happening --> pay attention to choices and send them to server(?) immediately after
       //"interacting" = when Box's onClick things are happening --> can't do anything else til it's clicked again
@@ -174,19 +174,16 @@ class Map extends Component {
 
     if (type === "START") { //tester
       post("/api/choice", { choice: "WIPE" }).then(() => { //api call to wipe the player's previous choices
-        console.log("from START"); /////////////////////////////////////////////////////////////////////////
         this.props.switch(); // Council background
       });
     } else if (type === "starting") { //for 1st Council
       if (this.batchofIDs(["900"])){ //finished 1st Council Scene
-        console.log("from 1st Council Scene"); //////////////////////////////////////////////////////////
         this.props.switch(); //home w/ Laia
       } else {
         this.startConversation(18); // make first map after start the Council background
       }
     } else if (type === "from1to2") { //for 2nd Council
       if (this.batchofIDs(["922"])) { //finished it
-        console.log("to 2nd Council scene from",type); ////////////////////////////////////////////////////////////////////////
         this.props.switch();
       } else if (this.batchofIDs(["426"])) { //start - got water
         this.startConversation(20);
@@ -195,7 +192,6 @@ class Map extends Component {
       }
     } else if (type === "from2to3") { //for 3rd Council
       if (this.batchofIDs(["933"])) { //finished it
-        console.log("to 3rd Council scene from",type); ////////////////////////////////////////////////////////////////////////
         this.props.switch();
 
         //badomen = !this.noneofIDs(["666","663","664"])   badtrial = !this.noneofIDs(["122","124"])
@@ -211,7 +207,6 @@ class Map extends Component {
       }
     } else if (type === "finalverdict") { //for last (4th) Council
       if (this.batchofIDs(["944"])) { //finished it --> ending game
-        console.log("ending from",type); /////////////////////////////////////////////////////
         this.props.switch();
       } else if (this.batchofIDs(["321"])) { //caught in lie
         if (!this.noneofIDs(["5","6"])) { //ate fruit
@@ -298,10 +293,7 @@ class Map extends Component {
       }
 
     } else if (type === "leia") { //Laia
-      if (this.batchofIDs(["901"])) { //finished 1st flashback
-        console.log("switching maps from inside Laia's if-else block"); ////////////////////////////////////////
-        this.props.switch();
-      } else if (this.batchofIDs(["14"])) { //sold bag
+      if (this.batchofIDs(["14"])) { //sold bag
         this.startConversation(6);
       } else if (this.batchofIDs(["88"])) { //got bag
         this.startConversation(5);
@@ -318,11 +310,8 @@ class Map extends Component {
         } else {
           this.startConversation(27);
         }
-      } else /*if (this.batchofIDs(["922"]))*/ { //finished 2nd Council Scene aka 1st flashback
-        if (this.batchofIDs(["902"])) { 
-          console.log("tryna go to the 3rd Council scene thru young Cassandra"); ///////////////////////////////////////////////////////////////////////
-          this.props.switch("Council3"); //done with this flashback --> on to the Council
-        } else if (this.batchofIDs(["42","505","600"])) { //finished all tests
+      } else { //finished 2nd Council Scene aka 1st flashback
+        if (this.batchofIDs(["42","505","600"])) { //finished all tests
           this.startConversation(37);
         } else if (this.batchofIDs(["444"])) { //saw young Cassandra
           this.startConversation(8);
@@ -398,13 +387,14 @@ class Map extends Component {
   }
 
   endConversation = (id) => {
-    if (id == "903") {
-      console.log("endConv worked for",id); //////////////////////////////////////////////////////////////////
+
+    if (id == "901") {
+      this.props.switch("Council2");
+    } else if (id == "902") {
+      this.props.switch("Council3");
+    } else if (id == "903") {
       this.props.switch("Council4");
-    } else if (id == "944") { //hasn't activated yet
-      console.log("endConv worked for",id); /////////////////////////////////////////////////////////////////////
-      this.props.switch(); //ending screen
-    }
+    } 
 
     get("/api/choice", { userId: this.props.userId}).then((what) => { //api call to wipe the player's previous choices
       this.setState({
@@ -426,7 +416,7 @@ class Map extends Component {
 
   noneofIDs = (array) => {
     for (const i in array) {
-      if (this.state.ids.includes(array[i])) { //if any are there
+      if (this.state.ids.includes(array[i])) { //if any are present
         return false;
       }
     }
