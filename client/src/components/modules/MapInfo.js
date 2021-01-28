@@ -201,7 +201,7 @@ export const mapinfo = {
   
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
-    "exit"    : [ "door",  60, 250,   70,    18  ], //96, 272
+    "exit"    : [ "invisible",  60, 250,   70,    18  ], //96, 272
     "upperWall" : ["invisible", 0, 0, 394, 270],
     "upperWallOfBlue" : ["invisible", 380, 0, 80, 199],
     "leftColumn": ["invisible", 435, 0, 58, 270],
