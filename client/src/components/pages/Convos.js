@@ -408,7 +408,7 @@
         ]
     },
     {
-        // 5 : cont                           make intuitions in brackets too
+        // 5 : cont                           make intuitions in brackets too?
         "question":"Which path do you choose? You feel a pull toward the middle.",
         "answers":[
             {"title":"Right","response":7, "id":122},
@@ -1252,8 +1252,6 @@
         "question":"Cassandra laughs. 'Do whatever you like.'",
         "answers":[
             {"title":"[Next]","response":9},
-
-
         ]
     },
     {

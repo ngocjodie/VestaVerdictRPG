@@ -389,7 +389,7 @@ export const mapinfo = {
   "fireRoom": {
     thismap: "Game-fireRoom",
     playerstart: [480, 535],
-    // nextmap: "home", //which map it switches to when Player collides with exit object
+    nextmap: "Council4", //which map it switches to when Player collides with exit object
   
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -410,10 +410,21 @@ export const mapinfo = {
   "Council4": {
     thismap: "Game-council",
     playerstart: [null, null],
-    nextmap: "home", //end screen
+    nextmap: "The End", //end screen
     
     objects: {
       "finalverdict" : ["", -1, -1, 962, 546],
+    },
+  },
+
+  "The End": {
+    thismap: "river",
+    playerstart: [null, null],
+    nextmap: "home", //end screen
+    
+    objects: {
+      "END" : ["", -1, -1, 962, 546],
+      "gameboard" : ["checker", 500, 300, 100, 80],
     },
   },
 
