@@ -1994,7 +1994,7 @@
 ],
 [
     {  // index 35
-        "person": "practice-smiley",
+        "person": "transparentPixel",
         "question":"You have found Laia's bag.",
         "answers":[
             {"title":"[Pick it up]","response":111,"id":88},
@@ -2003,7 +2003,7 @@
 ],
 [
     {  // index 36
-        "person": "practice-smiley",
+        "person": "transparentPixel",
         "question":"You approach the fountain.",
         "answers":[
             {"title":"[Draw water]","response":111,"id":426},

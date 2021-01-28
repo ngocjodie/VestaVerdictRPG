@@ -451,7 +451,7 @@ export const mapinfo = {
     
     objects: {
       "END" : ["", -1, -1, 962, 546],
-      "gameboard" : ["checker", 500, 300, 100, 80],
+      "endScreen": ["Game-end", 0, 0, 960, 544]
     },
   },
 
