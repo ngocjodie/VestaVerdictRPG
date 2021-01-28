@@ -108,7 +108,8 @@ export const mapinfo = {
     "rightWall" : ["invisible", 942, 0, 32, 960 ],
     "topWall" : ["invisible", 0, 0, 960, 40 ],
     "bottomWall" : ["small-box", 0, 960, 960, 32 ], 
-    "turtle": ["Game-turtle", 600, 440, 32, 32]
+    "turtle": ["Game-turtle", 600, 440, 32, 32],
+    "parrot": ["Game-parrot", 850, 210, 32, 32]
     },
   },
 
@@ -263,7 +264,8 @@ export const mapinfo = {
     "rightWall" : ["invisible", 942, 0, 32, 960 ],
     "topWall" : ["invisible", 0, 0, 960, 40 ],
     "bottomWall" : ["small-box", 0, 960, 960, 32 ], 
-    "turtle": ["Game-turtle", 600, 440, 32, 32]
+    "turtle": ["Game-turtle", 600, 440, 32, 32],
+    "parrot": ["Game-parrot", 850, 210, 32, 32]
     },
   },
 

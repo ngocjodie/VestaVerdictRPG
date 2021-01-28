@@ -239,6 +239,13 @@
   position: relative;
 }
 
+.Game-parrot {
+  image-rendering: pixelated;
+  background-image: url("../modules/profilePics/parrotPFP.png");
+  background-size: 100%;
+  position: relative;
+}
+
 
 .small-box {
   image-rendering: pixelated;
