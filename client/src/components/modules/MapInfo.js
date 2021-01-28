@@ -133,7 +133,7 @@ export const mapinfo = {
   
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
-    "exit" : ["invisible", 20, 157, 165, 30], // back to tree line --> or should it be to the left?
+    "exit" : ["invisible", 20, 157, 220, 30], // back to tree line --> or should it be to the left?
     "leftTreesAndColumns" : ["invisible", 0, 102, 410, 50],
     "blocksBottomLeftStairs" : ["invisible", 0, 430, 100, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
@@ -201,7 +201,7 @@ export const mapinfo = {
   
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
-    "exit"    : [ "invisible",  60, 250,   90,    65  ], //96, 272
+    "exit"    : [ "door",  60, 250,   70,    18  ], //96, 272
     "upperWall" : ["invisible", 0, 0, 394, 270],
     "upperWallOfBlue" : ["invisible", 380, 0, 80, 199],
     "leftColumn": ["invisible", 435, 0, 58, 270],
