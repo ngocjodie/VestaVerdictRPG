@@ -164,8 +164,8 @@
      // 2 : END ALL
      "question":"OLD WOMAN: Thank you, Dear. There's a fountain at the temple courtyard right down the path.",
      "answers":[
-         {"title": "Cool, I didn't know there was a path here","response":111, "id":5},
-         {"title": "I'll be right back.","response":111,"id":6},
+         {"title": "Cool, I didn't know there was a path here","response":111},
+         {"title": "I'll be right back.","response":111},
      ]
  },
 ],
@@ -850,7 +850,7 @@
         // 11 : cont
         "question":"LIVIA: Ah, well done. That path was correct.",
         "answers":[
-            {"title":"Thank you","response":111},
+            {"title":"Thank you","response":111,"id":505},
         ]
     },
   ],
@@ -2015,7 +2015,7 @@
 [
     {   // CASSANDRA GREETS - INDEX 37
     "person": "youngCassandraPFP",
-     "question":"CASSANDRA: Ah, you've finished the trials, young sister. I shall see you again soon.",
+     "question":"CASSANDRA: Ah, you've finished the trials, young sister. From what I've seen, you show promise.  Therefore, I have chosen you to be my apprentice.  Congratulations.  I shall see you again soon.",
      "answers":[
          {"title": "[You've remembered all you can]","response":111, 'id':902},
      ]

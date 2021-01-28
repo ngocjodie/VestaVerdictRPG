@@ -45,7 +45,6 @@ class Game extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dialogueOption: 0,
       dimensions: [960, 544],  //same as .Game-frame
       currentMap: "tempstart",
     };
@@ -54,23 +53,22 @@ class Game extends Component {
   componentDidMount(){     // for api calls
     //
     get("/api/choice", { userId: this.props.userId}).then((ret) => {
-      console.log("from my GET request:", ret); //////////////////////////////////////////////////////////////////////
+      console.log("from Game's GET request:", ret); //////////////////////////////////////////////////////////////////////
     });
   }
 
-  switchScenes = () => {
-    const next = mapinfo[this.state.currentMap].nextmap;
+  switchScenes = (map) => {
+    let next = null;
+    if (map) {
+      next = map;
+    } else {
+      next = mapinfo[this.state.currentMap].nextmap;
+    }
     this.setState({
       currentMap: next,
     });
   }
   
-  conversing = () => { 
-    this.setState({
-      dialogueOption: this.state.dialogueOption + 1, //if there's another way/system, we'll do that
-    });
-  }
-
   render() {
     const info = mapinfo[this.state.currentMap];
 
@@ -83,7 +81,7 @@ class Game extends Component {
           <div className="corner_bottomright"></div>
 
           <div className="camera">
-            <Map key={this.state.currentMap} name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} conversing={this.conversing} dialogueOption={this.state.dialogueOption} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
+            <Map key={this.state.currentMap} name={info.thismap} start={info.playerstart} objects={info.objects} switch={this.switchScenes} width={this.state.dimensions[0]} height={this.state.dimensions[1]} />
           </div>
 
         </div>

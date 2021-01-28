@@ -5,6 +5,9 @@
 */
 
 export const mapinfo = {
+
+/*           ABSOLUTE START             */
+
   "tempstart":{
     thismap: "temporary-cover",
     playerstart: [null,null],
@@ -21,33 +24,6 @@ export const mapinfo = {
     
     objects: {
       "starting" : ["", -1, -1, 962, 546],
-    },
-  },
-  "Council2": {
-    thismap: "Game-council",
-    playerstart: [null, null],
-    nextmap: "clearing2", //start of 2nd flashback
-    
-    objects: {
-      "from1to2" : ["", -1, -1, 962, 546],
-    },
-  },
-  "Council3": {
-    thismap: "Game-council",
-    playerstart: [null, null],
-    nextmap: "home", //start of 3rd flashback
-    
-    objects: {
-      "from2to3" : ["", -1, -1, 962, 546],
-    },
-  },
-  "Council4": {
-    thismap: "Game-council",
-    playerstart: [null, null],
-    nextmap: "home", //end screen
-    
-    objects: {
-      "finalverdict" : ["", -1, -1, 962, 546],
     },
   },
 
@@ -271,6 +247,15 @@ export const mapinfo = {
 
 /*           FLASHBACK #1 END              */
 
+  "Council2": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "clearing2", //start of 2nd flashback
+    
+    objects: {
+      "from1to2" : ["", -1, -1, 962, 546],
+    },
+  },
 
 /*          FLASHBACK #2 START             */
 
@@ -342,14 +327,22 @@ export const mapinfo = {
 
 /*           FLASHBACK #2 END              */
 
+  "Council3": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "templeExterior3", //start of 3rd flashback
+    
+    objects: {
+      "from2to3" : ["", -1, -1, 962, 546],
+    },
+  },
 
 /*          FLASHBACK #3 START             */
 
   "templeExterior3": {
     thismap: "Game-templeExterior",
     playerstart: [451, 163],
-    nextmap: "templeInterior", //which map it switches to when Player collides with exit object
-
+    nextmap: "templeInterior2", //which map it switches to when Player collides with exit object
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -368,9 +361,31 @@ export const mapinfo = {
     "fountainWater": ["invisible", 425, 275, 50, 89],
     },
   },
+
+  "templeInterior2": {
+    thismap: "Game-templeInterior",
+    playerstart: [480, 505],
+    nextmap: "fireRoom", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+      "exit"    : [ "invisible", 940, 20, 20, 500],
+      "leftWall" : ["invisible", 0, 0, 26, 960 ],
+      "rightWall" : ["invisible", 945, 0, 32, 960 ],
+      "topWall" : ["invisible", 0, 0, 960, 135],
+      "bottomWall" : ["invisible", 0, 540, 960, 32 ],
+      "leftColumn": ["invisible", 50, 0, 88, 235],
+      "rightColumn": ["invisible", 339, 0, 88, 235],
+      "leftStatue": ["invisible", 50, 335, 88, 160],
+      "bottomRightStatue": ["invisible", 858, 345, 80, 150],
+      "topRightStatue": ["invisible", 858, 165, 80, 105],
+      // "angryGirl": ["Game-angryGirl", 580, 230, 30, 64],
+      // "leaderGirl": ["Game-leaderGirl", 630, 230, 32, 64],
+      // "riddlesGirl": ["Game-riddlesGirl",  680, 230, 32, 64]
+    },
+  },
+
   
-
-
   "fireRoom": {
     thismap: "Game-fireRoom",
     playerstart: [480, 535],
@@ -387,12 +402,23 @@ export const mapinfo = {
       "flamesOfFire": ["invisible", 440, 175, 83, 150],
       "youngCassandra": ["Game-youngCassandra", 680, 210, 32, 64]
     },
-  }
+  },
+
+  
+/*          FLASHBACK #3 END             */
+
+  "Council4": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "home", //end screen
+    
+    objects: {
+      "finalverdict" : ["", -1, -1, 962, 546],
+    },
+  },
+
+/*           ABSOLUTE END             */
 }
-
-
-
-
 
 /*                      ~~~ UNUSED ~~~
   "room1": {

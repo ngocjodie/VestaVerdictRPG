@@ -18,10 +18,7 @@ import Box from "./Box.js";
  * @param {string} name for className in Game.css to render
  * @param {number[]} start --> where player starts on this map
  * @param {Object[]} objects player obstacles --> look for a special one labelled goal
- * @param {() => ()} switch for switching to the next map
- * 
- * @param {() => ()} conversing for letting Game control the process of conversation --> eliminate since it's all being controlled from here?
- * @param {number} dialogueOption  --> eliminate this now that we got the GET request up and running
+ * @param {(String) => ()} switch for switching to the next map
  * 
  */
 
@@ -188,6 +185,7 @@ class Map extends Component {
       }
     } else if (type === "from1to2") { //for 2nd Council
       if (this.batchofIDs(["922"])) { //finished it
+        console.log("to 2nd Council scene from",type); ////////////////////////////////////////////////////////////////////////
         this.props.switch();
       } else if (this.batchofIDs(["426"])) { //start - got water
         this.startConversation(20);
@@ -196,6 +194,7 @@ class Map extends Component {
       }
     } else if (type === "from2to3") { //for 3rd Council
       if (this.batchofIDs(["933"])) { //finished it
+        console.log("to 3rd Council scene from",type); ////////////////////////////////////////////////////////////////////////
         this.props.switch();
       } else if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
         this.startConversation(23);
@@ -245,7 +244,7 @@ class Map extends Component {
         this.startConversation(18); // make first map after start the Council background
       }
     } */
-
+                                                                                                                                                                                    /// 663?
     const awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
 
     if (type === "END") { //after last (4th) Council
@@ -292,10 +291,10 @@ class Map extends Component {
         this.showNewThing("telescope-oldlady");
       }
                                                       //promised water
-    } else if (type === "fountain" && this.batchofIDs(["12"])) {
+    } else if (type === "fountain" && this.batchofIDs(["12"]) && !this.batchofIDs(["426"])) { //promised water and haven't gotten any yet
       this.startConversation(36);
 
-    } else if (type === "bag") {
+    } else if (type === "bag" && !this.batchofIDs(["88"])) { //haven't gotten bag yet
       this.startConversation(35);
 
     } else if (type === "grape") {
@@ -338,7 +337,8 @@ class Map extends Component {
     } else if (type === "youngCassandra") {
       if (this.batchofIDs(["922"])) { //finished 2nd Council Scene aka 1st flashback
         if (this.batchofIDs(["902"])) { 
-          this.props.switch(); //done with this flashback --> on to the Council
+          console.log("tryna go to the 3rd Council scene thru young Cassandra"); ///////////////////////////////////////////////////////////////////////
+          this.props.switch("Council3"); //done with this flashback --> on to the Council
         } else if (this.batchofIDs(["42","505","600"])) { //finished all tests
           this.startConversation(37);
         } else if (this.batchofIDs(["444"])) { //saw young Cassandra
@@ -471,7 +471,14 @@ class Map extends Component {
     });
   }
 
-  endConversation = () => {
+  endConversation = (id) => {
+    if (id == "903") {
+      console.log("endConv worked for",id); /////////////////////////////////////////////
+      this.props.switch("Council4");
+    } else if (id == "944") {
+      console.log("endConv worked for",id); /////////////////////////////////////////////
+      this.props.switch(); //ending screen
+    }
     get("/api/choice", { userId: this.props.userId}).then((what) => { //api call to wipe the player's previous choices
       this.setState({
         situation: "moving",

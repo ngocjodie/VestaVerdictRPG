@@ -94,7 +94,7 @@ import "./dialogueBox2.css"
 
  /**
  * @param {[Convo Object]} dialogue sequence list of Q&A
- * @param {() => ()} ending function to exit dialogue and get it off the map
+ * @param {(Number) => ()} ending function to exit dialogue and get it off the map
  */
 
 class DialogueBox extends React.Component {
@@ -127,7 +127,7 @@ class DialogueBox extends React.Component {
   handleAnswer(answer) {
     post("/api/choice", {choice: answer.id} ).then(()=>{
       if (answer.response > this.props.dialogue.length) {
-        this.props.ending(); 
+        this.props.ending(answer.id); 
         return;
       }
 
@@ -139,7 +139,7 @@ class DialogueBox extends React.Component {
 
 
   render() {
-    console.log("check");
+    // console.log("check");
     const { current } = this.state;
     const { send } = this.service;
     // TEST PURPOSES ONLY : MUST CHANGE WITH DIALOGUE
