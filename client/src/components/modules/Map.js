@@ -180,17 +180,78 @@ class Map extends Component {
         console.log("POSTed");
         this.props.switch(); // Council background
       });
-    } else if (type === "starting") {
+    } else if (type === "starting") { //for 1st Council
       if (this.batchofIDs(["900"])){ //finished 1st Council Scene
         this.props.switch(); //home w/ Laia
       } else {
         this.startConversation(18); // make first map after start the Council background
       }
+    } else if (type === "counciltime") {
+      console.log("made it to counciltime"); //////////////////////////////
+      this.props.switch();
+    } else if (type === "from1to2") { //for 2nd Council
+      if (this.batchofIDs(["922"])) { //finished it
+        this.props.switch();
+      } else if (this.batchofIDs(["426"])) { //start - got water
+        this.startConversation(20);
+      } else { //start - didn't get water
+        this.startConversation(21); 
+      }
+    } else if (type === "from2to3") { //for 3rd Council
+      if (this.batchofIDs(["933"])) { //finished it
+        this.props.switch();
+      } else if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
+        this.startConversation(23);
+      } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
+        this.startConversation(24);
+      } else if (this.batchofIDs(["666","124"]) || this.batchofIDs(["666","122"])) { //bad omens, bad trials
+        this.startConversation(25);
+      } else { //good omens, bad trials --> default
+        this.startConversation(26);
+      }
+    } else if (type === "finalverdict") { //for last (4th) Council
+      if (this.batchofIDs(["944"])) { //finished it --> ending game
+        this.props.switch();
+      } else if (this.batchofIDs(["321"])) { //caught in lie
+        if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate fruit
+          this.startConversation(30);
+        } else {
+          this.startConversation(29);
+        }
+      } else if (this.batchofIDs(["222"]) && !this.batchofIDs(["321"])) { //blame Cassandra
+        if (this.batchofIDs(["6"])) { //fruit
+          this.startConversation(32);
+        } else {
+          this.startConversation(33);
+        }
+      } else { //innocent b/c of honesty
+        this.startConversation(31);
+      }
     }
+    
+    /*else if (type === "council2") {
+      if (this.batchofIDs(["901"])){ //finished 1st flashback
+        this.props.switch(); //Council Room is nextmap
+      } else {
+        this.startConversation(18); // make first map after start the Council background
+      }
+    } else if (type === "council3") {
+      if (this.batchofIDs(["902"])){ //finished 2nd flashback
+        this.props.switch(); //Council Room is nextmap
+      } else {
+        this.startConversation(18); // make first map after start the Council background
+      }
+    } else if (type === "councilfnal") {
+      if (this.batchofIDs(["903"])){ //finished 3rd flashback
+        this.props.switch(); //Council Room is nextmap
+      } else {
+        this.startConversation(18); // make first map after start the Council background
+      }
+    } */
 
     const awardsDefinition = {"sly": ["927","469"], "liar": ["877", "780", "439"], "cinnamon":["12"],"flameo":['927'], "eye":["469", "936"], "dove":["719"], "fruit":["6"], "omens":['666','664']};
 
-    if (type === "END") {
+    if (type === "END") { //after last (4th) Council
       get("/api/choice").then((important_choices) => {
         Object.entries(awardsDefinition).forEach((awardName, decisions) => {
           console.log("hello im here 1");
@@ -270,8 +331,10 @@ class Map extends Component {
 
     } else if (type === "leia") { //Laia
       if (this.batchofIDs(["14"])) { //sold bag
+        this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
         this.startConversation(6);
       } else if (this.batchofIDs(["88"])) { //got bag
+        this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
         this.startConversation(5);
       } else if (this.batchofIDs(["80"])) { //talked to her before
         this.startConversation(11); //don't see her anywhere else right?
@@ -332,41 +395,47 @@ class Map extends Component {
         this.startConversation(34);
       }
 
-    } else if (type === "council") { // where eveything has a default just in case
-      if (this.batchofIDs(["903"])) { //final verdict (after 3rd flashback)
-        if (this.batchofIDs(["321"])) { //caught in lie
-          if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate fruit
-            this.startConversation(30);
-          } else {
-            this.startConversation(29);
-          }
-        } else if (this.batchofIDs(["222"]) && !this.batchofIDs(["321"])) { //blame Cassandra
-          if (this.batchofIDs(["6"])) { //fruit
-            this.startConversation(32);
-          } else {
-            this.startConversation(33);
-          }
-        } else { //innocent b/c of honesty
-          this.startConversation(31);
-        }
-        // END OF GAME
-      } else if (this.batchofIDs(["42","505","600"])) { //3rd Council Scene (finished 2nd flashback)
-        if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
-          this.startConversation(23);
-        } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
-          this.startConversation(24);
-        } else if (this.batchofIDs(["666","124"]) || this.batchofIDs(["666","122"])) { //bad omens, bad trials
-          this.startConversation(25);
-        } else { //good omens, bad trials --> default
-          this.startConversation(26);
-        }
-      } else if (this.batchofIDs(["901"])) { //2nd Council Scene
-        if (this.batchofIDs(["426"])) { //got water
-          this.startConversation(20);
-        } else {
-          this.startConversation(21); 
-        }
-      }
+    // } else if (type === "counciltime") { // where eveything has a default just in case
+      //if current room isn't the council background, this.props.switch();
+      // if (properties.name !== "Game-council") {
+      //   this.props.switch();
+      // }
+      // if (this.batchofIDs(["903"])) { //final verdict (after 3rd flashback)
+      //   if (this.batchofIDs(["321"])) { //caught in lie
+      //     if (this.batchofIDs(["5"]) || this.batchofIDs(["6"])) { //ate fruit
+      //       this.startConversation(30);
+      //     } else {
+      //       this.startConversation(29);
+      //     }
+      //   } else if (this.batchofIDs(["222"]) && !this.batchofIDs(["321"])) { //blame Cassandra
+      //     if (this.batchofIDs(["6"])) { //fruit
+      //       this.startConversation(32);
+      //     } else {
+      //       this.startConversation(33);
+      //     }
+      //   } else { //innocent b/c of honesty
+      //     this.startConversation(31);
+      //   }
+      //   // END OF GAME
+      // }
+      // } else if (this.batchofIDs(["42","505","600"])) { //3rd Council Scene (finished 2nd flashback)
+      //   if (this.batchofIDs(["300"]) && !this.batchofIDs(["666"])) { //good omens, good trials
+      //     this.startConversation(23);
+      //   } else if (this.batchofIDs(["666","300"])) { // bad omens, good trials
+      //     this.startConversation(24);
+      //   } else if (this.batchofIDs(["666","124"]) || this.batchofIDs(["666","122"])) { //bad omens, bad trials
+      //     this.startConversation(25);
+      //   } else { //good omens, bad trials --> default
+      //     this.startConversation(26);
+      //   }
+      // }
+      // } else if (this.batchofIDs(["901"])) { //2nd Council Scene (after 1st flashback)
+      //   if (this.batchofIDs(["426"])) { //got water
+      //     this.startConversation(20);
+      //   } else {
+      //     this.startConversation(21); 
+      //   }
+      // }
 
     } else {
       console.log("Hello there"); //////////////////////////////////////////////////////////////////
@@ -384,9 +453,15 @@ class Map extends Component {
       return;
     }
 
+    let nextup = <Box name={name} x={30} y={22} width={900} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />;
+    if (name === "prepare council") {
+      console.log("lookin forward to a council scene"); ///////////////////////
+      nextup = <Box name={name} x={-1} y={-1} width={962} height={546} id={"counciltime"} key={"newthing"} interact={this.interaction} />;
+    }
+
     this.setState({
       situation: "interacting",                                         //because there can only be 1 at a time
-      overlay: <Box name={name} x={30} y={22} width={900} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
+      overlay: nextup,
     });
   }
 

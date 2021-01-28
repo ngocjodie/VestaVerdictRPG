@@ -5,6 +5,15 @@
 */
 
 export const mapinfo = {
+  "tempstart":{
+    thismap: "temporary-cover",
+    playerstart: [null,null],
+    nextmap: "Council1",
+    objects: {
+      "START": ["", 0, 0, 960, 960],
+    },
+  },
+
   "Council1": {
     thismap: "Game-council",
     playerstart: [null, null],
@@ -14,7 +23,35 @@ export const mapinfo = {
       "starting" : ["", -1, -1, 962, 546],
     },
   },
+  "Council2": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "clearing2", //start of 2nd flashback
+    
+    objects: {
+      "from1to2" : ["", -1, -1, 962, 546],
+    },
+  },
+  "Council3": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "home", //start of 3rd flashback
+    
+    objects: {
+      "from2to3" : ["", -1, -1, 962, 546],
+    },
+  },
+  "Council4": {
+    thismap: "Game-council",
+    playerstart: [null, null],
+    nextmap: "home", //end screen
+    
+    objects: {
+      "finalverdict" : ["", -1, -1, 962, 546],
+    },
+  },
 
+/*           FLASHBACK #1 START             */
   "home": {
     thismap: "Game-home",
     playerstart: [192, 96],
@@ -44,56 +81,11 @@ export const mapinfo = {
     },
   },
 
-  "tempstart":{
-    thismap: "temporary-cover",
-    playerstart: [null,null],
-    nextmap: "Council1",
-    objects: {
-      "START": ["", 0, 0, 960, 960],
-    },
-  },
-
-/*
-  "room1": {
-    thismap: "river",
-    playerstart: [100, 100],
-    nextmap: "room2", //which map it switches to when Player collides with exit object
-
-    objects: { 
-    // UNIQUEkey: [CSS className,  x,   y,  width, height]
-      "exit"    : [ "invisible", 740, 478, 96, 32],
-      "leftWall" : ["invisible", 0, 0, 54, 960 ],
-      "rightWall" : ["invisible", 915, 0, 32, 960 ],
-      "topWall" : ["invisible", 0, 0, 960, 80 ],
-      "bottomWall" : ["invisible", 0, 508, 960, 32 ],
-      "cabinet": ["invisible", 32, 74, 78, 48],
-      "bed": ["invisible", 240, 64, 90, 105],
-      "extraWallandStuff": ["invisible", 416, 96, 544, 50],
-      "topRightFurniture": ["invisible", 790, 128, 128, 38],
-      "column": ["invisible", 340, 0, 94, 390],
-      "bottomLeftWall" :["invisible", 0, 288, 198, 140],
-      "bottomRightWall": ["invisible", 218, 288, 192, 140],
-      "bottomLeftDrawer": ["invisible", 55, 416, 83, 49],
-      "chairLeft": ["invisible", 540, 224, 46, 63],
-      "chairRight": ["invisible", 763, 238, 46, 68],
-      "table": ["invisible", 603, 190, 142, 135],
-      "leftExit": ["invisible", 693, 379, 61, 160],
-      "rightExit": ["invisible", 820, 379, 60, 160]
-
-
-
-      // "hidden"  : ["invisible", 200, 200, 30, 60], //if the className is invisible, then the onClick functions will work for pngs inside of them
-      // "water"   : ["invisible", 380, -1, 230, 546]
-    },
-  },
-
-*/
 
   "rheaExterior": {
     thismap: "Game-rheaExterior",
     playerstart: [96, 272],
     nextmap: "panorama", //which map it switches to when Player collides with exit object
-  
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -117,7 +109,6 @@ export const mapinfo = {
     playerstart: [63, 520],
     nextmap: "clearing", //which map it switches to when Player collides with exit object
   
-
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"    : [ "invisible",  700, 20,   120,    80  ],
@@ -140,7 +131,6 @@ export const mapinfo = {
     playerstart: [50, 277],
     nextmap: "templeExterior", //which map it switches to when Player collides with exit object
   
-
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible",  940, 20, 50, 800],
@@ -157,25 +147,6 @@ export const mapinfo = {
     },
   },
 
-  "clearing2": {
-    thismap: "Game-clearing",
-    playerstart: [50, 277],
-    nextmap: "templeExterior", //which map it switches to when Player collides with exit object
-  
-
-    objects: { 
-    // UNIQUEkey: [CSS className,  x,   y,  width, height]
-    "exit"  : [ "invisible",  940, 20, 50, 800],
-    "upperBoundaryLeft" : ["invisible", 0, 142, 280, 50],
-    "lowerBoundaryLeft" : ["invisible", 0, 420, 280, 100],
-    "upperBoundaryRight" : ["invisible", 730, 142, 280, 50],
-    "lowerBoundaryRight" : ["invisible", 730, 430, 280, 100],
-    "midTop" : [ "invisible", 260, 128, 500, 30],
-    "midBottom" : ["invisible", 260, 480, 500, 30],
-    "left wall" : ["invisible", 0, 0, 23, 560]
-    },
-  },
-
   "templeExterior": {
     thismap: "Game-templeExterior",
     playerstart: [155, 227],
@@ -184,14 +155,14 @@ export const mapinfo = {
   
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
-    // "exit"  : [ "invisible", 415, 93, 65, 30], //should be "behind" playerstart so they can go back to old woman to give water
-    "exit" : ["invisible", 20, 157, 165, 30], // back in direction of clearing
+    "exit" : ["invisible", 20, 157, 165, 30], // back to tree line --> or should it be to the left?
     "leftTreesAndColumns" : ["invisible", 0, 102, 410, 50],
     "blocksBottomLeftStairs" : ["invisible", 0, 430, 280, 100],
     "rightLedge" : ["invisible", 725, 142, 30, 500],
     "blocksStairsAndColumns" : [ "invisible", 500, 128, 500, 60],
     "bottomLedge" : ["invisible", 260, 430, 500, 30],
     "left wall" : ["invisible", 0, 0, 23, 560],
+    "forTempleFront"  : [ "invisible", 415, 93, 65, 30],
     "forTempleWallLeft" : ["invisible", 260, 42, 160, 120],
     "forTempleWallRight" : ["invisible", 472, 42, 160, 120],
     "forTempleWallLeftRedBrick" : ["invisible", 250, 140, 45, 130],
@@ -206,7 +177,6 @@ export const mapinfo = {
     playerstart: [940, 270],
     nextmap: "panorama-copy", //which map it switches to when Player collides with exit object
   
-
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
     "exit"  : [ "invisible",  30, 77, 50, 800], //50,277
@@ -270,7 +240,7 @@ export const mapinfo = {
   "home-copy": {
     thismap: "Game-home",
     playerstart: [780, 480],
-    nextmap: "rheaExterior", //which map it switches to when Player collides with exit object
+    nextmap: "Council2", //which map it switches to when Player collides with exit object
 
     objects: { 
       // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -296,13 +266,33 @@ export const mapinfo = {
     },
   },
 
+/*           FLASHBACK #1 END              */
+
+
+  
+  "clearing2": { //empty
+    thismap: "Game-clearing",
+    playerstart: [50, 277],
+    nextmap: "templeExterior", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+    "exit"  : [ "invisible",  940, 20, 50, 800],
+    "upperBoundaryLeft" : ["invisible", 0, 142, 280, 50],
+    "lowerBoundaryLeft" : ["invisible", 0, 420, 280, 100],
+    "upperBoundaryRight" : ["invisible", 730, 142, 280, 50],
+    "lowerBoundaryRight" : ["invisible", 730, 430, 280, 100],
+    "midTop" : [ "invisible", 260, 128, 500, 30],
+    "midBottom" : ["invisible", 260, 480, 500, 30],
+    "left wall" : ["invisible", 0, 0, 23, 560]
+    },
+  },
 
 
   "templeExterior2": {
     thismap: "Game-templeExterior",
     playerstart: [165, 207],
     nextmap: "templeInterior", //which map it switches to when Player collides with exit object
-
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -364,3 +354,43 @@ export const mapinfo = {
     },
   }
 }
+
+
+
+
+
+/*                      ~~~ UNUSED ~~~
+  "room1": {
+    thismap: "river",
+    playerstart: [100, 100],
+    nextmap: "room2", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+      "exit"    : [ "invisible", 740, 478, 96, 32],
+      "leftWall" : ["invisible", 0, 0, 54, 960 ],
+      "rightWall" : ["invisible", 915, 0, 32, 960 ],
+      "topWall" : ["invisible", 0, 0, 960, 80 ],
+      "bottomWall" : ["invisible", 0, 508, 960, 32 ],
+      "cabinet": ["invisible", 32, 74, 78, 48],
+      "bed": ["invisible", 240, 64, 90, 105],
+      "extraWallandStuff": ["invisible", 416, 96, 544, 50],
+      "topRightFurniture": ["invisible", 790, 128, 128, 38],
+      "column": ["invisible", 340, 0, 94, 390],
+      "bottomLeftWall" :["invisible", 0, 288, 198, 140],
+      "bottomRightWall": ["invisible", 218, 288, 192, 140],
+      "bottomLeftDrawer": ["invisible", 55, 416, 83, 49],
+      "chairLeft": ["invisible", 540, 224, 46, 63],
+      "chairRight": ["invisible", 763, 238, 46, 68],
+      "table": ["invisible", 603, 190, 142, 135],
+      "leftExit": ["invisible", 693, 379, 61, 160],
+      "rightExit": ["invisible", 820, 379, 60, 160]
+
+
+
+      // "hidden"  : ["invisible", 200, 200, 30, 60], //if the className is invisible, then the onClick functions will work for pngs inside of them
+      // "water"   : ["invisible", 380, -1, 230, 546]
+    },
+  },
+
+*/
