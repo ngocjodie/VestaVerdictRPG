@@ -239,7 +239,7 @@ export const mapinfo = {
 
   "home-copy": {
     thismap: "Game-home",
-    playerstart: [780, 480],
+    playerstart: [780, 420],
     nextmap: "Council2", //which map it switches to when Player collides with exit object
 
     objects: { 
@@ -262,18 +262,20 @@ export const mapinfo = {
         "table": ["invisible", 603, 190, 142, 135],
         "leftExit": ["invisible", 693, 379, 61, 160],
         "rightExit": ["invisible", 820, 379, 60, 160],
-        "leia": ["Game-leia", 450, 150, 32, 64]
+        "leia": ["Game-leia", 450, 150, 32, 64],
+        // "counciltime": ["", 0, 0, 960, 544], //to signal that next is a Council Scene
     },
   },
 
 /*           FLASHBACK #1 END              */
 
 
-  
+/*          FLASHBACK #2 START             */
+
   "clearing2": { //empty
     thismap: "Game-clearing",
     playerstart: [50, 277],
-    nextmap: "templeExterior", //which map it switches to when Player collides with exit object
+    nextmap: "templeExterior2", //which map it switches to when Player collides with exit object
 
     objects: { 
     // UNIQUEkey: [CSS className,  x,   y,  width, height]
@@ -313,6 +315,34 @@ export const mapinfo = {
     },
   },
 
+  "templeInterior": {
+    thismap: "Game-templeInterior",
+    playerstart: [480, 505],
+    nextmap: "templeExterior2", //which map it switches to when Player collides with exit object
+
+    objects: { 
+    // UNIQUEkey: [CSS className,  x,   y,  width, height]
+      "exit"    : [ "invisible", 448, 513, 63, 32],
+      "leftWall" : ["invisible", 0, 0, 26, 960 ],
+      "rightWall" : ["invisible", 945, 0, 32, 960 ],
+      "topWall" : ["invisible", 0, 0, 960, 135],
+      "bottomWall" : ["invisible", 0, 540, 960, 32 ],
+      "leftColumn": ["invisible", 50, 0, 88, 235],
+      "rightColumn": ["invisible", 339, 0, 88, 235],
+      "leftStatue": ["invisible", 50, 335, 88, 160],
+      "bottomRightStatue": ["invisible", 858, 345, 80, 150],
+      "topRightStatue": ["invisible", 858, 165, 80, 105],
+      "angryGirl": ["Game-angryGirl", 580, 230, 30, 64],
+      "leaderGirl": ["Game-leaderGirl", 630, 230, 32, 64],
+      "riddlesGirl": ["Game-riddlesGirl",  680, 230, 32, 64]
+    },
+  },
+
+/*           FLASHBACK #2 END              */
+
+
+/*          FLASHBACK #3 START             */
+
   "templeExterior3": {
     thismap: "Game-templeExterior",
     playerstart: [451, 163],
@@ -338,28 +368,6 @@ export const mapinfo = {
   },
   
 
-  "templeInterior": {
-    thismap: "Game-templeInterior",
-    playerstart: [480, 505],
-    nextmap: "templeExterior3", //which map it switches to when Player collides with exit object
-
-    objects: { 
-    // UNIQUEkey: [CSS className,  x,   y,  width, height]
-      "exit"    : [ "invisible", 448, 513, 63, 32],
-      "leftWall" : ["invisible", 0, 0, 26, 960 ],
-      "rightWall" : ["invisible", 945, 0, 32, 960 ],
-      "topWall" : ["invisible", 0, 0, 960, 135],
-      "bottomWall" : ["invisible", 0, 540, 960, 32 ],
-      "leftColumn": ["invisible", 50, 0, 88, 235],
-      "rightColumn": ["invisible", 339, 0, 88, 235],
-      "leftStatue": ["invisible", 50, 335, 88, 160],
-      "bottomRightStatue": ["invisible", 858, 345, 80, 150],
-      "topRightStatue": ["invisible", 858, 165, 80, 105],
-      "angryGirl": ["Game-angryGirl", 580, 230, 30, 64],
-      "leaderGirl": ["Game-leaderGirl", 630, 230, 32, 64],
-      "riddlesGirl": ["Game-riddlesGirl",  680, 230, 32, 64]
-    },
-  },
 
   "fireRoom": {
     thismap: "Game-fireRoom",

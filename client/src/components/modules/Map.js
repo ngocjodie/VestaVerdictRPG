@@ -186,9 +186,6 @@ class Map extends Component {
       } else {
         this.startConversation(18); // make first map after start the Council background
       }
-    } else if (type === "counciltime") {
-      console.log("made it to counciltime"); //////////////////////////////
-      this.props.switch();
     } else if (type === "from1to2") { //for 2nd Council
       if (this.batchofIDs(["922"])) { //finished it
         this.props.switch();
@@ -296,17 +293,10 @@ class Map extends Component {
       }
                                                       //promised water
     } else if (type === "fountain" && this.batchofIDs(["12"])) {
-      // POST request to log the choice
-      post("/api/choice", {choice: "426"} ).then(()=>{
-        console.log("got water");
-      });
+      this.startConversation(36);
 
     } else if (type === "bag") {
-      // POST request to log the choice
-      post("/api/choice", {choice: "88"} ).then(()=>{ //got bag
-        console.log("got bag");
-      });
-      // cover it with a tile of ground using showNewThing to show that you got it?
+      this.startConversation(35);
 
     } else if (type === "grape") {
       //can't press on grapes twice
@@ -330,11 +320,14 @@ class Map extends Component {
       }
 
     } else if (type === "leia") { //Laia
-      if (this.batchofIDs(["14"])) { //sold bag
-        this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
+      if (this.batchofIDs(["901"])) { //finished 1st flashback
+        console.log("switching maps from inside Laia's if-else block"); ////////////////////////////////////////
+        this.props.switch();
+      } else if (this.batchofIDs(["14"])) { //sold bag
+        // this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
         this.startConversation(6);
       } else if (this.batchofIDs(["88"])) { //got bag
-        this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
+        // this.showNewThing("prepare council"); ////////////////////// signal time for a new Court Scene
         this.startConversation(5);
       } else if (this.batchofIDs(["80"])) { //talked to her before
         this.startConversation(11); //don't see her anywhere else right?
@@ -343,13 +336,12 @@ class Map extends Component {
       }
 
     } else if (type === "youngCassandra") {
-      if (this.batchofIDs(["901"])) { //finished 2nd Council Scene aka 1st flashback
-        /*if (this.batchofIDs(["42","505","600"])) { //finished all tests
-          // Convo doesn't exist yet? --> or next Council Scene
-        } else if (this.batchofIDs(["42"]) || this.batchofIDs(["505"]) || this.batchofIDs(["600"])) {   //between tests
-          //Convo doesn't exist yet?
-        } else ... */ 
-        if (this.batchofIDs(["444"])) { //saw young Cassandra
+      if (this.batchofIDs(["922"])) { //finished 2nd Council Scene aka 1st flashback
+        if (this.batchofIDs(["902"])) { 
+          this.props.switch(); //done with this flashback --> on to the Council
+        } else if (this.batchofIDs(["42","505","600"])) { //finished all tests
+          this.startConversation(37);
+        } else if (this.batchofIDs(["444"])) { //saw young Cassandra
           this.startConversation(8);
         } else { //enter temple normally
           this.startConversation(7);
@@ -453,15 +445,9 @@ class Map extends Component {
       return;
     }
 
-    let nextup = <Box name={name} x={30} y={22} width={900} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />;
-    if (name === "prepare council") {
-      console.log("lookin forward to a council scene"); ///////////////////////
-      nextup = <Box name={name} x={-1} y={-1} width={962} height={546} id={"counciltime"} key={"newthing"} interact={this.interaction} />;
-    }
-
     this.setState({
       situation: "interacting",                                         //because there can only be 1 at a time
-      overlay: nextup,
+      overlay: <Box name={name} x={30} y={22} width={900} height={500} id={"newthing"} key={"newthing"} interact={this.hideNewThing} />,
     });
   }
 

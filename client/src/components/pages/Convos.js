@@ -1999,7 +1999,7 @@
         "person": "practice-smiley",
         "question":"You have found Laia's bag.",
         "answers":[
-            {"title":"[Pick it up]","response":111},
+            {"title":"[Pick it up]","response":111,"id":88},
         ]
     },
 ],
@@ -2008,7 +2008,7 @@
         "person": "practice-smiley",
         "question":"You approach the fountain.",
         "answers":[
-            {"title":"[Draw water]","response":111},
+            {"title":"[Draw water]","response":111,"id":426},
         ]
     },
 ],
@@ -2017,7 +2017,7 @@
     "person": "youngCassandraPFP",
      "question":"CASSANDRA: Ah, you've finished the trials, young sister. I shall see you again soon.",
      "answers":[
-         {"title": "[End]","response":111, 'id':902},
+         {"title": "[You've remembered all you can]","response":111, 'id':902},
      ]
  },
 ],
