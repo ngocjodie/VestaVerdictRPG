@@ -1202,7 +1202,7 @@
         // 2 : end
         "question":"CASSANDRA: You shouldn't be here, child.",
         "answers":[
-            {"title":"You were acting strangely, so I followed you.","response":2}, //different response?
+            {"title":"You were acting strangely, so I followed you.","response":6}, //different response?
             {"title":"That makes two of us.","response":9},
             {"title":"Stop what you're doing, or I'll call for help.","response":8},
         ]
@@ -1235,9 +1235,9 @@
     },
     {
         // 6: cont
-        "question":"FORTUNATA: This is indeed troubling, but please go on.",
+        "question":"CASSANDRA: Oh well . . . I was hoping things wouldn't get this messy.",
         "answers":[
-            {"title":"[Next]","response":10},
+            {"title":"Stop what you're doing, or I'll call for help.","response":7},
         ]
     },
     {
