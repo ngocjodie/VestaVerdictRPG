@@ -41,23 +41,23 @@ class NavBar extends Component {
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
               render={renderProps => (
-                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="NavBar-Plainbutton NavBar-link">SIGN OUT</button>
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}>SIGN OUT</button>
               )}
               buttonText="Logout"
               onLogoutSuccess={this.props.handleLogout}
               onFailure={(err) => console.log(err)}
-              className="NavBar-link NavBar-login"
+              // className="NavBar-link NavBar-login"
             />
           ) : (
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}
               render={renderProps => (
-                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="NavBar-Plainbutton NavBar-link">SIGN IN</button>
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}>SIGN IN</button>
               )}
               buttonText="Login"
               onSuccess={this.props.handleLogin}
               onFailure={(err) => console.log(err)}
-              className="NavBar-link NavBar-login"
+              // className="NavBar-link NavBar-login"
             />
           )}
         </div>
