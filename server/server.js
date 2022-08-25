@@ -62,7 +62,7 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "secretID", // CHANGED HERE for temporary working test
     resave: false,
     saveUninitialized: false,
   })
