@@ -40,9 +40,11 @@ class NavBar extends Component {
           {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}
+              /*
               render={renderProps => (
                 <button onClick={renderProps.onClick} disabled={renderProps.disabled}>SIGN OUT</button>
               )}
+              */
               buttonText="Logout"
               onLogoutSuccess={this.props.handleLogout}
               onFailure={(err) => console.log(err)}
@@ -51,9 +53,11 @@ class NavBar extends Component {
           ) : (
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}
+              /*
               render={renderProps => (
                 <button onClick={renderProps.onClick} disabled={renderProps.disabled}>SIGN IN</button>
               )}
+              */
               buttonText="Login"
               onSuccess={this.props.handleLogin}
               onFailure={(err) => console.log(err)}
