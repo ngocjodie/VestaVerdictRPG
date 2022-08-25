@@ -8,7 +8,7 @@ import bg from "./basicBlack.png";
 
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "812283311961-32a1engdm116sd26m6s7iburmk521dr0.apps.googleusercontent.com";
+// const GOOGLE_CLIENT_ID = "929690839465-7el5elpd43lv4fgmh53vvcfegqbp961n.apps.googleusercontent.com";
 
 class Skeleton extends Component {
   constructor(props) {
