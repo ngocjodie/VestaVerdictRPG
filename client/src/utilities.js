@@ -52,7 +52,6 @@ export function get(endpoint, params = {}) {
 export function post(endpoint, params = {}) {
   return fetch(endpoint, {
     method: "post",
-    mode: "OPTIONS",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(params),
   })
